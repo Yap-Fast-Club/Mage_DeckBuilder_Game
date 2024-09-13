@@ -5,6 +5,7 @@ namespace CardHouse
 {
     public class Dragging : MonoBehaviour
     {
+        public Camera Camera;
         public float DefaultCardZ = 0f;
         public float CardPopupDistance = 1f;
 
@@ -25,6 +26,8 @@ namespace CardHouse
         public Action<DragDetector> OnDrag;
         public Action<DragDetector> OnDrop;
         public Action<DragDetector> PostDrop;
+
+
 
         private void Awake()
         {
@@ -48,14 +51,14 @@ namespace CardHouse
             TargetHoming = homing;
             TargetTurning = turning;
             StartingZ = startingZ ?? DefaultCardZ;
-            var mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var mouseWorldPosition = Camera.ScreenToWorldPoint(Input.mousePosition);
             if (SetNewOffsetOnGrab)
             {
                 GrabOffset = homing.transform.position - mouseWorldPosition;
             }
             if (pointUpWhenDragged)
             {
-                TargetTurning.StartSeeking(Camera.main.transform.rotation.eulerAngles.z);
+                TargetTurning.StartSeeking(Camera.transform.rotation.eulerAngles.z);
             }
 
             IsDragging = true;
@@ -84,7 +87,7 @@ namespace CardHouse
 
         void GoToMouse(float newZ)
         {
-            var mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var mouseWorldPosition = Camera.ScreenToWorldPoint(Input.mousePosition);
             if (UseGrabOffset)
             {
                 mouseWorldPosition += GrabOffset;

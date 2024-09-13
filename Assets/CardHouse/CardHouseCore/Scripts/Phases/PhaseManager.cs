@@ -20,6 +20,8 @@ namespace CardHouse
         public Action<Phase> OnPhaseChanged;
         public static PhaseManager Instance;
 
+        [SerializeField] Camera _camera;
+
         void Awake()
         {
             Instance = this;
@@ -95,8 +97,8 @@ namespace CardHouse
         {
             if (cameraPosition != null)
             {
-                var homing = Camera.main.GetComponent<Homing>();
-                var turning = Camera.main.GetComponent<Turning>();
+                var homing = _camera.GetComponent<Homing>();
+                var turning = _camera.GetComponent<Turning>();
 
                 if (homing != null && turning != null)
                 {
