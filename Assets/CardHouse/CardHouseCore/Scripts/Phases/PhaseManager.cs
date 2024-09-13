@@ -25,6 +25,8 @@ namespace CardHouse
         void Awake()
         {
             Instance = this;
+            if (_camera == null)
+                _camera = Camera.main;
         }
 
         IEnumerator Start()

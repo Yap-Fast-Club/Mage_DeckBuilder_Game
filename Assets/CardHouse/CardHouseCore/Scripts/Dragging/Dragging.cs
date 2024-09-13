@@ -33,6 +33,9 @@ namespace CardHouse
         {
             Instance = this;
             MyStrategy = DragHomingStrategy.GetStrategy();
+
+            if (Camera == null)
+                Camera = Camera.main;
         }
 
         public void UpdateStrategy()
