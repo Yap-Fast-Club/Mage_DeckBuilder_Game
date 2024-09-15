@@ -9,8 +9,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-/Assets/Puzzle-Project/
-/Assets/Puzzle-Project*
+/Assets/*Puzzle-Project/
+/Assets/*Puzzle-Project*
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
