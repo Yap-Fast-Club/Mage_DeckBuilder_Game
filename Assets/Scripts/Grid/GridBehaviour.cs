@@ -50,9 +50,9 @@ public class GridBehaviour : MonoBehaviour
             Gizmos.color = Color.yellow;
             for (float x = _minX; x < _maxX; x += TileSize)
             {
-                for (float z = _minY; z < _maxY; z += TileSize)
+                for (float y = _minY; y < _maxY; y += TileSize)
                 {
-                    var point = GetNearestPointOnGrid(new Vector3(x, 0f, z));
+                    var point = GetNearestPointOnGrid(new Vector3(x, y, 0));
                     Gizmos.DrawSphere(point, 0.1f);
                 }
 
@@ -67,9 +67,9 @@ public class GridBehaviour : MonoBehaviour
             for (float i = -_minX + TileSize / 2; i < _maxX; i += TileSize)
             {
                 pos0.x = i;
-                pos0.z = -_minY;
+                pos0.y = -_minY;
                 pos1.x = i;
-                pos1.z = _maxY;
+                pos1.y = _maxY;
                 Gizmos.DrawLine(
                     pos0,
                     pos1
@@ -79,9 +79,9 @@ public class GridBehaviour : MonoBehaviour
             for (float i = -_minY + TileSize / 2; i < _maxY; i += TileSize)
             {
                 pos0.x = -_minX;
-                pos0.z = i;
+                pos0.y = i;
                 pos1.x = _maxX;
-                pos1.z = i;
+                pos1.y = i;
                 Gizmos.DrawLine(
                     pos0,
                     pos1

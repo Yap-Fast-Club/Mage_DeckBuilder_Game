@@ -8,12 +8,12 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] int _movementAmount = 1;
     [SerializeField] int _tileSize = 3;
-
+    [SerializeField] Vector3 _direction;
 
     [Button]
     public void Move()
     {
-        transform.position = transform.position + transform.forward * _movementAmount * _tileSize;
+        transform.position = transform.position + _direction * _movementAmount * _tileSize;
     }
 
 

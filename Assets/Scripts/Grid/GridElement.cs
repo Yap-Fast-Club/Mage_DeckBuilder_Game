@@ -31,8 +31,8 @@ public class GridElement : MonoBehaviour
             Vector3 currentPosition = transform.position;
 
             float snappedX = Mathf.Round(currentPosition.x / _tileSize) * _tileSize + _tileOffset.x;
-            float snappedZ = Mathf.Round(currentPosition.z / _tileSize) * _tileSize + _tileOffset.z;
-            float snappedY = _tileOffset.y;
+            float snappedZ = _tileOffset.z;
+            float snappedY = Mathf.Round(currentPosition.y / _tileSize) * _tileSize + _tileOffset.y;
 
             Vector3 snappedPosition = new Vector3(snappedX, snappedY, snappedZ);
             transform.position = snappedPosition;
