@@ -124,8 +124,9 @@ namespace CardHouse
         public void SetFocus(bool isFocused)
         {
             IsFocused = isFocused;
-            FaceHoming.StartSeeking(isFocused ? Dragging.Instance.Camera.transform.position + Vector3.forward * 2f : Vector3.zero, useLocalSpace: !isFocused);
             FaceTurning.StartSeeking(isFocused ? Dragging.Instance.Camera.transform.rotation.eulerAngles.z : 0, useLocalSpace: !isFocused);
+            FaceHoming.StartSeeking(isFocused ? transform.position + Vector3.up * 1f + Vector3.forward * -2f : Vector3.zero, useLocalSpace: !isFocused);
+            //FaceHoming.StartSeeking(isFocused ? Dragging.Instance.Camera.transform.position + Vector3.forward * 2f : Vector3.zero, useLocalSpace: !isFocused);
             FaceScaling.StartSeeking(isFocused ? 2f * Dragging.Instance.Camera.orthographicSize / 4f : 1f, useLocalSpace: !isFocused);
             if (isFocused)
             {

@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6352301818958629299, guid: 71e349bc48377ea48a7d839dc129a540, type: 3}
       propertyPath: m_Name
-      value: DeckbuilderSpellPoke
+      value: Spell2
       objectReference: {fileID: 0}
     - target: {fileID: 6352301819268947709, guid: 71e349bc48377ea48a7d839dc129a540, type: 3}
       propertyPath: m_text
@@ -92,10 +92,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c87e97a90b061a14298b239f695d321f, type: 3}
-    - target: {fileID: 7902922814925739100, guid: 71e349bc48377ea48a7d839dc129a540, type: 3}
+    - target: {fileID: 6574045054896684217, guid: 71e349bc48377ea48a7d839dc129a540, type: 3}
       propertyPath: Strategy
       value: 
       objectReference: {fileID: 11400000, guid: f4f83e62bc7a35945a0ded95f0707f86, type: 2}
+    - target: {fileID: 7902922814925739100, guid: 71e349bc48377ea48a7d839dc129a540, type: 3}
+      propertyPath: Strategy
+      value: 
+      objectReference: {fileID: 11400000, guid: bdfff31d81ccf7f4a97fc021aceea5ac, type: 2}
     m_RemovedComponents:
     - {fileID: 248900021, guid: 71e349bc48377ea48a7d839dc129a540, type: 3}
     m_RemovedGameObjects: []
