@@ -19,6 +19,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private BackgroundContainer backgroundContainer;
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
+
+        [Header("Custom")]
+        [SerializeField] private bool _capManaAtMax = true;
  
         
         #region Cache
@@ -105,7 +108,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                         return;
                     }
                     
-                    GameManager.PersistentGameplayData.CurrentMana = GameManager.PersistentGameplayData.MaxMana;
+                    //GameManager.PersistentGameplayData.CurrentMana = GameManager.PersistentGameplayData.MaxMana;
                    
                     CollectionManager.DrawCards(GameManager.PersistentGameplayData.DrawCount);
                     
@@ -166,7 +169,10 @@ namespace NueGames.NueDeck.Scripts.Managers
         }
         public void IncreaseMana(int target)
         {
-            GameManager.PersistentGameplayData.CurrentMana += target;
+            int totalMana = GameManager.PersistentGameplayData.CurrentMana + target;
+
+            GameManager.PersistentGameplayData.CurrentMana = _capManaAtMax ? Mathf.Min(totalMana, GameManager.PersistentGameplayData.MaxMana) : totalMana;
+
             UIManager.CombatCanvas.SetPileTexts();
         }
         public void HighlightCardTarget(ActionTargetType targetTypeTargetType)
