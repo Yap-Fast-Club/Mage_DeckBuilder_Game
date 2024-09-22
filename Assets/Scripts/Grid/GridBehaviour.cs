@@ -1,9 +1,10 @@
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = System.Random;
 
 public class GridBehaviour : MonoBehaviour
 {
-    [SerializeField] private GridSettings _data;
+    [SerializeField, InlineEditor] private GridSettings _data;
 
     [SerializeField]
     private bool _showGridLines = true;
@@ -43,7 +44,8 @@ public class GridBehaviour : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        
+
+        if (TileSize <= 0.01f) return;
 
         if (_showGridCells)
         {
