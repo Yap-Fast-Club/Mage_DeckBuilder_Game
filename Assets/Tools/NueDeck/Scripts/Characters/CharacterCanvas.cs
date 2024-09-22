@@ -20,7 +20,8 @@ namespace NueGames.NueDeck.Scripts.Characters
     {
         [Header("References")]
         [SerializeField] protected Transform statusIconRoot;
-        [SerializeField] protected Transform highlightRoot;
+        [SerializeField] protected Transform partialHighlightRoot;
+        [SerializeField] protected Transform fullHighlightRoot;
         [SerializeField] protected Transform descriptionRoot;
         [SerializeField] protected StatusIconsData statusIconsData;
         [SerializeField] protected TextMeshProUGUI currentHealthText;
@@ -44,7 +45,8 @@ namespace NueGames.NueDeck.Scripts.Characters
 
         public void InitCanvas()
         {
-            highlightRoot.gameObject.SetActive(false);
+            partialHighlightRoot.gameObject.SetActive(false);
+            fullHighlightRoot.gameObject.SetActive(false);
             
             for (int i = 0; i < Enum.GetNames(typeof(StatusType)).Length; i++)
                 StatusDict.Add((StatusType) i, null);
@@ -92,7 +94,20 @@ namespace NueGames.NueDeck.Scripts.Characters
         }
         
         public void UpdateHealthText(int currentHealth,int maxHealth) =>  currentHealthText.text = $"{currentHealth}/{maxHealth}";
-        public void SetHighlight(bool open) => highlightRoot.gameObject.SetActive(open);
+        public void SetHighlight(bool open, bool partial = true)
+        {
+            if (partial)
+            {
+                partialHighlightRoot.gameObject.SetActive(open);
+                fullHighlightRoot.gameObject.SetActive(false);
+
+            }
+            else
+            {
+                partialHighlightRoot.gameObject.SetActive(open);
+                fullHighlightRoot.gameObject.SetActive(open);
+            }
+        }
        
         #endregion
 

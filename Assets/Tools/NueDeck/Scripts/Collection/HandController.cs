@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Enums;
@@ -265,7 +266,7 @@ namespace NueGames.NueDeck.Scripts.Collection
             {
                 var cardTransform = _heldCard.transform;
                 var cardUp = Vector3.up;
-                var cardPos = _mouseWorldPos + _heldCardOffset;
+                var cardPos = new Vector3(0, 1.3f, 0) + _heldCardOffset;
                 var cardForward = Vector3.forward;
                 if (cardTilt && mouseButton) cardForward -= new Vector3(_heldCardTilt.x, _heldCardTilt.y, 0);
 
@@ -276,6 +277,8 @@ namespace NueGames.NueDeck.Scripts.Collection
                 cardTransform.rotation = Quaternion.RotateTowards(cardTransform.rotation,
                     Quaternion.LookRotation(cardForward, cardUp), 80f * Time.deltaTime);
                 cardTransform.position = cardPos;
+
+
 
                 CombatManager.HighlightCardTarget(_heldCard.CardData.CardActionDataList[0].ActionTargetType);
 
@@ -297,12 +300,23 @@ namespace NueGames.NueDeck.Scripts.Collection
                 PlayCard(mousePos);
             }
         }
-
         
+
         private void PlayCard(Vector2 mousePos)
         {
             // Use Card
             var mouseButtonUp = Input.GetMouseButtonUp(0);
+
+            CharacterBase selfCharacter = CombatManager.CurrentMainAlly;
+            CharacterBase targetCharacter = null;
+
+            bool validTarget = CheckSingleTargetRay(mousePos, ref selfCharacter, ref targetCharacter);
+
+            if ( targetCharacter is EnemyBase e)
+            {
+                e.EnemyCanvas.SetHighlight(true, partial: false);
+
+            }
             if (!mouseButtonUp) return;
             
             //Remove highlights
@@ -311,13 +325,8 @@ namespace NueGames.NueDeck.Scripts.Collection
                 
             if (GameManager.PersistentGameplayData.CanUseCards && GameManager.PersistentGameplayData.CurrentMana >= _heldCard.CardData.ManaCost)
             {
-                RaycastHit hit;
-                var mainRay = _mainCam.ScreenPointToRay(mousePos);
-                var _canUse = false;
-                CharacterBase selfCharacter = CombatManager.CurrentMainAlly;
-                CharacterBase targetCharacter = null;
-
-                _canUse = _heldCard.CardData.UsableWithoutTarget || CheckPlayOnCharacter(mainRay, _canUse, ref selfCharacter, ref targetCharacter);
+                bool _canUse = false;
+                _canUse = _heldCard.CardData.UsableWithoutTarget ||validTarget;
                 
                 if (_canUse)
                 {
@@ -330,6 +339,15 @@ namespace NueGames.NueDeck.Scripts.Collection
                 AddCardToHand(_heldCard, _selected);
 
             _heldCard = null;
+        }
+
+        private bool CheckSingleTargetRay(Vector2 mousePos, ref CharacterBase selfCharacter, ref CharacterBase targetCharacter)
+        {
+            var mainRay = _mainCam.ScreenPointToRay(mousePos);
+            var valid = false;
+            valid = _heldCard.CardData.UsableWithoutTarget || CheckPlayOnCharacter(mainRay, valid, ref selfCharacter, ref targetCharacter);
+
+            return valid;
         }
 
         private bool CheckPlayOnCharacter(Ray mainRay, bool _canUse, ref CharacterBase selfCharacter,
@@ -347,11 +365,17 @@ namespace NueGames.NueDeck.Scripts.Collection
                     var checkAlly = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Ally &&
                                      character.GetCharacterType() == CharacterType.Ally);
 
-                    if (checkEnemy || checkAlly)
+                    _canUse = checkEnemy || checkAlly;
+
+                    if (checkEnemy)
                     {
-                        _canUse = true;
-                        selfCharacter = CombatManager.CurrentMainAlly;
                         targetCharacter = character.GetCharacterBase();
+                        
+                    }
+                    if (checkAlly)
+                    {
+                        selfCharacter = CombatManager.CurrentMainAlly;
+
                     }
                 }
             }
