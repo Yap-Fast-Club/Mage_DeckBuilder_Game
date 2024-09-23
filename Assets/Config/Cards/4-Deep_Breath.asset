@@ -15,6 +15,7 @@ MonoBehaviour:
   id: 4_deep_breath
   cardName: Deep Breath
   manaCost: 0
+  turnCost: 1
   cardSprite: {fileID: 21300000, guid: 196c26b899655284e8f440cfab2c59b9, type: 3}
   rarity: 0
   usableWithoutTarget: 1
