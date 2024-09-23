@@ -28,6 +28,7 @@ namespace NueGames.NueDeck.Editor
         private string CardId { get; set; }
         private string CardName{ get; set; }
         private int ManaCost{ get; set; }
+        private int TurnCost{ get; set; }
         private Sprite CardSprite{ get; set; }
         private bool UsableWithoutTarget{ get; set; }
         private bool ExhaustAfterPlay{ get; set; }
@@ -43,6 +44,7 @@ namespace NueGames.NueDeck.Editor
             CardId = SelectedCardData.Id;
             CardName = SelectedCardData.CardName;
             ManaCost = SelectedCardData.ManaCost;
+            TurnCost = SelectedCardData.TurnCost;
             CardSprite = SelectedCardData.CardSprite;
             UsableWithoutTarget = SelectedCardData.UsableWithoutTarget;
             ExhaustAfterPlay = SelectedCardData.ExhaustAfterPlay;
@@ -58,6 +60,7 @@ namespace NueGames.NueDeck.Editor
             CardId = String.Empty;
             CardName = String.Empty;
             ManaCost = 0;
+            TurnCost = 0;
             CardSprite = null;
             UsableWithoutTarget = false;
             ExhaustAfterPlay = false;
@@ -225,7 +228,12 @@ namespace NueGames.NueDeck.Editor
         {
             ManaCost = EditorGUILayout.IntField("Mana Cost:", ManaCost);
         }
-        
+
+        private void ChangeTurnCost()
+        {
+            TurnCost = EditorGUILayout.IntField("Turn Cost:", TurnCost);
+        }
+
         private void ChangeRarity()
         { 
             CardRarity = (RarityType) EditorGUILayout.EnumPopup("Rarity: ",CardRarity,GUILayout.Width(250));
@@ -263,6 +271,7 @@ namespace NueGames.NueDeck.Editor
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.BeginVertical();
             ChangeManaCost();
+            ChangeTurnCost();
             ChangeRarity();
             ChangeUsableWithoutTarget();
             ChangeExhaustAfterPlay();
@@ -507,6 +516,7 @@ namespace NueGames.NueDeck.Editor
             SelectedCardData.EditId(CardId);
             SelectedCardData.EditCardName(CardName);
             SelectedCardData.EditManaCost(ManaCost);
+            SelectedCardData.EditTurnCost(TurnCost);
             SelectedCardData.EditCardSprite(CardSprite);
             SelectedCardData.EditUsableWithoutTarget(UsableWithoutTarget);
             SelectedCardData.EditExhaustAfterPlay(ExhaustAfterPlay);

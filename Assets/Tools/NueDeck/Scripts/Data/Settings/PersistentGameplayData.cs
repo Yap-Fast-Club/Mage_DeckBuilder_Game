@@ -15,6 +15,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private int drawCount;
         [SerializeField] private int maxMana;
         [SerializeField] private int currentMana;
+        [SerializeField] private int turnDebt;
         [SerializeField] private bool canUseCards;
         [SerializeField] private bool canSelectCards;
         [SerializeField] private bool isRandomHand;
@@ -61,6 +62,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             CurrentEncounterId = 0;
             CurrentStageId = 0;
             CurrentGold = 0;
+            turnDebt = 0;
             CurrentCardsList = new List<CardData>();
             IsFinalEncounter = false;
             allyHealthDataDataList = new List<AllyHealthData>();
@@ -84,6 +86,12 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         {
             get => currentMana;
             set => currentMana = value;
+        }
+
+        public int TurnDebt
+        {
+            get => turnDebt;
+            set => turnDebt = Mathf.Max(0, value);
         }
 
         public bool CanUseCards

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
+using NueGames.NueDeck.Scripts.Data.Settings;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
@@ -41,6 +42,7 @@ namespace NueGames.NueDeck.Scripts.Card
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;
         protected GameManager GameManager => GameManager.Instance;
+        private PersistentGameplayData persistentData => GameManager.PersistentGameplayData;
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
         
@@ -92,6 +94,8 @@ namespace NueGames.NueDeck.Scripts.Card
                             target,self,CardData,this));
             }
             CollectionManager.OnCardPlayed(this);
+
+            SpendTurn(CardData.TurnCost);
         }
 
         private static List<CharacterBase> DetermineTargets(CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies,
@@ -150,9 +154,22 @@ namespace NueGames.NueDeck.Scripts.Card
         protected virtual void SpendMana(int value)
         {
             if (!IsPlayable) return;
-            GameManager.PersistentGameplayData.CurrentMana -= value;
+            persistentData.CurrentMana -= value;
         }
-        
+
+        protected virtual void SpendTurn(int value)
+        {
+            if (!IsPlayable) return;
+
+            persistentData.TurnDebt += value;
+
+            if (persistentData.TurnDebt > 0)
+            {
+                CombatManager.EndTurn();
+
+            }
+        }
+
         public virtual void SetInactiveMaterialState(bool isInactive) 
         {
             if (!IsPlayable) return;

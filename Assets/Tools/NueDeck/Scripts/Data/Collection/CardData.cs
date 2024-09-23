@@ -15,6 +15,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private string id;
         [SerializeField] private string cardName;
         [SerializeField] private int manaCost;
+        [SerializeField] private int turnCost = 1;
         [SerializeField] private Sprite cardSprite;
         [SerializeField] private RarityType rarity;
         
@@ -34,6 +35,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public string Id => id;
         public bool UsableWithoutTarget => usableWithoutTarget;
         public int ManaCost => manaCost;
+        public int TurnCost => turnCost;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
         public List<CardActionData> CardActionDataList => cardActionDataList;
@@ -68,6 +70,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditCardName(string newName) => cardName = newName;
         public void EditId(string newId) => id = newId;
         public void EditManaCost(int newCost) => manaCost = newCost;
+        public void EditTurnCost(int newCost) => turnCost = newCost;
         public void EditRarity(RarityType targetRarity) => rarity = targetRarity;
         public void EditCardSprite(Sprite newSprite) => cardSprite = newSprite;
         public void EditUsableWithoutTarget(bool newStatus) => usableWithoutTarget = newStatus;
