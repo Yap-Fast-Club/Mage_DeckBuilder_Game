@@ -28,6 +28,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;
         protected GameManager GameManager => GameManager.Instance;
+
         protected CombatManager CombatManager => CombatManager.Instance;
 
         protected UIManager UIManager => UIManager.Instance;
@@ -50,6 +51,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         #endregion
 
+
         #region Public Methods
         public void DrawCards(int targetDrawCount)
         {
@@ -60,6 +62,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                 if (GameManager.GameplayData.MaxCardOnHand<=HandPile.Count)
                     return;
                 
+
                 if (DrawPile.Count <= 0)
                 {
                     var nDrawCount = targetDrawCount - currentDrawCount;
@@ -74,7 +77,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
                 var randomCard = DrawPile[Random.Range(0, DrawPile.Count)];
                 var clone = GameManager.BuildAndGetCard(randomCard, HandController.drawTransform);
-                HandController.AddCardToHand(clone);
+                HandController.AddCardToHand(clone, 0);
                 HandPile.Add(randomCard);
                 DrawPile.Remove(randomCard);
                 currentDrawCount++;
@@ -111,7 +114,11 @@ namespace NueGames.NueDeck.Scripts.Managers
                 targetCard.Exhaust();
             else
                 targetCard.Discard();
-          
+
+            if (GameManager.PersistentGameplayData.HandellIsActive)
+                DrawCards(1);
+
+
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardText();
         }

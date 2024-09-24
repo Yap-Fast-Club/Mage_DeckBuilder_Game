@@ -95,6 +95,7 @@ namespace NueGames.NueDeck.Scripts.Card
             }
             CollectionManager.OnCardPlayed(this);
 
+            ChargeHandell(1);
             SpendTurn(CardData.TurnCost);
         }
 
@@ -162,6 +163,19 @@ namespace NueGames.NueDeck.Scripts.Card
             if (!IsPlayable) return;
 
             persistentData.TurnDebt += value;
+
+            if (persistentData.TurnDebt > 0)
+            {
+                CombatManager.EndTurn();
+
+            }
+        }
+
+        protected virtual void ChargeHandell(int sumValue)
+        {
+            if (!IsPlayable) return;
+
+            persistentData.HandellCount += sumValue;
 
             if (persistentData.TurnDebt > 0)
             {

@@ -1,12 +1,17 @@
 ﻿using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace NueGames.NueDeck.Scripts.UI
 {
     public class CombatCanvas : CanvasBase
     {
+        [Header("Buttons")]
+        [SerializeField] private Button _consumeHandellButton;
+ 
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI drawPileTextField;
         [SerializeField] private TextMeshProUGUI discardPileTextField;
@@ -25,12 +30,34 @@ namespace NueGames.NueDeck.Scripts.UI
 
         public TextMeshProUGUI ExhaustPileTextField => exhaustPileTextField;
 
+
+
+
         #region Setup
         private void Awake()
         {
             CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
         }
+
+        private void Start()
+        {
+            _consumeHandellButton.onClick.AddListener(ConsumeHandell);
+        }
+
+        private void ConsumeHandell()
+        {
+            CollectionManager.Instance.DiscardHand();
+            CollectionManager.Instance.DrawCards(GameManager.PersistentGameplayData.DrawCount);
+            GameManager.PersistentGameplayData.HandellCount = 0;
+
+        }
+
+        private void FixedUpdate()
+        {
+            _consumeHandellButton.interactable = GameManager.PersistentGameplayData.HandellIsActive;
+        }
+
         #endregion
 
         #region Public Methods

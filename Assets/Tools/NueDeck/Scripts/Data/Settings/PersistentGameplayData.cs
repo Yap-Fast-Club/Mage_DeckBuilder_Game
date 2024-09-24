@@ -16,6 +16,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private int maxMana;
         [SerializeField] private int currentMana;
         [SerializeField] private int turnDebt;
+        [SerializeField] private int handellCount;
         [SerializeField] private bool canUseCards;
         [SerializeField] private bool canSelectCards;
         [SerializeField] private bool isRandomHand;
@@ -94,6 +95,13 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             set => turnDebt = Mathf.Max(0, value);
         }
 
+        public int HandellCount
+        {
+            get => handellCount;
+            set => handellCount = Mathf.Max(0, value);
+        }
+
+        public bool HandellIsActive => handellCount >= 3;
         public bool CanUseCards
         {
             get => canUseCards;
