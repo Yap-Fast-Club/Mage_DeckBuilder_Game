@@ -86,6 +86,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardText();
+
         }
         public void DiscardHand()
         {
@@ -98,7 +99,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void OnCardDiscarded(CardBase targetCard)
         {
             HandPile.Remove(targetCard.CardData);
-            DiscardPile.Add(targetCard.CardData);
+            DrawPile.Add(targetCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
         
