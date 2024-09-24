@@ -3,7 +3,7 @@ using UnityEditor.SceneManagement;
 #endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Sirenix.OdinInspector;
+ 
 
 public class UILoader : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class UILoader : MonoBehaviour
     }
 
 
-    [Button(ButtonStyle.Box, Expanded = true)]
+    //[Button(ButtonStyle.Box, Expanded = true)]
     public void LoadUI(string sceneName = "GUI")
     {
         if (SceneManager.GetSceneByName(sceneName).isLoaded)
@@ -32,7 +32,7 @@ public class UILoader : MonoBehaviour
         _loadedUiSceneName = sceneName;
     }
 
-    [Button]
+    //[Button]
     public void UnloadUI()
     {
         if (!SceneManager.GetSceneByName(_loadedUiSceneName).isLoaded)

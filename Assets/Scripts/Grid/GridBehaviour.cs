@@ -1,10 +1,10 @@
-using Sirenix.OdinInspector;
+ 
 using UnityEngine;
 using Random = System.Random;
 
 public class GridBehaviour : MonoBehaviour
 {
-    [SerializeField, InlineEditor] private GridSettings _data;
+    [SerializeField] private GridSettings _data;
 
     [SerializeField]
     private bool _showGridLines = true;

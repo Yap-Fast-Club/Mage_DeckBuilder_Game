@@ -1,4 +1,4 @@
-using Sirenix.OdinInspector;
+ 
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,14 +7,13 @@ using UnityEngine;
 public class Life : MonoBehaviour
 {
     [SerializeField] int _maxHealth;
-    [SerializeField, ReadOnly] int _curHealth;
+    [SerializeField] int _curHealth;
 
     private void Awake()
     {
         _curHealth = _maxHealth;
     }
 
-    [Button]
     public void SufferDamage(int damagePoints)
     {
         _curHealth -= damagePoints;
