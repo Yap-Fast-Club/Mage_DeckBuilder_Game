@@ -10,7 +10,8 @@ namespace NueGames.NueDeck.Scripts.UI
     public class CombatCanvas : CanvasBase
     {
         [Header("Buttons")]
-        [SerializeField] private Button _consumeHandellButton;
+        [SerializeField] private Button _paidConsumeHandellButton;
+        [SerializeField] private Button _freeConsumeHandellButton;
  
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI drawPileTextField;
@@ -42,20 +43,34 @@ namespace NueGames.NueDeck.Scripts.UI
 
         private void Start()
         {
-            _consumeHandellButton.onClick.AddListener(ConsumeHandell);
+            _paidConsumeHandellButton.onClick.AddListener(ConsumeHandell);
+            _freeConsumeHandellButton.onClick.AddListener(ConsumeHandell);
+            _freeConsumeHandellButton.gameObject.SetActive(false);
         }
 
         private void ConsumeHandell()
         {
             CollectionManager.Instance.DiscardHand();
             CollectionManager.Instance.DrawCards(GameManager.PersistentGameplayData.DrawCount);
-            GameManager.PersistentGameplayData.HandellCount = 0;
 
+            if (!GameManager.PersistentGameplayData.HandellIsActive)
+                EndTurn();
+
+            GameManager.PersistentGameplayData.HandellCount = 0;
+            ShowFreeHandell(false);
         }
 
         private void FixedUpdate()
         {
-            _consumeHandellButton.interactable = GameManager.PersistentGameplayData.HandellIsActive;
+            if (_freeConsumeHandellButton.isActiveAndEnabled) return;
+
+            if (GameManager.PersistentGameplayData.HandellIsActive)
+                ShowFreeHandell(true);
+        }
+
+        private void ShowFreeHandell(bool show)
+        {
+            _freeConsumeHandellButton.gameObject.SetActive(show);
         }
 
         #endregion
