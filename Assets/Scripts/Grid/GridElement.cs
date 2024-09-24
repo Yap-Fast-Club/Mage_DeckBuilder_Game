@@ -14,11 +14,7 @@ public class GridElement : MonoBehaviour
 
     void Update()
     {
-
-        if (!Application.isPlaying)
-        {
-            SnapToGrid();
-        }
+        SnapToGrid();
     }
 
 
@@ -26,7 +22,7 @@ public class GridElement : MonoBehaviour
     {
         if (_data == null) return;
 
-        if (!EditorApplication.isPlaying)
+        //if (!EditorApplication.isPlaying)
         {
             Vector3 currentPosition = transform.position;
 
