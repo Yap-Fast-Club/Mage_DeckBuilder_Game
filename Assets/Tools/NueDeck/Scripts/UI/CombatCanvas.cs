@@ -41,11 +41,37 @@ namespace NueGames.NueDeck.Scripts.UI
             CombatLosePanel.SetActive(false);
         }
 
+        public void Bind()
+        {
+            CollectionManager.CardPlayed += OnCardPlayed;
+        }
+
+        
+
+        public void Unbind()
+        {
+            CollectionManager.CardPlayed -= OnCardPlayed;
+        }
+
         private void Start()
         {
             _paidConsumeHandellButton.onClick.AddListener(ConsumeHandell);
             _freeConsumeHandellButton.onClick.AddListener(ConsumeHandell);
             _freeConsumeHandellButton.gameObject.SetActive(false);
+
+            Bind();
+        }
+        private void OnDisable()
+        {
+            Unbind();
+        }
+
+        private void OnCardPlayed()
+        {
+            if (_freeConsumeHandellButton.isActiveAndEnabled) return;
+
+            if (GameManager.PersistentGameplayData.HandellIsActive)
+                ShowFreeHandell(true);
         }
 
         private void ConsumeHandell()
@@ -60,13 +86,6 @@ namespace NueGames.NueDeck.Scripts.UI
             ShowFreeHandell(false);
         }
 
-        private void FixedUpdate()
-        {
-            if (_freeConsumeHandellButton.isActiveAndEnabled) return;
-
-            if (GameManager.PersistentGameplayData.HandellIsActive)
-                ShowFreeHandell(true);
-        }
 
         private void ShowFreeHandell(bool show)
         {

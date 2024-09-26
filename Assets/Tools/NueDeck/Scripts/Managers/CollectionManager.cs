@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Collection;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace NueGames.NueDeck.Scripts.Managers
 {
@@ -15,6 +17,8 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         [Header("Controllers")] 
         [SerializeField] private HandController handController;
+
+        public Action CardPlayed; 
 
 
         #region Cache
@@ -122,6 +126,8 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardText();
+
+            CardPlayed?.Invoke();
         }
         public void SetGameDeck()
         {
