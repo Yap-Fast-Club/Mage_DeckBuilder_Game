@@ -12,6 +12,7 @@ namespace NueGames.NueDeck.Scripts.UI
         [Header("Buttons")]
         [SerializeField] private Button _paidConsumeHandellButton;
         [SerializeField] private Button _freeConsumeHandellButton;
+        [SerializeField] private Image _freeHandellProgressBar;
  
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI drawPileTextField;
@@ -58,6 +59,8 @@ namespace NueGames.NueDeck.Scripts.UI
             _paidConsumeHandellButton.onClick.AddListener(ConsumeHandell);
             _freeConsumeHandellButton.onClick.AddListener(ConsumeHandell);
             _freeConsumeHandellButton.gameObject.SetActive(false);
+            _freeHandellProgressBar.fillAmount = GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
+
 
             Bind();
         }
@@ -68,6 +71,7 @@ namespace NueGames.NueDeck.Scripts.UI
 
         private void OnCardPlayed()
         {
+            _freeHandellProgressBar.fillAmount = (float)GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
             if (_freeConsumeHandellButton.isActiveAndEnabled) return;
 
             if (GameManager.PersistentGameplayData.HandellIsActive)
@@ -83,6 +87,7 @@ namespace NueGames.NueDeck.Scripts.UI
                 EndTurn();
 
             GameManager.PersistentGameplayData.HandellCount = 0;
+            _freeHandellProgressBar.fillAmount = 0; 
             ShowFreeHandell(false);
         }
 

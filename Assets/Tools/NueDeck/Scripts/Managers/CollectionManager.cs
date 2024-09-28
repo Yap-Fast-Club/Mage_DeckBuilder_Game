@@ -113,6 +113,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             ExhaustPile.Add(targetCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
+
         public void OnCardPlayed(CardBase targetCard)
         {
             if (targetCard.CardData.ExhaustAfterPlay)
@@ -120,14 +121,11 @@ namespace NueGames.NueDeck.Scripts.Managers
             else
                 targetCard.Discard();
 
-            if (GameManager.PersistentGameplayData.HandellIsActive)
-                DrawCards(1);
-
-
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardText();
 
             CardPlayed?.Invoke();
+
         }
         public void SetGameDeck()
         {

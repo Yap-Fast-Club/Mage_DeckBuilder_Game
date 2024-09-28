@@ -93,9 +93,16 @@ namespace NueGames.NueDeck.Scripts.Card
                         .DoAction(new CardActionParameters(playerAction.ActionValue,
                             target,self,CardData,this));
             }
-            CollectionManager.OnCardPlayed(this);
+
+
+            if (persistentData.HandellIsActive)
+            {
+                CollectionManager.DrawCards(1);
+            }
 
             ChargeHandell(1);
+            CollectionManager.OnCardPlayed(this);
+
             SpendTurn(CardData.TurnCost);
         }
 
@@ -176,12 +183,6 @@ namespace NueGames.NueDeck.Scripts.Card
             if (!IsPlayable) return;
 
             persistentData.HandellCount += sumValue;
-
-            if (persistentData.TurnDebt > 0)
-            {
-                CombatManager.EndTurn();
-
-            }
         }
 
         public virtual void SetInactiveMaterialState(bool isInactive) 

@@ -101,7 +101,12 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             set => handellCount = Mathf.Max(0, value);
         }
 
-        public bool HandellIsActive => handellCount >= 3;
+        public int HandellThreshold
+        {
+            get => 3;
+        }
+
+        public bool HandellIsActive => handellCount >= HandellThreshold;
         public bool CanUseCards
         {
             get => canUseCards;

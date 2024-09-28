@@ -1406,6 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _paidConsumeHandellButton: {fileID: 7238812086018302419}
   _freeConsumeHandellButton: {fileID: 4397124434526578403}
+  _freeHandellProgressBar: {fileID: 806206296582235382}
   drawPileTextField: {fileID: 5074702169935187875}
   discardPileTextField: {fileID: 1672331920338653766}
   exhaustPileTextField: {fileID: 8145780709065603063}
