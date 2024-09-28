@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class TargetDetector : MonoBehaviour
 {
-    [SerializeField] private Collider triggerCollider;
-    [SerializeField] private GridBehaviour grid;
+    [SerializeField] private Collider _triggerCollider;
+    [SerializeField] private GridElement _gridElement;
 
+
+    //private GridBehaviour _gridElement;
 
     public enum TargetType { Single, Multiple, Random, Terrain }
     public TargetType currentTargetType = TargetType.Single;
@@ -21,8 +23,7 @@ public class TargetDetector : MonoBehaviour
 
     void Start()
     {
-        triggerCollider.isTrigger = true;
-        grid = FindObjectOfType<GridBehaviour>();
+        _triggerCollider.isTrigger = true;
     }
 
     void Update()
@@ -33,21 +34,21 @@ public class TargetDetector : MonoBehaviour
         switch (currentTargetType)
         {
             case TargetType.Single:
-                triggerCollider.transform.localScale = new Vector3(singleTargetSize.x * grid.TileSize, singleTargetSize.y * grid.TileSize, 1);
+                _triggerCollider.transform.localScale = new Vector3(singleTargetSize.x * _gridElement.TileSize, singleTargetSize.y * _gridElement.TileSize, 1);
                 break;
             case TargetType.Multiple:
-                triggerCollider.transform.localScale = new Vector3(multipleTargetSize.x * grid.TileSize, multipleTargetSize.y * grid.TileSize, 1);
+                _triggerCollider.transform.localScale = new Vector3(multipleTargetSize.x * _gridElement.TileSize, multipleTargetSize.y * _gridElement.TileSize, 1);
                 break;
             case TargetType.Random:
-                triggerCollider.transform.localScale = new Vector3(grid.TileSize, grid.TileSize, 1);
+                _triggerCollider.transform.localScale = new Vector3(_gridElement.TileSize, _gridElement.TileSize, 1);
                 break;
             case TargetType.Terrain:
-                triggerCollider.transform.localScale = new Vector3(multipleTargetSize.x * grid.TileSize, multipleTargetSize.y * grid.TileSize);
+                _triggerCollider.transform.localScale = new Vector3(multipleTargetSize.x * _gridElement.TileSize, multipleTargetSize.y * _gridElement.TileSize);
                 break;
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("EnemyBase"))
         {
@@ -64,7 +65,7 @@ public class TargetDetector : MonoBehaviour
         }
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit(Collider collision)
     {
         if (collision.CompareTag("EnemyBase"))
         {
@@ -114,6 +115,6 @@ public class TargetDetector : MonoBehaviour
     private Vector3 GetCellPosition(Vector3 worldPosition)
     {
         Vector3 localPosition = transform.InverseTransformPoint(worldPosition);
-        return new Vector3(Mathf.RoundToInt(localPosition.x / grid.TileSize), Mathf.RoundToInt(localPosition.y / grid.TileSize));
+        return new Vector3(Mathf.RoundToInt(localPosition.x / _gridElement.TileSize), Mathf.RoundToInt(localPosition.y / _gridElement.TileSize));
     }
 }

@@ -247,6 +247,8 @@ GameObject:
   - component: {fileID: 2398775119788638090}
   - component: {fileID: 4401940323423689665}
   - component: {fileID: 4479822654734245122}
+  - component: {fileID: 4541360803126282493}
+  - component: {fileID: 5938928824580197748}
   m_Layer: 0
   m_Name: TargetDetector
   m_TagString: Untagged
@@ -367,6 +369,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4541360803126282493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589865322749415627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ec8b1291e659841b34b707d00dd725, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggerCollider: {fileID: 4479822654734245122}
+  _gridElement: {fileID: 5938928824580197748}
+  currentTargetType: 0
+  singleTargetSize: {x: 1, y: 1, z: 1}
+  multipleTargetSize: {x: 1, y: 4, z: 0}
+  randomTargetChance: 0.5
+--- !u!114 &5938928824580197748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6589865322749415627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0456d7f786ee5454784877287269adbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: dbca71df789852a47a896491980875d6, type: 2}
+  _tileOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &6819262496291310952
 GameObject:
   m_ObjectHideFlags: 0

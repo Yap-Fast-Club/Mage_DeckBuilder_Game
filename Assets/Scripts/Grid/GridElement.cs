@@ -10,7 +10,7 @@ public class GridElement : MonoBehaviour
     [SerializeField] private GridSettings _data;
     [SerializeField] private Vector3 _tileOffset = Vector3.zero;
     
-    private float _tileSize => _data.TileSize;
+    public float TileSize => _data.TileSize;
 
     void Update()
     {
@@ -26,9 +26,9 @@ public class GridElement : MonoBehaviour
         {
             Vector3 currentPosition = transform.position;
 
-            float snappedX = Mathf.Round(currentPosition.x / _tileSize) * _tileSize + _tileOffset.x;
+            float snappedX = Mathf.Round(currentPosition.x / TileSize) * TileSize + _tileOffset.x;
             float snappedZ = _tileOffset.z;
-            float snappedY = Mathf.Round(currentPosition.y / _tileSize) * _tileSize + _tileOffset.y;
+            float snappedY = Mathf.Round(currentPosition.y / TileSize) * TileSize + _tileOffset.y;
 
             Vector3 snappedPosition = new Vector3(snappedX, snappedY, snappedZ);
             transform.position = snappedPosition;
