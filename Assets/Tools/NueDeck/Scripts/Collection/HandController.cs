@@ -23,6 +23,7 @@ namespace NueGames.NueDeck.Scripts.Collection
         [SerializeField] private Vector2 handSize = new Vector2(9, 1.7f);
 
         [Header("References")]
+        public Transform selectedTransform;
         public Transform discardTransform;
         public Transform exhaustTransform;
         public Transform drawTransform;
@@ -266,7 +267,7 @@ namespace NueGames.NueDeck.Scripts.Collection
             {
                 var cardTransform = _heldCard.transform;
                 var cardUp = Vector3.up;
-                var cardPos = new Vector3(0, 1.3f, 0) + _heldCardOffset;
+                var cardPos = selectedTransform.position + _heldCardOffset;
                 var cardForward = Vector3.forward;
                 if (cardTilt && mouseButton) cardForward -= new Vector3(_heldCardTilt.x, _heldCardTilt.y, 0);
 
