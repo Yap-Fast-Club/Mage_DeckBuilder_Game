@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50468e3bd5685a8479a36146d30e081b, type: 3}
   m_Name: First Grid Settings
   m_EditorClassIdentifier: 
-  TileSize: 0.4
+  TileSize: 1

@@ -18,7 +18,7 @@ public class GridElement : MonoBehaviour
     }
 
 
-    private void SnapToGrid()
+    public void SnapToGrid()
     {
         if (_data == null) return;
 
