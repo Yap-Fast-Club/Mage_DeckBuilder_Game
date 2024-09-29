@@ -230,6 +230,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             for (var i = 0; i < enemyList.Count; i++)
             {
                 var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
+                clone.transform.parent = null;
                 clone.BuildCharacter();
                 CurrentEnemiesList.Add(clone);
             }

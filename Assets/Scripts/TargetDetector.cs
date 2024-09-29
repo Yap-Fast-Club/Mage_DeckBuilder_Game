@@ -29,7 +29,9 @@ public class TargetDetector : MonoBehaviour
     void Update()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
         transform.position = mousePosition;
+        _gridElement.SnapToGrid();
 
         switch (currentTargetType)
         {
@@ -50,12 +52,13 @@ public class TargetDetector : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("EnemyBase"))
+        if (collision.CompareTag("Enemy"))
         {
             EnemyBase EnemyBase = collision.GetComponent<EnemyBase>();
             if (!detectedEnemies.Contains(EnemyBase))
             {
                 detectedEnemies.Add(EnemyBase);
+                Debug.Log($"Added enemy {EnemyBase.gameObject} to targets");
             }
         }
         else if (collision.CompareTag("Terrain"))
@@ -67,10 +70,11 @@ public class TargetDetector : MonoBehaviour
 
     void OnTriggerExit(Collider collision)
     {
-        if (collision.CompareTag("EnemyBase"))
+        if (collision.CompareTag("Enemy"))
         {
             EnemyBase EnemyBase = collision.GetComponent<EnemyBase>();
             detectedEnemies.Remove(EnemyBase);
+                Debug.Log($"Removed enemy {EnemyBase.gameObject} to targets");
         }
         else if (collision.CompareTag("Terrain"))
         {
