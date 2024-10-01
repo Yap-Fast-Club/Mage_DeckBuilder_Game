@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Collection;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace NueGames.NueDeck.Scripts.Managers
 {
@@ -15,6 +17,8 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         [Header("Controllers")] 
         [SerializeField] private HandController handController;
+
+        public Action CardPlayed; 
 
 
         #region Cache
@@ -28,6 +32,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;
         protected GameManager GameManager => GameManager.Instance;
+
         protected CombatManager CombatManager => CombatManager.Instance;
 
         protected UIManager UIManager => UIManager.Instance;
@@ -50,6 +55,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         #endregion
 
+
         #region Public Methods
         public void DrawCards(int targetDrawCount)
         {
@@ -60,6 +66,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                 if (GameManager.GameplayData.MaxCardOnHand<=HandPile.Count)
                     return;
                 
+
                 if (DrawPile.Count <= 0)
                 {
                     var nDrawCount = targetDrawCount - currentDrawCount;
@@ -74,7 +81,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
                 var randomCard = DrawPile[Random.Range(0, DrawPile.Count)];
                 var clone = GameManager.BuildAndGetCard(randomCard, HandController.drawTransform);
-                HandController.AddCardToHand(clone);
+                HandController.AddCardToHand(clone, 0);
                 HandPile.Add(randomCard);
                 DrawPile.Remove(randomCard);
                 currentDrawCount++;
@@ -83,6 +90,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardText();
+
         }
         public void DiscardHand()
         {
@@ -95,7 +103,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void OnCardDiscarded(CardBase targetCard)
         {
             HandPile.Remove(targetCard.CardData);
-            DiscardPile.Add(targetCard.CardData);
+            DrawPile.Add(targetCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
         
@@ -105,15 +113,19 @@ namespace NueGames.NueDeck.Scripts.Managers
             ExhaustPile.Add(targetCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
+
         public void OnCardPlayed(CardBase targetCard)
         {
             if (targetCard.CardData.ExhaustAfterPlay)
                 targetCard.Exhaust();
             else
                 targetCard.Discard();
-          
+
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardText();
+
+            CardPlayed?.Invoke();
+
         }
         public void SetGameDeck()
         {

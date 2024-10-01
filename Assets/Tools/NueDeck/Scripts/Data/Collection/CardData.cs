@@ -8,12 +8,15 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Data.Collection
 {
+    public enum CardType { Spell, Incantation, Curse}
+
     [CreateAssetMenu(fileName = "Card Data",menuName = "NueDeck/Collection/Card",order = 0)]
     public class CardData : ScriptableObject
     {
         [Header("Card Profile")] 
         [SerializeField] private string id;
         [SerializeField] private string cardName;
+        [SerializeField] private CardType type;
         [SerializeField] private int manaCost;
         [SerializeField] private int turnCost = 1;
         [SerializeField] private Sprite cardSprite;
@@ -43,6 +46,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public List<SpecialKeywords> KeywordsList => specialKeywordsList;
         public AudioActionType AudioType => audioType;
         public string MyDescription { get; set; }
+        public CardType Type => type;
         public RarityType Rarity => rarity;
 
         public bool ExhaustAfterPlay => exhaustAfterPlay;
@@ -71,6 +75,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditId(string newId) => id = newId;
         public void EditManaCost(int newCost) => manaCost = newCost;
         public void EditTurnCost(int newCost) => turnCost = newCost;
+        public void EditType(CardType targetType) => type = targetType;
         public void EditRarity(RarityType targetRarity) => rarity = targetRarity;
         public void EditCardSprite(Sprite newSprite) => cardSprite = newSprite;
         public void EditUsableWithoutTarget(bool newStatus) => usableWithoutTarget = newStatus;

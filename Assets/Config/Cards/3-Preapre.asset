@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3_prepare
   cardName: Preapre
+  type: 1
   manaCost: 0
   turnCost: 0
   cardSprite: {fileID: 21300000, guid: a0c75614ede963a46af4bc352b3faabd, type: 3}

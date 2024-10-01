@@ -37,6 +37,7 @@ namespace NueGames.NueDeck.Editor
         private List<SpecialKeywords> SpecialKeywordsList{ get; set; }
         private AudioActionType AudioType{ get; set; }
         
+        private CardType CardType { get; set; }
         private RarityType CardRarity { get; set; }
 
         private void CacheCardData()
@@ -52,6 +53,7 @@ namespace NueGames.NueDeck.Editor
             CardDescriptionDataList = SelectedCardData.CardDescriptionDataList.Count>0 ? new List<CardDescriptionData>(SelectedCardData.CardDescriptionDataList) : new List<CardDescriptionData>();
             SpecialKeywordsList = SelectedCardData.KeywordsList.Count>0 ? new List<SpecialKeywords>(SelectedCardData.KeywordsList) : new List<SpecialKeywords>();
             AudioType = SelectedCardData.AudioType;
+            CardType = SelectedCardData.Type;
             CardRarity = SelectedCardData.Rarity;
         }
         
@@ -68,6 +70,7 @@ namespace NueGames.NueDeck.Editor
             CardDescriptionDataList?.Clear();
             SpecialKeywordsList?.Clear();
             AudioType = AudioActionType.Attack;
+            CardType = CardType.Spell;
             CardRarity = RarityType.Common;
         }
         #endregion
@@ -167,6 +170,7 @@ namespace NueGames.NueDeck.Editor
             clone.EditCardActionDataList(new List<CardActionData>());
             clone.EditCardDescriptionDataList(new List<CardDescriptionData>());
             clone.EditSpecialKeywordsList(new List<SpecialKeywords>());
+            clone.EditType(CardType.Spell);
             clone.EditRarity(RarityType.Common);
             var path = str.Insert(0, CardDataDefaultPath).Append(".asset").ToString();
             var uniquePath = AssetDatabase.GenerateUniqueAssetPath(path);
@@ -234,6 +238,11 @@ namespace NueGames.NueDeck.Editor
             TurnCost = EditorGUILayout.IntField("Turn Cost:", TurnCost);
         }
 
+        private void ChangeType()
+        {
+            CardType = (CardType)EditorGUILayout.EnumPopup("Type: ", CardType, GUILayout.Width(250));
+        }
+
         private void ChangeRarity()
         { 
             CardRarity = (RarityType) EditorGUILayout.EnumPopup("Rarity: ",CardRarity,GUILayout.Width(250));
@@ -267,6 +276,7 @@ namespace NueGames.NueDeck.Editor
             }
             ChangeId();
             ChangeCardName();
+            ChangeType();
             _generalSettingsScrollPos = EditorGUILayout.BeginScrollView(_generalSettingsScrollPos,GUILayout.ExpandWidth(true));
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.BeginVertical();
