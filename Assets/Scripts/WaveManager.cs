@@ -55,15 +55,14 @@ public class WaveManager : MonoBehaviour
     {
         if (currentWaveIndex < waves.Count)
         {
-            currentTurn = 0; // Reset the turn counter for the wave
-            _combatManager.OnAllyTurnStarted += OnTurnStarted; // Subscribe to the event for turn-based spawning
+            currentTurn = 0; 
+            _combatManager.OnAllyTurnStarted += OnPlayerTurnStarted; 
+            _combatManager.OnEnemyTurnStarted += OnEnemyTurnStarted; 
         }
     }
 
-    private void OnTurnStarted()
+    private void OnPlayerTurnStarted()
     {
-        Debug.Log("[e[e");
-        currentTurn++;
         SpawnEnemiesForCurrentTurn();
 
         // Update the UI
@@ -72,6 +71,15 @@ public class WaveManager : MonoBehaviour
             WaveUIManager.Instance.UpdateWaveUI();
         }
     }
+
+    private void OnEnemyTurnStarted()
+    {
+        currentTurn++;
+
+    }
+
+
+
     private void SpawnEnemiesForCurrentTurn()
     {
         Wave currentWave = waves[currentWaveIndex];
@@ -89,18 +97,17 @@ public class WaveManager : MonoBehaviour
         if (currentTurn >= GetMaxTurnForWave(currentWave))
         {
             currentWaveIndex++;
-            _combatManager.OnAllyTurnStarted -= OnTurnStarted; // Unsubscribe from the event when the wave ends
+            _combatManager.OnAllyTurnStarted -= OnPlayerTurnStarted; // Unsubscribe from the event when the wave ends
 
             if (currentWaveIndex < waves.Count)
             {
-                StartWave(); // Start the next wave if available
+                StartWave();
             }
         }
     }
 
     private void SpawnEnemy(EnemyBase enemyPrefab)
     {
-        Debug.Log("AAa");
         // Pick a random spawn position from the five positions on the right side
         int randomIndex = Random.Range(0, spawnPositions.Count);
         var clone = Instantiate(enemyPrefab, spawnPositions[randomIndex].position, Quaternion.identity);
