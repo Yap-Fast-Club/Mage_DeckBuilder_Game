@@ -122,9 +122,11 @@ namespace NueGames.NueDeck.Scripts.Managers
                     //CollectionManager.DrawCards(persistentData.DrawCount);
 
                     persistentData.CanSelectCards = true;
+                    Debug.Log("YYY");
                     
                     break;
                 case CombatStateType.EnemyTurn:
+                    Debug.Log("ZZZ");
 
                     OnEnemyTurnStarted?.Invoke();
                     
@@ -227,13 +229,13 @@ namespace NueGames.NueDeck.Scripts.Managers
                 persistentData.IsFinalEncounter);
             
             var enemyList = CurrentEncounter.EnemyList;
-            for (var i = 0; i < enemyList.Count; i++)
-            {
-                var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
-                clone.transform.parent = null;
-                clone.BuildCharacter();
-                CurrentEnemiesList.Add(clone);
-            }
+            //for (var i = 0; i < enemyList.Count; i++)
+            //{
+            //    var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
+            //    clone.transform.parent = null;
+            //    clone.BuildCharacter();
+            //    CurrentEnemiesList.Add(clone);
+            //}
         }
         private void BuildAllies()
         {
@@ -301,6 +303,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                 yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
                 yield return waitDelay;
             }
+
 
             if (CurrentCombatStateType != CombatStateType.EndCombat)
                 CurrentCombatStateType = CombatStateType.AllyTurn;

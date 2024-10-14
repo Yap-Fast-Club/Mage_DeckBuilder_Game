@@ -122,6 +122,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &414806305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4305065158385358273, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+  m_PrefabInstance: {fileID: 517155309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &488710588 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4975396874289159475, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+  m_PrefabInstance: {fileID: 517155309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &517155309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -552,6 +562,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745986212}
   m_CullTransparentMesh: 1
+--- !u!4 &1200640057 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5083883971555618603, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+  m_PrefabInstance: {fileID: 517155309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1388175338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -613,74 +628,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e81fa3d17dd2f6478c49d213ec328b0, type: 3}
---- !u!1 &1404984372
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1404984375}
-  - component: {fileID: 1404984374}
-  - component: {fileID: 1404984373}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1404984373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404984372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SendPointerHoverToParent: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &1404984374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404984372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &1404984375
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404984372}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1541213104
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -742,6 +689,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc6d636a6c3f5814bafe200c1e4ed46f, type: 3}
+--- !u!4 &1575877430 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2452178601341196022, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+  m_PrefabInstance: {fileID: 517155309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1582758965
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,9 +860,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36491489d5a1564e882100cdcace9a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveText: {fileID: 0}
-  turnText: {fileID: 0}
-  enemiesRemainingText: {fileID: 0}
+  waveText: {fileID: 1582758967}
+  turnText: {fileID: 2133344282}
+  enemiesRemainingText: {fileID: 745986214}
 --- !u!114 &1696240171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,11 +1083,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - WaveName: 
-    EnemiesToSpawn: []
+  - WaveName: Pepe
+    EnemiesToSpawn:
+    - EnemyPrefab: {fileID: 243822687015991123, guid: c973aeb67e007d54c97fd480d7f50773, type: 3}
+      TurnNumber: 0
+    - EnemyPrefab: {fileID: 243822687015991123, guid: 9fec376b8bc12e645a735f176747a31b, type: 3}
+      TurnNumber: 1
   currentWaveIndex: 0
-  spawnPositions: []
-  combatManager: {fileID: 0}
+  spawnPositions:
+  - {fileID: 414806305}
+  - {fileID: 1575877430}
+  - {fileID: 488710588}
+  - {fileID: 1200640057}
+  - {fileID: 2112335232}
 --- !u!4 &1877784078
 Transform:
   m_ObjectHideFlags: 0
@@ -1151,6 +1111,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2112335232 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5061199328721141196, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+  m_PrefabInstance: {fileID: 517155309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2133344280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,4 +1262,3 @@ SceneRoots:
   - {fileID: 742984252}
   - {fileID: 1877784078}
   - {fileID: 1696240174}
-  - {fileID: 1404984375}

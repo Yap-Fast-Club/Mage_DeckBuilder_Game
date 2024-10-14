@@ -1,3 +1,4 @@
+using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Managers;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,11 +15,12 @@ public class WaveManager : MonoBehaviour
     [Header("Spawn Settings")]
     public List<Transform> spawnPositions; // The five positions on the right side of the grid
 
-    [Header("References")]
-    public CombatManager combatManager; // Reference to the CombatManager
 
     private int currentTurn = 0; // Tracks the current turn within the wave
     public int CurrentTurn => currentTurn;
+    private CombatManager _combatManager => CombatManager.Instance;
+
+
     public int GetRemainingEnemies()
     {
         int totalEnemies = 0;
@@ -54,12 +56,13 @@ public class WaveManager : MonoBehaviour
         if (currentWaveIndex < waves.Count)
         {
             currentTurn = 0; // Reset the turn counter for the wave
-            combatManager.OnAllyTurnStarted += OnTurnStarted; // Subscribe to the event for turn-based spawning
+            _combatManager.OnAllyTurnStarted += OnTurnStarted; // Subscribe to the event for turn-based spawning
         }
     }
 
     private void OnTurnStarted()
     {
+        Debug.Log("[e[e");
         currentTurn++;
         SpawnEnemiesForCurrentTurn();
 
@@ -86,7 +89,7 @@ public class WaveManager : MonoBehaviour
         if (currentTurn >= GetMaxTurnForWave(currentWave))
         {
             currentWaveIndex++;
-            combatManager.OnAllyTurnStarted -= OnTurnStarted; // Unsubscribe from the event when the wave ends
+            _combatManager.OnAllyTurnStarted -= OnTurnStarted; // Unsubscribe from the event when the wave ends
 
             if (currentWaveIndex < waves.Count)
             {
@@ -95,11 +98,15 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    private void SpawnEnemy(GameObject enemyPrefab)
+    private void SpawnEnemy(EnemyBase enemyPrefab)
     {
+        Debug.Log("AAa");
         // Pick a random spawn position from the five positions on the right side
         int randomIndex = Random.Range(0, spawnPositions.Count);
-        Instantiate(enemyPrefab, spawnPositions[randomIndex].position, Quaternion.identity);
+        var clone = Instantiate(enemyPrefab, spawnPositions[randomIndex].position, Quaternion.identity);
+
+        clone.BuildCharacter();
+        _combatManager.CurrentEnemiesList.Add(clone);
     }
 
     private int GetMaxTurnForWave(Wave wave)

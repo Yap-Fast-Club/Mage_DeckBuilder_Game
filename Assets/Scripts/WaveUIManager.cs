@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,9 +7,9 @@ public class WaveUIManager : MonoBehaviour
     public static WaveUIManager Instance { get; private set; }
 
     [Header("UI Elements")]
-    public Text waveText;
-    public Text turnText;
-    public Text enemiesRemainingText;
+    public TextMeshProUGUI waveText;
+    public TextMeshProUGUI turnText;
+    public TextMeshProUGUI enemiesRemainingText;
 
     private void Awake()
     {

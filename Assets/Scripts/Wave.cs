@@ -1,3 +1,4 @@
+using NueGames.NueDeck.Scripts.Characters;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,6 @@ public class Wave
 [System.Serializable]
 public class EnemySpawnInfo
 {
-    public GameObject EnemyPrefab; // The enemy prefab to spawn
+    public EnemyBase EnemyPrefab; // The enemy prefab to spawn
     public int TurnNumber;         // The turn this enemy should spawn
 }
