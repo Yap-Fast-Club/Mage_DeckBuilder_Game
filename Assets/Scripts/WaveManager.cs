@@ -16,7 +16,8 @@ public class WaveManager : MonoBehaviour
     public List<Transform> spawnPositions; // The five positions on the right side of the grid
 
 
-    private int currentTurn = 0; // Tracks the current turn within the wave
+    private int currentTurn = 0;
+
     public int CurrentTurn => currentTurn;
     private CombatManager _combatManager => CombatManager.Instance;
 
@@ -24,13 +25,14 @@ public class WaveManager : MonoBehaviour
     public int GetRemainingEnemies()
     {
         int totalEnemies = 0;
-        foreach (var enemyInfo in waves[currentWaveIndex].EnemiesToSpawn)
+
+        var currentWave = waves[currentWaveIndex];
+
+        for (int i = currentTurn; i <= GetMaxTurnForWave(currentWave); i++)
         {
-            if (enemyInfo.TurnNumber >= currentTurn)
-            {
-                totalEnemies++;
-            }
+            totalEnemies += currentWave.GetTurnInfoFor(i).GetEnemyCount();
         }
+
         return totalEnemies;
     }
 
@@ -75,7 +77,6 @@ public class WaveManager : MonoBehaviour
     private void OnEnemyTurnStarted()
     {
         currentTurn++;
-
     }
 
 
@@ -84,18 +85,29 @@ public class WaveManager : MonoBehaviour
     {
         Wave currentWave = waves[currentWaveIndex];
 
-        // Find all enemies scheduled to spawn on this turn
-        foreach (var enemyInfo in currentWave.EnemiesToSpawn)
+        //Find all enemies scheduled to spawn on this turn
+        var enemyLayout = currentWave.GetTurnInfoFor(currentTurn).EnemyLayout;
+        for (int col = 0; col < enemyLayout.Length; col++)
         {
-            if (enemyInfo.TurnNumber == currentTurn)
-            {
-                SpawnEnemy(enemyInfo.EnemyPrefab);
-            }
+            var enemyNumber = enemyLayout[col];
+
+            if (enemyNumber == 0) continue;
+
+            //if enemy -1 random btw weights
+            //if enemy -2 50% empty 50%  random btw weights
+            //if enemy -3 25% empty 75% random btw weights
+            //if enemy -4 75% empty 25% random btw weights
+
+            var enemyIndex = Mathf.Min(enemyNumber, currentWave.waveEnemies.Count) - 1;
+
+            SpawnEnemy(currentWave.waveEnemies[enemyIndex].Prefab, col);
         }
 
+
         // Check if the wave is completed
-        if (currentTurn >= GetMaxTurnForWave(currentWave))
+        if (currentTurn > GetMaxTurnForWave(currentWave))
         {
+
             currentWaveIndex++;
             _combatManager.OnAllyTurnStarted -= OnPlayerTurnStarted; // Unsubscribe from the event when the wave ends
 
@@ -106,11 +118,10 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    private void SpawnEnemy(EnemyBase enemyPrefab)
+    private void SpawnEnemy(EnemyBase enemyPrefab, int spawnPosition)
     {
         // Pick a random spawn position from the five positions on the right side
-        int randomIndex = Random.Range(0, spawnPositions.Count);
-        var clone = Instantiate(enemyPrefab, spawnPositions[randomIndex].position, Quaternion.identity);
+        var clone = Instantiate(enemyPrefab, spawnPositions[spawnPosition].position, Quaternion.identity);
 
         clone.BuildCharacter();
         _combatManager.CurrentEnemiesList.Add(clone);
@@ -119,11 +130,12 @@ public class WaveManager : MonoBehaviour
     private int GetMaxTurnForWave(Wave wave)
     {
         int maxTurn = 0;
-        foreach (var enemyInfo in wave.EnemiesToSpawn)
+
+        foreach (var turnInfo in wave.waveTurns)
         {
-            if (enemyInfo.TurnNumber > maxTurn)
+            if (turnInfo.TurnNumber > maxTurn)
             {
-                maxTurn = enemyInfo.TurnNumber;
+                maxTurn = turnInfo.TurnNumber;
             }
         }
         return maxTurn;
