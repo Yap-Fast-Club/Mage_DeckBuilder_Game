@@ -44,6 +44,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             get => _currentCombatStateType;
             private set
             {
+                Debug.Log(value);
                 ExecuteCombatState(value);
                 _currentCombatStateType = value;
             }
@@ -110,23 +111,21 @@ namespace NueGames.NueDeck.Scripts.Managers
                     if (persistentData.TurnDebt > 0)
                     {
                         EndTurn();
-                        return;
+                        break;
                     }
                     
                     if (CurrentMainAlly.CharacterStats.IsStunned)
                     {
                         EndTurn();
-                        return;
+                        break;
                     }
 
                     //CollectionManager.DrawCards(persistentData.DrawCount);
 
                     persistentData.CanSelectCards = true;
-                    Debug.Log("YYY");
                     
                     break;
                 case CombatStateType.EnemyTurn:
-                    Debug.Log("ZZZ");
 
                     OnEnemyTurnStarted?.Invoke();
                     
@@ -297,6 +296,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         private IEnumerator EnemyTurnRoutine()
         {
             var waitDelay = new WaitForSeconds(0.1f);
+
+            yield return waitDelay;
 
             foreach (var currentEnemy in CurrentEnemiesList)
             {
