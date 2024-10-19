@@ -17,6 +17,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         [SerializeField] protected EnemyCanvas enemyCanvas;
         [SerializeField] protected SoundProfileData deathSoundProfileData;
         protected EnemyAbilityData NextAbility;
+        [SerializeField] GridMovement _movement;
         
         public EnemyCharacterData EnemyCharacterData => enemyCharacterData;
         public EnemyCanvas EnemyCanvas => enemyCanvas;
@@ -75,6 +76,11 @@ namespace NueGames.NueDeck.Scripts.Characters
                 yield break;
             
             EnemyCanvas.IntentImage.gameObject.SetActive(false);
+
+            _movement.Move();
+
+            yield break;
+
             if (NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Attack || NextAbility.Intention.EnemyIntentionType == EnemyIntentionType.Debuff)
             {
                 yield return StartCoroutine(AttackRoutine(NextAbility));
