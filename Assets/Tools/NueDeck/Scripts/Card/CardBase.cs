@@ -82,7 +82,9 @@ namespace NueGames.NueDeck.Scripts.Card
         private IEnumerator CardUseRoutine(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
             SpendMana(CardData.ManaCost);
-            
+
+            bool resetStrength = false;
+
             foreach (var playerAction in CardData.CardActionDataList)
             {
                 yield return new WaitForSeconds(playerAction.ActionDelay);
@@ -92,7 +94,12 @@ namespace NueGames.NueDeck.Scripts.Card
                     CardActionProcessor.GetAction(playerAction.CardActionType)
                         .DoAction(new CardActionParameters(playerAction.ActionValue,
                             target,self,CardData,this));
+
+                if (playerAction.CardActionType == CardActionType.Attack) resetStrength = true;
             }
+
+            if (resetStrength)
+                self.CharacterStats.StatusDict[StatusType.Strength].StatusValue = 0;
 
 
             if (persistentData.HandellIsActive)
