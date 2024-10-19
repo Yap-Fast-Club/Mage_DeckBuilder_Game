@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 735061151}
   - component: {fileID: 735061152}
   - component: {fileID: -3382618998020457077}
+  - component: {fileID: 4175453714586799360}
+  - component: {fileID: 3424099125971143988}
   m_Layer: 8
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -57,6 +59,7 @@ MonoBehaviour:
   enemyCharacterData: {fileID: 11400000, guid: ab4b1aaf78f9c8747a5708430c68f051, type: 2}
   enemyCanvas: {fileID: 7422249267346903092}
   deathSoundProfileData: {fileID: 11400000, guid: 7e15e2a10065ab54c8eaf26154af0156, type: 2}
+  _movement: {fileID: 3424099125971143988}
 --- !u!54 &735061151
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -119,6 +122,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: dbca71df789852a47a896491980875d6, type: 2}
   _tileOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &4175453714586799360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243822687015991148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 466194fdb146fed40b9b4d73aac6b12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 8
+  _curHealth: 0
+--- !u!114 &3424099125971143988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243822687015991148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe565b2adc87224682a63d63187f051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tileAmount: 1
+  _direction: {x: -1, y: 0, z: 0}
 --- !u!1 &243822687401075088
 GameObject:
   m_ObjectHideFlags: 0
