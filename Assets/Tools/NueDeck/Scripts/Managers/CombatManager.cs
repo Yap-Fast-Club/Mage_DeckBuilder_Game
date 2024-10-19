@@ -56,6 +56,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         protected GameManager GameManager => GameManager.Instance;
         protected PersistentGameplayData persistentData => GameManager.PersistentGameplayData;
         protected UIManager UIManager => UIManager.Instance;
+        protected WaveManager WaveManager => WaveManager.Instance;
 
         protected CollectionManager CollectionManager => CollectionManager.Instance;
 
@@ -166,7 +167,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void OnEnemyDeath(EnemyBase targetEnemy)
         {
             CurrentEnemiesList.Remove(targetEnemy);
-            if (CurrentEnemiesList.Count<=0)
+            if (CurrentEnemiesList.Count<=0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
                 WinCombat();
         }
         public void DeactivateCardHighlights()

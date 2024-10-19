@@ -2,7 +2,11 @@ using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Managers;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using NaughtyAttributes;
+using ReadOnly = NaughtyAttributes.ReadOnlyAttribute;
+using Unity.VisualScripting;
 
 public class WaveManager : MonoBehaviour
 {
@@ -10,6 +14,7 @@ public class WaveManager : MonoBehaviour
 
     [Header("Wave Settings")]
     public List<Wave> waves; // List to store all waves
+    [ReadOnly]
     public int currentWaveIndex = 0; // Index of the current wave
 
     [Header("Spawn Settings")]
@@ -28,7 +33,7 @@ public class WaveManager : MonoBehaviour
 
         var currentWave = waves[currentWaveIndex];
 
-        for (int i = currentTurn; i <= GetMaxTurnForWave(currentWave); i++)
+        for (int i = currentTurn+1; i <= GetMaxTurnForWave(currentWave); i++)
         {
             totalEnemies += currentWave.GetTurnInfoFor(i).GetEnemyCount();
         }
@@ -46,11 +51,11 @@ public class WaveManager : MonoBehaviour
         {
             Instance = this;
         }
+        StartWave(); // Start the first wave
     }
 
     private void Start()
     {
-        StartWave(); // Start the first wave
     }
 
     public void StartWave()
@@ -105,16 +110,17 @@ public class WaveManager : MonoBehaviour
 
 
         // Check if the wave is completed
-        if (currentTurn > GetMaxTurnForWave(currentWave))
+        if (CurrentWaveIsCompleted())
         {
+            _combatManager.OnAllyTurnStarted -= OnPlayerTurnStarted; 
+            _combatManager.OnEnemyTurnStarted -= OnEnemyTurnStarted;
 
-            currentWaveIndex++;
-            _combatManager.OnAllyTurnStarted -= OnPlayerTurnStarted; // Unsubscribe from the event when the wave ends
-
-            if (currentWaveIndex < waves.Count)
+            if (!CurrentWaveIsFinal())
             {
+                currentWaveIndex++;
                 StartWave();
             }
+
         }
     }
 
@@ -140,4 +146,15 @@ public class WaveManager : MonoBehaviour
         }
         return maxTurn;
     }
+
+    public bool CurrentWaveIsCompleted()
+    {
+        return currentTurn > GetMaxTurnForWave(waves[currentWaveIndex]);
+    }
+
+    public bool CurrentWaveIsFinal()
+    {
+        return currentWaveIndex + 1 >= waves.Count;
+    }
+
 }

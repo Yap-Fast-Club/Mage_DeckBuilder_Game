@@ -1,8 +1,8 @@
- 
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 [RequireComponent(typeof(GridElement))]
 public class GridMovement : MonoBehaviour
@@ -16,7 +16,7 @@ public class GridMovement : MonoBehaviour
         _gridElement = GetComponent<GridElement>();
     }
 
-
+    [Button]
     public void Move()
     {
         transform.position = transform.position + _direction * _tileAmount * _gridElement.TileSize;
