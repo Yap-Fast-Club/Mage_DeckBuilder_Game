@@ -7,7 +7,6 @@ public class Wave
 {
     //[HideInInspector, SerializeField] string _name;
     //public int WaveNumber;
-
     public List<EnemySpawnInfo> waveEnemies;
     public List<TurnSpawnInfo> waveTurns;
 
@@ -33,7 +32,7 @@ public class Wave
 [System.Serializable]
 public class EnemySpawnInfo
 {
-    public int weight;
+    public int Weight;
     public EnemyBase Prefab;
 }
 
