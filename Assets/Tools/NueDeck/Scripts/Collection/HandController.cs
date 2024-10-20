@@ -22,7 +22,8 @@ namespace NueGames.NueDeck.Scripts.Collection
         [SerializeField] private Vector2 handOffset = new Vector2(0, -0.3f);
         [SerializeField] private Vector2 handSize = new Vector2(9, 1.7f);
 
-        [Header("References")]
+        //[Header("References")]
+        //public TargetDetector _targetDetector<>;
         public Transform selectedTransform;
         public Transform discardTransform;
         public Transform exhaustTransform;
@@ -344,6 +345,7 @@ namespace NueGames.NueDeck.Scripts.Collection
 
         private bool CheckSingleTargetRay(Vector2 mousePos, ref CharacterBase selfCharacter, ref CharacterBase targetCharacter)
         {
+
             var mainRay = _mainCam.ScreenPointToRay(mousePos);
             var valid = false;
             valid = _heldCard.CardData.UsableWithoutTarget || CheckPlayOnCharacter(mainRay, valid, ref selfCharacter, ref targetCharacter);

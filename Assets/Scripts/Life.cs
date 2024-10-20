@@ -3,11 +3,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class Life : MonoBehaviour
 {
     [SerializeField] int _maxHealth;
-    [SerializeField] int _curHealth;
+    [SerializeField, ReadOnly] int _curHealth;
 
     private void Awake()
     {

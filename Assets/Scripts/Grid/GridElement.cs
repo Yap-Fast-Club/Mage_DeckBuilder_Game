@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Drawing;
 using UnityEditor;
 using UnityEngine;
@@ -6,8 +7,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class GridElement : MonoBehaviour
 {
-
-    [SerializeField] private GridSettings _data;
+    [SerializeField, Expandable] private GridSettings _data;
     [SerializeField] private Vector3 _tileOffset = Vector3.zero;
     
     public float TileSize => _data.TileSize;

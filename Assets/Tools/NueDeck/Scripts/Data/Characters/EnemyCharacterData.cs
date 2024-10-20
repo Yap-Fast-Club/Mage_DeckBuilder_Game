@@ -27,6 +27,8 @@ namespace NueGames.NueDeck.Scripts.Data.Characters
         
         public EnemyAbilityData GetAbility(int usedAbilityCount)
         {
+            if (enemyAbilityList.Count == 0) return null;
+
             if (followAbilityPattern)
             {
                 var index = usedAbilityCount % EnemyAbilityList.Count;

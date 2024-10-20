@@ -44,6 +44,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             get => _currentCombatStateType;
             private set
             {
+                Debug.Log(value);
                 ExecuteCombatState(value);
                 _currentCombatStateType = value;
             }
@@ -55,6 +56,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         protected GameManager GameManager => GameManager.Instance;
         protected PersistentGameplayData persistentData => GameManager.PersistentGameplayData;
         protected UIManager UIManager => UIManager.Instance;
+        protected WaveManager WaveManager => WaveManager.Instance;
 
         protected CollectionManager CollectionManager => CollectionManager.Instance;
 
@@ -110,13 +112,13 @@ namespace NueGames.NueDeck.Scripts.Managers
                     if (persistentData.TurnDebt > 0)
                     {
                         EndTurn();
-                        return;
+                        break;
                     }
                     
                     if (CurrentMainAlly.CharacterStats.IsStunned)
                     {
                         EndTurn();
-                        return;
+                        break;
                     }
 
                     //CollectionManager.DrawCards(persistentData.DrawCount);
@@ -165,7 +167,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void OnEnemyDeath(EnemyBase targetEnemy)
         {
             CurrentEnemiesList.Remove(targetEnemy);
-            if (CurrentEnemiesList.Count<=0)
+            if (CurrentEnemiesList.Count<=0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
                 WinCombat();
         }
         public void DeactivateCardHighlights()
@@ -227,13 +229,13 @@ namespace NueGames.NueDeck.Scripts.Managers
                 persistentData.IsFinalEncounter);
             
             var enemyList = CurrentEncounter.EnemyList;
-            for (var i = 0; i < enemyList.Count; i++)
-            {
-                var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
-                clone.transform.parent = null;
-                clone.BuildCharacter();
-                CurrentEnemiesList.Add(clone);
-            }
+            //for (var i = 0; i < enemyList.Count; i++)
+            //{
+            //    var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
+            //    clone.transform.parent = null;
+            //    clone.BuildCharacter();
+            //    CurrentEnemiesList.Add(clone);
+            //}
         }
         private void BuildAllies()
         {
@@ -296,11 +298,14 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             var waitDelay = new WaitForSeconds(0.1f);
 
+            yield return waitDelay;
+
             foreach (var currentEnemy in CurrentEnemiesList)
             {
                 yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
                 yield return waitDelay;
             }
+
 
             if (CurrentCombatStateType != CombatStateType.EndCombat)
                 CurrentCombatStateType = CombatStateType.AllyTurn;
