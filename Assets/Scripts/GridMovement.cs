@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(GridElement))]
 public class GridMovement : MonoBehaviour
@@ -24,6 +25,45 @@ public class GridMovement : MonoBehaviour
         _gridElement.SnapToGrid();
     }
 
+    public void GetPushed(int tileAmount)
+    {
+        StartCoroutine(GetPushedCR(tileAmount));
+    }
+
+    private bool collided = false;
+    private IEnumerator GetPushedCR(int tileAmount)
+    {
+        int remainingTiles = tileAmount;
+        collided = false;
+
+        while (remainingTiles > 0) 
+        {
+            transform.position = transform.position - _direction * _tileAmount * _gridElement.TileSize;
+
+            yield return new WaitForFixedUpdate();
+
+            remainingTiles--;
+
+            if (collided){
+                yield return new WaitForSeconds(0.05f);
+                transform.position = transform.position + _direction * _gridElement.TileSize;
+                remainingTiles = 0;
+            }
+
+            yield return new WaitForSeconds(0.05f);
+        }
+
+
+        _gridElement.SnapToGrid();
+
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        collided = true;
+        Debug.Log("Collision");
+    }
 
 
 }

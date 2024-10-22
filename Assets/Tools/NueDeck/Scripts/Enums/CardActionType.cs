@@ -11,6 +11,8 @@
         EarnMana,
         LifeSteal,
         Stun,
-        Exhaust
+        Exhaust,
+        Push,
+        EmptyAction
     }
 }
