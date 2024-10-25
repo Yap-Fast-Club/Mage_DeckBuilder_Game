@@ -330,9 +330,12 @@ namespace NueGames.NueDeck.Editor
                     if (newActionType != CardActionType.Exhaust)
                     {
                         var newActionTarget = (ActionTargetType)EditorGUILayout.EnumPopup("Target Type",cardActionData.ActionTargetType,GUILayout.Width(250));
+                        var newActionArea = (ActionAreaType)EditorGUILayout.EnumPopup("Area Type",cardActionData.ActionAreaType,GUILayout.Width(250));
+                        var newAreaValue = EditorGUILayout.IntField("Area Value: ", cardActionData.ActionAreaValue);
                         var newActionValue = EditorGUILayout.FloatField("Action Value: ",cardActionData.ActionValue);
                         cardActionData.EditActionValue(newActionValue);
                         cardActionData.EditActionTarget(newActionTarget);
+                        cardActionData.EditActionArea(newActionArea, newAreaValue);
                     }
                     
                     var newActionDelay = EditorGUILayout.FloatField("Action Delay: ",cardActionData.ActionDelay);

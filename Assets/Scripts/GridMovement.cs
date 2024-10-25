@@ -62,7 +62,6 @@ public class GridMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         collided = true;
-        Debug.Log("Collision");
     }
 
 

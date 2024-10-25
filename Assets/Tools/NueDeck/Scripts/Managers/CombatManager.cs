@@ -20,6 +20,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private BackgroundContainer backgroundContainer;
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
+        [SerializeField] private TargetDetector _targetDetector;
 
         [Header("Custom")]
         [SerializeField] private bool _capManaAtMax = true;
@@ -38,6 +39,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         public AllyBase CurrentMainAlly => CurrentAlliesList.Count>0 ? CurrentAlliesList[0] : null;
 
         public EnemyEncounter CurrentEncounter { get; private set; }
+
+        public TargetDetector TargetDetector => _targetDetector;
         
         public CombatStateType CurrentCombatStateType
         {
@@ -153,6 +156,20 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             CurrentCombatStateType = CombatStateType.EnemyTurn;
         }
+
+        public void OnObjectDestroyed(GameObject gameObject)
+        {
+            var characterBase = gameObject.GetComponent<CharacterBase>();
+
+            if (characterBase is EnemyBase enemy)
+            {
+                OnEnemyDeath(enemy);
+            }
+
+            if (characterBase is AllyBase ally) OnAllyDeath(ally);
+
+        }
+
         public void OnAllyDeath(AllyBase targetAlly)
         {
             var targetAllyData = persistentData.AllyList.Find(x =>
@@ -300,7 +317,9 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             yield return waitDelay;
 
-            foreach (var currentEnemy in CurrentEnemiesList)
+            List<EnemyBase> enemiesToProcess = new List<EnemyBase>(CurrentEnemiesList);
+
+            foreach (var currentEnemy in enemiesToProcess)
             {
                 yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
                 yield return waitDelay;

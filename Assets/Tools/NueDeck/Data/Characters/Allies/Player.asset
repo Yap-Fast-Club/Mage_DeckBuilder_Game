@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   characterID: player_example
-  characterName: Player
+  characterName: Wizark
   characterDescription: Player Description
-  maxHealth: 150
+  maxHealth: 20

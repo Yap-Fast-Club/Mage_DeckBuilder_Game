@@ -7,6 +7,18 @@
         AllEnemies,
         AllAllies,
         RandomEnemy,
-        RandomAlly
+        RandomAlly,
+        Terrain,
+        RandomTerrain,
+        AllTerrain
+    }
+
+
+    public enum ActionAreaType
+    {
+        SingleTarget,
+        Radius,
+        Line,
+        Proximity
     }
 }
