@@ -7,13 +7,14 @@ using NueGames.NueDeck.Scripts.Interfaces;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
 using UnityEngine;
+using NaughtyAttributes;
 
 namespace NueGames.NueDeck.Scripts.Characters
 {
     public class EnemyBase : CharacterBase, IEnemy
     {
         [Header("Enemy Base References")]
-        [SerializeField] protected EnemyCharacterData enemyCharacterData;
+        [SerializeField, Expandable] protected EnemyCharacterData enemyCharacterData;
         [SerializeField] protected EnemyCanvas enemyCanvas;
         [SerializeField] protected SoundProfileData deathSoundProfileData;
         protected EnemyAbilityData NextAbility;
