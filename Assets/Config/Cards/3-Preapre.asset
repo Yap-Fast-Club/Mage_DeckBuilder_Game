@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Preapre
   type: 1
   manaCost: 0
-  turnCost: 0
+  turnCost: 1
   cardSprite: {fileID: 21300000, guid: a0c75614ede963a46af4bc352b3faabd, type: 3}
   rarity: 0
   usableWithoutTarget: 1
@@ -24,10 +24,14 @@ MonoBehaviour:
   cardActionDataList:
   - cardActionType: 3
     actionTargetType: 1
-    actionValue: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 2
     actionDelay: 0
   - cardActionType: 6
     actionTargetType: 3
+    actionAreaType: 0
+    actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
   cardDescriptionDataList:

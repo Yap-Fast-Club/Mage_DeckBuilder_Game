@@ -276,23 +276,37 @@ MonoBehaviour:
     waveTurns:
     - _name: Turn 0
       TurnNumber: 0
-      EnemyLayout: 0000000000000000010000000000000000000000
+      EnemyLayout: 0000000001000000000000000000000000000000
     - _name: Turn 2
       TurnNumber: 2
-      EnemyLayout: 0000000001000000000000000100000000000000
-    - _name: Turn 5
-      TurnNumber: 5
-      EnemyLayout: 0000000001000000010000000100000000000000
-  - waveEnemies:
-    - Weight: 1
-      Prefab: {fileID: 243822687015991123, guid: c973aeb67e007d54c97fd480d7f50773, type: 3}
-    waveTurns:
-    - _name: Turn 0
-      TurnNumber: 0
-      EnemyLayout: 0100000001000000010000000100000001000000
-    - _name: Turn 3
-      TurnNumber: 3
-      EnemyLayout: 0000000001000000000000000100000000000000
+      EnemyLayout: 0000000001000000000000000000000000000000
+    - _name: Turn 4
+      TurnNumber: 4
+      EnemyLayout: 0000000000000000000000000100000000000000
+    - _name: Turn 6
+      TurnNumber: 6
+      EnemyLayout: 0000000001000000000000000000000000000000
+    - _name: Turn 8
+      TurnNumber: 8
+      EnemyLayout: 0100000000000000000000000000000000000000
+    - _name: Turn 17
+      TurnNumber: 17
+      EnemyLayout: 0000000001000000000000000000000000000000
+    - _name: Turn 12
+      TurnNumber: 12
+      EnemyLayout: 0000000000000000010000000000000000000000
+    - _name: Turn 13
+      TurnNumber: 13
+      EnemyLayout: 0000000000000000000000000100000000000000
+    - _name: Turn 14
+      TurnNumber: 14
+      EnemyLayout: 0000000001000000000000000000000000000000
+    - _name: Turn 15
+      TurnNumber: 15
+      EnemyLayout: 0000000000000000010000000000000000000000
+    - _name: Turn 16
+      TurnNumber: 16
+      EnemyLayout: 0100000000000000000000000000000000000000
   currentWaveIndex: 0
   spawnPositions:
   - {fileID: 517155314}

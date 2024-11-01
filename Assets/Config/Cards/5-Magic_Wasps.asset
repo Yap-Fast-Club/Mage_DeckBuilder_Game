@@ -24,14 +24,20 @@ MonoBehaviour:
   cardActionDataList:
   - cardActionType: 0
     actionTargetType: 4
+    actionAreaType: 0
+    actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
   - cardActionType: 0
     actionTargetType: 4
+    actionAreaType: 0
+    actionAreaValue: 0
     actionValue: 1
     actionDelay: 0.1
   - cardActionType: 0
     actionTargetType: 4
+    actionAreaType: 0
+    actionAreaValue: 0
     actionValue: 1
     actionDelay: 0.2
   cardDescriptionDataList:

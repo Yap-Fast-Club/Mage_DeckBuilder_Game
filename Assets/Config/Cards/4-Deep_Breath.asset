@@ -24,7 +24,9 @@ MonoBehaviour:
   cardActionDataList:
   - cardActionType: 6
     actionTargetType: 1
-    actionValue: 3
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 4
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Gain '
