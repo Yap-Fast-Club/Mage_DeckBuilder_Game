@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe565b2adc87224682a63d63187f051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tileAmount: 1
+  _tileAmount: 2
   _direction: {x: -1, y: 0, z: 0}
 --- !u!114 &1765140829597318009
 MonoBehaviour:
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: Player
-  Damage: 6
+  Damage: 10
   _autoDestroy: 1
 --- !u!1 &243822687401075088
 GameObject:
