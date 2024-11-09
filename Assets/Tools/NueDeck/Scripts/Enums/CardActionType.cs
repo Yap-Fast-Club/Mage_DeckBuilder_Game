@@ -5,7 +5,7 @@
         Attack,
         Heal,
         Block,
-        IncreaseStrength,
+        Enchant,
         IncreaseMaxHealth,
         Draw,
         EarnMana,
@@ -13,6 +13,9 @@
         Stun,
         Exhaust,
         Push,
-        EmptyAction
+        EmptyAction,
+        ManaBasedAttack,
+        LoseHealth,
+        EarnManaForEverySoul
     }
 }

@@ -15,4 +15,4 @@ MonoBehaviour:
   characterID: player_example
   characterName: Wizark
   characterDescription: Player Description
-  maxHealth: 20
+  maxHealth: 100

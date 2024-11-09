@@ -2,11 +2,13 @@
 {
     public enum SpecialKeywords
     {
+        Push,
+        Enchantment,
         Block,
-        Strength,
-        Poison,
-        Exhaust,
-        Dexterity,
-        Stun
+        Erase,
+        Perish,
+        Passive,
+        Instant,
+
     }
 }

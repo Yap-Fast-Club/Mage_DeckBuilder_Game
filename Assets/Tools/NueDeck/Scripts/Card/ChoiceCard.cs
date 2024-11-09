@@ -14,6 +14,7 @@ namespace NueGames.NueDeck.Scripts.Card
         public Action OnCardChose;
         public GameManager GameManager => GameManager.Instance;
         public UIManager UIManager => UIManager.Instance;
+        public CollectionManager CollectionManager => CollectionManager.Instance;
         
         public void BuildReward(CardData cardData)
         {
@@ -28,6 +29,9 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             if (GameManager != null)
                 GameManager.PersistentGameplayData.CurrentCardsList.Add(_cardBase.CardData);
+
+            if (CollectionManager.Instance)
+                CollectionManager.UpdateDrawPile();
 
             if (UIManager != null)
                 UIManager.RewardCanvas.ChoicePanel.DisablePanel();

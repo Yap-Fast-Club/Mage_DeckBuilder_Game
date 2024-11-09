@@ -110,6 +110,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                 case CombatStateType.AllyTurn:
 
                     OnAllyTurnStarted?.Invoke();
+                    CheckForSoulReward();
 
                     persistentData.TurnDebt--;
                     if (persistentData.TurnDebt > 0)
@@ -132,9 +133,10 @@ namespace NueGames.NueDeck.Scripts.Managers
                 case CombatStateType.EnemyTurn:
 
                     OnEnemyTurnStarted?.Invoke();
-                    
+                    CheckForSoulReward();
+
                     //CollectionManager.DiscardHand();
-                    
+
                     StartCoroutine(nameof(EnemyTurnRoutine));
                     
                     persistentData.CanSelectCards = false;
@@ -184,6 +186,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void OnEnemyDeath(EnemyBase targetEnemy)
         {
             CurrentEnemiesList.Remove(targetEnemy);
+            persistentData.CurrentSouls += targetEnemy.GetComponent<SoulContainer>().SoulAmount;
+            UIManager.InformationCanvas.UpdateSoulsGUI();
+
             if (CurrentEnemiesList.Count<=0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
                 WinCombat();
         }
@@ -202,6 +207,17 @@ namespace NueGames.NueDeck.Scripts.Managers
             persistentData.CurrentMana = _capManaAtMax ? Mathf.Min(totalMana, persistentData.MaxMana) : totalMana;
 
             UIManager.CombatCanvas.SetPileTexts();
+        }
+
+        public void CheckForSoulReward()
+        {
+            if (persistentData.CurrentSouls >= persistentData.MaxSouls)
+            {
+                persistentData.CurrentSouls -= persistentData.MaxSouls;
+                UIManager.RewardCanvas.gameObject.SetActive(true);
+                UIManager.RewardCanvas.PrepareCanvas();
+                UIManager.RewardCanvas.InstantReward(RewardType.Card);
+            }
         }
         public void HighlightCardTarget(ActionTargetType targetTypeTargetType)
         {

@@ -14,15 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialKeywordBaseList:
   - specialKeyword: 0
-    contentText: Block damages
+    contentText: 'Moves back an enemy X cells, or until it collides with another '
   - specialKeyword: 1
-    contentText: Increase your attack damage
-  - specialKeyword: 4
-    contentText: Increase your block amount
-  - specialKeyword: 2
-    contentText: Damage per round. Ignores <color=blue>block</color>.
+    contentText: Increase the <color=red>damage</color>/<color=white>push</color>
+      value of the <b>next spell</b> by <color=white>X</color>
   - specialKeyword: 3
     contentText: After using <color=yellow>Exhaust</color>, remove it from your deck
       for this combat
+  - specialKeyword: 2
+    contentText: Can not use any action
+  - specialKeyword: 4
+    contentText: Can not use any action
   - specialKeyword: 5
     contentText: Can not use any action
+  - specialKeyword: 6
+    contentText: Turn doesnt end when playing card

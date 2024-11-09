@@ -10,12 +10,14 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private GameObject randomizedDeckObject;
         [SerializeField] private TextMeshProUGUI roomTextField;
         [SerializeField] private TextMeshProUGUI goldTextField;
+        [SerializeField] private TextMeshProUGUI _soulsTextField;
         [SerializeField] private TextMeshProUGUI nameTextField;
         [SerializeField] private TextMeshProUGUI healthTextField;
 
         public GameObject RandomizedDeckObject => randomizedDeckObject;
         public TextMeshProUGUI RoomTextField => roomTextField;
         public TextMeshProUGUI GoldTextField => goldTextField;
+        public TextMeshProUGUI SoulsTextField => _soulsTextField;
         public TextMeshProUGUI NameTextField => nameTextField;
         public TextMeshProUGUI HealthTextField => healthTextField;
         
@@ -33,6 +35,8 @@ namespace NueGames.NueDeck.Scripts.UI
 
         public void SetGoldText(int value)=>GoldTextField.text = $"{value}";
 
+        public void UpdateSoulsGUI() => SoulsTextField.text = $"{GameManager.PersistentGameplayData.CurrentSouls} / {GameManager.PersistentGameplayData.MaxSouls}";
+
         public void SetNameText(string name) => NameTextField.text = $"{name}";
 
         public void SetHealthText(int currentHealth,int maxHealth) => HealthTextField.text = $"{currentHealth}/{maxHealth}";
@@ -44,6 +48,7 @@ namespace NueGames.NueDeck.Scripts.UI
             SetNameText(GameManager.GameplayData.DefaultName);
             SetRoomText(GameManager.PersistentGameplayData.CurrentEncounterId+1,GameManager.GameplayData.UseStageSystem,GameManager.PersistentGameplayData.CurrentStageId+1);
             UIManager.InformationCanvas.SetGoldText(GameManager.PersistentGameplayData.CurrentGold);
+            UIManager.InformationCanvas.UpdateSoulsGUI();
         }
         #endregion
         

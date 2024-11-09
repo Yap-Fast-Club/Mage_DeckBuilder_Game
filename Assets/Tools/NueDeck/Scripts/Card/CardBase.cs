@@ -83,7 +83,7 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             SpendMana(CardData.ManaCost);
 
-            bool resetStrength = false;
+            bool resetEnchantment = false;
 
             foreach (var playerAction in CardData.CardActionDataList)
             {
@@ -95,11 +95,13 @@ namespace NueGames.NueDeck.Scripts.Card
                         .DoAction(new CardActionParameters(playerAction.ActionValue,
                             target,self,CardData,this));
 
-                if (playerAction.CardActionType == CardActionType.Attack) resetStrength = true;
+                if (playerAction.CardActionType == CardActionType.Attack || 
+                    playerAction.CardActionType == CardActionType.ManaBasedAttack) 
+                    resetEnchantment = true;
             }
 
-            if (resetStrength)
-                self.CharacterStats.StatusDict[StatusType.Strength].StatusValue = 0;
+            if (resetEnchantment)
+                self.CharacterStats.StatusDict[StatusType.Enchantment].StatusValue = 0;
 
 
             if (persistentData.HandellIsActive)

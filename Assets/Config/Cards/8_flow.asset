@@ -29,25 +29,34 @@ MonoBehaviour:
     actionValue: 2
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: +
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+  - descriptionText: Instant.
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0.928301, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
+  - descriptionText: ' +'
+    enableOverrideColor: 0
     overrideColor: {r: 0.10849059, g: 0.20034468, b: 1, a: 1}
-    useModifier: 1
+    useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: ' Mana. Instant'
+    enableOverrideColor: 1
+    overrideColor: {r: 0, g: 0.18928146, b: 1, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Mana.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -56,5 +65,5 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 06000000
   audioType: 9

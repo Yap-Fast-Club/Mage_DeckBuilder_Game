@@ -12,7 +12,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             if (!actionParameters.TargetCharacter) return;
 
             var value = Mathf.RoundToInt(actionParameters.Value +
-                                         actionParameters.SelfCharacter.CharacterStats.StatusDict[StatusType.Strength]
+                                         actionParameters.SelfCharacter.CharacterStats.StatusDict[StatusType.Enchantment]
                                              .StatusValue);
             actionParameters.TargetCharacter.CharacterStats.Damage(value);
             actionParameters.SelfCharacter.CharacterStats.Heal(value);

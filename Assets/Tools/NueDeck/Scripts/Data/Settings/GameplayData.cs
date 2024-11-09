@@ -12,7 +12,8 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [Header("Gameplay Settings")] 
         [SerializeField] private int drawCount = 4;
         [SerializeField] private int initialMana = 5;
-        [SerializeField] private int maxMana = 3;
+        [SerializeField] private int maxMana = 10;
+        [SerializeField] private int maxSouls = 5;
         [SerializeField] private List<AllyBase> initalAllyList;
         
         [Header("Decks")] 
@@ -35,6 +36,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public int DrawCount => drawCount;
         public int InitialMana => initialMana;
         public int MaxMana => maxMana;
+        public int MaxSouls => maxSouls;
         public bool IsRandomHand => isRandomHand;
         public List<AllyBase> InitalAllyList => initalAllyList;
         public DeckData InitalDeck => initalDeck;

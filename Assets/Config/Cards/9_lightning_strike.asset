@@ -10,38 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 5-Magic_Wasps
+  m_Name: 9_lightning_strike
   m_EditorClassIdentifier: 
-  id: 5_magic_wasps
-  cardName: Magic Wasps
+  id: 9_lightning_strike
+  cardName: Lightning Strike
   type: 0
   manaCost: 3
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 874750696c0fc644db29401396f5869f, type: 3}
+  cardSprite: {fileID: 21300000, guid: a70636fd6b777e449bf2c733243df021, type: 3}
   rarity: 0
-  usableWithoutTarget: 1
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 0
-    actionTargetType: 4
+  - cardActionType: 12
+    actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 1
+    actionValue: 0
     actionDelay: 0
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 1
-    actionDelay: 0.1
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 1
-    actionDelay: 0.2
   cardDescriptionDataList:
-  - descriptionText: 'Repeat 3 times: Deal '
+  - descriptionText: 'Deal '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -52,10 +40,10 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
+    overrideColor: {r: 1, g: 0.12164408, b: 0, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 3
+    modiferStats: 6
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
@@ -68,7 +56,27 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' to a random enemy.'
+  - descriptionText: '
+
+      ('
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: +[1 f/e mana point])
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

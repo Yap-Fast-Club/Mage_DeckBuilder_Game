@@ -10,23 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: beeLifeSteal
+  m_Name: 12-Tranfusion
   m_EditorClassIdentifier: 
-  id: 9_attack_lifeSteal
-  cardName: Life Steal
-  manaCost: 2
+  id: 12_tranfusion
+  cardName: Tranfusion
+  type: 1
+  manaCost: 0
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 04684b85c9246b945a48b41d9ec2f4be, type: 3}
+  cardSprite: {fileID: 21300000, guid: fd5c0f0e8326acc4d9b17c466dba77d4, type: 3}
   rarity: 0
-  usableWithoutTarget: 0
+  usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 7
-    actionTargetType: 0
-    actionValue: 5
+  - cardActionType: 13
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 10
+    actionDelay: 0
+  - cardActionType: 6
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 8
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Deal '
+  - descriptionText: 'Lose '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -37,14 +46,14 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 3
-    usePrefixOnModifiedValue: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 1
-  - descriptionText: ' damage.'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Health.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -53,7 +62,9 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Heal '
+  - descriptionText: '
+
+      +'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -64,12 +75,21 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.3529412, g: 0.7725491, b: 0.30980393, a: 1}
+    overrideColor: {r: 0, g: 0.18542242, b: 1, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 0
-    modiferStats: 3
-    usePrefixOnModifiedValue: 1
+    modifiedActionValueIndex: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 1
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Mana. '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
   specialKeywordsList: 
-  audioType: 5
+  audioType: 9

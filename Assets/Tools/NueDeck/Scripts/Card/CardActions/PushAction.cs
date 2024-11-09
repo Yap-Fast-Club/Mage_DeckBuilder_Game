@@ -14,7 +14,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             var targetCharacter = actionParameters.TargetCharacter;
             var selfCharacter = actionParameters.SelfCharacter;
             
-            var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Strength].StatusValue;
+            var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Enchantment].StatusValue;
 
 
             targetCharacter.GetComponent<GridMovement>()?.GetPushed((int)value);

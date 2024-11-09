@@ -59,7 +59,34 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                     throw new ArgumentOutOfRangeException(nameof(rewardType), rewardType, null);
             }
         }
-        
+
+        public void InstantReward(RewardType rewardType)
+        {
+            var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
+            _currentRewardsList.Add(rewardClone);
+
+            switch (rewardType)
+            {
+                case RewardType.Gold:
+                    var rewardGold = rewardContainerData.GetRandomGoldReward(out var goldRewardData);
+                    rewardClone.BuildReward(goldRewardData.RewardSprite, goldRewardData.RewardDescription);
+                    rewardClone.RewardButton.onClick.AddListener(() => GetGoldReward(rewardClone, rewardGold));
+                    break;
+                case RewardType.Card:
+                    var rewardCardList = rewardContainerData.GetRandomCardRewardList(out var cardRewardData);
+                    _cardRewardList.Clear();
+                    foreach (var cardData in rewardCardList)
+                        _cardRewardList.Add(cardData);
+                    rewardClone.BuildReward(cardRewardData.RewardSprite, cardRewardData.RewardDescription);
+                    GetInstantCardReward(rewardClone, 3);
+                    break;
+                case RewardType.Relic:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(rewardType), rewardType, null);
+            }
+        }
+
         public override void ResetCanvas()
         {
             ResetRewards();
@@ -97,6 +124,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
             Destroy(rewardContainer.gameObject);
         }
 
+
         private void GetCardReward(RewardContainer rewardContainer,int amount = 3)
         {
             ChoicePanel.gameObject.SetActive(true);
@@ -110,6 +138,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                 var reward = _cardRewardList.RandomItem();
                 choice.BuildReward(reward);
                 choice.OnCardChose += ResetChoice;
+                choice.OnCardChose += ResetCanvas;
                 
                 _cardRewardList.Remove(reward);
                 _spawnedChoiceList.Add(choice);
@@ -120,6 +149,30 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
             Destroy(rewardContainer.gameObject);
         }
         #endregion
-        
+
+        private void GetInstantCardReward(RewardContainer rewardContainer, int amount = 3)
+        {
+            ChoicePanel.gameObject.SetActive(true);
+
+            for (int i = 0; i < amount; i++)
+            {
+                Transform spawnTransform = choice2DCardSpawnRoot;
+
+                var choice = Instantiate(choiceCardUIPrefab, spawnTransform);
+
+                var reward = _cardRewardList.RandomItem();
+                choice.BuildReward(reward);
+                choice.OnCardChose += ResetCanvas;
+                choice.OnCardChose += () => this.gameObject.SetActive(false);
+
+                _cardRewardList.Remove(reward);
+                _spawnedChoiceList.Add(choice);
+                _currentRewardsList.Remove(rewardContainer);
+
+            }
+
+            Destroy(rewardContainer.gameObject);
+        }
+
     }
 }

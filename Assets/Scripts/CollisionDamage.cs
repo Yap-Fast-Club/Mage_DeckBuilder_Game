@@ -35,8 +35,8 @@ public class CollisionDamage : MonoBehaviour
 
         if (_autoDestroy)
         {
+            gameObject.GetComponent<SoulContainer>()?.SetSoulAmount(0);
             gameObject.GetComponent<CharacterBase>()?.CharacterStats.Damage(9999, true);
-            //TODO: soul stuff for enemies
         }
 
     }

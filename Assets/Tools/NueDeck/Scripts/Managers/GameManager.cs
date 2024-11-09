@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
@@ -16,9 +17,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         public static GameManager Instance { get; private set; }
         
         [Header("Settings")]
-        [SerializeField] private GameplayData gameplayData;
-        [SerializeField] private EncounterData encounterData;
-        [SerializeField] private SceneData sceneData;
+        [SerializeField, Expandable] private GameplayData gameplayData;
+        [SerializeField, Expandable] private EncounterData encounterData;
+        [SerializeField, Expandable] private SceneData sceneData;
 
 
         #region Cache

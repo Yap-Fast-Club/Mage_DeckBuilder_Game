@@ -133,6 +133,13 @@ namespace NueGames.NueDeck.Scripts.Managers
                 DrawPile.Add(i);
         }
 
+        public void UpdateDrawPile()
+        {
+            foreach (var c in GameManager.PersistentGameplayData.CurrentCardsList)
+                if (!DrawPile.Contains(c) && !HandPile.Contains(c))
+                    DrawPile.Add(c);
+        }
+
         public void ClearPiles()
         {
             DiscardPile.Clear();

@@ -15,6 +15,8 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private int drawCount;
         [SerializeField] private int maxMana;
         [SerializeField] private int currentMana;
+        [SerializeField] private int maxSouls;
+        [SerializeField] private int currentSouls;
         [SerializeField] private int turnDebt;
         [SerializeField] private int handellCount;
         [SerializeField] private bool canUseCards;
@@ -55,6 +57,8 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         {
             DrawCount = _gameplayData.DrawCount;
             MaxMana = _gameplayData.MaxMana;
+            MaxSouls = _gameplayData.MaxSouls;
+            CurrentSouls = 0;
             CurrentMana = _gameplayData.InitialMana;
             CanUseCards = true;
             CanSelectCards = true;
@@ -88,7 +92,17 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             get => currentMana;
             set => currentMana = value;
         }
+        public int MaxSouls
+        {
+            get => maxSouls;
+            set => maxSouls = value;
+        }
 
+        public int CurrentSouls
+        {
+            get => currentSouls;
+            set => currentSouls = value;
+        }
         public int TurnDebt
         {
             get => turnDebt;

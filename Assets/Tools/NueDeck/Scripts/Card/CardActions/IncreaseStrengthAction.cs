@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class IncreaseStrengthAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.IncreaseStrength;
+        public override CardActionType ActionType => CardActionType.Enchant;
         public override void DoAction(CardActionParameters actionParameters)
         {
             var newTarget = actionParameters.TargetCharacter
@@ -15,7 +15,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             
             if (!newTarget) return;
             
-            newTarget.CharacterStats.ApplyStatus(StatusType.Strength,Mathf.RoundToInt(actionParameters.Value));
+            newTarget.CharacterStats.ApplyStatus(StatusType.Enchantment,Mathf.RoundToInt(actionParameters.Value));
             
             if (FxManager != null) 
                 FxManager.PlayFx(newTarget.transform, FxType.Str);

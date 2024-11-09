@@ -1,12 +1,15 @@
-﻿using NueGames.NueDeck.Scripts.Enums;
+﻿using NueGames.NueDeck.Scripts.Data.Settings;
+using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class AttackAction: CardActionBase
+    public class ManaAttackAction: CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Attack;
+        PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
+
+        public override CardActionType ActionType => CardActionType.ManaBasedAttack;
         public override void DoAction(CardActionParameters actionParameters)
         {
             if (!actionParameters.TargetCharacter) return;
@@ -14,7 +17,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             var targetCharacter = actionParameters.TargetCharacter;
             var selfCharacter = actionParameters.SelfCharacter;
             
-            var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Enchantment].StatusValue ;
+            var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Enchantment].StatusValue + PersistendData.CurrentMana;
 
 
             targetCharacter.CharacterStats.Damage(Mathf.RoundToInt(value));

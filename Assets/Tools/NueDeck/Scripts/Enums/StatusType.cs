@@ -5,8 +5,10 @@
         None =0,
         Block,
         Poison,
-        Strength,
+        Enchantment,
         Dexterity,
-        Stun
+        Stun,
+        EnchantmentAndLeftMana,
+        SoulScale
     }
 }

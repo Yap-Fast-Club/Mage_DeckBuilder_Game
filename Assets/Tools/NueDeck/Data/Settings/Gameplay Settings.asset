@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Gameplay Settings
   m_EditorClassIdentifier: 
   drawCount: 6
+  initialMana: 5
   maxMana: 10
+  maxSouls: 5
   initalAllyList:
   - {fileID: 2835035829204582327, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
-  initalDeck: {fileID: 11400000, guid: ce453c5a3a783864ca79ffd188d57ab7, type: 2}
+  initalDeck: {fileID: 11400000, guid: 614021308549df8469a662a9da719335, type: 2}
   maxCardOnHand: 10
   allCardsList:
   - {fileID: 11400000, guid: 1e43cdb39f5836b44942f367125cadde, type: 2}
