@@ -38,7 +38,8 @@ public class GridMovement : MonoBehaviour
 
         while (remainingTiles > 0) 
         {
-            transform.position = transform.position - _direction * _tileAmount * _gridElement.TileSize;
+            Debug.Log(remainingTiles);
+            transform.position = transform.position - _direction * _gridElement.TileSize;
 
             yield return new WaitForFixedUpdate();
 
