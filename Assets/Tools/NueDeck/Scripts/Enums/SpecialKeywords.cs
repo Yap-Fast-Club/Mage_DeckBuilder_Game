@@ -3,7 +3,7 @@
     public enum SpecialKeywords
     {
         Push,
-        Enchantment,
+        Power,
         Block,
         Erase,
         Perish,

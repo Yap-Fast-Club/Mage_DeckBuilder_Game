@@ -26,7 +26,7 @@ MonoBehaviour:
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 10
+    actionValue: 2
     actionDelay: 0
   - cardActionType: 6
     actionTargetType: 1
@@ -75,7 +75,7 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0, g: 0.18542242, b: 1, a: 1}
+    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 1
     modiferStats: 0

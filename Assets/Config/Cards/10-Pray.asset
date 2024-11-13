@@ -46,7 +46,7 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.16740465, g: 0, b: 1, a: 1}
+    overrideColor: {r: 0.0990566, g: 0.48477829, b: 1, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
     modiferStats: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: '  ENCH.'
+  - descriptionText: ' Power.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

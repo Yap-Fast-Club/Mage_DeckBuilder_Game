@@ -31,7 +31,7 @@ MonoBehaviour:
   cardDescriptionDataList:
   - descriptionText: Instant.
     enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0.928301, b: 0, a: 1}
+    overrideColor: {r: 0.6886792, g: 0.64006656, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: ' Mana. Instant'
     enableOverrideColor: 1
-    overrideColor: {r: 0, g: 0.18928146, b: 1, a: 1}
+    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
     modiferStats: 0

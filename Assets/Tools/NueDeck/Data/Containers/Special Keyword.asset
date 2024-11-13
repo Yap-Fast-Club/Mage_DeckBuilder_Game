@@ -14,18 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialKeywordBaseList:
   - specialKeyword: 0
-    contentText: 'Moves back an enemy X cells, or until it collides with another '
+    contentText: Moves an enemy back by X cells, or until it collides with another.
   - specialKeyword: 1
-    contentText: Increase the <color=red>damage</color>/<color=white>push</color>
-      value of the <b>next spell</b> by <color=white>X</color>
-  - specialKeyword: 3
-    contentText: After using <color=yellow>Exhaust</color>, remove it from your deck
-      for this combat
-  - specialKeyword: 2
-    contentText: Can not use any action
-  - specialKeyword: 4
-    contentText: Can not use any action
-  - specialKeyword: 5
-    contentText: Can not use any action
+    contentText: Boosts the damage or effect of the next spell by X.
   - specialKeyword: 6
-    contentText: Turn doesnt end when playing card
+    contentText: Allows you to play this card without ending your turn.
+  - specialKeyword: 5
+    contentText: Triggers its effect each turn while this card is in your hand.
+  - specialKeyword: 4
+    contentText: Adds an effect that triggers when the targeted enemy dies.
