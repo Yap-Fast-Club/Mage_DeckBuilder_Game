@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: Player
-  Damage: 10
+  Damage: 4
   _autoDestroy: 1
 --- !u!114 &1356101822855469986
 MonoBehaviour:
