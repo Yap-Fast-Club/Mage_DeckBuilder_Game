@@ -32,6 +32,9 @@ MonoBehaviour:
     - _name: Turn 8
       TurnNumber: 8
       EnemyLayout: 0000000000000000000000000100000000000000
+    - _name: Turn 12
+      TurnNumber: 12
+      EnemyLayout: 0000000001000000000000000000000000000000
     - _name: Turn 13
       TurnNumber: 13
       EnemyLayout: 0100000000000000000000000000000000000000
@@ -47,6 +50,3 @@ MonoBehaviour:
     - _name: Turn 17
       TurnNumber: 17
       EnemyLayout: 0000000001000000000000000100000000000000
-    - _name: Turn 12
-      TurnNumber: 12
-      EnemyLayout: 0000000001000000000000000000000000000000

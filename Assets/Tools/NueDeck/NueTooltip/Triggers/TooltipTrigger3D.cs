@@ -14,5 +14,10 @@ namespace NueGames.NueDeck.ThirdParty.NueTooltip.Triggers
         {
             HideTooltipInfo(TooltipManager.Instance);
         }
+
+        private void OnDisable()
+        {
+            HideTooltipInfo(TooltipManager.Instance);
+        }
     }
 }

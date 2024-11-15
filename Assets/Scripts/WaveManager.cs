@@ -16,6 +16,8 @@ public class WaveManager : MonoBehaviour
     [ReadOnly]
     public int currentWaveIndex = 0; // Index of the current wave
 
+    public int MaxWaveIndex => _waves.Count-1;
+
     [Header("Spawn Settings")]
     public List<Transform> spawnPositions; // The five positions on the right side of the grid
 
@@ -23,7 +25,11 @@ public class WaveManager : MonoBehaviour
     private int currentTurn = 0;
 
     public int CurrentTurn => currentTurn;
+    public int CurrentMaxTurn => GetMaxTurnForWave(_currentWave);
+
     private CombatManager _combatManager => CombatManager.Instance;
+
+    private Wave _currentWave => _waves[currentWaveIndex];
 
     public void SetLevelWaves(List<Wave> waves)
     {
@@ -64,6 +70,10 @@ public class WaveManager : MonoBehaviour
             currentTurn = 0; 
             _combatManager.OnAllyTurnStarted += OnPlayerTurnStarted; 
             _combatManager.OnEnemyTurnStarted += OnEnemyTurnStarted; 
+        }
+        if (WaveUIManager.Instance != null)
+        {
+            WaveUIManager.Instance.UpdateWaveUI();
         }
     }
 

@@ -23,17 +23,12 @@ public class WaveUIManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        UpdateWaveUI();
-    }
-
     public void UpdateWaveUI()
     {
         if (WaveManager.Instance != null)
         {
-            waveText.text = $"Wave: {WaveManager.Instance.currentWaveIndex + 1}";
-            turnText.text = $"Turn: {WaveManager.Instance.CurrentTurn}";
+            waveText.text = $"Wave: {WaveManager.Instance.currentWaveIndex + 1} / {WaveManager.Instance.MaxWaveIndex + 1}";
+            turnText.text = $"Turn: {WaveManager.Instance.CurrentTurn} / {WaveManager.Instance.CurrentMaxTurn}";
             enemiesRemainingText.text = $"Enemies Remaining: {WaveManager.Instance.GetRemainingEnemies()}";
         }
     }

@@ -281,9 +281,11 @@ namespace NueGames.NueDeck.Scripts.Card
         #endregion
 
         #region Pointer Events
+        Coroutine tooltipCR = null;
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
-            Invoke("ShowTooltipInfo", 0.25f);
+            if (tooltipCR == null) 
+             tooltipCR = StartCoroutine(ShowTooltipInfo());
         }
 
         public virtual void OnPointerExit(PointerEventData eventData)
@@ -303,12 +305,12 @@ namespace NueGames.NueDeck.Scripts.Card
         #endregion
 
         #region Tooltip
-        protected virtual void ShowTooltipInfo()
+        protected virtual IEnumerator ShowTooltipInfo()
         {
-            if (!descriptionRoot) return;
-            if (CardData.KeywordsList.Count<=0) return;
+            if (!descriptionRoot) yield break;
+            if (CardData.KeywordsList.Count<=0) yield break;
 
-            Debug.Log("La concha de tu madre");
+            yield return new WaitForSeconds(0.25f);
 
             var tooltipManager = TooltipManager.Instance;
             foreach (var cardDataSpecialKeyword in CardData.KeywordsList)
@@ -325,6 +327,9 @@ namespace NueGames.NueDeck.Scripts.Card
 
         public virtual void HideTooltipInfo(TooltipManager tooltipManager)
         {
+            if (tooltipCR != null)
+                StopCoroutine(tooltipCR);
+            tooltipCR = null;
             tooltipManager.HideTooltip();
         }
         #endregion
