@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NaughtyAttributes;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Characters;
 using NueGames.NueDeck.Scripts.Enums;
@@ -19,16 +20,16 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
         public bool EncounterRandomlyAtStage => encounterRandomlyAtStage;
         public List<EnemyEncounterStage> EnemyEncounterList => enemyEncounterList;
 
-        public EnemyEncounter GetEnemyEncounter(int stageId = 0,int encounterId =0,bool isFinal = false)
+        
+        public WavesEncounter GetEncounterWaves(int stageId = 0,int encounterId =0,bool isFinal = false)
         {
             var selectedStage = EnemyEncounterList.First(x => x.StageId == stageId);
             if (isFinal) return selectedStage.BossEncounterList.RandomItem();
            
             return EncounterRandomlyAtStage
-                ? selectedStage.EnemyEncounterList.RandomItem()
-                : selectedStage.EnemyEncounterList[encounterId] ?? selectedStage.EnemyEncounterList.RandomItem();
+                ? selectedStage.NormalEncounterList.RandomItem()
+                : selectedStage.NormalEncounterList[encounterId] ?? selectedStage.NormalEncounterList.RandomItem();
         }
-        
     }
 
 
@@ -37,14 +38,21 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
     {
         [SerializeField] private string name;
         [SerializeField] private int stageId;
-        [SerializeField] private List<EnemyEncounter> bossEncounterList;
-        [SerializeField] private List<EnemyEncounter> enemyEncounterList;
+        [SerializeField] private List<WavesEncounter> normalEncounterList;
+        [SerializeField] private List<WavesEncounter> bossEncounterList;
         public string Name => name;
         public int StageId => stageId;
-        public List<EnemyEncounter> BossEncounterList => bossEncounterList;
-        public List<EnemyEncounter> EnemyEncounterList => enemyEncounterList;
+        public List<WavesEncounter> NormalEncounterList => normalEncounterList;
+        public List<WavesEncounter> BossEncounterList => bossEncounterList;
     }
-    
+
+    [Serializable]
+    public class WavesEncounter : EncounterBase
+    {
+        [SerializeField, Expandable] private LevelWavesSO _levelWavesData;
+        public List<Wave> LevelWaves => _levelWavesData.Waves;
+    }
+
     
     [Serializable]
     public class EnemyEncounter : EncounterBase

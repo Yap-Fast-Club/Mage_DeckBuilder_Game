@@ -12,8 +12,7 @@ public class WaveManager : MonoBehaviour
 {
     public static WaveManager Instance { get; private set; }
 
-    [Header("Wave Settings")]
-    public List<Wave> waves; // List to store all waves
+    private List<Wave> _waves; // List to store all waves
     [ReadOnly]
     public int currentWaveIndex = 0; // Index of the current wave
 
@@ -26,12 +25,16 @@ public class WaveManager : MonoBehaviour
     public int CurrentTurn => currentTurn;
     private CombatManager _combatManager => CombatManager.Instance;
 
+    public void SetLevelWaves(List<Wave> waves)
+    {
+        _waves = waves;
+    }
 
     public int GetRemainingEnemies()
     {
         int totalEnemies = 0;
 
-        var currentWave = waves[currentWaveIndex];
+        var currentWave = _waves[currentWaveIndex];
 
         for (int i = currentTurn+1; i <= GetMaxTurnForWave(currentWave); i++)
         {
@@ -51,16 +54,12 @@ public class WaveManager : MonoBehaviour
         {
             Instance = this;
         }
-        StartWave(); // Start the first wave
     }
 
-    private void Start()
-    {
-    }
 
     public void StartWave()
     {
-        if (currentWaveIndex < waves.Count)
+        if (currentWaveIndex < _waves.Count)
         {
             currentTurn = 0; 
             _combatManager.OnAllyTurnStarted += OnPlayerTurnStarted; 
@@ -88,7 +87,7 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEnemiesForCurrentTurn()
     {
-        Wave currentWave = waves[currentWaveIndex];
+        Wave currentWave = _waves[currentWaveIndex];
 
         //Find all enemies scheduled to spawn on this turn
         var enemyLayout = currentWave.GetTurnInfoFor(currentTurn).EnemyLayout;
@@ -149,12 +148,12 @@ public class WaveManager : MonoBehaviour
 
     public bool CurrentWaveIsCompleted()
     {
-        return currentTurn > GetMaxTurnForWave(waves[currentWaveIndex]);
+        return currentTurn > GetMaxTurnForWave(_waves[currentWaveIndex]);
     }
 
     public bool CurrentWaveIsFinal()
     {
-        return currentWaveIndex + 1 >= waves.Count;
+        return currentWaveIndex + 1 >= _waves.Count;
     }
 
 }

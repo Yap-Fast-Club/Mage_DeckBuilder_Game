@@ -38,7 +38,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         public AllyBase CurrentMainAlly => CurrentAlliesList.Count>0 ? CurrentAlliesList[0] : null;
 
-        public EnemyEncounter CurrentEncounter { get; private set; }
+        public WavesEncounter CurrentEncounter { get; private set; }
 
         public TargetDetector TargetDetector => _targetDetector;
         
@@ -256,19 +256,14 @@ namespace NueGames.NueDeck.Scripts.Managers
         #region Private Methods
         private void BuildEnemies()
         {
-            CurrentEncounter = GameManager.EncounterData.GetEnemyEncounter(
+            CurrentEncounter = GameManager.EncounterData.GetEncounterWaves(
                 persistentData.CurrentStageId,
                 persistentData.CurrentEncounterId,
                 persistentData.IsFinalEncounter);
-            
-            var enemyList = CurrentEncounter.EnemyList;
-            //for (var i = 0; i < enemyList.Count; i++)
-            //{
-            //    var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
-            //    clone.transform.parent = null;
-            //    clone.BuildCharacter();
-            //    CurrentEnemiesList.Add(clone);
-            //}
+
+
+            WaveManager.Instance.SetLevelWaves(CurrentEncounter.LevelWaves);
+            WaveManager.Instance.StartWave();
         }
         private void BuildAllies()
         {

@@ -80,10 +80,10 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void NextEncounter()
         {
             PersistentGameplayData.CurrentEncounterId++;
-            if (PersistentGameplayData.CurrentEncounterId>=EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].EnemyEncounterList.Count)
+            if (PersistentGameplayData.CurrentEncounterId>=EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].NormalEncounterList.Count)
             {
                 PersistentGameplayData.CurrentEncounterId = Random.Range(0,
-                    EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].EnemyEncounterList.Count);
+                    EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].NormalEncounterList.Count);
             }
         }
         public void OnExitApp()
