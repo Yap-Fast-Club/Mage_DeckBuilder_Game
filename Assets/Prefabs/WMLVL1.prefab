@@ -69,19 +69,19 @@ MonoBehaviour:
       EnemyLayout: 0100000000000000000000000000000000000000
     - _name: Turn 14
       TurnNumber: 14
-      EnemyLayout: 0000000001000000000000000000000000000000
+      EnemyLayout: 0000000000000000010000000000000000000000
     - _name: Turn 15
       TurnNumber: 15
       EnemyLayout: 0000000001000000000000000000000000000000
     - _name: Turn 16
       TurnNumber: 16
-      EnemyLayout: 0000000000000000010000000000000000000000
+      EnemyLayout: 0000000000000000000000000100000000000000
     - _name: Turn 17
       TurnNumber: 17
-      EnemyLayout: 0000000000000000000000000100000000000000
-    - _name: Turn 18
-      TurnNumber: 18
       EnemyLayout: 0000000001000000000000000100000000000000
+    - _name: Turn 12
+      TurnNumber: 12
+      EnemyLayout: 0000000001000000000000000000000000000000
   currentWaveIndex: 0
   spawnPositions:
   - {fileID: 0}
