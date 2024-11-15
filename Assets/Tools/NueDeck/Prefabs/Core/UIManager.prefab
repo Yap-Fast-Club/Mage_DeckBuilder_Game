@@ -447,6 +447,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4218586704120490253, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ee65c892e9803a145a9ecc4b6bbb9bfd, type: 3}
     - target: {fileID: 6334593025835562393, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
       propertyPath: m_Name
       value: InformationCanvas
@@ -454,6 +458,10 @@ PrefabInstance:
     - target: {fileID: 6334593025835562393, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088755126486221957, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
+      propertyPath: contentText
+      value: Collected from defeated enemies; trade 5 souls for a new card reward.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -798,6 +806,74 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2388636854935074172}
     m_Modifications:
+    - target: {fileID: 415427405510346288, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: contentText
+      value: Check your Deck
+      objectReference: {fileID: 0}
+    - target: {fileID: 939798781134387050, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 194.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 939798781134387050, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 217.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 939798781134387050, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 191
+      objectReference: {fileID: 0}
+    - target: {fileID: 939798781134387050, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 26.796997
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490555682824399990, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dde7725ad6bd0e840811b6ccea269643, type: 3}
+    - target: {fileID: 3503971492181583461, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -83.544
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503971492181583461, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -12.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503971492181583461, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -107.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807043289350751684, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 108.29999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807043289350751684, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 58.900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904809204248074793, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_margin.y
+      value: 107.93526
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010195151933578515, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 194.5937
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010195151933578515, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 193.3397
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010195151933578515, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 191
+      objectReference: {fileID: 0}
+    - target: {fileID: 4010195151933578515, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 26.797
+      objectReference: {fileID: 0}
+    - target: {fileID: 4397124434526578403, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4550346563000777829, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -878,15 +954,169 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4786861508284979956, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e695a110ba995d94abc1ece9fa93ada0, type: 3}
+    - target: {fileID: 5304673760858524799, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -74.0034
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304673760858524799, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -89.8306
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304673760858524799, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5304673760858524799, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764340750746289769, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764340750746289769, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -46.8784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764340750746289769, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -14
+      objectReference: {fileID: 0}
+    - target: {fileID: 5764340750746289769, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -41.9
+      objectReference: {fileID: 0}
     - target: {fileID: 6447349071978735998, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: m_Name
       value: CombatCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7238812086018302419, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238812086018302419, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: 0.29521182
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238812086018302419, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: 0.40509567
+      objectReference: {fileID: 0}
+    - target: {fileID: 7238812086018302419, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0.5849056
+      objectReference: {fileID: 0}
+    - target: {fileID: 7672616624168652498, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: contentText
+      value: Used to cast Spells
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936265165456413847, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 188.0666
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936265165456413847, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 168.6964
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936265165456413847, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 108.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7936265165456413847, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 157.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239379198556009080, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 194.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239379198556009080, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 8.1691
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239379198556009080, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 191
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239379198556009080, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8960214296027007303, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dde7725ad6bd0e840811b6ccea269643, type: 3}
+    - target: {fileID: 9048364840229743796, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048364840229743796, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048364840229743796, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7384261155516608162, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 530091006596480904}
+    - targetCorrespondingSourceObject: {fileID: 8630211603250925542, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7400978004910956488}
   m_SourcePrefab: {fileID: 100100000, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+--- !u!1 &2710056480937084186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7384261155516608162, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+  m_PrefabInstance: {fileID: 4892638071944145848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &530091006596480904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2710056480937084186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Reset Hand
+  contentText: But careful you are going to lose 1 turn. After 3 turns this is Free!
+  tooltipStaticTargetTransform: {fileID: 0}
+  cursorType: 0
+  delayShowDuration: 0
+--- !u!1 &3756723218546795614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8630211603250925542, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
+  m_PrefabInstance: {fileID: 4892638071944145848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7400978004910956488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756723218546795614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Free Hand Reset
+  contentText: If you play a card while Handel is "Charged" you will draw a card.
+  tooltipStaticTargetTransform: {fileID: 0}
+  cursorType: 0
+  delayShowDuration: 0
 --- !u!114 &8225928748238834599 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3588941169079050271, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
@@ -1006,6 +1236,10 @@ PrefabInstance:
     - target: {fileID: 1182388771344327852, guid: d3a3cca1c891fa443ac291135e47411d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5957098436726035485, guid: d3a3cca1c891fa443ac291135e47411d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -21.7
       objectReference: {fileID: 0}
     - target: {fileID: 8357486618869163012, guid: d3a3cca1c891fa443ac291135e47411d, type: 3}
       propertyPath: m_Name
