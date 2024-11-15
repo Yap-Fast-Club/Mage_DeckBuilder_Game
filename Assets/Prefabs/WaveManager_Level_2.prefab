@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2624828523092639355}
   - component: {fileID: 3374592782789680140}
   m_Layer: 0
-  m_Name: WMLVL2
+  m_Name: WaveManager_Level_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
