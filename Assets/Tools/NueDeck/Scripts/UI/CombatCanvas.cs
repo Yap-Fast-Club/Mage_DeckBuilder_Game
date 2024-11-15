@@ -58,6 +58,7 @@ namespace NueGames.NueDeck.Scripts.UI
         {
             _paidConsumeHandellButton.onClick.AddListener(ConsumeHandell);
             _freeConsumeHandellButton.onClick.AddListener(ConsumeHandell);
+            _paidConsumeHandellButton.gameObject.SetActive(true);
             _freeConsumeHandellButton.gameObject.SetActive(false);
             _freeHandellProgressBar.fillAmount = GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
 
@@ -94,6 +95,7 @@ namespace NueGames.NueDeck.Scripts.UI
 
         private void ShowFreeHandell(bool show)
         {
+            _paidConsumeHandellButton.gameObject.SetActive(!show);
             _freeConsumeHandellButton.gameObject.SetActive(show);
         }
 

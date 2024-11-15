@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1, y: 0.9000015}
-  m_SizeDelta: {x: -18.872, y: -19.133}
+  m_AnchoredPosition: {x: 0, y: 12.1}
+  m_SizeDelta: {x: -74.0034, y: -89.8306}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4455667597462932258
 CanvasRenderer:
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_text: 9/9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 1
@@ -860,8 +860,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: -14, y: -41.9}
+  m_SizeDelta: {x: -10, y: -46.8784}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2037560119068380112
 CanvasRenderer:
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 107.93526, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -998,7 +998,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 108.29999, y: 58.900024}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3292207200143848650
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerText: Draw Pile
-  contentText: 
+  contentText: Check your Deck
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
   delayShowDuration: 0.2
@@ -1133,8 +1133,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 169.1698, y: 21.400024}
-  m_SizeDelta: {x: 119.6888, y: 5.3965}
+  m_AnchoredPosition: {x: 191, y: 10.5}
+  m_SizeDelta: {x: 194.59, y: 8.1691}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &6794204402810268939
 CanvasRenderer:
@@ -1286,8 +1286,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 146.9, y: 182}
-  m_SizeDelta: {x: 75, y: 75}
+  m_AnchoredPosition: {x: 108.3, y: 157.3}
+  m_SizeDelta: {x: 188.0666, y: 168.6964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7504632551906093279
 CanvasRenderer:
@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 196c26b899655284e8f440cfab2c59b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e695a110ba995d94abc1ece9fa93ada0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1340,7 +1340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerText: Mana
-  contentText: 
+  contentText: Used to cast Spells
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
   delayShowDuration: 0.2
@@ -1623,6 +1623,7 @@ GameObject:
   - component: {fileID: 2490555682824399990}
   - component: {fileID: 7238812086018302419}
   - component: {fileID: 7279518594958949597}
+  - component: {fileID: 1356798445281184321}
   m_Layer: 0
   m_Name: PaidHandyButton
   m_TagString: Untagged
@@ -1647,8 +1648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 153.80005, y: 18.650024}
-  m_SizeDelta: {x: 150, y: 67.5}
+  m_AnchoredPosition: {x: 191, y: 26.797}
+  m_SizeDelta: {x: 194.5937, y: 193.3397}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &5863891959204143963
 CanvasRenderer:
@@ -1678,7 +1679,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5677451655352235763, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dde7725ad6bd0e840811b6ccea269643, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1707,10 +1708,10 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.5849056, g: 0.40509567, b: 0.29521182, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -1745,6 +1746,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
+--- !u!114 &1356798445281184321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384261155516608162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Reset Hand
+  contentText: But careful you are going to lose 1 turn. After 3 turns this is Free!
+  tooltipStaticTargetTransform: {fileID: 0}
+  cursorType: 0
+  delayShowDuration: 0.5
 --- !u!1 &8226370873412802014
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,13 +1914,15 @@ GameObject:
   - component: {fileID: 8960214296027007303}
   - component: {fileID: 4397124434526578403}
   - component: {fileID: 2405140796223434041}
+  - component: {fileID: 3127565081365723604}
+  - component: {fileID: 2539015723302192940}
   m_Layer: 0
   m_Name: FreeHandyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &939798781134387050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1920,8 +1940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 153.80005, y: 18.650024}
-  m_SizeDelta: {x: 150, y: 67.5}
+  m_AnchoredPosition: {x: 191, y: 26.796997}
+  m_SizeDelta: {x: 194.59, y: 217.34}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &802772195075664095
 CanvasRenderer:
@@ -1944,14 +1964,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9339623, g: 0.4008989, b: 0.4008989, a: 1}
+  m_Color: {r: 1, g: 0.9181446, b: 0.19339621, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5677451655352235763, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dde7725ad6bd0e840811b6ccea269643, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1980,7 +2000,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2018,6 +2038,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
+--- !u!114 &3127565081365723604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630211603250925542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headerText: Free Hand Reset
+  contentText: If you play a card while Handel is "Charged" you will draw a card.
+  tooltipStaticTargetTransform: {fileID: 0}
+  cursorType: 0
+  delayShowDuration: 0.5
+--- !u!114 &2539015723302192940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8630211603250925542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78362e47ffd03ac48aed6096dfa949b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stillInterval: 3
+  _shakingInterval: 0.6
+  _speed: 30
+  _amount: 2
+  _originalPos: {x: 191, y: 26.797, z: 0}
 --- !u!1 &9069999821265480322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,8 +2106,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: -12.4, y: -107.2}
+  m_SizeDelta: {x: -20, y: -83.544}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2241538333852832074
 CanvasRenderer:
