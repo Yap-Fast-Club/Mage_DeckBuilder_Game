@@ -283,7 +283,7 @@ namespace NueGames.NueDeck.Scripts.Card
         #region Pointer Events
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
-            ShowTooltipInfo();
+            Invoke("ShowTooltipInfo", 0.25f);
         }
 
         public virtual void OnPointerExit(PointerEventData eventData)
@@ -293,12 +293,12 @@ namespace NueGames.NueDeck.Scripts.Card
 
         public virtual void OnPointerDown(PointerEventData eventData)
         {
-            HideTooltipInfo(TooltipManager.Instance);
+            //HideTooltipInfo(TooltipManager.Instance);
         }
 
         public virtual void OnPointerUp(PointerEventData eventData)
         {
-            ShowTooltipInfo();
+            //ShowTooltipInfo();
         }
         #endregion
 
@@ -307,7 +307,9 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             if (!descriptionRoot) return;
             if (CardData.KeywordsList.Count<=0) return;
-           
+
+            Debug.Log("La concha de tu madre");
+
             var tooltipManager = TooltipManager.Instance;
             foreach (var cardDataSpecialKeyword in CardData.KeywordsList)
             {

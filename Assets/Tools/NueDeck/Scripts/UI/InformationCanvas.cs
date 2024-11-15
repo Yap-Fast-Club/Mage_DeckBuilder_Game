@@ -1,6 +1,7 @@
 ﻿using NueGames.NueDeck.Scripts.Managers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace NueGames.NueDeck.Scripts.UI
 {
@@ -10,6 +11,7 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private GameObject randomizedDeckObject;
         [SerializeField] private TextMeshProUGUI roomTextField;
         [SerializeField] private TextMeshProUGUI goldTextField;
+        [SerializeField] private Image _soulsOnImg;
         [SerializeField] private TextMeshProUGUI _soulsTextField;
         [SerializeField] private TextMeshProUGUI nameTextField;
         [SerializeField] private TextMeshProUGUI healthTextField;
@@ -35,7 +37,11 @@ namespace NueGames.NueDeck.Scripts.UI
 
         public void SetGoldText(int value)=>GoldTextField.text = $"{value}";
 
-        public void UpdateSoulsGUI() => SoulsTextField.text = $"{GameManager.PersistentGameplayData.CurrentSouls} / {GameManager.PersistentGameplayData.MaxSouls}";
+        public void UpdateSoulsGUI()
+        {
+            SoulsTextField.text = $"{GameManager.PersistentGameplayData.CurrentSouls}";
+            _soulsOnImg.fillAmount =  (float)GameManager.PersistentGameplayData.CurrentSouls / (float)GameManager.PersistentGameplayData.MaxSouls;
+        }
 
         public void SetNameText(string name) => NameTextField.text = $"{name}";
 

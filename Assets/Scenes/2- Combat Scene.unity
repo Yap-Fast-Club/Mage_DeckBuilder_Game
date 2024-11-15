@@ -269,44 +269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c83131a55db6674b9b99a1b07bcefbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves:
-  - waveEnemies:
-    - Weight: 0
-      Prefab: {fileID: 243822687015991123, guid: c973aeb67e007d54c97fd480d7f50773, type: 3}
-    waveTurns:
-    - _name: Turn 0
-      TurnNumber: 0
-      EnemyLayout: 0100000000000000000000000000000000000000
-    - _name: Turn 2
-      TurnNumber: 2
-      EnemyLayout: 0000000000000000000000000100000000000000
-    - _name: Turn 4
-      TurnNumber: 4
-      EnemyLayout: 0000000000000000010000000000000000000000
-    - _name: Turn 6
-      TurnNumber: 6
-      EnemyLayout: 0100000000000000000000000000000000000000
-    - _name: Turn 8
-      TurnNumber: 8
-      EnemyLayout: 0000000000000000000000000100000000000000
-    - _name: Turn 12
-      TurnNumber: 12
-      EnemyLayout: 0000000001000000000000000000000000000000
-    - _name: Turn 13
-      TurnNumber: 13
-      EnemyLayout: 0100000000000000000000000000000000000000
-    - _name: Turn 14
-      TurnNumber: 14
-      EnemyLayout: 0000000000000000010000000000000000000000
-    - _name: Turn 15
-      TurnNumber: 15
-      EnemyLayout: 0000000001000000000000000000000000000000
-    - _name: Turn 16
-      TurnNumber: 16
-      EnemyLayout: 0000000000000000000000000100000000000000
-    - _name: Turn 17
-      TurnNumber: 17
-      EnemyLayout: 0000000001000000000000000100000000000000
   currentWaveIndex: 0
   spawnPositions:
   - {fileID: 517155314}
@@ -337,6 +299,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8451857014749613608, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8708447814713431381, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1277,7 +1243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1458513858821145713, guid: 0909642e9a1eb99448a7cbf34d61ba4c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.16
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1458513858821145713, guid: 0909642e9a1eb99448a7cbf34d61ba4c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1368,7 +1334,7 @@ Transform:
   m_GameObject: {fileID: 1826299083}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.19, y: 2.73, z: -10}
+  m_LocalPosition: {x: 5.19, y: 2.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

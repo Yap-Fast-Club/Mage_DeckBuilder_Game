@@ -13,7 +13,12 @@ namespace NueGames.NueDeck.Scripts.Card
         public override void SetCard(CardData targetProfile,bool isPlayable)
         {
             base.SetCard(targetProfile,isPlayable);
-           
+    
+            if (CardData.Type == CardType.Incantation)
+            {
+                manaTextField.transform.parent.gameObject.SetActive(false);
+            }
+
             if (canvas)
                 canvas.worldCamera = CollectionManager.HandController.cam;
         }
