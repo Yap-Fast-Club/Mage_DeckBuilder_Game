@@ -309,11 +309,12 @@ namespace NueGames.NueDeck.Scripts.Managers
             }
             else
             {
+                UIManager.CombatCanvas.NextCombatPanel.SetActive(true);
                 CurrentMainAlly.CharacterStats.ClearAllStatus();
                 persistentData.CurrentEncounterId++;
-                UIManager.CombatCanvas.gameObject.SetActive(false);
-                UIManager.RewardCanvas.gameObject.SetActive(true);
-                UIManager.RewardCanvas.PrepareCanvas();
+                //UIManager.CombatCanvas.gameObject.SetActive(false);
+                //UIManager.RewardCanvas.gameObject.SetActive(true);
+                //UIManager.RewardCanvas.PrepareCanvas();
                 //UIManager.RewardCanvas.BuildReward(RewardType.Gold);
                 //UIManager.RewardCanvas.BuildReward(RewardType.Card);
             }

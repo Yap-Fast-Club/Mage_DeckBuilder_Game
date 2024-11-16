@@ -21,6 +21,7 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private TextMeshProUGUI manaTextTextField;
         
         [Header("Panels")]
+        [SerializeField] private GameObject nextCombatPanel;
         [SerializeField] private GameObject combatWinPanel;
         [SerializeField] private GameObject combatLosePanel;
 
@@ -28,6 +29,7 @@ namespace NueGames.NueDeck.Scripts.UI
         public TextMeshProUGUI DiscardPileTextField => discardPileTextField;
         public TextMeshProUGUI ManaTextTextField => manaTextTextField;
         public GameObject CombatWinPanel => combatWinPanel;
+        public GameObject NextCombatPanel => nextCombatPanel;
         public GameObject CombatLosePanel => combatLosePanel;
 
         public TextMeshProUGUI ExhaustPileTextField => exhaustPileTextField;
@@ -39,6 +41,7 @@ namespace NueGames.NueDeck.Scripts.UI
         private void Awake()
         {
             CombatWinPanel.SetActive(false);
+            NextCombatPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
         }
 
@@ -115,6 +118,7 @@ namespace NueGames.NueDeck.Scripts.UI
             base.ResetCanvas();
             CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
+            NextCombatPanel.SetActive(false);
         }
 
         public void EndTurn()
