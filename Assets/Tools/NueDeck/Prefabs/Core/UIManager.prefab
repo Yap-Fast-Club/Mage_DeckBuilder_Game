@@ -655,6 +655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InformationCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6334593025835562393, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6549776233543580892, guid: 701d4c09c8f0880498fb64626727d7bc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1168,7 +1172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6447349071978735998, guid: 3cb5ee0c41b0f3145bdb870938f278a7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
