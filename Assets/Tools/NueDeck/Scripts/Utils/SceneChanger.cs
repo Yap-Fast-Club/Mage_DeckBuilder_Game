@@ -42,6 +42,7 @@ namespace NueGames.NueDeck.Scripts.Utils
                     UIManager.ChangeScene(GameManager.SceneData.mapSceneIndex);
                     UIManager.SetCanvas(UIManager.CombatCanvas,false,true);
                     UIManager.SetCanvas(UIManager.InformationCanvas,true,false);
+                    UIManager.InformationCanvas.HealthTextField.transform.parent.gameObject.SetActive(false);
                     UIManager.SetCanvas(UIManager.RewardCanvas,false,true);
                    
                     break;
@@ -50,6 +51,7 @@ namespace NueGames.NueDeck.Scripts.Utils
                     UIManager.SetCanvas(UIManager.CombatCanvas,false,true);
                     UIManager.SetCanvas(UIManager.InformationCanvas,true,false);
                     UIManager.SetCanvas(UIManager.RewardCanvas,false,true);
+                    UIManager.InformationCanvas.HealthTextField.transform.parent.gameObject.SetActive(true);
                     
                     break;
                 default:
@@ -66,7 +68,6 @@ namespace NueGames.NueDeck.Scripts.Utils
         }
         public void ChangeScene(int sceneId)
         {
-
             if (sceneId == GameManager.SceneData.mainMenuSceneIndex)
                 OpenMainMenuScene();
             else if (sceneId == GameManager.SceneData.mapSceneIndex)

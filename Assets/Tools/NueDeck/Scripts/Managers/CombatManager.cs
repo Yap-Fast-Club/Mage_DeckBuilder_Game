@@ -333,6 +333,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             GameManager.PersistentGameplayData.HandellCount = 0;
             GameManager.PersistentGameplayData.TurnDebt = 0;
 
+            CurrentMainAlly.CharacterStats.SetCurrentHealth(CurrentMainAlly.CharacterStats.MaxHealth);
             UIManager.CombatCanvas.Bind();
         }
 
