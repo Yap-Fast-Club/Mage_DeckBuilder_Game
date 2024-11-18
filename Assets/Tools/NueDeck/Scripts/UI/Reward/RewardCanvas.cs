@@ -90,8 +90,8 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
         public override void ResetCanvas()
         {
             ResetRewards();
-
             ResetChoice();
+            UIManager.InformationCanvas.UpdateSoulsGUI();
         }
 
         private void ResetRewards()
