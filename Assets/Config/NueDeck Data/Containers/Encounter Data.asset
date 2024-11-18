@@ -18,7 +18,7 @@ MonoBehaviour:
     stageId: 0
     normalEncounterList:
     - targetBackgroundType: 0
-      _levelWavesData: {fileID: 11400000, guid: 9864e91b93c9252409daa1864b896d09, type: 2}
+      _levelWavesData: {fileID: 11400000, guid: 9402151570e6b2c4d983c0ed2f747b98, type: 2}
     - targetBackgroundType: 0
       _levelWavesData: {fileID: 11400000, guid: 8c9ad83a15e63c5408282ba80e2565d8, type: 2}
     - targetBackgroundType: 0
