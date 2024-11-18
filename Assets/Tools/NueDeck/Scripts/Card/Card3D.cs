@@ -14,10 +14,7 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             base.SetCard(targetProfile,isPlayable);
     
-            if (CardData.Type == CardType.Incantation)
-            {
-                manaTextField.transform.parent.gameObject.SetActive(false);
-            }
+            
 
             if (canvas)
                 canvas.worldCamera = CollectionManager.HandController.cam;

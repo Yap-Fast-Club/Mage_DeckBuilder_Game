@@ -65,6 +65,10 @@ namespace NueGames.NueDeck.Scripts.Card
             descTextField.text = CardData.MyDescription;
             manaTextField.text = CardData.ManaCost.ToString();
             cardImage.sprite = CardData.CardSprite;
+            if (CardData.Type == CardType.Incantation)
+            {
+                manaTextField.transform.parent.gameObject.SetActive(false);
+            }
             foreach (var rarityRoot in RarityRootList)
                 rarityRoot.gameObject.SetActive(rarityRoot.Rarity == CardData.Rarity);
         }
@@ -209,10 +213,14 @@ namespace NueGames.NueDeck.Scripts.Card
             nameTextField.text = CardData.CardName;
             descTextField.text = CardData.MyDescription;
             manaTextField.text = CardData.ManaCost.ToString();
+
+            if (CardData.Type == CardType.Incantation)
+                manaTextField.transform.parent.gameObject.SetActive(false);
+
         }
-        
+
         #endregion
-        
+
         #region Routines
         protected virtual IEnumerator DiscardRoutine(bool destroy = true)
         {
