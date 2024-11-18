@@ -64,9 +64,6 @@ namespace NueGames.NueDeck.Scripts.UI
             _paidConsumeHandellButton.gameObject.SetActive(true);
             _freeConsumeHandellButton.gameObject.SetActive(false);
             _freeHandellProgressBar.fillAmount = GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
-
-
-            Bind();
         }
         private void OnDisable()
         {
@@ -76,7 +73,6 @@ namespace NueGames.NueDeck.Scripts.UI
         private void OnCardPlayed()
         {
             _freeHandellProgressBar.fillAmount = (float)GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
-            if (_freeConsumeHandellButton.isActiveAndEnabled) return;
 
             if (GameManager.PersistentGameplayData.HandellIsActive)
                 ShowFreeHandell(true);
@@ -119,6 +115,8 @@ namespace NueGames.NueDeck.Scripts.UI
             CombatWinPanel.SetActive(false);
             CombatLosePanel.SetActive(false);
             NextCombatPanel.SetActive(false);
+            ShowFreeHandell(false);
+            _freeHandellProgressBar.fillAmount = 0;
         }
 
         public void EndTurn()

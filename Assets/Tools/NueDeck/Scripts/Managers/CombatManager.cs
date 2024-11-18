@@ -6,6 +6,7 @@ using NueGames.NueDeck.Scripts.Characters.Enemies;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Data.Settings;
 using NueGames.NueDeck.Scripts.Enums;
+using NueGames.NueDeck.Scripts.UI;
 using NueGames.NueDeck.Scripts.Utils.Background;
 using UnityEngine;
 
@@ -106,6 +107,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             switch (targetStateType)
             {
                 case CombatStateType.PrepareCombat:
+                    StartCoroutine(PrepareCombatRoutine());
                     break;
                 case CombatStateType.AllyTurn:
 
@@ -143,9 +145,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                     
                     break;
                 case CombatStateType.EndCombat:
-                    
+                    UIManager.CombatCanvas.Unbind();
                     persistentData.CanSelectCards = false;
-                    
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetStateType), targetStateType, null);
@@ -323,6 +324,18 @@ namespace NueGames.NueDeck.Scripts.Managers
         #endregion
         
         #region Routines
+
+        private IEnumerator PrepareCombatRoutine()
+        {
+            yield return new WaitUntil(() => GameManager.Instance != null);
+
+            GameManager.PersistentGameplayData.CurrentMana = 5;
+            GameManager.PersistentGameplayData.HandellCount = 0;
+            GameManager.PersistentGameplayData.TurnDebt = 0;
+
+            UIManager.CombatCanvas.Bind();
+        }
+
         private IEnumerator EnemyTurnRoutine()
         {
             var waitDelay = new WaitForSeconds(0.1f);
