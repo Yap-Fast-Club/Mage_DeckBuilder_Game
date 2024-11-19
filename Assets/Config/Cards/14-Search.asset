@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: beeDraw
+  m_Name: 14-Search
   m_EditorClassIdentifier: 
-  id: 4_draw_basic
-  cardName: Basic draw
-  type: 0
+  id: 4_search
+  cardName: Search
+  type: 1
   manaCost: 0
   turnCost: 0
   cardSprite: {fileID: 21300000, guid: 6d79f0e0e016ca64592cdb3293bf37da, type: 3}
