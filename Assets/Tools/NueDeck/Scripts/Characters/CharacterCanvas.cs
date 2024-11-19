@@ -25,6 +25,9 @@ namespace NueGames.NueDeck.Scripts.Characters
         [SerializeField] protected Transform descriptionRoot;
         [SerializeField] protected StatusIconsData statusIconsData;
         [SerializeField] protected TextMeshProUGUI currentHealthText;
+        [SerializeField] protected TextMeshProUGUI currentAttackText;
+        [SerializeField] protected TextMeshProUGUI currentMovementText;
+        [SerializeField] protected TextMeshProUGUI currentSoulsText;
         
         #region Cache
 
@@ -94,6 +97,9 @@ namespace NueGames.NueDeck.Scripts.Characters
         }
         
         public void UpdateHealthText(int currentHealth,int maxHealth) =>  currentHealthText.text = $"{currentHealth}/{maxHealth}";
+        public void UpdateAttackGUI (int currentAttack) =>  currentAttackText.text = $"{currentAttack}";
+        public void UpdateMovementGUI (int currentMovement) =>  currentMovementText.text = $"{currentMovement}";
+        public void UpdateSoulsGUI (int currentSouls) =>  currentSoulsText.text = $"{currentSouls}";
         public void SetHighlight(bool open, bool partial = true)
         {
             if (partial)

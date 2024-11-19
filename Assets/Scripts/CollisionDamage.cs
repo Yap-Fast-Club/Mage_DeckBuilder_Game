@@ -14,7 +14,7 @@ public class CollisionDamage : MonoBehaviour
     [SerializeField, Tag] 
     private string _target;
 
-    public int Damage = 1;
+    [SerializeField]private int _damage = 1;
     [SerializeField]
     private bool _autoDestroy = true;
 
@@ -25,18 +25,23 @@ public class CollisionDamage : MonoBehaviour
         _collider = GetComponent<Collider>();
     }
 
+    public void SetDamage (int damage)
+    {
+        _damage = damage;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag(_target)) return;
 
+        var thisCaracter = this.GetComponent<CharacterBase>();
         var otherCharacter = other.GetComponent<CharacterBase>();
 
-        otherCharacter?.CharacterStats.Damage(Damage);
+        otherCharacter?.CharacterStats.Damage(_damage);
 
         if (_autoDestroy)
         {
-            gameObject.GetComponent<SoulContainer>()?.SetSoulAmount(0);
-            gameObject.GetComponent<CharacterBase>()?.CharacterStats.Damage(9999, true);
+            thisCaracter?.CharacterStats.SetCurrentSouls(0);
+            thisCaracter?.CharacterStats.Damage(999999, true);
         }
 
     }

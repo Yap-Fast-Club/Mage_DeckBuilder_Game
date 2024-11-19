@@ -31,18 +31,25 @@ namespace NueGames.NueDeck.Scripts.Characters
     { 
         public int MaxHealth { get; set; }
         public int CurrentHealth { get; set; }
+        public int CurrentDamage { get; set;}
+        public int CurrentMovement { get; set;}
+        public int MaxMovement => 9;
+        public int CurrentSouls { get; set; }
         public bool IsStunned { get;  set; }
         public bool IsDeath { get; private set; }
        
         public Action OnDeath;
         public Action<int, int> OnHealthChanged;
+        public Action<int> OnAttackDamageChanged;
+        public Action<int> OnMovementChanged;
+        public Action<int> OnSoulsChanged;
         private readonly Action<StatusType,int> OnStatusChanged;
         private readonly Action<StatusType, int> OnStatusApplied;
         private readonly Action<StatusType> OnStatusCleared;
         public Action OnHealAction;
         public Action OnTakeDamageAction;
         public Action OnShieldGained;
-        
+         
         public readonly Dictionary<StatusType, StatusStats> StatusDict = new Dictionary<StatusType, StatusStats>();
         
         #region Setup
@@ -57,7 +64,26 @@ namespace NueGames.NueDeck.Scripts.Characters
             OnStatusApplied += characterCanvas.ApplyStatus;
             OnStatusCleared += characterCanvas.ClearStatus;
         }
-        
+
+        public CharacterStats(int maxHealth, int curDamage, int curMovement, int curSouls, CharacterCanvas characterCanvas)
+        {
+            MaxHealth = maxHealth;
+            CurrentHealth = maxHealth;
+            CurrentMovement = curMovement;
+            CurrentDamage = curDamage;
+            CurrentSouls = curSouls;
+            SetAllStatus();
+
+            OnHealthChanged += characterCanvas.UpdateHealthText;
+            OnAttackDamageChanged += characterCanvas.UpdateAttackGUI;
+            OnMovementChanged += characterCanvas.UpdateMovementGUI;
+            OnSoulsChanged += characterCanvas.UpdateSoulsGUI;
+            OnStatusChanged += characterCanvas.UpdateStatusText;
+            OnStatusApplied += characterCanvas.ApplyStatus;
+            OnStatusCleared += characterCanvas.ClearStatus;
+        }
+
+
         private void SetAllStatus()
         {
             for (int i = 0; i < Enum.GetNames(typeof(StatusType)).Length; i++)
@@ -103,8 +129,29 @@ namespace NueGames.NueDeck.Scripts.Characters
         {
             CurrentHealth = targetCurrentHealth <=0 ? 1 : targetCurrentHealth;
             OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
-        } 
-        
+        }
+
+        public void SetCurrentMovement(int targetMovement)
+        {
+            CurrentMovement = targetMovement <= 0 ? 1 : 
+                             targetMovement  > MaxMovement ? MaxMovement :
+                             targetMovement;
+
+            OnMovementChanged?.Invoke(CurrentMovement);
+        }
+
+        public void SetCurrentDamage(int targetDamage)
+        {
+            CurrentDamage = targetDamage < 0 ? 0 : targetDamage;
+            OnAttackDamageChanged?.Invoke(CurrentDamage);
+        }
+
+        public void SetCurrentSouls(int targetSouls)
+        {
+            CurrentSouls = targetSouls < 0 ? 0 : targetSouls;
+            OnSoulsChanged?.Invoke(CurrentSouls);
+        }
+
         public void Heal(int value)
         {
             CurrentHealth += value;

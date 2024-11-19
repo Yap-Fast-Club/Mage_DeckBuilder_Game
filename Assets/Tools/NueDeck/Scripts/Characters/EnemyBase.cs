@@ -19,6 +19,8 @@ namespace NueGames.NueDeck.Scripts.Characters
         [SerializeField] protected SoundProfileData deathSoundProfileData;
         protected EnemyAbilityData NextAbility;
         [SerializeField] GridMovement _movement;
+        [SerializeField] CollisionDamage _damage;
+        [SerializeField] SoulContainer _souls;
         
         public EnemyCharacterData EnemyCharacterData => enemyCharacterData;
         public EnemyCanvas EnemyCanvas => enemyCanvas;
@@ -29,10 +31,19 @@ namespace NueGames.NueDeck.Scripts.Characters
         {
             base.BuildCharacter();
             EnemyCanvas.InitCanvas();
-            CharacterStats = new CharacterStats(EnemyCharacterData.MaxHealth,EnemyCanvas);
+            CharacterStats = new CharacterStats(EnemyCharacterData.MaxHealth,enemyCharacterData.Damage, enemyCharacterData.MovementAmount, enemyCharacterData.Souls, EnemyCanvas);
             CharacterStats.OnDeath += OnDeath;
+
+            CharacterStats.OnAttackDamageChanged += _damage.SetDamage;
+            CharacterStats.OnMovementChanged += _movement.SetAmount;
+            CharacterStats.OnSoulsChanged += _souls.SetSoulAmount;
+
             CharacterStats.SetCurrentHealth(CharacterStats.CurrentHealth);
-            CombatManager.OnAllyTurnStarted += ShowNextAbility;
+            CharacterStats.SetCurrentDamage(CharacterStats.CurrentDamage);
+            CharacterStats.SetCurrentMovement(CharacterStats.CurrentMovement);
+            CharacterStats.SetCurrentSouls(CharacterStats.CurrentSouls);
+
+            //CombatManager.OnAllyTurnStarted += ShowNextAbility;
             CombatManager.OnEnemyTurnStarted += CharacterStats.TriggerAllStatus;
         }
         protected override void OnDeath()

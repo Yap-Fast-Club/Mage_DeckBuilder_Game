@@ -17,6 +17,11 @@ public class GridMovement : MonoBehaviour
         _gridElement = GetComponent<GridElement>();
     }
 
+    public void SetAmount(int amount)
+    {
+        _tileAmount = amount;
+    }
+
     [Button]
     public void Move()
     {

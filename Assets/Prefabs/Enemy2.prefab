@@ -62,6 +62,8 @@ MonoBehaviour:
   enemyCanvas: {fileID: 7422249267346903092}
   deathSoundProfileData: {fileID: 11400000, guid: 7e15e2a10065ab54c8eaf26154af0156, type: 2}
   _movement: {fileID: 4942365027752048736}
+  _damage: {fileID: 3467969193856925460}
+  _souls: {fileID: -4232810593192538239}
 --- !u!54 &735061151
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: Player
-  Damage: 6
+  _damage: 1
   _autoDestroy: 1
 --- !u!114 &-4232810593192538239
 MonoBehaviour:
@@ -440,6 +442,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4015901434650601498, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4144906860905666486, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

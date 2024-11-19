@@ -12,6 +12,11 @@ namespace NueGames.NueDeck.Scripts.Data.Characters
     [CreateAssetMenu(fileName = "Enemy Character Data",menuName = "NueDeck/Characters/Enemy",order = 1)]
     public class EnemyCharacterData : CharacterDataBase
     {
+        [Header("Movement, Attack, Souls")]
+        public int MovementAmount = 2;
+        public int Damage = 4;
+        public int Souls = 1;
+
         [Header("Enemy Defaults")] 
         [SerializeField] private EnemyBase enemyPrefab;
         [SerializeField] private bool followAbilityPattern;
