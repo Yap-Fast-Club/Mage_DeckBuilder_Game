@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Boil Blood
   type: 1
   manaCost: 0
-  turnCost: 1
+  turnCost: 0
   cardSprite: {fileID: 21300000, guid: e13ca5502c4c1624296576ea487dfc09, type: 3}
   rarity: 0
   usableWithoutTarget: 1
@@ -122,5 +122,5 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 06000000
   audioType: 9
