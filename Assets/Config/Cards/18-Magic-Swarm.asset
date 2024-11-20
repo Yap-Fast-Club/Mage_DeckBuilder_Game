@@ -10,32 +10,62 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 12-Tranfusion
+  m_Name: 18-Magic-Swarm
   m_EditorClassIdentifier: 
-  id: 12_tranfusion
-  cardName: Tranfusion
-  type: 1
-  manaCost: 0
-  turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 7184252199212cf4a9288a2a2d70dee1, type: 3}
+  id: 18_magic_swarm
+  cardName: Magic Swarm
+  type: 0
+  manaCost: 6
+  turnCost: 2
+  cardSprite: {fileID: 21300000, guid: 14a0f66a7be165c4ba476e3d7c40e390, type: 3}
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 13
-    actionTargetType: 1
+  - cardActionType: 0
+    actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 2
+    actionValue: 1
     actionDelay: 0
-  - cardActionType: 6
-    actionTargetType: 1
+  - cardActionType: 0
+    actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 8
-    actionDelay: 0
+    actionValue: 1
+    actionDelay: 0.1
+  - cardActionType: 0
+    actionTargetType: 4
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
+    actionDelay: 0.1
+  - cardActionType: 0
+    actionTargetType: 4
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
+    actionDelay: 0.1
+  - cardActionType: 0
+    actionTargetType: 4
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
+    actionDelay: 0.1
+  - cardActionType: 0
+    actionTargetType: 4
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
+    actionDelay: 0.1
+  - cardActionType: 0
+    actionTargetType: 4
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
+    actionDelay: 0.1
   cardDescriptionDataList:
-  - descriptionText: 'Lose '
+  - descriptionText: 'Repeat 6 times: Deal '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -46,14 +76,14 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: ' Health.'
+    overrideColorOnValueScaled: 1
+  - descriptionText: ' damage'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -62,27 +92,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: '
-
-      +'
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
-    useModifier: 1
-    modifiedActionValueIndex: 1
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: ' Mana. '
+  - descriptionText: ' to a random enemy.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -92,4 +102,4 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
-  audioType: 9
+  audioType: 0
