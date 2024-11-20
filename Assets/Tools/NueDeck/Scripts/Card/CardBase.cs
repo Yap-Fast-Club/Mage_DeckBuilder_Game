@@ -25,6 +25,7 @@ namespace NueGames.NueDeck.Scripts.Card
         [SerializeField] protected Transform descriptionRoot;
         [SerializeField] protected Image cardImage;
         [SerializeField] protected Image passiveImage;
+        [SerializeField] protected Image grayedImage;
         [SerializeField] protected TextMeshProUGUI nameTextField;
         [SerializeField] protected TextMeshProUGUI descTextField;
         [SerializeField] protected TextMeshProUGUI manaTextField;
@@ -207,7 +208,14 @@ namespace NueGames.NueDeck.Scripts.Card
             IsInactive = isInactive;
             passiveImage.gameObject.SetActive(isInactive);
         }
-        
+        public virtual void SetGrayedMaterialState(bool state)
+        {
+            if (!IsPlayable) return;
+
+            grayedImage.gameObject.SetActive(state);
+        }
+
+
         public virtual void UpdateCardText()
         {
             CardData.UpdateDescription();

@@ -158,11 +158,19 @@ namespace NueGames.NueDeck.Scripts.Collection
                 var cardTransform = card.transform;
 
                 // Set to inactive material if not enough mana required to use card
-                card.SetInactiveMaterialState(GameManager.PersistentGameplayData.CurrentMana < card.CardData.ManaCost);
-
                 var noCardHeld = _heldCard == null; // Whether a card is "held" (outside of hand)
+
                 var onSelectedCard = noCardHeld && _selected == i;
                 var onDraggedCard = noCardHeld && _dragged == i;
+
+                //Set state
+                bool enoughMana = GameManager.PersistentGameplayData.CurrentMana >= card.CardData.ManaCost;
+                bool setInactive = ! (enoughMana);
+                bool setGrayed = ! noCardHeld || _heldCard == card;
+                card.SetGrayedMaterialState(setGrayed);
+                card.SetInactiveMaterialState(setInactive);
+
+               
 
                 // Get Position along Curve (for card positioning)
                 float selectOffset = 0;
@@ -170,7 +178,6 @@ namespace NueGames.NueDeck.Scripts.Collection
                     selectOffset = 0.02f *
                                    Mathf.Clamp01(1 - Mathf.Abs(Mathf.Abs(i - _selected) - 1) / (float) count * 3) *
                                    Mathf.Sign(i - _selected);
-
                 var t = (i + 0.5f) / count + selectOffset * selectionSpacing;
                 var p = GetCurvePoint(_a, _b, _c, t);
 
