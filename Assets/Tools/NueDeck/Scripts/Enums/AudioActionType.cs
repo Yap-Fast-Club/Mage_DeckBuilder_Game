@@ -12,6 +12,9 @@
         Heal,
         Poison,
         Power,
-        Swing
+        Swing,
+        Music,
+        CardPlayed,
+        CardHovered
     }
 }

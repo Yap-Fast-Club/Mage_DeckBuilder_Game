@@ -86,6 +86,7 @@ namespace NueGames.NueDeck.Scripts.Card
         private IEnumerator CardUseRoutine(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
             SpendMana(CardData.ManaCost);
+            AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
 
             bool resetEnchantment = false;
 
@@ -294,6 +295,8 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             if (tooltipCR == null) 
              tooltipCR = StartCoroutine(ShowTooltipInfo());
+
+            AudioManager.Instance.PlayOneShot(AudioActionType.CardHovered);
         }
 
         public virtual void OnPointerExit(PointerEventData eventData)

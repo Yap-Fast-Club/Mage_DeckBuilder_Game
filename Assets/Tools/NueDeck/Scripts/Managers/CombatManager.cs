@@ -135,7 +135,6 @@ namespace NueGames.NueDeck.Scripts.Managers
                 case CombatStateType.EnemyTurn:
 
                     OnEnemyTurnStarted?.Invoke();
-                    CheckForSoulReward();
 
                     //CollectionManager.DiscardHand();
 
@@ -333,6 +332,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             GameManager.PersistentGameplayData.HandellCount = 0;
             GameManager.PersistentGameplayData.TurnDebt = 0;
 
+            AudioManager.Instance.PlayMusic(AudioActionType.Music);
             CurrentMainAlly.CharacterStats.SetCurrentHealth(CurrentMainAlly.CharacterStats.MaxHealth);
             UIManager.CombatCanvas.Bind();
         }
