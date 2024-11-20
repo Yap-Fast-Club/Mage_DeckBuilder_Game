@@ -1,8 +1,10 @@
 using System;
+using NueGames.NueDeck.Scripts.Collection;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace NueGames.NueDeck.Scripts.Card
 {
@@ -27,17 +29,42 @@ namespace NueGames.NueDeck.Scripts.Card
 
         private void OnChoice()
         {
-            if (GameManager != null)
-                GameManager.PersistentGameplayData.CurrentCardsList.Add(_cardBase.CardData);
-
-            if (CollectionManager.Instance)
-                CollectionManager.UpdateDrawPile();
-
             if (UIManager != null)
                 UIManager.RewardCanvas.ChoicePanel.DisablePanel();
             OnCardChose?.Invoke();
         }
 
+        public void AddCardToHand()
+        {
+            if (GameManager != null)
+            {
+                GameManager.PersistentGameplayData.CurrentCardsList.Add(_cardBase.CardData);
+            }
+
+            if (CollectionManager)
+            {
+                var clone = GameManager.BuildAndGetCard(_cardBase.CardData, CollectionManager.HandController.drawTransform);
+                CollectionManager.HandController.AddCardToHand(clone, 0);
+                CollectionManager.HandPile.Add(_cardBase.CardData);
+                CollectionManager.DrawPile.Remove(_cardBase.CardData);
+            }
+
+        }
+
+        public void RemoveCardFromDeck()
+        {
+            if (GameManager != null)
+            {
+                GameManager.PersistentGameplayData.CurrentCardsList.Remove(_cardBase.CardData);
+            }
+
+            if (CollectionManager)
+            {
+                //CollectionManager.HandController.RemoveCardFromHand();
+                CollectionManager.HandPile.Remove(_cardBase.CardData);
+                CollectionManager.DrawPile.Remove(_cardBase.CardData);
+            }
+        }
 
         public void OnPointerEnter(PointerEventData eventData)
         {

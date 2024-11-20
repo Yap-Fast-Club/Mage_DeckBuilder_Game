@@ -87,6 +87,22 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
             }
         }
 
+        public void InstantRemoveCard()
+        {
+            var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
+            _currentRewardsList.Add(rewardClone);
+
+            rewardContainerData.GetRandomCardRewardList(out var cardRewardData);
+            var removeCardList = new List<CardData>(GameManager.PersistentGameplayData.CurrentCardsList);
+
+            _cardRewardList.Clear();
+            foreach (var cardData in removeCardList)
+                _cardRewardList.Add(cardData);
+            rewardClone.BuildReward(cardRewardData.RewardSprite, cardRewardData.RewardDescription);
+            GetInstantCardRemove(rewardClone, 3);
+               
+        }
+
         public override void ResetCanvas()
         {
             ResetRewards();
@@ -162,6 +178,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
 
                 var reward = _cardRewardList.RandomItem();
                 choice.BuildReward(reward);
+                choice.OnCardChose += choice.AddCardToHand;
                 choice.OnCardChose += ResetCanvas;
                 choice.OnCardChose += () => this.gameObject.SetActive(false);
 
@@ -174,5 +191,33 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
             Destroy(rewardContainer.gameObject);
         }
 
+
+        private void GetInstantCardRemove(RewardContainer rewardContainer, int amount = 3)
+        {
+            ChoicePanel.gameObject.SetActive(true);
+
+            for (int i = 0; i < amount; i++)
+            {
+                Transform spawnTransform = choice2DCardSpawnRoot;
+
+                var choice = Instantiate(choiceCardUIPrefab, spawnTransform);
+
+                var reward = _cardRewardList.RandomItem();
+                choice.BuildReward(reward);
+                choice.OnCardChose += choice.RemoveCardFromDeck;
+                choice.OnCardChose += ResetCanvas;
+                choice.OnCardChose += () => this.gameObject.SetActive(false);
+
+                _cardRewardList.Remove(reward);
+                _spawnedChoiceList.Add(choice);
+                _currentRewardsList.Remove(rewardContainer);
+
+            }
+
+            Destroy(rewardContainer.gameObject);
+        }
+
+
+       
     }
 }

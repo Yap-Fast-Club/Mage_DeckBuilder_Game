@@ -16,6 +16,7 @@
         EmptyAction,
         ManaBasedAttack,
         LoseHealth,
-        EarnManaForEverySoul
+        EarnManaForEverySoul,
+        Erase   
     }
 }

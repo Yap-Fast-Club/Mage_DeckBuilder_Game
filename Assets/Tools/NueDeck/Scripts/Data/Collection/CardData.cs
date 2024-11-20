@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NaughtyAttributes;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
@@ -19,7 +20,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private CardType type;
         [SerializeField] private int manaCost;
         [SerializeField] private int turnCost = 1;
-        [SerializeField] private Sprite cardSprite;
+        [SerializeField, ShowAssetPreview] private Sprite cardSprite;
         [SerializeField] private RarityType rarity;
         
         [Header("Action Settings")]
