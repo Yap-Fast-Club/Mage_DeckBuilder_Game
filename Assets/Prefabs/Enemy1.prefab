@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: Player
+  _damage: 1
   _autoDestroy: 1
 --- !u!114 &1356101822855469986
 MonoBehaviour:
@@ -214,8 +215,8 @@ Transform:
   m_GameObject: {fileID: 243822687401075088}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.12, y: 0.12, z: 0.12}
+  m_LocalPosition: {x: 0, y: -0.113, z: 0}
+  m_LocalScale: {x: -0.12669599, y: 0.12669599, z: 0.12669599}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 491162778199269420}
@@ -584,10 +585,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6193311657365782718, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3870875815336563006}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
 --- !u!224 &48007281245403499 stripped
 RectTransform:
@@ -599,36 +597,9 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6786367083920932585, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
   m_PrefabInstance: {fileID: 4120552361307352797}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7844202555563175523}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b8f2ad586dc4790a30dee7b27e7eb29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &7844202555563175523 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6193311657365782718, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
-  m_PrefabInstance: {fileID: 4120552361307352797}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3870875815336563006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7844202555563175523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b9e0fdc1e8c48d0973b6c0e35b15e78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  headerText: Pepe
-  contentText: pepe?
-  tooltipStaticTargetTransform: {fileID: 8353981315229854944}
-  cursorType: 0
-  delayShowDuration: 0.5
---- !u!224 &8353981315229854944 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5386420829826941501, guid: 4a531535fdf794e4893297aa72798b93, type: 3}
-  m_PrefabInstance: {fileID: 4120552361307352797}
-  m_PrefabAsset: {fileID: 0}
