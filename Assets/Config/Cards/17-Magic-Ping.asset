@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 17-Magic-Ping
   m_EditorClassIdentifier: 
   id: 17_magic_ping
-  cardName: Magic Ping
+  cardName: Spark
   type: 0
   manaCost: 1
   turnCost: 0

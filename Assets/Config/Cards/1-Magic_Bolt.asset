@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1-Magic_Bolt
   m_EditorClassIdentifier: 
   id: 1_magic_bolt
-  cardName: Magic Bolt
+  cardName: Fire Bolt
   type: 0
   manaCost: 2
   turnCost: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 7_tighten_up
   m_EditorClassIdentifier: 
   id: 7_tighten_up
-  cardName: Tighten Up
+  cardName: Might
   type: 1
   manaCost: 0
   turnCost: 1

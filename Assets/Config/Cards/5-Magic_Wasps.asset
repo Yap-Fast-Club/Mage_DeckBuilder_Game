@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5-Magic_Wasps
   m_EditorClassIdentifier: 
   id: 5_magic_wasps
-  cardName: Magic Wasps
+  cardName: Shard Volley
   type: 0
   manaCost: 3
   turnCost: 1

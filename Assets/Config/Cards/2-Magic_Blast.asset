@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2-Magic_Blast
   m_EditorClassIdentifier: 
   id: 2_magic_blast
-  cardName: Magic Blast
+  cardName: Fire Blast
   type: 0
   manaCost: 4
   turnCost: 1
