@@ -101,7 +101,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public int CurrentSouls
         {
             get => currentSouls;
-            set => currentSouls = value;
+            set => currentSouls = value < 0 ? 0 : value;
         }
         public int TurnDebt
         {

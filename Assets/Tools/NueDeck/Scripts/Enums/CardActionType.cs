@@ -17,6 +17,8 @@
         ManaBasedAttack,
         LoseHealth,
         EarnManaForEverySoul,
-        Erase   
+        Erase,   
+        DealDamageForEverySoul,
+        SpendSouls,
     }
 }
