@@ -31,6 +31,7 @@ namespace NueGames.NueDeck.Scripts.Card
         [SerializeField] protected TextMeshProUGUI descTextField;
         [SerializeField] protected TextMeshProUGUI manaTextField;
         [SerializeField] protected List<RarityRoot> rarityRootList;
+        [SerializeField] protected List<TypeRoot> _typeRootList;
         
 
         #region Cache
@@ -73,6 +74,9 @@ namespace NueGames.NueDeck.Scripts.Card
             }
             foreach (var rarityRoot in RarityRootList)
                 rarityRoot.gameObject.SetActive(rarityRoot.Rarity == CardData.Rarity);
+
+            foreach (var typeRoot in _typeRootList)
+                typeRoot.gameObject.SetActive(typeRoot.Type == CardData.Type);
         }
         
         #endregion
