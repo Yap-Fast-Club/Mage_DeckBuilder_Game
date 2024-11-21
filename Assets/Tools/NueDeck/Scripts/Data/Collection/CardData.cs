@@ -187,11 +187,15 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 {
                     if (ModiferStats == StatusType.EnchantmentAndLeftMana)
                     {
-                        modifer = player.CharacterStats.StatusDict[StatusType.Enchantment].StatusValue + GameManager.Instance.PersistentGameplayData.CurrentMana - cardData.ManaCost;
+                        modifer = player.CharacterStats.StatusDict[StatusType.Power].StatusValue + GameManager.Instance.PersistentGameplayData.CurrentMana - cardData.ManaCost;
                     }
                     else if (ModiferStats == StatusType.SoulScale)
                     {
                         modifer = (GameManager.Instance.PersistentGameplayData.CurrentSouls -1) * ((int)value);
+                    }
+                    else if (ModiferStats == StatusType.EnchantmentAndSoulScale)
+                    {
+                        modifer = player.CharacterStats.StatusDict[StatusType.Power].StatusValue + (GameManager.Instance.PersistentGameplayData.CurrentSouls - 1) * ((int)value);
                     }
                     else
                     {

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class ManaAttackAction: CardActionBase
+    public class ManaAttackAction: AttackAction
     {
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
@@ -17,7 +17,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             var targetCharacter = actionParameters.TargetCharacter;
             var selfCharacter = actionParameters.SelfCharacter;
             
-            var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Enchantment].StatusValue + PersistendData.CurrentMana;
+            var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Power].StatusValue + PersistendData.CurrentMana;
 
 
             targetCharacter.CharacterStats.Damage(Mathf.RoundToInt(value));

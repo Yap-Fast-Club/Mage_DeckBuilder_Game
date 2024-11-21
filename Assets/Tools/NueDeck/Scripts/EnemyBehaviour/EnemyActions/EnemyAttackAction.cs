@@ -12,7 +12,7 @@ namespace NueGames.NueDeck.Scripts.EnemyBehaviour.EnemyActions
         {
             if (!actionParameters.TargetCharacter) return;
             var value = Mathf.RoundToInt(actionParameters.Value +
-                                         actionParameters.SelfCharacter.CharacterStats.StatusDict[StatusType.Enchantment]
+                                         actionParameters.SelfCharacter.CharacterStats.StatusDict[StatusType.Power]
                                              .StatusValue);
             actionParameters.TargetCharacter.CharacterStats.Damage(value);
             if (FxManager != null)

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class DealXDamage4EverySoulAction : CardActionBase
+    public class DealXDamage4EverySoulAction : AttackAction
     {
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
@@ -19,7 +19,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             var targetCharacter = actionParameters.TargetCharacter;
             var selfCharacter = actionParameters.SelfCharacter;
 
-            value += selfCharacter.CharacterStats.StatusDict[StatusType.Enchantment].StatusValue;
+            value += selfCharacter.CharacterStats.StatusDict[StatusType.Power].StatusValue;
 
             targetCharacter.CharacterStats.Damage(Mathf.RoundToInt(value));
 

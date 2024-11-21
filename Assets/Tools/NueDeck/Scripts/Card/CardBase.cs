@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using NueGames.NueDeck.Scripts.Card.CardActions;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Settings;
@@ -91,23 +92,21 @@ namespace NueGames.NueDeck.Scripts.Card
 
             bool resetEnchantment = false;
 
-            foreach (var playerAction in CardData.CardActionDataList)
+            foreach (var actionData in CardData.CardActionDataList)
             {
-                yield return new WaitForSeconds(playerAction.ActionDelay);
-                var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, playerAction);
+                yield return new WaitForSeconds(actionData.ActionDelay);
+                var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);
 
+                var action = CardActionProcessor.GetAction(actionData.CardActionType);
                 foreach (var target in targetList)
-                    CardActionProcessor.GetAction(playerAction.CardActionType)
-                        .DoAction(new CardActionParameters(playerAction.ActionValue,
-                            target,self,CardData,this));
+                    action.DoAction(new CardActionParameters(actionData.ActionValue,target,self,CardData,this));
 
-                if (playerAction.CardActionType == CardActionType.Attack || 
-                    playerAction.CardActionType == CardActionType.ManaBasedAttack) 
+                if (action is AttackAction)
                     resetEnchantment = true;
             }
 
             if (resetEnchantment)
-                self.CharacterStats.StatusDict[StatusType.Enchantment].StatusValue = 0;
+                self.CharacterStats.StatusDict[StatusType.Power].StatusValue = 0;
 
 
             if (persistentData.HandellIsActive)

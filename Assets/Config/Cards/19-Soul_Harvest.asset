@@ -13,41 +13,55 @@ MonoBehaviour:
   m_Name: 19-Soul_Harvest
   m_EditorClassIdentifier: 
   id: 19_soul-harvest
-  cardName: Judgment
+  cardName: Pandemonium
   type: 0
   manaCost: 6
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 03e6f50b7a998ed46a4c3f9f8cb0855e, type: 3}
+  cardSprite: {fileID: 21300000, guid: e691198d56e3a1848b5009e1ff94dbb5, type: 3}
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 14
-    actionTargetType: 1
+  - cardActionType: 16
+    actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 3
     actionDelay: 0
+  - cardActionType: 11
+    actionTargetType: 0
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
+    actionDelay: 0
+  - cardActionType: 17
+    actionTargetType: 0
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 99999
+    actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: +
+  - descriptionText: Spend all your souls (
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
-    useModifier: 1
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: ' Mana for every soul you have.'
+    enableOverrideColor: 1
+    overrideColor: {r: 0.7046466, g: 0, b: 1, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 1
+    modiferStats: 7
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ').
+
+'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -56,7 +70,25 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' (Current '
+  - descriptionText: 'Deal '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Damage for each spent ('
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -67,10 +99,10 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 0
-    modiferStats: 7
+    modifiedActionValueIndex: 1
+    modiferStats: 8
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0

@@ -94,7 +94,7 @@ namespace NueGames.NueDeck.Scripts.Characters
 
             StatusDict[StatusType.Block].ClearAtNextTurn = true;
 
-            StatusDict[StatusType.Enchantment].CanNegativeStack = true;
+            StatusDict[StatusType.Power].CanNegativeStack = true;
             StatusDict[StatusType.Dexterity].CanNegativeStack = true;
             
             StatusDict[StatusType.Stun].DecreaseOverTurn = true;

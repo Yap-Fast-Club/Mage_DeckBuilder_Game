@@ -15,7 +15,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             
             if (!newTarget) return;
             
-            newTarget.CharacterStats.ApplyStatus(StatusType.Enchantment,Mathf.RoundToInt(actionParameters.Value));
+            newTarget.CharacterStats.ApplyStatus(StatusType.Power,Mathf.RoundToInt(actionParameters.Value));
             
             if (FxManager != null) 
                 FxManager.PlayFx(newTarget.transform, FxType.Str);

@@ -10,26 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 14-Search
+  m_Name: 20-Soul_Reap
   m_EditorClassIdentifier: 
-  id: 4_search
-  cardName: Search
-  type: 1
-  manaCost: 0
+  id: 20_soul-reap
+  cardName: Dark Grasp
+  type: 0
+  manaCost: 3
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: abf2a4962389e40cf8e89245d2836909, type: 3}
+  cardSprite: {fileID: 21300000, guid: 2bb02b871b3de264084da35529482ade, type: 3}
   rarity: 0
-  usableWithoutTarget: 1
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 5
-    actionTargetType: 1
+  - cardActionType: 16
+    actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 1
+    actionValue: 4
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Draw '
+  - descriptionText: 'Deal '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -47,7 +47,25 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' cards'
+  - descriptionText: ' Damage for each soul ('
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 8
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: )
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -57,4 +75,4 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
-  audioType: 4
+  audioType: 9
