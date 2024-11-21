@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Collection;
 using NueGames.NueDeck.Scripts.Data.Collection;
+using NueGames.NueDeck.Scripts.Data.Settings;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -120,6 +121,8 @@ namespace NueGames.NueDeck.Scripts.Managers
             HandPile.Remove(targetCard.CardData);
             ExhaustPile.Add(targetCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
+
+            GameManager.PersistentGameplayData.CurrentCardsList.Remove(targetCard.CardData);
         }
 
 
