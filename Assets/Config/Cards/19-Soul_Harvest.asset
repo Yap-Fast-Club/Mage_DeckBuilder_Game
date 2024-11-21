@@ -41,7 +41,7 @@ MonoBehaviour:
     actionValue: 99999
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: Spend all your souls (
+  - descriptionText: Spend all souls (
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -88,7 +88,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Damage for each spent ('
+  - descriptionText: ' Damage for each soul spent ('
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
     enableOverrideColor: 1
     overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 1
+    modifiedActionValueIndex: 0
     modiferStats: 8
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
