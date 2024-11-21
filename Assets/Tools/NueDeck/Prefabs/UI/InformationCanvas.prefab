@@ -1677,7 +1677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerText: Souls
-  contentText: Collected from defeated enemies; trade 5 souls for a new card reward.
+  contentText: "Collected from defeated enemies;\nAt the start of your turn, trade\r
+    3 souls for a new card reward."
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
   delayShowDuration: 0
