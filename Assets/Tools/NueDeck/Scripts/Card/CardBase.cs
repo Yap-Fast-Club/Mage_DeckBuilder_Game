@@ -90,7 +90,7 @@ namespace NueGames.NueDeck.Scripts.Card
             SpendMana(CardData.ManaCost);
             AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
 
-            bool resetEnchantment = false;
+            bool resetPower = false;
 
             foreach (var actionData in CardData.CardActionDataList)
             {
@@ -102,11 +102,13 @@ namespace NueGames.NueDeck.Scripts.Card
                     action.DoAction(new CardActionParameters(actionData.ActionValue,target,self,CardData,this));
 
                 if (action is AttackAction)
-                    resetEnchantment = true;
+                    resetPower = true;
             }
 
-            if (resetEnchantment)
-                self.CharacterStats.StatusDict[StatusType.Power].StatusValue = 0;
+            if (resetPower)
+            {
+                self.CharacterStats.ClearStatus(StatusType.Power);
+            }
 
 
             if (persistentData.HandellIsActive)
