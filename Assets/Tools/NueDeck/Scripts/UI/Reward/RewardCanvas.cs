@@ -180,20 +180,25 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                 int j = 0;
                 var reward = _cardRewardList.RandomItem();
 
-                while (spawnedRewards.Contains(reward) || j < 200)
+                while (spawnedRewards.Contains(reward) && j < 50)
                 {
                     reward = _cardRewardList.RandomItem();
                     j++;
                 }
 
-                spawnedRewards.Add(reward);
-                choice.BuildReward(reward);
-                choice.OnCardChose += choice.AddCardToHand;
-                choice.OnCardChose += ResetCanvas;
-                choice.OnCardChose += () => this.gameObject.SetActive(false);
 
-                _cardRewardList.Remove(reward);
-                _spawnedChoiceList.Add(choice);
+                if (!spawnedRewards.Contains(reward))
+                {
+                    spawnedRewards.Add(reward);
+                    choice.BuildReward(reward);
+                    choice.OnCardChose += choice.AddCardToHand;
+                    choice.OnCardChose += ResetCanvas;
+                    choice.OnCardChose += () => this.gameObject.SetActive(false);
+
+                    _cardRewardList.Remove(reward);
+                    _spawnedChoiceList.Add(choice);
+                }
+
                 _currentRewardsList.Remove(rewardContainer);
 
             }
