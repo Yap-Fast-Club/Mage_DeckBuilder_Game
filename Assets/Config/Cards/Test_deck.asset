@@ -16,11 +16,6 @@ MonoBehaviour:
   deckName: Starter Deck
   cardList:
   - {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-  - {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-  - {fileID: 11400000, guid: 40849326e12d83443b6f49f1ab30134f, type: 2}
-  - {fileID: 11400000, guid: aabd5eb005470de47bd9fe59d9f0606f, type: 2}
-  - {fileID: 11400000, guid: 2ed1ed6bf3759fb40b1e88f7a3eae0ce, type: 2}
-  - {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
-  - {fileID: 11400000, guid: c851f9a32bac1854cb31b092d894fd0c, type: 2}
-  - {fileID: 11400000, guid: 18dcbc8f9ec7a6f4495429a9149ae647, type: 2}
-  - {fileID: 11400000, guid: 5a5bcbbefd6be3443a38cbfa2963be74, type: 2}
+  - {fileID: 11400000, guid: 444a5e755358d734c9116d3614318746, type: 2}
+  - {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
+  - {fileID: 11400000, guid: af02730c54040ee4881c3a030106ed26, type: 2}
