@@ -1198,8 +1198,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 193, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 190.72437, y: 0}
+  m_SizeDelta: {x: 59.3703, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7783496576481994516
 CanvasRenderer:
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 07b2a618c93ed824bb6d6a4129ae7a30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2371bbbe31321c04e8b4e9de7d6bab75, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3418,7 +3418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -50, y: -0.31601}
+  m_AnchoredPosition: {x: -25.03003, y: 7.36}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6693311433460728299
@@ -3449,7 +3449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1756447cbccb48d4fa7186910d7b6371, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 59e7332663ec7d14298bd51677557f64, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4219,8 +4219,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 601.3793, y: 377.38046}
-  m_SizeDelta: {x: 160, y: 128.4}
+  m_AnchoredPosition: {x: 625, y: 418.1757}
+  m_SizeDelta: {x: 188.8966, y: 169.1952}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &4821485635260769729
 CanvasRenderer:
@@ -4250,7 +4250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 61bd45e7fb9252d4b8d571affe1b1cf0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 638458a371371b743a6a3697096c0182, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
