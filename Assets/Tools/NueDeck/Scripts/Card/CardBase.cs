@@ -267,7 +267,7 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             var timer = 0f;
             transform.SetParent(CollectionManager.HandController.exhaustTransform);
-            
+
             var startPos = CachedTransform.localPosition;
             var endPos = Vector3.zero;
 
@@ -276,16 +276,44 @@ namespace NueGames.NueDeck.Scripts.Card
 
             var startRot = CachedTransform.localRotation;
             var endRot = Quaternion.Euler(Random.value * 360, Random.value * 360, Random.value * 360);
-            
+
             while (true)
             {
-                timer += Time.deltaTime*5;
+                timer += Time.deltaTime * 2;
+                CachedTransform.localPosition = Vector3.Lerp(startPos, endPos - Vector3.down * 0.4f, timer);
+                CachedTransform.localRotation = Quaternion.Lerp(startRot,Quaternion.identity,timer);
+
+                if (timer >= 1f) break;
+
+                yield return CachedWaitFrame;
+            }
+
+            startPos = CachedTransform.localPosition;
+            startRot = CachedTransform.localRotation;
+            timer = 0;
+
+            while (true)
+            {
+                timer += Time.deltaTime;
+                //CachedTransform.localPosition = startPos;
+                //CachedTransform.localRotation = startRot;
+
+                if (timer >= 0.8f) break;
+
+                yield return CachedWaitFrame;
+            }
+
+            timer = 0;
+
+            while (true)
+            {
+                timer += Time.deltaTime * 2;
 
                 CachedTransform.localPosition = Vector3.Lerp(startPos, endPos, timer);
                 CachedTransform.localRotation = Quaternion.Lerp(startRot,endRot,timer);
                 CachedTransform.localScale = Vector3.Lerp(startScale, endScale, timer);
                 
-                if (timer>=1f)  break;
+                if (timer >= 1f)  break;
                 
                 yield return CachedWaitFrame;
             }

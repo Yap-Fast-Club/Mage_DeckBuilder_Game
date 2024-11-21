@@ -80,16 +80,24 @@ namespace NueGames.NueDeck.Scripts.Managers
                 }
 
                 var randomCard = DrawPile[Random.Range(0, DrawPile.Count)];
-                var clone = GameManager.BuildAndGetCard(randomCard, HandController.drawTransform);
-                HandController.AddCardToHand(clone, 0);
-                HandPile.Add(randomCard);
-                DrawPile.Remove(randomCard);
+                DrawCard(randomCard);
                 currentDrawCount++;
-                UIManager.CombatCanvas.SetPileTexts();
             }
             
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardText();
+        }
+
+        public void DrawCard(CardData card, bool ignoreLimit = false)
+        {
+            if (GameManager.GameplayData.MaxCardOnHand <= HandPile.Count && !ignoreLimit)
+                return;
+
+            var clone = GameManager.BuildAndGetCard(card, HandController.drawTransform);
+            HandController.AddCardToHand(clone, 0);
+            HandPile.Add(card);
+            DrawPile.Remove(card);
+            UIManager.CombatCanvas.SetPileTexts();
 
         }
         public void DiscardHand()
@@ -113,6 +121,8 @@ namespace NueGames.NueDeck.Scripts.Managers
             ExhaustPile.Add(targetCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
         }
+
+
 
         public void OnCardPlayed(CardBase targetCard)
         {

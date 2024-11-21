@@ -20,5 +20,6 @@
         Erase,   
         DealDamageForEverySoul,
         SpendSouls,
+        RandomErase   
     }
 }
