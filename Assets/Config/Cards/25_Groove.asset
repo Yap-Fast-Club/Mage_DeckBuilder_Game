@@ -10,56 +10,55 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 5-Magic_Wasps
+  m_Name: 25_Groove
   m_EditorClassIdentifier: 
-  id: 5_magic_wasps
-  cardName: Shard Volley
-  type: 0
-  manaCost: 3
-  turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 406984ac0d0fc2c4bbaf906048f7c43e, type: 3}
+  id: 25_groove
+  cardName: Sneak
+  type: 1
+  manaCost: 0
+  turnCost: 0
+  cardSprite: {fileID: 21300000, guid: b490f847d23af44e59dd29336d6293a4, type: 3}
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 0
-    actionTargetType: 4
+  - cardActionType: 3
+    actionTargetType: 1
     actionAreaType: 0
-    actionAreaValue: 1
+    actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.1
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.1
   cardDescriptionDataList:
-  - descriptionText: 'Repeat 3 times: Deal '
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+  - descriptionText: 'Instant.
+
+'
+    enableOverrideColor: 1
+    overrideColor: {r: 0.012948694, g: 0.6603774, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
+  - descriptionText: +
+    enableOverrideColor: 0
+    overrideColor: {r: 0.10849059, g: 0.20034468, b: 1, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Mana. Instant'
+    enableOverrideColor: 0
+    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 3
-    usePrefixOnModifiedValue: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 1
-  - descriptionText: ' damage'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Power.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -68,14 +67,5 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' to a random enemy.'
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  specialKeywordsList: 
-  audioType: 0
+  specialKeywordsList: 0600000001000000
+  audioType: 9

@@ -16,6 +16,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             if (CollectionManager.DrawPile.Count > 0)
             {
                 var randomCardData = CollectionManager.DrawPile.RandomItem();
+                Debug.Log("yeah");
                 CollectionManager.DrawCard(randomCardData);
 
                 var cardInHand = CollectionManager.HandController.hand.Find(c => c.CardData == randomCardData);

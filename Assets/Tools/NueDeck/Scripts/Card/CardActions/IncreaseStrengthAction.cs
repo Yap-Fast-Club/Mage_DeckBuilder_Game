@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class IncreaseStrengthAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Enchant;
+        public override CardActionType ActionType => CardActionType.Power;
         public override void DoAction(CardActionParameters actionParameters)
         {
             var newTarget = actionParameters.TargetCharacter

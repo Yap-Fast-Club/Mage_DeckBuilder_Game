@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using NaughtyAttributes;
+using NueGames.NueDeck.Scripts.Data.Settings;
+using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Data.Collection
@@ -15,5 +18,28 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public string DeckId => deckId;
 
         public string DeckName => deckName;
+
+        [Button]
+        public void LoadOnGamePlaySettings()
+        {
+            GameplayData gamePlayData = LoadScriptableObject<GameplayData>("Assets/Config/NueDeck Data/Settings/Gameplay Settings.asset");
+
+            if (gamePlayData != null)
+            {
+                gamePlayData.InitalDeck = this;
+
+                Debug.Log($"Updated InitialDeck in GamePlayData to {this.name}");
+            }
+            else
+            {
+                Debug.LogError("Failed to find GamePlayData ScriptableObject at Assets/Config/Nue Data/Settings/Gameplay Settings.asset");
+            }
+        }
+
+        private static T LoadScriptableObject<T>(string path) where T : ScriptableObject
+        {
+            AssetDatabase.Refresh(); // Ensure the asset database is up-to-date
+            return AssetDatabase.LoadAssetAtPath<T>(path);
+        }
     }
 }

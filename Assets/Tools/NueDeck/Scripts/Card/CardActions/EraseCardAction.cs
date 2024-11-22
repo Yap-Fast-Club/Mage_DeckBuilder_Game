@@ -8,7 +8,6 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class EraseCardAction : CardActionBase
     {
-        PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.Erase;
 

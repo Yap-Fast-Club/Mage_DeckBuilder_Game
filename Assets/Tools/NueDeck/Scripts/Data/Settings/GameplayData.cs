@@ -39,7 +39,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public int MaxSouls => maxSouls;
         public bool IsRandomHand => isRandomHand;
         public List<AllyBase> InitalAllyList => initalAllyList;
-        public DeckData InitalDeck => initalDeck;
+        public DeckData InitalDeck { get => initalDeck; set => initalDeck = value; }
         public int RandomCardCount => randomCardCount;
         public int MaxCardOnHand => maxCardOnHand;
         public List<CardData> AllCardsList => allCardsList;
