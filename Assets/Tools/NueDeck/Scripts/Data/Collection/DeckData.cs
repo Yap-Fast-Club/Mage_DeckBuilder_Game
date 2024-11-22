@@ -18,6 +18,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public string DeckId => deckId;
 
         public string DeckName => deckName;
+#if UNITY_EDITOR
 
         [Button]
         public void LoadOnGamePlaySettings()
@@ -41,5 +42,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             AssetDatabase.Refresh(); // Ensure the asset database is up-to-date
             return AssetDatabase.LoadAssetAtPath<T>(path);
         }
+#endif
     }
 }
