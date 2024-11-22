@@ -145,6 +145,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                     break;
                 case CombatStateType.EndCombat:
                     UIManager.CombatCanvas.Unbind();
+                    AudioManager.StopMusic();
+                    AudioManager.PlayMusic(AudioActionType.MenuMusic);
                     persistentData.CanSelectCards = false;
                     break;
                 default:
@@ -332,7 +334,8 @@ namespace NueGames.NueDeck.Scripts.Managers
             GameManager.PersistentGameplayData.HandellCount = 0;
             GameManager.PersistentGameplayData.TurnDebt = 0;
 
-            AudioManager.Instance.PlayMusic(AudioActionType.Music);
+            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.PlayMusic(AudioActionType.CombatMusic);
             CurrentMainAlly.CharacterStats.SetCurrentHealth(CurrentMainAlly.CharacterStats.MaxHealth);
             UIManager.CombatCanvas.Bind();
         }

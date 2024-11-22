@@ -15,22 +15,22 @@ MonoBehaviour:
   drawCount: 6
   initialMana: 5
   maxMana: 10
-  maxSouls: 5
+  maxSouls: 3
   initalAllyList:
   - {fileID: 2835035829204582327, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
-  initalDeck: {fileID: 11400000, guid: ce453c5a3a783864ca79ffd188d57ab7, type: 2}
+  initalDeck: {fileID: 11400000, guid: 1f1db59d6dc1c1046b2ad72c336c615e, type: 2}
   maxCardOnHand: 10
   allCardsList:
-  - {fileID: 11400000, guid: 1e43cdb39f5836b44942f367125cadde, type: 2}
-  - {fileID: 11400000, guid: 8f655889219afa649a967e88e37f98ec, type: 2}
-  - {fileID: 11400000, guid: e1783ca46b526944c969405b4c0a29ec, type: 2}
-  - {fileID: 11400000, guid: 7c3fef23d2fb177478906e53364bf7fc, type: 2}
-  - {fileID: 11400000, guid: 97392c824000e4049a6299b2cef0e84d, type: 2}
-  - {fileID: 11400000, guid: 9706119fd5cc9f34e90cb73be068200c, type: 2}
-  - {fileID: 11400000, guid: 1e5671bf6b0f90b428df809497a2f125, type: 2}
-  - {fileID: 11400000, guid: 5d6b018bf7dec554ba0a2eabfd89d3b1, type: 2}
-  - {fileID: 11400000, guid: ffd3079242e164645ba9365c7c965def, type: 2}
-  - {fileID: 11400000, guid: 1e43cdb39f5836b44942f367125cadde, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 3da1f1cdc28882b4caa6ac6c3eb5bb9a, type: 2}
   - {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
   - {fileID: 11400000, guid: 5a5bcbbefd6be3443a38cbfa2963be74, type: 2}

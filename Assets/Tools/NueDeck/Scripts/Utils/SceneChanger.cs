@@ -30,6 +30,8 @@ namespace NueGames.NueDeck.Scripts.Utils
             switch (type)
             {
                 case SceneType.MainMenu:
+                    AudioManager.Instance.StopMusic();
+                    AudioManager.Instance.PlayMusic(Enums.AudioActionType.MenuMusic);
                     UIManager.ChangeScene(GameManager.SceneData.mainMenuSceneIndex);
                     UIManager.SetCanvas(UIManager.CombatCanvas,false,true);
                     UIManager.SetCanvas(UIManager.InformationCanvas,false,true);
@@ -39,6 +41,7 @@ namespace NueGames.NueDeck.Scripts.Utils
                     GameManager.SetInitalHand();
                     break;
                 case SceneType.Map:
+                 
                     UIManager.ChangeScene(GameManager.SceneData.mapSceneIndex);
                     UIManager.SetCanvas(UIManager.CombatCanvas,false,true);
                     UIManager.SetCanvas(UIManager.InformationCanvas,true,false);

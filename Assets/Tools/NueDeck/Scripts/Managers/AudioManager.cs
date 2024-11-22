@@ -51,6 +51,11 @@ namespace NueGames.NueDeck.Scripts.Managers
             musicSource.Play();
         }
 
+        public void StopMusic()
+        {
+            musicSource.Stop();
+        }
+
         public void PlayMusic(AudioActionType type)
         {
             var clip = _audioDict[type].GetRandomClip();

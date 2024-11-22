@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8f29259e87442338a016acd10256ddc, type: 3}
-  m_Name: ButtonSoundProfile
+  m_Name: MenuSoundProfile
   m_EditorClassIdentifier: 
-  audioType: 3
-  randomClipList: []
+  audioType: 14
+  randomClipList:
+  - {fileID: 8300000, guid: 86b225e2506d5004da21eac1d5a9aabc, type: 3}
