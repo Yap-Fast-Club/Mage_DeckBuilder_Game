@@ -15,7 +15,7 @@ MonoBehaviour:
   characterID: enemy_3
   characterName: Enemy 3
   characterDescription: Enemy Description
-  maxHealth: 16
+  maxHealth: 20
   MovementAmount: 1
   Damage: 14
   Souls: 1
