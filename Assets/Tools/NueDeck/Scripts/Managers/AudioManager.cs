@@ -15,6 +15,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField]private AudioSource musicSource;
         [SerializeField]private AudioSource sfxSource;
         [SerializeField]private AudioSource buttonSource;
+
+        private float _ogMusicVolume;
+        private float _ogSFXVolume;
         
         [SerializeField] private List<SoundProfileData> soundProfileDataList;
         
@@ -23,6 +26,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         #region Setup
         private void Awake()
         {
+
+
             if (Instance != null)
             {
                 Destroy(gameObject);
@@ -30,6 +35,8 @@ namespace NueGames.NueDeck.Scripts.Managers
             }
             else
             {
+                _ogMusicVolume = musicSource.volume;
+                _ogSFXVolume = sfxSource.volume;
                 transform.parent = null;
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
@@ -37,15 +44,16 @@ namespace NueGames.NueDeck.Scripts.Managers
                 for (int i = 0; i < Enum.GetValues(typeof(AudioActionType)).Length; i++)
                     _audioDict.Add((AudioActionType)i,soundProfileDataList.FirstOrDefault(x=>x.AudioType == (AudioActionType)i));
             }
+
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.M))
-                musicSource.volume = musicSource.volume == 0 ? 1 : 0;
+                musicSource.volume = musicSource.volume == 0 ? _ogMusicVolume : 0;
 
             if (Input.GetKeyDown(KeyCode.S))
-                sfxSource.volume = sfxSource.volume == 0 ? 1 : 0;
+                sfxSource.volume = sfxSource.volume == 0 ? _ogSFXVolume : 0;
         }
         #endregion
 
