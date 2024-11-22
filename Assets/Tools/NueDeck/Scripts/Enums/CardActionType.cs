@@ -5,7 +5,7 @@
         Attack,
         Heal,
         Block,
-        Enchant,
+        Power,
         IncreaseMaxHealth,
         Draw,
         EarnMana,

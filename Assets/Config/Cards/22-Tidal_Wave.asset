@@ -10,32 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 16-Common_Erase
+  m_Name: 22-Tidal_Wave
   m_EditorClassIdentifier: 
-  id: 16_common_erase
-  cardName: Food for Handell
-  type: 1
-  manaCost: 0
-  turnCost: 0
-  cardSprite: {fileID: 21300000, guid: dde7725ad6bd0e840811b6ccea269643, type: 3}
-  rarity: 2
+  id: 22_Tidal_Wave
+  cardName: Tidal Wave
+  type: 0
+  manaCost: 4
+  turnCost: 1
+  cardSprite: {fileID: 21300000, guid: bae2606058e254f9dba969bc42be928b, type: 3}
+  rarity: 1
   usableWithoutTarget: 1
-  exhaustAfterPlay: 1
+  exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 18
-    actionTargetType: 3
+  - cardActionType: 10
+    actionTargetType: 4
     actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
+    actionAreaValue: 3
+    actionValue: 4
     actionDelay: 0
   - cardActionType: 11
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
-    actionDelay: 0.4
+    actionDelay: 0.5
   cardDescriptionDataList:
-  - descriptionText: 'Erase a random card inside Handell. '
+  - descriptionText: 'Push '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -44,14 +44,23 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: Erase.
+  - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0.39462644, b: 0, a: 1}
+    overrideColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 1
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 1
+  - descriptionText: ' three random enemies.'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 00000000
   audioType: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class PushAction: CardActionBase
+    public class PushAction: AttackAction
     {
         public override CardActionType ActionType => CardActionType.Push;
         public override void DoAction(CardActionParameters actionParameters)

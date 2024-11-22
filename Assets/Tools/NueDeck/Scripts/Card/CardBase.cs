@@ -130,6 +130,8 @@ namespace NueGames.NueDeck.Scripts.Card
             CardActionData playerAction)
         {
             List<CharacterBase> targetList = new List<CharacterBase>();
+            List<EnemyBase> _allEnemies = new List<EnemyBase>(allEnemies);
+
             switch (playerAction.ActionTargetType)
             {
                 case ActionTargetType.Enemy:
@@ -139,7 +141,7 @@ namespace NueGames.NueDeck.Scripts.Card
                     targetList.Add(targetCharacter);
                     break;
                 case ActionTargetType.AllEnemies:
-                    foreach (var enemyBase in allEnemies)
+                    foreach (var enemyBase in _allEnemies)
                         targetList.Add(enemyBase);
                     break;
                 case ActionTargetType.AllAllies:
@@ -147,8 +149,8 @@ namespace NueGames.NueDeck.Scripts.Card
                         targetList.Add(allyBase);
                     break;
                 case ActionTargetType.RandomEnemy:
-                    if (allEnemies.Count>0)
-                        targetList.Add(allEnemies.RandomItem());
+                    for (int i = 0; i < playerAction.ActionAreaValue && _allEnemies.Count > 0; i++) 
+                        targetList.Add(_allEnemies.RandomItemRemove());
                     
                     break;
                 case ActionTargetType.RandomAlly:
