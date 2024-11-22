@@ -39,8 +39,16 @@ namespace NueGames.NueDeck.Scripts.Managers
             }
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+                musicSource.volume = musicSource.volume == 0 ? 1 : 0;
+
+            if (Input.GetKeyDown(KeyCode.S))
+                sfxSource.volume = sfxSource.volume == 0 ? 1 : 0;
+        }
         #endregion
-        
+
         #region Public Methods
 
         public void PlayMusic(AudioClip clip)
