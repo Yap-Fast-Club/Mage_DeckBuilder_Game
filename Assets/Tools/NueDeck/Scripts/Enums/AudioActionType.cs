@@ -13,8 +13,11 @@
         Poison,
         Power,
         Swing,
-        Music,
+        CombatMusic,
         CardPlayed,
-        CardHovered
+        CardHovered,
+        MenuMusic,
+        MeteorBegin,
+        MeteorEnd
     }
 }

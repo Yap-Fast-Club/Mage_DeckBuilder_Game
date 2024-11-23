@@ -12,4 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e628dff86861d6845933bd119b2dcb61, type: 3}
   m_Name: Level 3_Waves
   m_EditorClassIdentifier: 
-  Waves: []
+  Waves:
+  - waveEnemies:
+    - Weight: 0
+      Prefab: {fileID: 243822687015991123, guid: c973aeb67e007d54c97fd480d7f50773, type: 3}
+    - Weight: 0
+      Prefab: {fileID: 243822687015991123, guid: 9fec376b8bc12e645a735f176747a31b, type: 3}
+    - Weight: 0
+      Prefab: {fileID: 243822687015991123, guid: 12422914cfeeb1349afec0d663b87504, type: 3}
+    waveTurns:
+    - _name: Turn 1
+      TurnNumber: 1
+      EnemyLayout: 0000000001000000010000000000000000000000
+    - _name: Turn 2
+      TurnNumber: 2
+      EnemyLayout: 0200000000000000000000000200000000000000
+    - _name: Turn 3
+      TurnNumber: 3
+      EnemyLayout: 0000000001000000000000000100000000000000
+    - _name: Turn 5
+      TurnNumber: 5
+      EnemyLayout: 0000000000000000030000000000000000000000
+    - _name: Turn 6
+      TurnNumber: 6
+      EnemyLayout: 0000000001000000000000000100000000000000
+    - _name: Turn 7
+      TurnNumber: 7
+      EnemyLayout: 0200000000000000000000000000000000000000
+    - _name: Turn 11
+      TurnNumber: 11
+      EnemyLayout: 0000000001000000020000000000000000000000
+    - _name: Turn 12
+      TurnNumber: 12
+      EnemyLayout: 0000000001000000000000000100000000000000
+    - _name: Turn 13
+      TurnNumber: 13
+      EnemyLayout: 0100000001000000010000000000000000000000
+    - _name: Turn 14
+      TurnNumber: 14
+      EnemyLayout: 0000000003000000030000000000000000000000
+    - _name: Turn 18
+      TurnNumber: 18
+      EnemyLayout: 0300000003000000030000000300000000000000
+    - _name: Turn 20
+      TurnNumber: 20
+      EnemyLayout: 0200000000000000000000000200000000000000

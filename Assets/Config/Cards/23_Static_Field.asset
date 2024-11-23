@@ -10,23 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: beeHeal
+  m_Name: 23_Static_Field
   m_EditorClassIdentifier: 
-  id: 5_heal_basic
-  cardName: Basic heal
-  manaCost: 1
+  id: 23_static_field
+  cardName: Static Field
+  type: 0
+  manaCost: 4
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: f071ce71140638f469d6a10acc1a1b67, type: 3}
-  rarity: 0
+  cardSprite: {fileID: 21300000, guid: 25126c248902e8347a4a2f96259cb92b, type: 3}
+  rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 1
-    actionTargetType: 1
-    actionValue: 3
+  - cardActionType: 12
+    actionTargetType: 2
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Heal '
+  - descriptionText: 'Deal 1 DMG for each Mana after casting to all enemies. '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: '
+
+      ('
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -36,13 +50,22 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 6
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Total DMG)'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 1
+    useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
-  audioType: 7
+  audioType: 0

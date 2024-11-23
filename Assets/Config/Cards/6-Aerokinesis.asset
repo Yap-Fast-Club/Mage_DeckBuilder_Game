@@ -33,7 +33,7 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
-    actionDelay: 1
+    actionDelay: 0.5
   cardDescriptionDataList:
   - descriptionText: 'Push '
     enableOverrideColor: 0

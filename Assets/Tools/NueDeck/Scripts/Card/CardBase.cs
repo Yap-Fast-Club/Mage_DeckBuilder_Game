@@ -20,7 +20,7 @@ using Random = UnityEngine.Random;
 
 namespace NueGames.NueDeck.Scripts.Card
 {
-    public class CardBase : MonoBehaviour,I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
+    public class CardBase : MonoBehaviour, I2DTooltipTarget, IPointerDownHandler, IPointerUpHandler
     {
         [Header("Base References")]
         [SerializeField] protected Transform descriptionRoot;
@@ -31,7 +31,8 @@ namespace NueGames.NueDeck.Scripts.Card
         [SerializeField] protected TextMeshProUGUI descTextField;
         [SerializeField] protected TextMeshProUGUI manaTextField;
         [SerializeField] protected List<RarityRoot> rarityRootList;
-        
+        [SerializeField] protected List<TypeRoot> _typeRootList;
+
 
         #region Cache
         public CardData CardData { get; private set; }
@@ -47,11 +48,16 @@ namespace NueGames.NueDeck.Scripts.Card
         private PersistentGameplayData persistentData => GameManager.PersistentGameplayData;
         protected CombatManager CombatManager => CombatManager.Instance;
         protected CollectionManager CollectionManager => CollectionManager.Instance;
-        
+        protected StatusStats FocusStat => CombatManager.CurrentMainAlly.CharacterStats.StatusDict[StatusType.Focus];
+
+
         public bool IsExhausted { get; private set; }
 
+        public int FinalManaCost => Mathf.Max(0, CardData.ManaCost - FocusStat.StatusValue);
+
+
         #endregion
-        
+
         #region Setup
         protected virtual void Awake()
         {
@@ -59,7 +65,7 @@ namespace NueGames.NueDeck.Scripts.Card
             CachedWaitFrame = new WaitForEndOfFrame();
         }
 
-        public virtual void SetCard(CardData targetProfile,bool isPlayable = true)
+        public virtual void SetCard(CardData targetProfile, bool isPlayable = true)
         {
             CardData = targetProfile;
             IsPlayable = isPlayable;
@@ -73,24 +79,30 @@ namespace NueGames.NueDeck.Scripts.Card
             }
             foreach (var rarityRoot in RarityRootList)
                 rarityRoot.gameObject.SetActive(rarityRoot.Rarity == CardData.Rarity);
+
+            foreach (var typeRoot in _typeRootList)
+                typeRoot.gameObject.SetActive(typeRoot.Type == CardData.Type);
         }
-        
+
         #endregion
-        
+
         #region Card Methods
-        public virtual void Use(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
+        public virtual void Use(CharacterBase self, CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
             if (!IsPlayable) return;
-         
+
             StartCoroutine(CardUseRoutine(self, targetCharacter, allEnemies, allAllies));
         }
 
-        private IEnumerator CardUseRoutine(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
+        private IEnumerator CardUseRoutine(CharacterBase self, CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
-            SpendMana(CardData.ManaCost);
+            SpendMana(CardData.ManaCost - FocusStat.StatusValue);
             AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
 
             bool resetPower = false;
+
+            if (CardData.Id == "21-meteor_call")
+                AudioManager.Instance.PlayOneShot(AudioActionType.MeteorBegin);
 
             foreach (var actionData in CardData.CardActionDataList)
             {
@@ -99,16 +111,23 @@ namespace NueGames.NueDeck.Scripts.Card
 
                 var action = CardActionProcessor.GetAction(actionData.CardActionType);
                 foreach (var target in targetList)
-                    action.DoAction(new CardActionParameters(actionData.ActionValue,target,self,CardData,this));
+                    action.DoAction(new CardActionParameters(actionData.ActionValue, target, self, CardData, this));
 
                 if (action is AttackAction)
                     resetPower = true;
             }
 
+            if (CardData.Id == "21-meteor_call")
+                AudioManager.Instance.PlayOneShot(AudioActionType.MeteorEnd);
+
             if (resetPower)
-            {
                 self.CharacterStats.ClearStatus(StatusType.Power);
+
+            if (CardData.Type == CardType.Spell)
+            {
+                self.CharacterStats.ClearStatus(StatusType.Focus);
             }
+
 
 
             if (persistentData.HandellIsActive)
@@ -126,6 +145,8 @@ namespace NueGames.NueDeck.Scripts.Card
             CardActionData playerAction)
         {
             List<CharacterBase> targetList = new List<CharacterBase>();
+            List<EnemyBase> _allEnemies = new List<EnemyBase>(allEnemies);
+
             switch (playerAction.ActionTargetType)
             {
                 case ActionTargetType.Enemy:
@@ -135,7 +156,7 @@ namespace NueGames.NueDeck.Scripts.Card
                     targetList.Add(targetCharacter);
                     break;
                 case ActionTargetType.AllEnemies:
-                    foreach (var enemyBase in allEnemies)
+                    foreach (var enemyBase in _allEnemies)
                         targetList.Add(enemyBase);
                     break;
                 case ActionTargetType.AllAllies:
@@ -143,12 +164,12 @@ namespace NueGames.NueDeck.Scripts.Card
                         targetList.Add(allyBase);
                     break;
                 case ActionTargetType.RandomEnemy:
-                    if (allEnemies.Count>0)
-                        targetList.Add(allEnemies.RandomItem());
-                    
+                    for (int i = 0; i < playerAction.ActionAreaValue && _allEnemies.Count > 0; i++)
+                        targetList.Add(_allEnemies.RandomItemRemove());
+
                     break;
                 case ActionTargetType.RandomAlly:
-                    if (allAllies.Count>0)
+                    if (allAllies.Count > 0)
                         targetList.Add(allAllies.RandomItem());
                     break;
                 default:
@@ -157,7 +178,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
             return targetList;
         }
-        
+
         public virtual void Discard()
         {
             if (IsExhausted) return;
@@ -165,7 +186,7 @@ namespace NueGames.NueDeck.Scripts.Card
             CollectionManager.OnCardDiscarded(this);
             StartCoroutine(DiscardRoutine());
         }
-        
+
         public virtual void Exhaust(bool destroy = true)
         {
             if (IsExhausted) return;
@@ -178,6 +199,11 @@ namespace NueGames.NueDeck.Scripts.Card
         protected virtual void SpendMana(int value)
         {
             if (!IsPlayable) return;
+
+            if (CardData.Type == CardType.Spell)
+            {
+                FocusStat.StatusValue = 0;
+            }
             persistentData.CurrentMana -= value;
         }
 
@@ -201,11 +227,11 @@ namespace NueGames.NueDeck.Scripts.Card
             persistentData.HandellCount += sumValue;
         }
 
-        public virtual void SetInactiveMaterialState(bool isInactive) 
+        public virtual void SetInactiveMaterialState(bool isInactive)
         {
             if (!IsPlayable) return;
-            if (isInactive == this.IsInactive) return; 
-            
+            if (isInactive == this.IsInactive) return;
+
             IsInactive = isInactive;
             passiveImage.gameObject.SetActive(isInactive);
         }
@@ -220,12 +246,40 @@ namespace NueGames.NueDeck.Scripts.Card
         public virtual void UpdateCardText()
         {
             CardData.UpdateDescription();
+
+
             nameTextField.text = CardData.CardName;
             descTextField.text = CardData.MyDescription;
-            manaTextField.text = CardData.ManaCost.ToString();
 
             if (CardData.Type == CardType.Incantation)
+            {
                 manaTextField.transform.parent.gameObject.SetActive(false);
+                return;
+            }
+
+            int manaValue = Mathf.Max(0, CardData.ManaCost - FocusStat.StatusValue);
+
+            if (manaValue > CardData.ManaCost)
+            {
+                manaTextField.fontStyle = FontStyles.Underline;
+                manaTextField.color = Color.red;
+            }
+            else if (manaValue < CardData.ManaCost)
+            {
+                manaTextField.color = Color.green;
+                manaTextField.fontStyle = FontStyles.Underline;
+
+            }
+            else
+            {
+                manaTextField.fontStyle = FontStyles.Normal;
+                manaTextField.color = Color.white;
+            }
+
+            manaTextField.text = manaValue.ToString();
+
+
+           
 
         }
 
@@ -236,7 +290,7 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             var timer = 0f;
             transform.SetParent(CollectionManager.HandController.discardTransform);
-            
+
             var startPos = CachedTransform.localPosition;
             var endPos = Vector3.zero;
 
@@ -245,25 +299,25 @@ namespace NueGames.NueDeck.Scripts.Card
 
             var startRot = CachedTransform.localRotation;
             var endRot = Quaternion.Euler(Random.value * 360, Random.value * 360, Random.value * 360);
-            
+
             while (true)
             {
-                timer += Time.deltaTime*5;
+                timer += Time.deltaTime * 5;
 
                 CachedTransform.localPosition = Vector3.Lerp(startPos, endPos, timer);
-                CachedTransform.localRotation = Quaternion.Lerp(startRot,endRot,timer);
+                CachedTransform.localRotation = Quaternion.Lerp(startRot, endRot, timer);
                 CachedTransform.localScale = Vector3.Lerp(startScale, endScale, timer);
-                
-                if (timer>=1f)  break;
-                
+
+                if (timer >= 1f) break;
+
                 yield return CachedWaitFrame;
             }
 
             if (destroy)
                 Destroy(gameObject);
-           
+
         }
-        
+
         protected virtual IEnumerator ExhaustRoutine(bool destroy = true)
         {
             var timer = 0f;
@@ -280,9 +334,9 @@ namespace NueGames.NueDeck.Scripts.Card
 
             while (true)
             {
-                timer += Time.deltaTime * 2;
+                timer += Time.deltaTime * 3;
                 CachedTransform.localPosition = Vector3.Lerp(startPos, endPos - Vector3.down * 0.4f, timer);
-                CachedTransform.localRotation = Quaternion.Lerp(startRot,Quaternion.identity,timer);
+                CachedTransform.localRotation = Quaternion.Lerp(startRot, Quaternion.identity, timer);
 
                 if (timer >= 1f) break;
 
@@ -308,20 +362,20 @@ namespace NueGames.NueDeck.Scripts.Card
 
             while (true)
             {
-                timer += Time.deltaTime * 2;
+                timer += Time.deltaTime * 3;
 
                 CachedTransform.localPosition = Vector3.Lerp(startPos, endPos, timer);
-                CachedTransform.localRotation = Quaternion.Lerp(startRot,endRot,timer);
+                CachedTransform.localRotation = Quaternion.Lerp(startRot, endRot, timer);
                 CachedTransform.localScale = Vector3.Lerp(startScale, endScale, timer);
-                
-                if (timer >= 1f)  break;
-                
+
+                if (timer >= 1f) break;
+
                 yield return CachedWaitFrame;
             }
 
             if (destroy)
                 Destroy(gameObject);
-           
+
         }
 
         #endregion
@@ -330,8 +384,8 @@ namespace NueGames.NueDeck.Scripts.Card
         Coroutine tooltipCR = null;
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
-            if (tooltipCR == null) 
-             tooltipCR = StartCoroutine(ShowTooltipInfo());
+            if (tooltipCR == null)
+                tooltipCR = StartCoroutine(ShowTooltipInfo());
 
             AudioManager.Instance.PlayOneShot(AudioActionType.CardHovered);
         }
@@ -356,21 +410,21 @@ namespace NueGames.NueDeck.Scripts.Card
         protected virtual IEnumerator ShowTooltipInfo()
         {
             if (!descriptionRoot) yield break;
-            if (CardData.KeywordsList.Count<=0) yield break;
+            if (CardData.KeywordsList.Count <= 0) yield break;
 
             yield return new WaitForSeconds(0.25f);
 
             var tooltipManager = TooltipManager.Instance;
             foreach (var cardDataSpecialKeyword in CardData.KeywordsList)
             {
-                var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x=>x.SpecialKeyword == cardDataSpecialKeyword);
+                var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x => x.SpecialKeyword == cardDataSpecialKeyword);
                 if (specialKeyword != null)
-                    ShowTooltipInfo(tooltipManager,specialKeyword.GetContent(),specialKeyword.GetHeader(),descriptionRoot,CursorType.Default,CollectionManager ? CollectionManager.HandController.cam : Camera.main);
+                    ShowTooltipInfo(tooltipManager, specialKeyword.GetContent(), specialKeyword.GetHeader(), descriptionRoot, CursorType.Default, CollectionManager ? CollectionManager.HandController.cam : Camera.main);
             }
         }
-        public virtual void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default,Camera cam = null, float delayShow =0)
+        public virtual void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default, Camera cam = null, float delayShow = 0)
         {
-            tooltipManager.ShowTooltip(content,header,tooltipStaticTransform,targetCursor,cam,delayShow);
+            tooltipManager.ShowTooltip(content, header, tooltipStaticTransform, targetCursor, cam, delayShow);
         }
 
         public virtual void HideTooltipInfo(TooltipManager tooltipManager)
@@ -381,6 +435,6 @@ namespace NueGames.NueDeck.Scripts.Card
             tooltipManager.HideTooltip();
         }
         #endregion
-       
+
     }
 }

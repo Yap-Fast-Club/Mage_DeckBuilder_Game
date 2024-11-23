@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 19_soul-harvest
   cardName: Pandemonium
   type: 0
-  manaCost: 6
+  manaCost: 4
   turnCost: 1
   cardSprite: {fileID: 21300000, guid: e691198d56e3a1848b5009e1ff94dbb5, type: 3}
   rarity: 2
@@ -88,7 +88,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Damage for each soul spent ('
+  - descriptionText: ' Damage to all enemis for each soul spent ('
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

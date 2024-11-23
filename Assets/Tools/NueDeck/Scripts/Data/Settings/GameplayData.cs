@@ -27,6 +27,9 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [Header("Customization Settings")] 
         [SerializeField] private string defaultName = "Nue";
         [SerializeField] private bool useStageSystem;
+        public Color InstantTextColor;
+        public Color FatigueTextColor;
+        public Color EraseTextColor;
         
         [Header("Modifiers")]
         [SerializeField] private bool isRandomHand = false;
@@ -39,7 +42,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public int MaxSouls => maxSouls;
         public bool IsRandomHand => isRandomHand;
         public List<AllyBase> InitalAllyList => initalAllyList;
-        public DeckData InitalDeck => initalDeck;
+        public DeckData InitalDeck { get => initalDeck; set => initalDeck = value; }
         public int RandomCardCount => randomCardCount;
         public int MaxCardOnHand => maxCardOnHand;
         public List<CardData> AllCardsList => allCardsList;

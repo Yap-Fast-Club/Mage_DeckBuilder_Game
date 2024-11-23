@@ -25,26 +25,24 @@ public class GridMovement : MonoBehaviour
     [Button]
     public void Move()
     {
-        transform.position = transform.position + _direction * _tileAmount * _gridElement.TileSize;
-
+        StartCoroutine(MoveCR(_tileAmount, _direction));
         _gridElement.SnapToGrid();
     }
 
     public void GetPushed(int tileAmount)
     {
-        StartCoroutine(GetPushedCR(tileAmount));
+        StartCoroutine(MoveCR(tileAmount, _direction * -1));
     }
 
     private bool collided = false;
-    private IEnumerator GetPushedCR(int tileAmount)
+    private IEnumerator MoveCR(int tileAmount, Vector3 direction)
     {
         int remainingTiles = tileAmount;
         collided = false;
 
         while (remainingTiles > 0) 
         {
-            Debug.Log(remainingTiles);
-            transform.position = transform.position - _direction * _gridElement.TileSize;
+            transform.position = transform.position + direction * _gridElement.TileSize;
 
             yield return new WaitForFixedUpdate();
 
@@ -52,7 +50,7 @@ public class GridMovement : MonoBehaviour
 
             if (collided){
                 yield return new WaitForSeconds(0.05f);
-                transform.position = transform.position + _direction * _gridElement.TileSize;
+                transform.position = transform.position - direction * _gridElement.TileSize;
                 remainingTiles = 0;
             }
 
@@ -61,7 +59,6 @@ public class GridMovement : MonoBehaviour
 
 
         _gridElement.SnapToGrid();
-
     }
 
 

@@ -5,7 +5,7 @@
         Attack,
         Heal,
         Block,
-        Enchant,
+        Power,
         IncreaseMaxHealth,
         Draw,
         EarnMana,
@@ -20,6 +20,7 @@
         Erase,   
         DealDamageForEverySoul,
         SpendSouls,
-        RandomErase   
+        RandomErase,
+        Focus
     }
 }
