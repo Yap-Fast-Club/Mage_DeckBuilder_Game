@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 26-Channel
   m_EditorClassIdentifier: 
   id: 26-Channel
-  cardName: Channel
+  cardName: Lock In
   type: 1
   manaCost: 0
   turnCost: 1
