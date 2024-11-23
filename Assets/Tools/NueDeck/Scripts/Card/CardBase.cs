@@ -51,6 +51,7 @@ namespace NueGames.NueDeck.Scripts.Card
         
         public bool IsExhausted { get; private set; }
 
+
         #endregion
         
         #region Setup
@@ -91,7 +92,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
         private IEnumerator CardUseRoutine(CharacterBase self,CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
-            SpendMana(CardData.ManaCost);
+            SpendMana(CardData.ManaCost - CombatManager.CurrentMainAlly.CharacterStats.StatusDict[StatusType.Focus].StatusValue);
             AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
 
             bool resetPower = false;
@@ -232,6 +233,8 @@ namespace NueGames.NueDeck.Scripts.Card
         public virtual void UpdateCardText()
         {
             CardData.UpdateDescription();
+
+
             nameTextField.text = CardData.CardName;
             descTextField.text = CardData.MyDescription;
             manaTextField.text = CardData.ManaCost.ToString();
@@ -292,7 +295,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
             while (true)
             {
-                timer += Time.deltaTime * 2;
+                timer += Time.deltaTime * 3;
                 CachedTransform.localPosition = Vector3.Lerp(startPos, endPos - Vector3.down * 0.4f, timer);
                 CachedTransform.localRotation = Quaternion.Lerp(startRot,Quaternion.identity,timer);
 
@@ -320,7 +323,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
             while (true)
             {
-                timer += Time.deltaTime * 2;
+                timer += Time.deltaTime * 3;
 
                 CachedTransform.localPosition = Vector3.Lerp(startPos, endPos, timer);
                 CachedTransform.localRotation = Quaternion.Lerp(startRot,endRot,timer);

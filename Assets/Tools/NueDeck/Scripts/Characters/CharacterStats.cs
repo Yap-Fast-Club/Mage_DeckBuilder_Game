@@ -162,6 +162,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         public void Damage(int value, bool canPierceArmor = false)
         {
             if (IsDeath) return;
+            value = value < 0 ? 0 : value;
             OnTakeDamageAction?.Invoke();
             var remainingDamage = value;
             

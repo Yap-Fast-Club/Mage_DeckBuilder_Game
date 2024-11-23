@@ -10,7 +10,8 @@
         Stun,
         EnchantmentAndLeftMana,
         SoulScale,
-        EnchantmentAndSoulScale
+        EnchantmentAndSoulScale,
+        Focus
 
     }
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class IncreaseStrengthAction : CardActionBase
+    public class IncreaseFocusAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Power;
+        public override CardActionType ActionType => CardActionType.Focus;
         public override void DoAction(CardActionParameters actionParameters)
         {
             var newTarget = actionParameters.TargetCharacter
@@ -15,10 +15,10 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             
             if (!newTarget) return;
             
-            newTarget.CharacterStats.ApplyStatus(StatusType.Power,Mathf.RoundToInt(actionParameters.Value));
+            newTarget.CharacterStats.ApplyStatus(StatusType.Focus, Mathf.RoundToInt(actionParameters.Value));
             
             if (FxManager != null) 
-                FxManager.PlayFx(newTarget.transform, FxType.Str);
+                FxManager.PlayFx(newTarget.transform, FxType.Buff);
 
             if (AudioManager != null) 
                 AudioManager.PlayOneShot(actionParameters.CardData.AudioType);

@@ -20,6 +20,7 @@
         Erase,   
         DealDamageForEverySoul,
         SpendSouls,
-        RandomErase   
+        RandomErase,
+        Focus
     }
 }
