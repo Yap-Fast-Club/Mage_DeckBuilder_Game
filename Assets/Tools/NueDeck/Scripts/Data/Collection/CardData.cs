@@ -52,6 +52,10 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
         public bool ExhaustAfterPlay => exhaustAfterPlay;
 
+        private Color InstantTextColor => GameManager.Instance.GameplayData.InstantTextColor;
+        private Color FatigueTextColor => GameManager.Instance.GameplayData.FatigueTextColor;
+        private Color EraseTextColor => GameManager.Instance.GameplayData.EraseTextColor;
+
         #endregion
         
         #region Methods
@@ -59,11 +63,33 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         {
             var str = new StringBuilder();
 
+            if (turnCost == 0)
+            {
+                str.Append(ColorExtentions.ColorString("Instant\n", InstantTextColor));
+                if (!KeywordsList.Contains(SpecialKeywords.Instant))
+                    KeywordsList.Add(SpecialKeywords.Instant);
+            }
+
+            if (turnCost > 1)
+            {
+                str.Append(ColorExtentions.ColorString("Fatigue\n", FatigueTextColor));
+                if (!KeywordsList.Contains(SpecialKeywords.Fatigue))
+                    KeywordsList.Add(SpecialKeywords.Fatigue);
+            }
+
+
             foreach (var descriptionData in cardDescriptionDataList)
             {
                 str.Append(descriptionData.UseModifier
                     ? descriptionData.GetModifiedValue(this)
                     : descriptionData.GetDescription());
+            }
+
+            if (exhaustAfterPlay)
+            {
+                str.Append(ColorExtentions.ColorString("\nErase", EraseTextColor));
+                if (!KeywordsList.Contains(SpecialKeywords.Erase))
+                    KeywordsList.Add(SpecialKeywords.Erase);
             }
             
             MyDescription = str.ToString();
@@ -188,6 +214,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                     if (ModiferStats == StatusType.EnchantmentAndLeftMana)
                     {
                         modifer = player.CharacterStats.StatusDict[StatusType.Power].StatusValue + GameManager.Instance.PersistentGameplayData.CurrentMana - cardData.ManaCost;
+                        modifer = modifer < 0 ? 0 : modifer;
                     }
                     else if (ModiferStats == StatusType.SoulScale)
                     {

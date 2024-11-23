@@ -27,6 +27,9 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [Header("Customization Settings")] 
         [SerializeField] private string defaultName = "Nue";
         [SerializeField] private bool useStageSystem;
+        public Color InstantTextColor;
+        public Color FatigueTextColor;
+        public Color EraseTextColor;
         
         [Header("Modifiers")]
         [SerializeField] private bool isRandomHand = false;
