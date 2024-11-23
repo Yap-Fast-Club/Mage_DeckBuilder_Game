@@ -33,13 +33,13 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
-    actionDelay: 0.4
+    actionDelay: 0.5
   - cardActionType: 11
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
-    actionDelay: 0.2
+    actionDelay: 0.5
   cardDescriptionDataList:
   - descriptionText: 'Instant.
 
