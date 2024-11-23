@@ -19,7 +19,7 @@ MonoBehaviour:
   turnCost: 1
   cardSprite: {fileID: 21300000, guid: 1458237dbb3c6d54f8fe9d39c0175d00, type: 3}
   rarity: 1
-  usableWithoutTarget: 0
+  usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
   - cardActionType: 12
