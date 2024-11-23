@@ -33,37 +33,17 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
-    actionDelay: 0.5
+    actionDelay: 1
   - cardActionType: 11
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
-    actionDelay: 0.5
+    actionDelay: 1
   cardDescriptionDataList:
-  - descriptionText: 'Instant.
-
-'
-    enableOverrideColor: 1
-    overrideColor: {r: 0.012948694, g: 0.6603774, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
   - descriptionText: 'Erase two random cards inside Handell. '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: Erase.
-    enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0.39462644, b: 0, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0

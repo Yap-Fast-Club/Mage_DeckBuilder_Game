@@ -29,17 +29,6 @@ MonoBehaviour:
     actionValue: 2
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Instant.
-
-'
-    enableOverrideColor: 1
-    overrideColor: {r: 0.012948694, g: 0.6603774, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
   - descriptionText: +
     enableOverrideColor: 0
     overrideColor: {r: 0.10849059, g: 0.20034468, b: 1, a: 1}

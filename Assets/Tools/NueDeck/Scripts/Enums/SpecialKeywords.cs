@@ -9,6 +9,7 @@
         Perish,
         Passive,
         Instant,
+        Fatigue
 
     }
 }

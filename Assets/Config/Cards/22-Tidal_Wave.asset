@@ -53,7 +53,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
-  - descriptionText: ' three random enemies.'
+  - descriptionText: ; three random enemies.
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

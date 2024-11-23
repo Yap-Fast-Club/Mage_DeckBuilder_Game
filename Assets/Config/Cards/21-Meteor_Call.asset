@@ -27,7 +27,7 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
-    actionDelay: 1
+    actionDelay: 1.5
   - cardActionType: 9
     actionTargetType: 2
     actionAreaType: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 20
-    actionDelay: 1.5
+    actionDelay: 2
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
     enableOverrideColor: 1
     overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 1
+    modifiedActionValueIndex: 2
     modiferStats: 3
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
@@ -77,14 +77,5 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Erase.'
-    enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0.39462644, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 0700000003000000
   audioType: 0
