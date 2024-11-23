@@ -10,37 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 23_Static_Field
+  m_Name: 32-FireBreath
   m_EditorClassIdentifier: 
-  id: 23_static_field
-  cardName: Static Field
+  id: 31-firebreath
+  cardName: Fire Breath
   type: 0
-  manaCost: 4
+  manaCost: 6
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 25126c248902e8347a4a2f96259cb92b, type: 3}
+  cardSprite: {fileID: 21300000, guid: cda6174a4e23a46c8bd55c15120594d5, type: 3}
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 12
-    actionTargetType: 2
+  - cardActionType: 0
+    actionTargetType: 4
     actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 0
+    actionAreaValue: 2
+    actionValue: 7
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Deal 1 DMG for each Mana after casting to all enemies. '
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: '
-
-      ('
+  - descriptionText: 'Deal '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -51,14 +40,14 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 6
-    usePrefixOnModifiedValue: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: ' Total DMG)'
+    overrideColorOnValueScaled: 1
+  - descriptionText: ' damage to two random enemies'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

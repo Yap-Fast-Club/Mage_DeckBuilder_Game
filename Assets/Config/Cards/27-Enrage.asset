@@ -10,32 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 12-Tranfusion
+  m_Name: 27-Enrage
   m_EditorClassIdentifier: 
-  id: 12_tranfusion
-  cardName: Tranfusion
+  id: 27-Enrage
+  cardName: Enrage
   type: 1
   manaCost: 0
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: f9fdbb78149b97549afa65f0b3557e9e, type: 3}
+  cardSprite: {fileID: 21300000, guid: 63b30c77b2de31d4398b65d935f4713c, type: 3}
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 13
+  - cardActionType: 3
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 2
+    actionValue: 5
     actionDelay: 0
-  - cardActionType: 6
+  - cardActionType: 19
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 8
+    actionValue: -1
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Lose '
+  - descriptionText: +
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -45,26 +45,17 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    enableOverrideColor: 0
+    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Health.'
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: '
+  - descriptionText: ' Power.
 
-      +'
+'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -74,15 +65,15 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 1
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Mana. '
+  - descriptionText: ' Focus.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -91,5 +82,5 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 0800000001000000
   audioType: 9

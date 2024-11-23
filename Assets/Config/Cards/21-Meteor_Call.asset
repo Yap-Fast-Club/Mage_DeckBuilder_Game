@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 21-meteor_call
   cardName: Meteor Call
   type: 0
-  manaCost: 10
+  manaCost: 12
   turnCost: 2
   cardSprite: {fileID: 21300000, guid: 8ec5b52b09d90074a83d61c1334190f9, type: 3}
   rarity: 2

@@ -10,61 +10,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 12-Tranfusion
+  m_Name: 29 - Nirvana
   m_EditorClassIdentifier: 
-  id: 12_tranfusion
-  cardName: Tranfusion
+  id: 29- Nirvana
+  cardName: Nirvana
   type: 1
   manaCost: 0
-  turnCost: 1
-  cardSprite: {fileID: 21300000, guid: f9fdbb78149b97549afa65f0b3557e9e, type: 3}
-  rarity: 1
+  turnCost: 2
+  cardSprite: {fileID: 21300000, guid: 6c2e98d8c2f8747308604d04f3e97cb0, type: 3}
+  rarity: 2
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 13
-    actionTargetType: 1
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 2
-    actionDelay: 0
   - cardActionType: 6
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 8
+    actionValue: 10
+    actionDelay: 0
+  - cardActionType: 19
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 10
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Lose '
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0, b: 0, a: 1}
-    useModifier: 1
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: ' Health.'
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: '
-
-      +'
+  - descriptionText: +
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -77,12 +48,14 @@ MonoBehaviour:
     enableOverrideColor: 1
     overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 1
+    modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Mana. '
+  - descriptionText: ' Mana.
+
+'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -91,5 +64,32 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  - descriptionText: +
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Focus.'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 0800000007000000
   audioType: 9
