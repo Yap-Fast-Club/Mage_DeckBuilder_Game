@@ -96,6 +96,7 @@ namespace NueGames.NueDeck.Scripts.Characters
 
             StatusDict[StatusType.Power].CanNegativeStack = true;
             StatusDict[StatusType.Dexterity].CanNegativeStack = true;
+            StatusDict[StatusType.Focus].CanNegativeStack = true;
             
             StatusDict[StatusType.Stun].DecreaseOverTurn = true;
             StatusDict[StatusType.Stun].OnTriggerAction += CheckStunStatus;

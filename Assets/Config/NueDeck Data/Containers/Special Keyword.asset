@@ -27,3 +27,5 @@ MonoBehaviour:
     contentText: Skip the your next turn after playing this card.
   - specialKeyword: 3
     contentText: Remove the card permanently from the deck.
+  - specialKeyword: 8
+    contentText: Reduces the cost the next spell by X.

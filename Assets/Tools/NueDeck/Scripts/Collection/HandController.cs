@@ -164,7 +164,7 @@ namespace NueGames.NueDeck.Scripts.Collection
                 var onDraggedCard = noCardHeld && _dragged == i;
 
                 //Set state
-                bool enoughMana = GameManager.PersistentGameplayData.CurrentMana >= card.CardData.ManaCost;
+                bool enoughMana = GameManager.PersistentGameplayData.CurrentMana >= card.FinalManaCost;
                 bool setInactive = ! (enoughMana);
                 bool setGrayed = ! noCardHeld || _heldCard == card;
                 card.SetGrayedMaterialState(setGrayed);
@@ -332,7 +332,7 @@ namespace NueGames.NueDeck.Scripts.Collection
             CombatManager.DeactivateCardHighlights();
             bool backToHand = true;
                 
-            if (GameManager.PersistentGameplayData.CanUseCards && GameManager.PersistentGameplayData.CurrentMana >= _heldCard.CardData.ManaCost)
+            if (GameManager.PersistentGameplayData.CanUseCards && GameManager.PersistentGameplayData.CurrentMana >= _heldCard.FinalManaCost)
             {
                 bool _canUse = false;
                 _canUse = _heldCard.CardData.UsableWithoutTarget ||validTarget;
