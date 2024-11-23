@@ -16,6 +16,8 @@
         CombatMusic,
         CardPlayed,
         CardHovered,
-        MenuMusic
+        MenuMusic,
+        MeteorBegin,
+        MeteorEnd
     }
 }

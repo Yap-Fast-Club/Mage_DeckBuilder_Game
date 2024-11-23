@@ -96,6 +96,9 @@ namespace NueGames.NueDeck.Scripts.Card
 
             bool resetPower = false;
 
+            if (CardData.Id == "21-meteor_call")
+                AudioManager.Instance.PlayOneShot(AudioActionType.MeteorBegin);
+
             foreach (var actionData in CardData.CardActionDataList)
             {
                 yield return new WaitForSeconds(actionData.ActionDelay);
@@ -108,6 +111,9 @@ namespace NueGames.NueDeck.Scripts.Card
                 if (action is AttackAction)
                     resetPower = true;
             }
+
+            if (CardData.Id == "21-meteor_call")
+                AudioManager.Instance.PlayOneShot(AudioActionType.MeteorEnd);
 
             if (resetPower)
             {
