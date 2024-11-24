@@ -329,6 +329,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         private IEnumerator PrepareCombatRoutine()
         {
             yield return new WaitUntil(() => GameManager.Instance != null);
+            yield return new WaitUntil(() => UIManager.Instance != null);
 
             GameManager.PersistentGameplayData.CurrentMana = 5;
             GameManager.PersistentGameplayData.HandellCount = 0;
@@ -338,6 +339,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             AudioManager.Instance.PlayMusic(AudioActionType.CombatMusic);
             CurrentMainAlly.CharacterStats.SetCurrentHealth(CurrentMainAlly.CharacterStats.MaxHealth);
             UIManager.CombatCanvas.Bind();
+            UIManager.Instance.CombatCanvas.SetPileTexts();
         }
 
         private IEnumerator EnemyTurnRoutine()
