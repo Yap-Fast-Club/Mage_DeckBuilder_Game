@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 namespace NueGames.NueDeck.Scripts.Data.Collection.RewardData
 {
