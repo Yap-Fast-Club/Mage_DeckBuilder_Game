@@ -115,3 +115,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af02730c54040ee4881c3a030106ed26, type: 2}
   - {fileID: 11400000, guid: 0cadbba19afb5b24d893acd3ad0c63bb, type: 2}
   - {fileID: 11400000, guid: ebee20614517b9746befe51815a3470f, type: 2}
+  weightedCardRewards:
+    InspectorTotalWeight: 4
+    Items:
+    - Name: 6-Aerokinesis.     [W:1] (25%)
+      PercentInList: ' (25%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
+    - Name: 7_tighten_up.     [W:2] (50%)
+      PercentInList: ' (50%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
+    - Name: 8_flow.     [W:1] (25%)
+      PercentInList: ' (25%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
