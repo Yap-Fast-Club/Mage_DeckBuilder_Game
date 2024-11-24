@@ -15,7 +15,6 @@ namespace NueGames.NueDeck.Scripts.Card
             base.SetCard(targetProfile,isPlayable);
     
             
-
             if (canvas)
                 canvas.worldCamera = CollectionManager.HandController.cam;
         }

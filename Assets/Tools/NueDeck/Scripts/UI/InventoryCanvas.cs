@@ -11,6 +11,7 @@ namespace NueGames.NueDeck.Scripts.UI
     public class InventoryCanvas : CanvasBase
     {
         [SerializeField] private TextMeshProUGUI titleTextField;
+        [SerializeField] private TextMeshProUGUI titleShadowTextField;
         [SerializeField] private LayoutGroup cardSpawnRoot;
         [SerializeField] private CardBase cardUIPrefab;
 
@@ -19,7 +20,11 @@ namespace NueGames.NueDeck.Scripts.UI
 
         private List<CardBase> _spawnedCardList = new List<CardBase>();
 
-        public void ChangeTitle(string newTitle) => TitleTextField.text = newTitle;
+        public void ChangeTitle(string newTitle)
+        {
+            TitleTextField.text = newTitle;
+            titleShadowTextField.text = newTitle;
+        }
         
         public void SetCards(List<CardData> cardDataList)
         {
