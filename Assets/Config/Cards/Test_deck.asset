@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Test_deck
   m_EditorClassIdentifier: 
   deckId: deck_starter
-  deckName: Starter Deck
+  deckName: Test Deck
   cardList:
-  - {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-  - {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-  - {fileID: 11400000, guid: af02730c54040ee4881c3a030106ed26, type: 2}
-  - {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
-  - {fileID: 11400000, guid: ebee20614517b9746befe51815a3470f, type: 2}
-  - {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-  - {fileID: 11400000, guid: aabd5eb005470de47bd9fe59d9f0606f, type: 2}
-  - {fileID: 11400000, guid: 723e2971451333948881ad7d7f813267, type: 2}
-  - {fileID: 11400000, guid: 9ee12751033095048a0e31a60b9c9cb4, type: 2}
+  - {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
+  - {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
+  - {fileID: 11400000, guid: 40849326e12d83443b6f49f1ab30134f, type: 2}
+  - {fileID: 11400000, guid: fbacb6ad8dae4f6439685e8c31fa5589, type: 2}
+  - {fileID: 11400000, guid: fbacb6ad8dae4f6439685e8c31fa5589, type: 2}
+  - {fileID: 11400000, guid: f4c47b6cac6b74644b2c06a3284066c6, type: 2}
+  - {fileID: 11400000, guid: 0cadbba19afb5b24d893acd3ad0c63bb, type: 2}
+  - {fileID: 11400000, guid: bedacfacb06f9d84a852c78477894714, type: 2}
+  - {fileID: 11400000, guid: 48d5dce97c96fe74a8378a966b42424d, type: 2}
+  - {fileID: 11400000, guid: be5fbdc8b754caa4c9533542301efc0a, type: 2}
+  - {fileID: 11400000, guid: a47b01c01ffe94d4b901443bb40dfe12, type: 2}
