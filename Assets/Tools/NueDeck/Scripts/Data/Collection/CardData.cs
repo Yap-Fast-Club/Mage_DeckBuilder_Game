@@ -59,7 +59,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         #endregion
         
         #region Methods
-        public void UpdateDescription()
+        public void UpdateDescription(bool showMods = true)
         {
             var str = new StringBuilder();
 
@@ -80,7 +80,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
             foreach (var descriptionData in cardDescriptionDataList)
             {
-                str.Append(descriptionData.UseModifier
+                str.Append(descriptionData.UseModifier && showMods
                     ? descriptionData.GetModifiedValue(this)
                     : descriptionData.GetDescription());
             }
@@ -94,6 +94,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             
             MyDescription = str.ToString();
         }
+
         #endregion
 
         #region Editor Methods

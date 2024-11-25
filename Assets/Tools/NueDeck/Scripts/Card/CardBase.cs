@@ -278,9 +278,6 @@ namespace NueGames.NueDeck.Scripts.Card
 
             manaTextField.text = manaValue.ToString();
 
-
-           
-
         }
 
         #endregion
