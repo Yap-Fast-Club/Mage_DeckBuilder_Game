@@ -199,7 +199,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                 persistentData.CurrentSouls -= persistentData.MaxSouls;
                 UIManager.RewardCanvas.gameObject.SetActive(true);
                 UIManager.RewardCanvas.PrepareCanvas();
-                UIManager.RewardCanvas.InstantReward(RewardType.Card);
+                UIManager.RewardCanvas.InstantReward(RewardType.Card, OnComplete: CheckForSoulReward);
             }
         }
         public void HighlightCardTarget(ActionTargetType targetTypeTargetType)

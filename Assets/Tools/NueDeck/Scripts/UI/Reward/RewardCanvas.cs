@@ -34,7 +34,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
             rewardPanelRoot.gameObject.SetActive(true);
         }
 
-        public void InstantReward(RewardType rewardType)
+        public void InstantReward(RewardType rewardType, Action OnComplete = null)
         {
             var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
             _currentRewardsList.Add(rewardClone);
@@ -52,7 +52,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                     foreach (var cardData in rewardCardList)
                         _cardRewardList.Add(cardData);
                     rewardClone.BuildReward(cardRewardData.RewardSprite, cardRewardData.RewardDescription);
-                    GetInstantCardReward(rewardClone, 3);
+                    GetInstantCardReward(rewardClone, 3, OnComplete);
                     break;
                 case RewardType.Relic:
                     break;
@@ -140,7 +140,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
         }
         #endregion
 
-        private void GetInstantCardReward(RewardContainer rewardContainer, int amount = 3)
+        private void GetInstantCardReward(RewardContainer rewardContainer, int amount = 3, Action OnComplete = null)
         {
             ChoicePanel.gameObject.SetActive(true);
             GameManager.PersistentGameplayData.CanSelectCards = false;
@@ -178,6 +178,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                         GameManager.PersistentGameplayData.STOP = false;
                         UIManager.CombatCanvas.EnableHandell(true);
                         this.gameObject.SetActive(false);
+                        OnComplete?.Invoke();
                     };
 
                     _cardRewardList.Remove(reward);
