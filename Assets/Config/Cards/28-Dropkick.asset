@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 28-Dropkick
   m_EditorClassIdentifier: 
-  id: 28-Dropkick
+  id: 28
   cardName: Dropkick
   type: 1
   manaCost: 0

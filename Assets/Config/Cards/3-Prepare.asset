@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 3-Prepare
   m_EditorClassIdentifier: 
-  id: 3_prepare
+  id: 3
   cardName: Prepare
   type: 1
   manaCost: 0
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 3422b37fbdec6426f923cd77f586315e, type: 3}
+  cardSprite: {fileID: 21300000, guid: d3ba63b4c4093804e88833342f8214c8, type: 3}
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0

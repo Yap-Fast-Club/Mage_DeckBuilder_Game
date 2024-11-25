@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 6-Aerokinesis
   m_EditorClassIdentifier: 
-  id: 6_aerokinesis
+  id: 6
   cardName: Aerokinesis
   type: 0
   manaCost: 1
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 6cd081101eea64697adc1b6d23d23555, type: 3}
+  cardSprite: {fileID: 21300000, guid: 1239f8855fb0e3e42a1a53e2bbbb2c71, type: 3}
   rarity: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 0

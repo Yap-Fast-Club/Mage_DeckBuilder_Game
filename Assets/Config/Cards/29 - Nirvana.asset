@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 29 - Nirvana
   m_EditorClassIdentifier: 
-  id: 29- Nirvana
+  id: 29
   cardName: Nirvana
   type: 1
   manaCost: 0
   turnCost: 2
-  cardSprite: {fileID: 21300000, guid: 6c2e98d8c2f8747308604d04f3e97cb0, type: 3}
+  cardSprite: {fileID: 21300000, guid: 52db2f953e6f1734084f03e9881ed052, type: 3}
   rarity: 2
   usableWithoutTarget: 1
   exhaustAfterPlay: 0

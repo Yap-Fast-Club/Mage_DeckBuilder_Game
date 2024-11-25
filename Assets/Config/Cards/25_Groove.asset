@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 25_Groove
   m_EditorClassIdentifier: 
-  id: 25_groove
+  id: 25
   cardName: Sneak
   type: 1
   manaCost: 0
   turnCost: 0
-  cardSprite: {fileID: 21300000, guid: b490f847d23af44e59dd29336d6293a4, type: 3}
-  rarity: 0
+  cardSprite: {fileID: 21300000, guid: 0e7966e8857d9da42bd7ac9668f85ce2, type: 3}
+  rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:

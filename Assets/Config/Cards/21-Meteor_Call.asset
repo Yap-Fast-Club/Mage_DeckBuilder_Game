@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 21-Meteor_Call
   m_EditorClassIdentifier: 
-  id: 21-meteor_call
+  id: 21
   cardName: Meteor Call
   type: 0
   manaCost: 12

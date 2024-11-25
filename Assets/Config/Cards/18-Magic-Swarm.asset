@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 18-Magic-Swarm
   m_EditorClassIdentifier: 
-  id: 18_magic_swarm
+  id: 18
   cardName: Shard Storm
   type: 0
   manaCost: 6

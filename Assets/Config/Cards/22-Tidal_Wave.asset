@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 22-Tidal_Wave
   m_EditorClassIdentifier: 
-  id: 22_Tidal_Wave
-  cardName: Tidal Wave
+  id: 22
+  cardName: Cyclone
   type: 0
   manaCost: 3
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: bae2606058e254f9dba969bc42be928b, type: 3}
+  cardSprite: {fileID: 21300000, guid: 7738f2c38bad890468d20da3d8690f00, type: 3}
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0

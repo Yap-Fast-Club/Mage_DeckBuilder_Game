@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 26-Channel
   m_EditorClassIdentifier: 
-  id: 26-Channel
+  id: 26
   cardName: Lock In
   type: 1
   manaCost: 0
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 824a48daf7b55394e80e1df5048db839, type: 3}
+  cardSprite: {fileID: 21300000, guid: c825e202f64116d42bc3a58f8c75b679, type: 3}
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0

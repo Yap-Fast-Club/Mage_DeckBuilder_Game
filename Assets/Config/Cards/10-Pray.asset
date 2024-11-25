@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 10-Pray
   m_EditorClassIdentifier: 
-  id: 10_pray
+  id: 10
   cardName: Pray
   type: 1
   manaCost: 0

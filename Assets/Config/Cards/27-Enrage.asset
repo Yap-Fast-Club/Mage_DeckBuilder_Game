@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
   m_Name: 27-Enrage
   m_EditorClassIdentifier: 
-  id: 27-Enrage
+  id: 27
   cardName: Enrage
   type: 1
   manaCost: 0
