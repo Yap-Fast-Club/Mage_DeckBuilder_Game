@@ -5,6 +5,7 @@ using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.NueExtentions;
+using TMPro;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.UI.Reward
@@ -17,6 +18,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
         [SerializeField] private RewardContainer rewardContainerPrefab;
         [SerializeField] private Transform rewardPanelRoot;
         [Header("Choice")]
+        [SerializeField] private TextMeshProUGUI _choiceTitle;
         [SerializeField] private Transform choice2DCardSpawnRoot;
         [SerializeField] private ChoiceCard choiceCardUIPrefab;
         [SerializeField] private ChoicePanel choicePanel;
@@ -29,9 +31,13 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
 
         #region Public Methods
 
-        public void PrepareCanvas()
+        private int _rewardCalls = 0;
+        private int _plannedCalls = 0;
+        public void PrepareCanvas(int plannedCalls = 1)
         {
             rewardPanelRoot.gameObject.SetActive(true);
+            _rewardCalls = 0;
+            _plannedCalls = plannedCalls;
         }
 
         public void InstantReward(RewardType rewardType, Action OnComplete = null)
@@ -142,6 +148,14 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
 
         private void GetInstantCardReward(RewardContainer rewardContainer, int amount = 3, Action OnComplete = null)
         {
+            _choiceTitle.text = "Choose a Card";
+            _rewardCalls++;
+
+            int currentSouls = GameManager.PersistentGameplayData.CurrentSouls;
+            int maxSouls = GameManager.PersistentGameplayData.MaxSouls;
+            if (_plannedCalls > 1)
+                _choiceTitle.text += $" ({_rewardCalls}/{_plannedCalls})";
+
             ChoicePanel.gameObject.SetActive(true);
             GameManager.PersistentGameplayData.CanSelectCards = false;
             GameManager.PersistentGameplayData.STOP = true;
@@ -165,7 +179,6 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                     j++;
                 }
 
-
                 if (!spawnedRewards.Contains(reward))
                 {
                     spawnedRewards.Add(reward);
@@ -174,10 +187,12 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                     choice.OnCardChose += ResetCanvas;
                     choice.OnCardChose += () =>
                     {
-                        GameManager.PersistentGameplayData.CanSelectCards = true;
-                        GameManager.PersistentGameplayData.STOP = false;
-                        UIManager.CombatCanvas.EnableHandell(true);
-                        this.gameObject.SetActive(false);
+                        if (_rewardCalls == _plannedCalls)
+                        {
+                            GameManager.PersistentGameplayData.CanSelectCards = true;
+                            GameManager.PersistentGameplayData.STOP = false;
+                            UIManager.CombatCanvas.EnableHandell(true);
+                        }
                         OnComplete?.Invoke();
                     };
 

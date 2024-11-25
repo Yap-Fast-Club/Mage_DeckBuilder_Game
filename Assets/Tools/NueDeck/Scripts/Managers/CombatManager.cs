@@ -196,10 +196,18 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             if (persistentData.CurrentSouls >= persistentData.MaxSouls)
             {
+                if (!UIManager.RewardCanvas.gameObject.activeInHierarchy){
+                    UIManager.RewardCanvas.gameObject.SetActive(true);
+                    UIManager.RewardCanvas.PrepareCanvas(plannedCalls: persistentData.CurrentSouls / persistentData.MaxSouls);
+                }
+
                 persistentData.CurrentSouls -= persistentData.MaxSouls;
-                UIManager.RewardCanvas.gameObject.SetActive(true);
-                UIManager.RewardCanvas.PrepareCanvas();
+
                 UIManager.RewardCanvas.InstantReward(RewardType.Card, OnComplete: CheckForSoulReward);
+            }
+            else
+            {
+                UIManager.RewardCanvas.gameObject.SetActive(false); 
             }
         }
         public void HighlightCardTarget(ActionTargetType targetTypeTargetType)

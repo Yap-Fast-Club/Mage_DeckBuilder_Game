@@ -145,9 +145,8 @@ namespace NueGames.NueDeck.Scripts.UI
                 yield return new WaitForEndOfFrame();
             }
 
-            _gainSoulsCRs.Dequeue();
-            yield return new WaitForSeconds(0.3f);
 
+            _gainSoulsCRs.Dequeue();
             if (_gainSoulsCRs.Count == 0)
             {
                 _persistentGameplayData.CanSelectCards = true;
