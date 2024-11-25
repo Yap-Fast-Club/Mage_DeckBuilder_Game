@@ -258,6 +258,8 @@ namespace NueGames.NueDeck.Scripts.Card
             _turnCostCostImage.gameObject.SetActive(CardData.TurnCost > 0);
             _fatigueCostImage.gameObject.SetActive(CardData.TurnCost > 1);
 
+            Debug.Log(CardData.TurnCost);
+
             if (CardData.Type == CardType.Incantation)
             {
                 manaTextField.transform.parent.gameObject.SetActive(false);

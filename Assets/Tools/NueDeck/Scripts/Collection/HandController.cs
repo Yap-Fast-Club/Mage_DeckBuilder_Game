@@ -527,6 +527,7 @@ namespace NueGames.NueDeck.Scripts.Collection
         /// </summary>
         public void AddCardToHand(CardBase card, int index = -1)
         {
+            card.UpdateCardText();
             if (index < 0)
             {
                 // Add to end

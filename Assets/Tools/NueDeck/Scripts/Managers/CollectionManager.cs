@@ -99,6 +99,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             HandPile.Add(card);
             DrawPile.Remove(card);
             UIManager.CombatCanvas.SetPileTexts();
+            clone.UpdateCardText();
 
         }
         public void DiscardHand()
