@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   manaCost: 0
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: d3ba63b4c4093804e88833342f8214c8, type: 3}
+  cardSprite: {fileID: 21300000, guid: 176c757ace662564cadda1997b1120d1, type: 3}
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
