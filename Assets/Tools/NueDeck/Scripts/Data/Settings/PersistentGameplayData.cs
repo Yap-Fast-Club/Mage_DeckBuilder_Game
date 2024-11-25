@@ -21,6 +21,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private int handellCount;
         [SerializeField] private bool canUseCards;
         [SerializeField] private bool canSelectCards;
+        [SerializeField] public bool STOP;
         [SerializeField] private bool isRandomHand;
         [SerializeField] private List<AllyBase> allyList;
         [SerializeField] private int currentStageId;
@@ -62,6 +63,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             CurrentMana = _gameplayData.InitialMana;
             CanUseCards = true;
             CanSelectCards = true;
+            STOP = false;
             IsRandomHand = _gameplayData.IsRandomHand;
             AllyList = new List<AllyBase>(_gameplayData.InitalAllyList);
             CurrentEncounterId = 0;

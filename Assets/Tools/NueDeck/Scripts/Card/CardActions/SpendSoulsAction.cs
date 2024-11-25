@@ -15,7 +15,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             if (CombatManager != null)
             {
                 PersistendData.CurrentSouls -= (int)actionParameters.Value;
-                UIManager.Instance.InformationCanvas.UpdateSoulsGUI();
+                UIManager.Instance.InformationCanvas.InstantUpdateSoulsGUI();
             }
             else
                 Debug.LogError("There is no CombatManager");

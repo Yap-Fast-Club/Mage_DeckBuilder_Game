@@ -136,11 +136,9 @@ namespace NueGames.NueDeck.Scripts.Managers
 
                     OnEnemyTurnStarted?.Invoke();
 
-                    //CollectionManager.DiscardHand();
-
+                    persistentData.CanSelectCards = false;
                     StartCoroutine(nameof(EnemyTurnRoutine));
                     
-                    persistentData.CanSelectCards = false;
                     
                     break;
                 case CombatStateType.EndCombat:
@@ -189,7 +187,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             CurrentEnemiesList.Remove(targetEnemy);
             persistentData.CurrentSouls += targetEnemy.GetComponent<SoulContainer>().SoulAmount;
-            UIManager.InformationCanvas.UpdateSoulsGUI();
+            UIManager.InformationCanvas.UpdateSoulsGUI(targetEnemy);
 
             if (CurrentEnemiesList.Count<=0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
                 WinCombat();
@@ -347,6 +345,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             var waitDelay = new WaitForSeconds(0.1f);
 
             yield return waitDelay;
+            yield return new WaitWhile(() => persistentData.STOP);
 
             List<EnemyBase> enemiesToProcess = new List<EnemyBase>(CurrentEnemiesList);
 

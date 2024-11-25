@@ -107,7 +107,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
         {
             ResetRewards();
             ResetChoice();
-            UIManager.InformationCanvas.UpdateSoulsGUI();
+            UIManager.InformationCanvas.InstantUpdateSoulsGUI();
         }
 
         private void ResetRewards()
