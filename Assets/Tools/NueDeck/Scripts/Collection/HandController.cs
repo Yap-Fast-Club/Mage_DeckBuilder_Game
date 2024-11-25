@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Characters;
+using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Interfaces;
 using NueGames.NueDeck.Scripts.Managers;
@@ -559,6 +560,13 @@ namespace NueGames.NueDeck.Scripts.Collection
 
             hand.RemoveAt(index);
         }
+
+        public void RemoveCardFromHand(CardData data)
+        {
+            int index = hand.IndexOf(hand.Find(c => c.CardData == data));
+            RemoveCardFromHand(index);
+        }
+
 
         #endregion
 

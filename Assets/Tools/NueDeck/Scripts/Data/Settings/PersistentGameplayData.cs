@@ -138,12 +138,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public bool CanSelectCards
         {
             get => canSelectCards;
-            //set => canSelectCards = value;
-            set
-            {
-                canSelectCards = value;
-                Debug.Log(canSelectCards);
-            }
+            set => canSelectCards = value;
         }
 
         public bool IsRandomHand

@@ -4,6 +4,7 @@
     {
         Common,
         Rare,
-        Legendary
+        Legendary,
+        Special
     }
 }

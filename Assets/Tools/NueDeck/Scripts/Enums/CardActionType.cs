@@ -21,6 +21,8 @@
         DealDamageForEverySoul,
         SpendSouls,
         RandomErase,
-        Focus
+        Focus,
+        DiscardHand,
+        TransformAllCards
     }
 }
