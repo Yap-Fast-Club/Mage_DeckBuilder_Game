@@ -30,6 +30,9 @@ namespace NueGames.NueDeck.Scripts.Card
         [SerializeField] protected TextMeshProUGUI nameTextField;
         [SerializeField] protected TextMeshProUGUI descTextField;
         [SerializeField] protected TextMeshProUGUI manaTextField;
+        [SerializeField] protected Image _instantCostImage;
+        [SerializeField] protected Image _turnCostCostImage;
+        [SerializeField] protected Image _fatigueCostImage;
         [SerializeField] protected List<RarityRoot> rarityRootList;
         [SerializeField] protected List<TypeRoot> _typeRootList;
 
@@ -250,6 +253,10 @@ namespace NueGames.NueDeck.Scripts.Card
 
             nameTextField.text = CardData.CardName;
             descTextField.text = CardData.MyDescription;
+
+            _instantCostImage.gameObject.SetActive(CardData.TurnCost == 0);
+            _turnCostCostImage.gameObject.SetActive(CardData.TurnCost > 0);
+            _fatigueCostImage.gameObject.SetActive(CardData.TurnCost > 1);
 
             if (CardData.Type == CardType.Incantation)
             {
