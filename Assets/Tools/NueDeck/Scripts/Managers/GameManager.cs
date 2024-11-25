@@ -72,7 +72,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             
             if (PersistentGameplayData.IsRandomHand)
                 for (var i = 0; i < GameplayData.RandomCardCount; i++)
-                    PersistentGameplayData.CurrentCardsList.Add(GameplayData.AllCardsList.RandomItem());
+                    PersistentGameplayData.CurrentCardsList.Add(GameplayData.AllCardsList.CardList.RandomItem());
             else
                 foreach (var cardData in GameplayData.InitalDeck.CardList)
                     PersistentGameplayData.CurrentCardsList.Add(cardData);

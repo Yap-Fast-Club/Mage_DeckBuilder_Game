@@ -21,7 +21,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private int maxCardOnHand;
         
         [Header("Card Settings")] 
-        [SerializeField] private List<CardData> allCardsList;
+        [SerializeField] private DeckData allCardsList;
         [SerializeField] private CardBase cardPrefab;
 
         [Header("Customization Settings")] 
@@ -45,7 +45,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public DeckData InitalDeck { get => initalDeck; set => initalDeck = value; }
         public int RandomCardCount => randomCardCount;
         public int MaxCardOnHand => maxCardOnHand;
-        public List<CardData> AllCardsList => allCardsList;
+        public DeckData AllCardsList => allCardsList;
         public CardBase CardPrefab => cardPrefab;
         public string DefaultName => defaultName;
         public bool UseStageSystem => useStageSystem;
