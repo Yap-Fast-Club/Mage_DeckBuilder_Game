@@ -112,25 +112,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                 case CombatStateType.AllyTurn:
 
                     OnAllyTurnStarted?.Invoke();
-                    CheckForSoulReward();
 
-                    persistentData.TurnDebt--;
-                    if (persistentData.TurnDebt > 0)
-                    {
-                        EndTurn();
-                        break;
-                    }
-                    
-                    if (CurrentMainAlly.CharacterStats.IsStunned)
-                    {
-                        EndTurn();
-                        break;
-                    }
-
-                    //CollectionManager.DrawCards(persistentData.DrawCount);
-
-                    persistentData.CanSelectCards = true;
-                    
+                    StartCoroutine(AllyTurnRoutine());
                     break;
                 case CombatStateType.EnemyTurn:
 
@@ -324,6 +307,27 @@ namespace NueGames.NueDeck.Scripts.Managers
         
         #region Routines
 
+        private IEnumerator AllyTurnRoutine()
+        {
+            var waitDelay = new WaitForSeconds(0.1f);
+
+            yield return waitDelay;
+            yield return new WaitWhile(() => persistentData.STOP == true);
+
+            UIManager.CombatCanvas.EnableHandell(true);
+            persistentData.CanSelectCards = true;
+            CheckForSoulReward();
+
+            persistentData.TurnDebt--;
+            if (persistentData.TurnDebt > 0)
+            {
+                EndTurn();
+                yield break;
+            }
+
+        }
+
+
         private IEnumerator PrepareCombatRoutine()
         {
             yield return new WaitUntil(() => GameManager.Instance != null);
@@ -342,10 +346,11 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         private IEnumerator EnemyTurnRoutine()
         {
+            UIManager.Instance.CombatCanvas.EnableHandell(false);
             var waitDelay = new WaitForSeconds(0.1f);
 
             yield return waitDelay;
-            yield return new WaitWhile(() => persistentData.STOP);
+            yield return new WaitWhile(() => persistentData.STOP == true);
 
             List<EnemyBase> enemiesToProcess = new List<EnemyBase>(CurrentEnemiesList);
 

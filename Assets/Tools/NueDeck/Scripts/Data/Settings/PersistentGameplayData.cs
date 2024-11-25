@@ -21,7 +21,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private int handellCount;
         [SerializeField] private bool canUseCards;
         [SerializeField] private bool canSelectCards;
-        [SerializeField] public bool STOP;
+        [SerializeField] public bool _stop;
         [SerializeField] private bool isRandomHand;
         [SerializeField] private List<AllyBase> allyList;
         [SerializeField] private int currentStageId;
@@ -76,6 +76,12 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         }
 
         #region Encapsulation
+
+        public bool STOP
+        {
+            get => _stop;
+            set => _stop = value;
+        }
 
         public int DrawCount
         {
@@ -132,7 +138,12 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public bool CanSelectCards
         {
             get => canSelectCards;
-            set => canSelectCards = value;
+            //set => canSelectCards = value;
+            set
+            {
+                canSelectCards = value;
+                Debug.Log(canSelectCards);
+            }
         }
 
         public bool IsRandomHand

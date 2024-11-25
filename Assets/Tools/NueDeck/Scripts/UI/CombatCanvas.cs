@@ -70,6 +70,8 @@ namespace NueGames.NueDeck.Scripts.UI
             Unbind();
         }
 
+        public void EnableHandell(bool state) => _freeConsumeHandellButton.interactable = _paidConsumeHandellButton.interactable = state;
+
         private void OnCardPlayed()
         {
             _freeHandellProgressBar.fillAmount = (float)GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;

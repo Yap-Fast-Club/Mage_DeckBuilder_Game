@@ -33,32 +33,6 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
         {
             rewardPanelRoot.gameObject.SetActive(true);
         }
-        public void BuildReward(RewardType rewardType)
-        {
-            var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
-            _currentRewardsList.Add(rewardClone);
-
-            switch (rewardType)
-            {
-                case RewardType.Gold:
-                    var rewardGold = rewardContainerData.GetRandomGoldReward(out var goldRewardData);
-                    rewardClone.BuildReward(goldRewardData.RewardSprite, goldRewardData.RewardDescription);
-                    rewardClone.RewardButton.onClick.AddListener(() => GetGoldReward(rewardClone, rewardGold));
-                    break;
-                case RewardType.Card:
-                    var rewardCardList = rewardContainerData.GetRandomCardRewardList(out var cardRewardData);
-                    _cardRewardList.Clear();
-                    foreach (var cardData in rewardCardList)
-                        _cardRewardList.Add(cardData);
-                    rewardClone.BuildReward(cardRewardData.RewardSprite, cardRewardData.RewardDescription);
-                    rewardClone.RewardButton.onClick.AddListener(() => GetCardReward(rewardClone, 3));
-                    break;
-                case RewardType.Relic:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(rewardType), rewardType, null);
-            }
-        }
 
         public void InstantReward(RewardType rewardType)
         {
@@ -169,6 +143,11 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
         private void GetInstantCardReward(RewardContainer rewardContainer, int amount = 3)
         {
             ChoicePanel.gameObject.SetActive(true);
+            GameManager.PersistentGameplayData.CanSelectCards = false;
+            GameManager.PersistentGameplayData.STOP = true;
+            UIManager.CombatCanvas.EnableHandell(false);
+
+
             List<CardData> spawnedRewards = new List<CardData>();
 
             for (int i = 0; i < amount; i++)
@@ -193,7 +172,13 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                     choice.BuildReward(reward);
                     choice.OnCardChose += choice.AddCardToHand;
                     choice.OnCardChose += ResetCanvas;
-                    choice.OnCardChose += () => this.gameObject.SetActive(false);
+                    choice.OnCardChose += () =>
+                    {
+                        GameManager.PersistentGameplayData.CanSelectCards = true;
+                        GameManager.PersistentGameplayData.STOP = false;
+                        UIManager.CombatCanvas.EnableHandell(true);
+                        this.gameObject.SetActive(false);
+                    };
 
                     _cardRewardList.Remove(reward);
                     _spawnedChoiceList.Add(choice);

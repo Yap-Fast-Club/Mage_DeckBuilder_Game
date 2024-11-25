@@ -200,9 +200,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3405109057431385662}
   - component: {fileID: 3729220889032712400}
-  - component: {fileID: 2453555861770232551}
-  - component: {fileID: 4457768352756845754}
-  - component: {fileID: 886600416224873468}
   m_Layer: 5
   m_Name: ChoicePanel
   m_TagString: Untagged
@@ -241,72 +238,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6748cae7ad739cd419d12eb4f1dde65f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2453555861770232551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3942680032353351596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2a591867d0c85c4999f6d10e765dee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnEnableAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 886600416224873468}
-        m_TargetAssemblyTypeName: BlockCardHand, Assembly-CSharp
-        m_MethodName: CanSelectCard
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4457768352756845754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3942680032353351596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eaf873bb46043f44cbb5bec0beebb607, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnDisableAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 886600416224873468}
-        m_TargetAssemblyTypeName: BlockCardHand, Assembly-CSharp
-        m_MethodName: CanSelectCard
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
---- !u!114 &886600416224873468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3942680032353351596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 625342167559ca641b8c2692145e448d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4310519463442379022
@@ -405,8 +336,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.0997, y: 1.8033}
-  m_SizeDelta: {x: 1528.7542, y: 846.8}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1425, y: 798}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4493403121877227090
 CanvasRenderer:
@@ -429,15 +360,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9254298, g: 0, b: 1, a: 1}
+  m_Color: {r: 0.76367205, g: 0.5798772, b: 0.7830189, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9a17a592ec09dbb4b9b1817d0e08d901, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 513d302d439a0574c99664acd4ea56b3, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -445,7 +376,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.6
 --- !u!1 &4493403123119822678
 GameObject:
   m_ObjectHideFlags: 0

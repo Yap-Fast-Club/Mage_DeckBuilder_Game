@@ -108,18 +108,8 @@ namespace NueGames.NueDeck.Scripts.UI
 
         protected virtual IEnumerator GainSoulCR(int soulIndex)
         {
-            yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
-
-            if (_gainSoulsCRs.Count > 0)
-                yield return new WaitForEndOfFrame();
-            else
-            {
-                _persistentGameplayData.CanSelectCards = false;
-                _persistentGameplayData.STOP = true;
-            }
+            _persistentGameplayData.CanSelectCards = false;
+            _persistentGameplayData.STOP = true;
 
             RectTransform soulIcon = _soulOnIcons[soulIndex];
             RectTransform soulContainer = _soulContainers[Mathf.Min(soulIndex, _soulContainers.Count - 1)];
@@ -133,7 +123,7 @@ namespace NueGames.NueDeck.Scripts.UI
 
             while (true)
             {
-                timer += Time.deltaTime * 3;
+                timer += Time.deltaTime * 2.5f;
                 soulIcon.position = Vector3.Lerp(startPos + Vector3.down * 10, startPos, timer);
                 soulIcon.localScale = Vector3.Lerp(startScale, endScale, timer);
 
@@ -143,12 +133,11 @@ namespace NueGames.NueDeck.Scripts.UI
             }
 
             startPos = soulIcon.position;
-            Debug.Log(startPos);
             timer = 0;
 
             while (true)
             {
-                timer += Time.deltaTime * 2;
+                timer += Time.deltaTime * 4f;
                 soulIcon.position = Vector3.Lerp(startPos, endPos, timer);
 
                 if (timer >= 1f) break;
@@ -157,7 +146,7 @@ namespace NueGames.NueDeck.Scripts.UI
             }
 
             _gainSoulsCRs.Dequeue();
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
 
             if (_gainSoulsCRs.Count == 0)
             {
