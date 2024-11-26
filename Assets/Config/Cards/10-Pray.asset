@@ -83,4 +83,4 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 01000000
-  audioType: 9
+  audioType: 20
