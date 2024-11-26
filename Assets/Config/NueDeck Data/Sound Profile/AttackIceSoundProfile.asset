@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8f29259e87442338a016acd10256ddc, type: 3}
-  m_Name: ButtonSoundProfile
+  m_Name: AttackIceSoundProfile
   m_EditorClassIdentifier: 
-  audioType: 3
+  audioType: 24
   randomClipList:
-  - {fileID: 8300000, guid: 334cbe53a99aa15459285845f6e3c339, type: 3}
+  - {fileID: 8300000, guid: a4eca6bf5f5b69844880a4b74091ddb9, type: 3}

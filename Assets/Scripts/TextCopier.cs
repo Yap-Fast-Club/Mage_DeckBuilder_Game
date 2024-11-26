@@ -32,7 +32,6 @@ public class TextCopier : MonoBehaviour
     {
         if (targetText != null)
         {
-            Debug.Log(sourceText.text);   
             targetText.text = sourceText.text;
         }
     }

@@ -29,6 +29,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private bool isFinalEncounter;
         [SerializeField] private List<CardData> currentCardsList;
         [SerializeField] private List<AllyHealthData> allyHealthDataDataList;
+        public bool RandomInitialized = false;
 
         public PersistentGameplayData(GameplayData gameplayData)
         {
@@ -73,11 +74,12 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             CurrentCardsList = new List<CardData>();
             IsFinalEncounter = false;
             allyHealthDataDataList = new List<AllyHealthData>();
+            RandomInitialized = false;
         }
 
-        #region Encapsulation
+    #region Encapsulation
 
-        public bool STOP
+    public bool STOP
         {
             get => _stop;
             set => _stop = value;

@@ -22,6 +22,12 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
     private WeightedList<T> _weightedList = new WeightedList<T>();
     public int TotalWeight => _weightedList.TotalWeight;
 
+    public void Init(int seed = 0)
+    {
+        System.Random seededRanom = seed == 0? null : new System.Random(seed);
+
+        _weightedList = new(Items.Select(WI => new WeightedListItem<T>(WI.Item, WI.Weight)).ToList(), seededRanom);
+    }
 
     void OnValidate()
     {
@@ -49,32 +55,10 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
     }
     public T GetRandomItem()
     {
+        Debug.Log(_weightedList.Count);
         return _weightedList.Next();
     }
 
-    public WeightedItem<T> GetRandomItem(int attempts = 100)
-    {
-        if (Items.Count != _weightedList.Count) UpdateWeightedList();
-
-        List<WeightedItem<T>> reservoir = new List<WeightedItem<T>>(Items.Count);
-
-        for (int i = 0; i < Items.Count; i++)
-        {
-            int j = UnityEngine.Random.Range(0, i + 1);
-            if (j < reservoir.Count)
-                reservoir[j] = Items[i];
-            else
-                reservoir.Add(Items[i]);
-
-            if (--attempts == 0 || i == Items.Count - 1)
-            {
-                // Select a random item from the reservoir
-                return reservoir[UnityEngine.Random.Range(0, reservoir.Count)];
-            }
-        }
-
-        return null;
-    }
 
     [Serializable]
     public class WeightedItem<T> : ISerializationCallbackReceiver
