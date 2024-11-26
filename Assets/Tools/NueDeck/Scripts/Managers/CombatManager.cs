@@ -172,8 +172,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             persistentData.CurrentSouls += targetEnemy.GetComponent<SoulContainer>().SoulAmount;
             UIManager.InformationCanvas.UpdateSoulsGUI(targetEnemy);
 
-            if (CurrentEnemiesList.Count<=0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
-                WinCombat();
+            
         }
         public void DeactivateCardHighlights()
         {
@@ -327,6 +326,10 @@ namespace NueGames.NueDeck.Scripts.Managers
             CheckForSoulReward();
 
             persistentData.TurnDebt--;
+
+            if (CurrentEnemiesList.Count <= 0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
+                WinCombat();
+
             if (persistentData.TurnDebt > 0)
             {
                 EndTurn();
