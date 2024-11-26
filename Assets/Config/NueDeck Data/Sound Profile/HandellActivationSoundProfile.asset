@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: HandellActivationSoundProfile
   m_EditorClassIdentifier: 
   audioType: 18
-  randomClipList:
-  - {fileID: 8300000, guid: 86e79693493a51c4f8f020f813cb7a9a, type: 3}
+  randomClipList: []
