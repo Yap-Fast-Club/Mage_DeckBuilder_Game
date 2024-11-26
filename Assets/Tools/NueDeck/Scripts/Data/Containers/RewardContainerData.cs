@@ -27,6 +27,7 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
 
             return cardList;
         } 
+
         public int GetRandomGoldReward(out GoldRewardData rewardData)
         { 
             rewardData = GoldRewardDataList.RandomItem();
