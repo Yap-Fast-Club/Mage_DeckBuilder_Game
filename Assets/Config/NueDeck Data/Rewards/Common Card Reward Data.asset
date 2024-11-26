@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47c4f39c13d642f6985cca3f815566cb, type: 3}
-  m_Name: Card Reward Data
+  m_Name: Common Card Reward Data
   m_EditorClassIdentifier: 
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
@@ -116,17 +116,50 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0cadbba19afb5b24d893acd3ad0c63bb, type: 2}
   - {fileID: 11400000, guid: ebee20614517b9746befe51815a3470f, type: 2}
   weightedCardRewards:
-    InspectorTotalWeight: 4
+    InspectorTotalWeight: 11
     Items:
-    - Name: 6-Aerokinesis.     [W:1] (25%)
-      PercentInList: ' (25%)'
+    - Name: 1-Magic_Bolt.     [W:1] (9%)
+      PercentInList: ' (9%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 3da1f1cdc28882b4caa6ac6c3eb5bb9a, type: 2}
+    - Name: 2-Magic_Blast.     [W:1] (9%)
+      PercentInList: ' (9%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
+    - Name: 3-Prepare.     [W:1] (9%)
+      PercentInList: ' (9%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 5a5bcbbefd6be3443a38cbfa2963be74, type: 2}
+    - Name: 4-Deep_Breath.     [W:1] (9%)
+      PercentInList: ' (9%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 444a5e755358d734c9116d3614318746, type: 2}
+    - Name: 5-Magic_Wasps.     [W:1] (9%)
+      PercentInList: ' (9%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 18dcbc8f9ec7a6f4495429a9149ae647, type: 2}
+    - Name: 6-Aerokinesis.     [W:1] (9%)
+      PercentInList: ' (9%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-    - Name: 7_tighten_up.     [W:2] (50%)
-      PercentInList: ' (50%)'
-      Weight: 2
+    - Name: 7_tighten_up.     [W:1] (9%)
+      PercentInList: ' (9%)'
+      Weight: 1
       Item: {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-    - Name: 8_flow.     [W:1] (25%)
-      PercentInList: ' (25%)'
+    - Name: 8_flow.     [W:1] (9%)
+      PercentInList: ' (9%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
+    - Name: 14-Search.     [W:1] (9%)
+      PercentInList: ' (9%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
+    - Name: 16-Common_Erase.     [W:1] (9%)
+      PercentInList: ' (9%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
+    - Name: 31-FireBall.     [W:1] (9%)
+      PercentInList: ' (9%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
+  _deckToLoadFrom: {fileID: 11400000, guid: 2d0f2df8e6bc6854c8591eca0b89afc5, type: 2}
