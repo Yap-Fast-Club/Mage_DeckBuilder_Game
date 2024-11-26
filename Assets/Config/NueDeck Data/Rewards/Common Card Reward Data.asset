@@ -14,152 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
-  rewardCardList:
-  - {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
-  - {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
-  - {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
-  - {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
-  - {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
-  - {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
-  - {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
-  - {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
-  - {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-  - {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-  - {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-  - {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-  - {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-  - {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-  - {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-  - {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-  - {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-  - {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-  - {fileID: 11400000, guid: aabd5eb005470de47bd9fe59d9f0606f, type: 2}
-  - {fileID: 11400000, guid: aabd5eb005470de47bd9fe59d9f0606f, type: 2}
-  - {fileID: 11400000, guid: aabd5eb005470de47bd9fe59d9f0606f, type: 2}
-  - {fileID: 11400000, guid: aabd5eb005470de47bd9fe59d9f0606f, type: 2}
-  - {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-  - {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-  - {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-  - {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-  - {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-  - {fileID: 11400000, guid: 40849326e12d83443b6f49f1ab30134f, type: 2}
-  - {fileID: 11400000, guid: 40849326e12d83443b6f49f1ab30134f, type: 2}
-  - {fileID: 11400000, guid: 40849326e12d83443b6f49f1ab30134f, type: 2}
-  - {fileID: 11400000, guid: 40849326e12d83443b6f49f1ab30134f, type: 2}
-  - {fileID: 11400000, guid: 40849326e12d83443b6f49f1ab30134f, type: 2}
-  - {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
-  - {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
-  - {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
-  - {fileID: 11400000, guid: 2ed1ed6bf3759fb40b1e88f7a3eae0ce, type: 2}
-  - {fileID: 11400000, guid: 2ed1ed6bf3759fb40b1e88f7a3eae0ce, type: 2}
-  - {fileID: 11400000, guid: 2ed1ed6bf3759fb40b1e88f7a3eae0ce, type: 2}
-  - {fileID: 11400000, guid: c851f9a32bac1854cb31b092d894fd0c, type: 2}
-  - {fileID: 11400000, guid: c851f9a32bac1854cb31b092d894fd0c, type: 2}
-  - {fileID: 11400000, guid: a47b01c01ffe94d4b901443bb40dfe12, type: 2}
-  - {fileID: 11400000, guid: a47b01c01ffe94d4b901443bb40dfe12, type: 2}
-  - {fileID: 11400000, guid: 0fc16477761c6c64086dffad5b02b410, type: 2}
-  - {fileID: 11400000, guid: 0fc16477761c6c64086dffad5b02b410, type: 2}
-  - {fileID: 11400000, guid: 0fc16477761c6c64086dffad5b02b410, type: 2}
-  - {fileID: 11400000, guid: abd25fc305cd27b43b0b058e1767bc93, type: 2}
-  - {fileID: 11400000, guid: abd25fc305cd27b43b0b058e1767bc93, type: 2}
-  - {fileID: 11400000, guid: abd25fc305cd27b43b0b058e1767bc93, type: 2}
-  - {fileID: 11400000, guid: ba0699e03b6867c459fd800053a87cc5, type: 2}
-  - {fileID: 11400000, guid: ba0699e03b6867c459fd800053a87cc5, type: 2}
-  - {fileID: 11400000, guid: ba0699e03b6867c459fd800053a87cc5, type: 2}
-  - {fileID: 11400000, guid: ba0699e03b6867c459fd800053a87cc5, type: 2}
-  - {fileID: 11400000, guid: 1d813ad362863a74db9fab984e66044c, type: 2}
-  - {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-  - {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-  - {fileID: 11400000, guid: 1d813ad362863a74db9fab984e66044c, type: 2}
-  - {fileID: 11400000, guid: 1d813ad362863a74db9fab984e66044c, type: 2}
-  - {fileID: 11400000, guid: ebee20614517b9746befe51815a3470f, type: 2}
-  - {fileID: 11400000, guid: ebee20614517b9746befe51815a3470f, type: 2}
-  - {fileID: 11400000, guid: 0cadbba19afb5b24d893acd3ad0c63bb, type: 2}
-  - {fileID: 11400000, guid: 0cadbba19afb5b24d893acd3ad0c63bb, type: 2}
-  - {fileID: 11400000, guid: 723e2971451333948881ad7d7f813267, type: 2}
-  - {fileID: 11400000, guid: 9ee12751033095048a0e31a60b9c9cb4, type: 2}
-  - {fileID: 11400000, guid: 9ee12751033095048a0e31a60b9c9cb4, type: 2}
-  - {fileID: 11400000, guid: c851f9a32bac1854cb31b092d894fd0c, type: 2}
-  - {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-  - {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-  - {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-  - {fileID: 11400000, guid: f4c47b6cac6b74644b2c06a3284066c6, type: 2}
-  - {fileID: 11400000, guid: f4c47b6cac6b74644b2c06a3284066c6, type: 2}
-  - {fileID: 11400000, guid: f4c47b6cac6b74644b2c06a3284066c6, type: 2}
-  - {fileID: 11400000, guid: 4f24f02a3ca909a4bacd661f610d7c32, type: 2}
-  - {fileID: 11400000, guid: 4f24f02a3ca909a4bacd661f610d7c32, type: 2}
-  - {fileID: 11400000, guid: 4f24f02a3ca909a4bacd661f610d7c32, type: 2}
-  - {fileID: 11400000, guid: 91ce2a66f7e161b4cbf102155ded1b9e, type: 2}
-  - {fileID: 11400000, guid: be5fbdc8b754caa4c9533542301efc0a, type: 2}
-  - {fileID: 11400000, guid: be5fbdc8b754caa4c9533542301efc0a, type: 2}
-  - {fileID: 11400000, guid: 91ce2a66f7e161b4cbf102155ded1b9e, type: 2}
-  - {fileID: 11400000, guid: 918ba8cac4f0c194a93fddabcc952629, type: 2}
-  - {fileID: 11400000, guid: 918ba8cac4f0c194a93fddabcc952629, type: 2}
-  - {fileID: 11400000, guid: 918ba8cac4f0c194a93fddabcc952629, type: 2}
-  - {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
-  - {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
-  - {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
-  - {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
-  - {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
-  - {fileID: 11400000, guid: a410d004ee634e14d8ec63d2914d98f9, type: 2}
-  - {fileID: 11400000, guid: a410d004ee634e14d8ec63d2914d98f9, type: 2}
-  - {fileID: 11400000, guid: a410d004ee634e14d8ec63d2914d98f9, type: 2}
-  - {fileID: 11400000, guid: 48d5dce97c96fe74a8378a966b42424d, type: 2}
-  - {fileID: 11400000, guid: 48d5dce97c96fe74a8378a966b42424d, type: 2}
-  - {fileID: 11400000, guid: bedacfacb06f9d84a852c78477894714, type: 2}
-  - {fileID: 11400000, guid: bedacfacb06f9d84a852c78477894714, type: 2}
-  - {fileID: 11400000, guid: f4c47b6cac6b74644b2c06a3284066c6, type: 2}
-  - {fileID: 11400000, guid: 723e2971451333948881ad7d7f813267, type: 2}
-  - {fileID: 11400000, guid: af02730c54040ee4881c3a030106ed26, type: 2}
-  - {fileID: 11400000, guid: af02730c54040ee4881c3a030106ed26, type: 2}
-  - {fileID: 11400000, guid: af02730c54040ee4881c3a030106ed26, type: 2}
-  - {fileID: 11400000, guid: 0cadbba19afb5b24d893acd3ad0c63bb, type: 2}
-  - {fileID: 11400000, guid: ebee20614517b9746befe51815a3470f, type: 2}
   weightedCardRewards:
-    InspectorTotalWeight: 11
+    InspectorTotalWeight: 8
     Items:
-    - Name: 1-Magic_Bolt.     [W:1] (9%)
-      PercentInList: ' (9%)'
-      Weight: 1
-      Item: {fileID: 11400000, guid: 3da1f1cdc28882b4caa6ac6c3eb5bb9a, type: 2}
-    - Name: 2-Magic_Blast.     [W:1] (9%)
-      PercentInList: ' (9%)'
+    - Name: 2-Magic_Blast.     [W:1] (13%)
+      PercentInList: ' (13%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
-    - Name: 3-Prepare.     [W:1] (9%)
-      PercentInList: ' (9%)'
-      Weight: 1
-      Item: {fileID: 11400000, guid: 5a5bcbbefd6be3443a38cbfa2963be74, type: 2}
-    - Name: 4-Deep_Breath.     [W:1] (9%)
-      PercentInList: ' (9%)'
-      Weight: 1
-      Item: {fileID: 11400000, guid: 444a5e755358d734c9116d3614318746, type: 2}
-    - Name: 5-Magic_Wasps.     [W:1] (9%)
-      PercentInList: ' (9%)'
-      Weight: 1
-      Item: {fileID: 11400000, guid: 18dcbc8f9ec7a6f4495429a9149ae647, type: 2}
-    - Name: 6-Aerokinesis.     [W:1] (9%)
-      PercentInList: ' (9%)'
+    - Name: 6-Aerokinesis.     [W:1] (13%)
+      PercentInList: ' (13%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-    - Name: 7_tighten_up.     [W:1] (9%)
-      PercentInList: ' (9%)'
+    - Name: 7_tighten_up.     [W:1] (13%)
+      PercentInList: ' (13%)'
       Weight: 1
       Item: {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-    - Name: 8_flow.     [W:1] (9%)
-      PercentInList: ' (9%)'
+    - Name: 8_flow.     [W:1] (13%)
+      PercentInList: ' (13%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-    - Name: 14-Search.     [W:1] (9%)
-      PercentInList: ' (9%)'
+    - Name: 14-Search.     [W:1] (13%)
+      PercentInList: ' (13%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
-    - Name: 16-Common_Erase.     [W:1] (9%)
-      PercentInList: ' (9%)'
-      Weight: 1
+    - Name: 16-Common_Erase.     [W:2] (25%)
+      PercentInList: ' (25%)'
+      Weight: 2
       Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-    - Name: 31-FireBall.     [W:1] (9%)
-      PercentInList: ' (9%)'
+    - Name: 31-FireBall.     [W:1] (13%)
+      PercentInList: ' (13%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
   _deckToLoadFrom: {fileID: 11400000, guid: 2d0f2df8e6bc6854c8591eca0b89afc5, type: 2}

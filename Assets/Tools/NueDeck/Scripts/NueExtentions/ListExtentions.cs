@@ -26,8 +26,18 @@ namespace NueGames.NueDeck.Scripts.NueExtentions
             return list[randomIndex];
         }
 
+        public static T RandomItem<T>(this List<T> list, int min, int max)
+        {
+            if (list.Count == 0)
+                throw new IndexOutOfRangeException("List is Empty");
+
+            max = Math.Min(max, list.Count);
+            var randomIndex = Random.Range(min, max);
+            return list[randomIndex];
+        }
+
 #if UNITY_EDITOR
-        
+
         public static T[] GetAllInstances<T>() where T : ScriptableObject
         {
             string[] guids = AssetDatabase.FindAssets("t:"+ typeof(T).Name);  //FindAssets uses tags check documentation for more info

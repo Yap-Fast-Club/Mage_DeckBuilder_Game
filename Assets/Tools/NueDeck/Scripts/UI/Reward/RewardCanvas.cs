@@ -148,6 +148,8 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
 
         private void GetInstantCardReward(RewardContainer rewardContainer, int amount = 3, Action OnComplete = null)
         {
+            GameManager.PersistentGameplayData.OfferedCardRewards++;
+
             _choiceTitle.text = "Choose a Card";
             _rewardCalls++;
 

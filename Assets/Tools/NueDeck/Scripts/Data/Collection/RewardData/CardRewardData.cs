@@ -17,22 +17,21 @@ namespace NueGames.NueDeck.Scripts.Data.Collection.RewardData
 
 
 
-
 #if UNITY_EDITOR
-        [Header("Load From Deck"), InfoBox("Will Delete previous weighted list", EInfoBoxType.Warning)  ]
+        [Header("Load From Deck"), InfoBox("If you want a new list, clear the previous list setting the count to 0", EInfoBoxType.Warning)  ]
         [SerializeField] DeckData _deckToLoadFrom;
         [Button]
         private void Load()
         {
             if (_deckToLoadFrom == null) return;
 
-            weightedCardRewards.Items.Clear();
             _deckToLoadFrom.CardList.ForEach(card =>
             {
                 weightedCardRewards.Items.Add(new WeightedListContainer<CardData>.WeightedItem<CardData>() { Item = card, Weight = 1 });
             }
             );
         }
+
 #endif
     }
 

@@ -12,10 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1ee6923251c40c0a25c5714f844ad43, type: 3}
   m_Name: Reward Container
   m_EditorClassIdentifier: 
+  initialCardPackIndex: 0
+  cardPackRandomRange: 1
   cardRewardDataList:
-  - {fileID: 11400000, guid: 6cecd2669f04dbf40be0053e0a29c0c5, type: 2}
   - {fileID: 11400000, guid: 9f216971cc1060349b6340fcb970f7d0, type: 2}
+  - {fileID: 11400000, guid: 9f216971cc1060349b6340fcb970f7d0, type: 2}
+  - {fileID: 11400000, guid: 9f216971cc1060349b6340fcb970f7d0, type: 2}
+  - {fileID: 11400000, guid: 8f2a97f143c74b84f8822a258daedf84, type: 2}
+  - {fileID: 11400000, guid: 8f2a97f143c74b84f8822a258daedf84, type: 2}
+  - {fileID: 11400000, guid: 91c53191723dd8841955490d22cdd58f, type: 2}
+  - {fileID: 11400000, guid: 8f2a97f143c74b84f8822a258daedf84, type: 2}
+  - {fileID: 11400000, guid: 91c53191723dd8841955490d22cdd58f, type: 2}
   - {fileID: 11400000, guid: 0e6a4ef50fa3b45429846e2f8093ed4b, type: 2}
+  - {fileID: 11400000, guid: 91c53191723dd8841955490d22cdd58f, type: 2}
+  - {fileID: 11400000, guid: 0e6a4ef50fa3b45429846e2f8093ed4b, type: 2}
+  - {fileID: 11400000, guid: 0e6a4ef50fa3b45429846e2f8093ed4b, type: 2}
+  - {fileID: 11400000, guid: afdd9c9a4a693334f96f6e501a02d236, type: 2}
+  - {fileID: 11400000, guid: afdd9c9a4a693334f96f6e501a02d236, type: 2}
+  - {fileID: 11400000, guid: 0e6a4ef50fa3b45429846e2f8093ed4b, type: 2}
+  - {fileID: 11400000, guid: afdd9c9a4a693334f96f6e501a02d236, type: 2}
+  - {fileID: 11400000, guid: afdd9c9a4a693334f96f6e501a02d236, type: 2}
+  - {fileID: 11400000, guid: afdd9c9a4a693334f96f6e501a02d236, type: 2}
+  - {fileID: 11400000, guid: d5adf2f4296c15e44b3b862751b5ec91, type: 2}
+  - {fileID: 11400000, guid: d5adf2f4296c15e44b3b862751b5ec91, type: 2}
   - {fileID: 11400000, guid: d5adf2f4296c15e44b3b862751b5ec91, type: 2}
   goldRewardDataList:
   - {fileID: 11400000, guid: bef18396ce6d1a94489b81eacda6328e, type: 2}
