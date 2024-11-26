@@ -53,10 +53,10 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                     rewardClone.RewardButton.onClick.AddListener(() => GetGoldReward(rewardClone, rewardGold));
                     break;
                 case RewardType.Card:
-                    var rewardCardList = rewardContainerData.GetRandomCardRewardList(out var cardRewardData);
+                    var rewardCardList = rewardContainerData.GetRandomCardReward(out var cardRewardData);
                     _cardRewardList.Clear();
-                    foreach (var cardData in rewardCardList)
-                        _cardRewardList.Add(cardData);
+                    _cardRewardList.AddRange(rewardCardList);
+
                     rewardClone.BuildReward(cardRewardData.RewardSprite, cardRewardData.RewardDescription);
                     GetInstantCardReward(rewardClone, 3, OnComplete);
                     break;
@@ -72,7 +72,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
             var rewardClone = Instantiate(rewardContainerPrefab, rewardRoot);
             _currentRewardsList.Add(rewardClone);
 
-            rewardContainerData.GetRandomCardRewardList(out var cardRewardData);
+            rewardContainerData.GetRandomCardReward(out var cardRewardData);
             var removeCardList = new List<CardData>(GameManager.PersistentGameplayData.CurrentCardsList);
 
             _cardRewardList.Clear();

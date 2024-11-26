@@ -16,14 +16,21 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
         public List<CardRewardData> CardRewardDataList => cardRewardDataList;
         public List<GoldRewardData> GoldRewardDataList => goldRewardDataList;
 
-        public List<CardData> GetRandomCardRewardList(out CardRewardData rewardData)
+        public List<CardData> GetRandomCardReward(out CardRewardData rewardData)
         {
+            //CAMBIAR ESTO
             rewardData = CardRewardDataList.RandomItem();
             
             List<CardData> cardList = new List<CardData>();
-            
-            foreach (var cardData in rewardData.RewardCardList)
-                cardList.Add(cardData);
+            int attempts = 0;
+
+            while (cardList.Count <= 3 && attempts <= 100)
+            {
+                var card = rewardData.weightedCardRewards.GetRandomItem();
+
+                if(!cardList.Contains(card))
+                    cardList.Add(rewardData.weightedCardRewards.GetRandomItem());
+            }
 
             return cardList;
         } 
