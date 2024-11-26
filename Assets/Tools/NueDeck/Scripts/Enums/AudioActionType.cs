@@ -28,6 +28,7 @@
         ThunderAttack,
         IceAttack,
         WaterAttack,
-        EarthAttack
+        EarthAttack,
+        HandellMunch
     }
 }
