@@ -170,35 +170,25 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
 
                 var choice = Instantiate(choiceCardUIPrefab, spawnTransform);
 
-                int j = 0;
-                var reward = _cardRewardList.RandomItem();
+                var reward = _cardRewardList[i];
 
-                while (spawnedRewards.Contains(reward) && j < 50)
+                spawnedRewards.Add(reward);
+                choice.BuildReward(reward);
+                choice.OnCardChose += choice.AddCardToHand;
+                choice.OnCardChose += ResetCanvas;
+                choice.OnCardChose += () =>
                 {
-                    reward = _cardRewardList.RandomItem();
-                    j++;
-                }
-
-                if (!spawnedRewards.Contains(reward))
-                {
-                    spawnedRewards.Add(reward);
-                    choice.BuildReward(reward);
-                    choice.OnCardChose += choice.AddCardToHand;
-                    choice.OnCardChose += ResetCanvas;
-                    choice.OnCardChose += () =>
+                    if (_rewardCalls == _plannedCalls)
                     {
-                        if (_rewardCalls == _plannedCalls)
-                        {
-                            GameManager.PersistentGameplayData.CanSelectCards = true;
-                            GameManager.PersistentGameplayData.STOP = false;
-                            UIManager.CombatCanvas.EnableHandell(true);
-                        }
-                        OnComplete?.Invoke();
-                    };
+                        GameManager.PersistentGameplayData.CanSelectCards = true;
+                        GameManager.PersistentGameplayData.STOP = false;
+                        UIManager.CombatCanvas.EnableHandell(true);
+                    }
+                    OnComplete?.Invoke();
+                };
 
-                    _cardRewardList.Remove(reward);
-                    _spawnedChoiceList.Add(choice);
-                }
+                _cardRewardList.Remove(reward);
+                _spawnedChoiceList.Add(choice);
 
                 _currentRewardsList.Remove(rewardContainer);
 

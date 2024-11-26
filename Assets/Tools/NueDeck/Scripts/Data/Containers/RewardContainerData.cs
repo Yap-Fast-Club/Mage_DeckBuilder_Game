@@ -26,6 +26,8 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
 
             while (cardList.Count <= 3 && attempts <= 100)
             {
+                attempts++;
+
                 var card = rewardData.weightedCardRewards.GetRandomItem();
 
                 if(!cardList.Contains(card))
