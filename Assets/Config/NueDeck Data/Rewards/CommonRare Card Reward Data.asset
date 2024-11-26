@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 52
+    InspectorTotalWeight: 53
     Items:
     - Name: 2-Magic_Blast.     [W:3] (6%)
       PercentInList: ' (6%)'
@@ -37,9 +37,9 @@ MonoBehaviour:
       PercentInList: ' (6%)'
       Weight: 3
       Item: {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
-    - Name: 16-Common_Erase.     [W:1] (2%)
-      PercentInList: ' (2%)'
-      Weight: 1
+    - Name: 16-Common_Erase.     [W:2] (4%)
+      PercentInList: ' (4%)'
+      Weight: 2
       Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
     - Name: 31-FireBall.     [W:3] (6%)
       PercentInList: ' (6%)'
