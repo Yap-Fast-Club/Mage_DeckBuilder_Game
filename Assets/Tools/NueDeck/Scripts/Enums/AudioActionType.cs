@@ -21,6 +21,13 @@
         MeteorEnd,
         PortalSpawn,
         HandellActivation,
-        CardGrabbed
+        CardGrabbed,
+        Incantation,
+        FireAttack,
+        WindAttack,
+        ThunderAttack,
+        IceAttack,
+        WaterAttack,
+        EarthAttack
     }
 }
