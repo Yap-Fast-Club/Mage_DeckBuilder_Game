@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardRewardDataList:
   - {fileID: 11400000, guid: 6cecd2669f04dbf40be0053e0a29c0c5, type: 2}
+  - {fileID: 11400000, guid: 9f216971cc1060349b6340fcb970f7d0, type: 2}
+  - {fileID: 11400000, guid: 0e6a4ef50fa3b45429846e2f8093ed4b, type: 2}
+  - {fileID: 11400000, guid: d5adf2f4296c15e44b3b862751b5ec91, type: 2}
   goldRewardDataList:
   - {fileID: 11400000, guid: bef18396ce6d1a94489b81eacda6328e, type: 2}
