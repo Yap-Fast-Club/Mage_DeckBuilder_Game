@@ -223,6 +223,7 @@ namespace NueGames.NueDeck.Scripts.Collection
                         _dragged = i;
                         _heldCardOffset = cardTransform.position - _mouseWorldPos;
                         _heldCardOffset.z = -0.1f;
+                        AudioManager.Instance.PlayOneShot(AudioActionType.CardGrabbed);
                     }
                 }
 

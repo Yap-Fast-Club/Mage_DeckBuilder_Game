@@ -53,7 +53,8 @@ namespace NueGames.NueDeck.Scripts.Characters
             CombatManager.OnEnemyTurnStarted -= CharacterStats.TriggerAllStatus;
            
             CombatManager.OnEnemyDeath(this);
-            AudioManager.PlayOneShot(DeathSoundProfileData.GetRandomClip());
+            if(CharacterStats.CurrentSouls > 0)
+                AudioManager.PlayOneShot(DeathSoundProfileData.GetRandomClip());
             Destroy(gameObject);
         }
         #endregion

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8f29259e87442338a016acd10256ddc, type: 3}
-  m_Name: EnemyDeathSoundProfile
+  m_Name: CityDamagedSoundProfile
   m_EditorClassIdentifier: 
-  audioType: 6
+  audioType: 1
   randomClipList:
-  - {fileID: 8300000, guid: dc0bcffd1380f1049bd28e1121aa5098, type: 3}
+  - {fileID: 8300000, guid: 2f78112973dacd54288e4cf20f4df491, type: 3}

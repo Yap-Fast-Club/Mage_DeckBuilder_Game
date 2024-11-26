@@ -100,7 +100,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             DrawPile.Remove(card);
             UIManager.CombatCanvas.SetPileTexts();
             clone.UpdateCardText();
-
+            AudioManager.Instance.PlayOneShot(Enums.AudioActionType.Draw);
         }
         public void DiscardHand()
         {

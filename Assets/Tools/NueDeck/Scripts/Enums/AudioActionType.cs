@@ -3,8 +3,8 @@
     public enum AudioActionType
     {
         Attack,
-        Bite,
-        Block,
+        CityDamaged,
+        Push,
         Button,
         Draw,
         Drink,
@@ -18,6 +18,9 @@
         CardHovered,
         MenuMusic,
         MeteorBegin,
-        MeteorEnd
+        MeteorEnd,
+        PortalSpawn,
+        HandellActivation,
+        CardGrabbed
     }
 }

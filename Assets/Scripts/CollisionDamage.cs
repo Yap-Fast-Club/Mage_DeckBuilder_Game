@@ -37,6 +37,7 @@ public class CollisionDamage : MonoBehaviour
         var otherCharacter = other.GetComponent<CharacterBase>();
 
         otherCharacter?.CharacterStats.Damage(_damage);
+        AudioManager.Instance.PlayOneShot(NueGames.NueDeck.Scripts.Enums.AudioActionType.CityDamaged);
 
         if (_autoDestroy)
         {

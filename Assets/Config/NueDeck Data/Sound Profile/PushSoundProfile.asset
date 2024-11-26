@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8f29259e87442338a016acd10256ddc, type: 3}
-  m_Name: BlockSoundProfile
+  m_Name: PushSoundProfile
   m_EditorClassIdentifier: 
   audioType: 2
-  randomClipList: []
+  randomClipList:
+  - {fileID: 8300000, guid: 664d7a15f32365f4cb1e3a1bc3778bd6, type: 3}

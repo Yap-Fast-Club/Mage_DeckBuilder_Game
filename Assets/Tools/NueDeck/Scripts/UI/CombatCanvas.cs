@@ -98,6 +98,9 @@ namespace NueGames.NueDeck.Scripts.UI
         {
             _paidConsumeHandellButton.gameObject.SetActive(!show);
             _freeConsumeHandellButton.gameObject.SetActive(show);
+
+            if (show)
+                AudioManager.Instance.PlayOneShot(AudioActionType.HandellActivation);
         }
 
         #endregion
