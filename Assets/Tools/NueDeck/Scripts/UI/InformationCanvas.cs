@@ -43,7 +43,7 @@ namespace NueGames.NueDeck.Scripts.UI
         
         #region Public Methods
         public void SetRoomText(int roomNumber,bool useStage = false, int stageNumber = -1) => 
-            RoomTextField.text = useStage ? $"Room {stageNumber}/{roomNumber}" : $"Room {roomNumber}";
+            RoomTextField.text = useStage ? $"Encounter {stageNumber}" : $"Room {roomNumber}";
 
         public void SetGoldText(int value)=>GoldTextField.text = $"{value}";
 

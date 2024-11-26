@@ -23,7 +23,7 @@ MonoBehaviour:
   allCardsList: {fileID: 11400000, guid: 26fbf1bce83fef540929678520e7341f, type: 2}
   cardPrefab: {fileID: 2689473134106589740, guid: a9728682a56595f4989b8f224d934689, type: 3}
   defaultName: Wizark
-  useStageSystem: 0
+  useStageSystem: 1
   InstantTextColor: {r: 0.015574936, g: 0.6603774, b: 0.027586086, a: 1}
   FatigueTextColor: {r: 1, g: 0.39607844, b: 0, a: 1}
   EraseTextColor: {r: 0.91372555, g: 0.27058825, b: 0.27058825, a: 1}

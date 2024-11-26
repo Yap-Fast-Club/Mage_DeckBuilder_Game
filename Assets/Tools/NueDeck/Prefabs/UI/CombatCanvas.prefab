@@ -2417,11 +2417,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 712929092637557575, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
       propertyPath: m_text
-      value: Next Level
+      value: Next Encounter
       objectReference: {fileID: 0}
     - target: {fileID: 712929092637557575, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
       propertyPath: m_fontSize
-      value: 65.5
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 712929092637557575, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 712929092637557575, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 712929092637557575, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 712929093038123566, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
