@@ -8,6 +8,7 @@ namespace NueGames.NueDeck.Scripts.Card
     public class CardActionParameters
     {
         public readonly float Value;
+        public readonly float AreaValue;
         public readonly CharacterBase TargetCharacter;
         public readonly CharacterBase SelfCharacter;
         public readonly CardData CardData;
@@ -19,6 +20,17 @@ namespace NueGames.NueDeck.Scripts.Card
             SelfCharacter = self;
             CardData = cardData;
             CardBase = cardBase;
+            AreaValue = 1;
+        }
+
+        public CardActionParameters(float value, float areaValue, CharacterBase target, CharacterBase self, CardData cardData, CardBase cardBase)
+        {
+            Value = value;
+            TargetCharacter = target;
+            SelfCharacter = self;
+            CardData = cardData;
+            CardBase = cardBase;
+            AreaValue = areaValue;
         }
     }
     public abstract class CardActionBase

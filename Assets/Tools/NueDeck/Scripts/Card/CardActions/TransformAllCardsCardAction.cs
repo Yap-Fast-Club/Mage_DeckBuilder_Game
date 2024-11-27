@@ -16,15 +16,13 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
         public override void DoAction(CardActionParameters actionParameters)
         {
-            string toEraseID = ((int)actionParameters.Value).ToString();
-            float decimalDiff = actionParameters.Value - Mathf.FloorToInt(actionParameters.Value) - 0.005f;
-            string toCreateID = (Mathf.CeilToInt( decimalDiff * 100)).ToString();
+            string toEraseID = actionParameters.AreaValue.ToString();
+            string toCreateID = actionParameters.Value.ToString();
 
             var allCopiesInDeck = CollectionManager.DrawPile.FindAll(c => c.Id == toEraseID).Concat(CollectionManager.HandPile.FindAll(c => c.Id == toEraseID)).ToList();
 
             if (allCopiesInDeck == null || allCopiesInDeck.Count == 0 || CollectionManager.DrawPile.Count == 0) return;
 
-            Debug.Log(toCreateID);
             CardData cardToCreateData = GameManager.GameplayData.AllCardsList.CardList.Find(c => c.Id == toCreateID);
             for ( int i = 0; i < allCopiesInDeck.Count; i++ )
             {

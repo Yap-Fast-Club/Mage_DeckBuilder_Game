@@ -114,7 +114,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
                 var action = CardActionProcessor.GetAction(actionData.CardActionType);
                 foreach (var target in targetList)
-                    action.DoAction(new CardActionParameters(actionData.ActionValue, target, self, CardData, this));
+                    action.DoAction(new CardActionParameters(actionData.ActionValue, actionData.ActionAreaValue, target, self, CardData, this));
 
                 if (action is AttackAction)
                     resetPower = true;
