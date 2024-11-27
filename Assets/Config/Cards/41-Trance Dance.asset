@@ -26,19 +26,19 @@ MonoBehaviour:
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 6
+    actionValue: 5
     actionDelay: 0
   - cardActionType: 3
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 6
+    actionValue: 5
     actionDelay: 0
   - cardActionType: 19
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 0
+    actionValue: 2
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: +
@@ -112,7 +112,7 @@ MonoBehaviour:
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 1
+    modifiedActionValueIndex: 2
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
