@@ -29,7 +29,7 @@ MonoBehaviour:
     actionValue: 0
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Deal 1 DMG for each Mana after casting to all enemies. '
+  - descriptionText: Deal 1 DMG to all enemies for each Mana after casting.
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -69,3 +69,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 0
+  _evolveToCard: {fileID: 0}

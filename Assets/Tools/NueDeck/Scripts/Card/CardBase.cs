@@ -85,6 +85,10 @@ namespace NueGames.NueDeck.Scripts.Card
 
             foreach (var typeRoot in _typeRootList)
                 typeRoot.gameObject.SetActive(typeRoot.Type == CardData.Type);
+
+            if (CardData.EvolveToCard && persistentData.EvoultionCardsPlayed.Contains(CardData))
+                SetCard(CardData.EvolveToCard);
+
         }
 
         #endregion
@@ -104,7 +108,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
             bool resetPower = false;
 
-            if (CardData.Id == "21-meteor_call")
+            if (CardData.Id == "21-meteor_call") //xd
                 AudioManager.Instance.PlayOneShot(AudioActionType.MeteorBegin);
 
             foreach (var actionData in CardData.CardActionDataList)
@@ -131,7 +135,8 @@ namespace NueGames.NueDeck.Scripts.Card
                 self.CharacterStats.ClearStatus(StatusType.Focus);
             }
 
-
+            if (CardData.EvolveToCard)
+                persistentData.EvoultionCardsPlayed.Add(CardData);
 
             if (persistentData.HandellIsActive)
             {

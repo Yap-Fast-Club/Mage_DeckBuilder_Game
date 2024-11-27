@@ -35,7 +35,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
         private int _plannedCalls = 0;
         public void PrepareCanvas(int plannedCalls = 1)
         {
-            rewardPanelRoot.gameObject.SetActive(true);
+            //rewardPanelRoot.gameObject.SetActive(true);
             _rewardCalls = 0;
             _plannedCalls = plannedCalls;
         }

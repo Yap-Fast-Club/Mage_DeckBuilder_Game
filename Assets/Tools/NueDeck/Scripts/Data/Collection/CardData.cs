@@ -39,7 +39,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private AudioActionType audioType;
 
         [Header("Special")]
-        [SerializeField] CardData _evolveToCard;
+        public CardData EvolveToCard;
 
         #region Cache
         public string Id => id;

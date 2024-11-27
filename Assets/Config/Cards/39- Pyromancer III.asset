@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 38-Pyromancer II
+  m_Name: 39- Pyromancer III
   m_EditorClassIdentifier: 
-  id: 38
-  cardName: Pyromancer II
+  id: 39
+  cardName: Pyromancer III
   type: 1
   manaCost: 0
   turnCost: 0
-  cardSprite: {fileID: 21300000, guid: 53bb4e6371e632e4f8ee91999c5e9583, type: 3}
+  cardSprite: {fileID: 21300000, guid: 1e2bb2fd1412a8547b28672a3e75e5ef, type: 3}
   rarity: 3
   usableWithoutTarget: 1
   exhaustAfterPlay: 1
@@ -25,8 +25,8 @@ MonoBehaviour:
   - cardActionType: 21
     actionTargetType: 2
     actionAreaType: 0
-    actionAreaValue: 31
-    actionValue: 32
+    actionAreaValue: 32
+    actionValue: 33
     actionDelay: 0
   - cardActionType: 11
     actionTargetType: 2
@@ -35,7 +35,8 @@ MonoBehaviour:
     actionValue: 0
     actionDelay: 1
   cardDescriptionDataList:
-  - descriptionText: Replace all copies of "Fire Ball" in your deck with "Fire Breath"
+  - descriptionText: Replace all copies of "Fire Breath" in your deck with "Hell
+      Fire"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -46,4 +47,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
   audioType: 20
-  EvolveToCard: {fileID: 11400000, guid: 9280cb7f353a9d848b98a72ac4de9cb8, type: 2}
+  EvolveToCard: {fileID: 11400000, guid: 48d5dce97c96fe74a8378a966b42424d, type: 2}

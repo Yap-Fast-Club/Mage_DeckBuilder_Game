@@ -31,6 +31,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private List<AllyHealthData> allyHealthDataDataList;
         public bool RandomInitialized = false;
         public int OfferedCardRewards = 0;
+        public List<CardData> EvoultionCardsPlayed = new List<CardData>();
 
         public PersistentGameplayData(GameplayData gameplayData)
         {
@@ -77,6 +78,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             allyHealthDataDataList = new List<AllyHealthData>();
             RandomInitialized = false;
             OfferedCardRewards = 0;
+            EvoultionCardsPlayed.Clear();
         }
 
     #region Encapsulation

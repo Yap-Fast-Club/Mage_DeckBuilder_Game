@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 33-Hell FIre
   m_EditorClassIdentifier: 
   id: 33
-  cardName: Hell FIre
+  cardName: Hell Fire
   type: 0
   manaCost: 10
   turnCost: 1
@@ -73,3 +73,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 21
+  _evolveToCard: {fileID: 0}

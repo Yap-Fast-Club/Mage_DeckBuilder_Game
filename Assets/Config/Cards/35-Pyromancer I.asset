@@ -34,12 +34,6 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
-  - cardActionType: 11
-    actionTargetType: 2
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 0
-    actionDelay: 1
   cardDescriptionDataList:
   - descriptionText: Replace all copies of "fire bolt" in your deck with "fire ball"
     enableOverrideColor: 0
@@ -52,4 +46,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
   audioType: 20
-  _evolveToCard: {fileID: 0}
+  EvolveToCard: {fileID: 11400000, guid: c6d01a9a0a0039241be02b1bedf35e6f, type: 2}

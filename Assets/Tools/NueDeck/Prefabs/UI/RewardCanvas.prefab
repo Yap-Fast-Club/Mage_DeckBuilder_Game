@@ -168,7 +168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3975758537094236638
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2026,8 +2026,18 @@ PrefabInstance:
       value: 0.2000122
       objectReference: {fileID: 0}
     - target: {fileID: 248763350527556839, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: m_text
+      value: 'ElectroMancer II
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 248763350527556839, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
       propertyPath: m_fontSize
-      value: 40.4
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 248763350527556839, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 898921695618051459, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2062,8 +2072,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1623928941786603488, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: m_text
+      value: 'ElectroMancer II
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623928941786603488, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
       propertyPath: m_fontSize
-      value: 40.4
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 1623928941786603488, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 1647381302162669745, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2355,6 +2375,14 @@ PrefabInstance:
       value: 0.12000275
       objectReference: {fileID: 0}
     - target: {fileID: 6498390140195597661, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -30.6543
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498390140195597661, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2.806305
+      objectReference: {fileID: 0}
+    - target: {fileID: 6498390140195597661, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1
       objectReference: {fileID: 0}
@@ -2459,8 +2487,12 @@ PrefabInstance:
       value: -3.067505
       objectReference: {fileID: 0}
     - target: {fileID: 7972927813248997974, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -11.106
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972927813248997974, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.6869965
+      value: -0.5807648
       objectReference: {fileID: 0}
     - target: {fileID: 8244397042682521285, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
       propertyPath: m_SizeDelta.x

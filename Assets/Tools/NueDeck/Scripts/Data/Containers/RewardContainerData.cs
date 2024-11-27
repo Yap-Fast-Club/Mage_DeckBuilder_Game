@@ -34,7 +34,6 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
                 _persistentData.RandomInitialized = true;
             }
 
-            //CAMBIAR ESTO
             int min = initialCardPackIndex + _persistentData.OfferedCardRewards;
             int max = min + cardPackRandomRange;
 
@@ -42,16 +41,15 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
             max = Mathf.Min(max, CardRewardDataList.Count);
 
             rewardData = CardRewardDataList.RandomItem(min, max);
-            
+            Debug.Log($"{rewardData.name} Reward!");
+
             List<CardData> cardList = new List<CardData>();
             int attempts = 0;
-                Debug.Log(rewardData.name);
 
             while (cardList.Count <= 4 && attempts <= 100)
             {
                 attempts++;
                 var card = rewardData.weightedCardRewards.GetRandomItem();
-                Debug.Log(card.name);
                 if(!cardList.Contains(card))
                     cardList.Add(card);
             }
