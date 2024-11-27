@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Reward Container
   m_EditorClassIdentifier: 
   initialCardPackIndex: 0
-  cardPackRandomRange: 1
+  cardPackRandomRange: 6
   cardRewardDataList:
   - {fileID: 11400000, guid: 9f216971cc1060349b6340fcb970f7d0, type: 2}
   - {fileID: 11400000, guid: 9f216971cc1060349b6340fcb970f7d0, type: 2}

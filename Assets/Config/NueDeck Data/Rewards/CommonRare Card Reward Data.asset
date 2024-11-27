@@ -15,34 +15,34 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 53
+    InspectorTotalWeight: 55
     Items:
-    - Name: 2-Magic_Blast.     [W:3] (6%)
-      PercentInList: ' (6%)'
-      Weight: 3
+    - Name: 2-Magic_Blast.     [W:5] (9%)
+      PercentInList: ' (9%)'
+      Weight: 5
       Item: {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
-    - Name: 6-Aerokinesis.     [W:3] (6%)
-      PercentInList: ' (6%)'
+    - Name: 6-Aerokinesis.     [W:3] (5%)
+      PercentInList: ' (5%)'
       Weight: 3
       Item: {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-    - Name: 7_tighten_up.     [W:3] (6%)
-      PercentInList: ' (6%)'
+    - Name: 7_tighten_up.     [W:3] (5%)
+      PercentInList: ' (5%)'
       Weight: 3
       Item: {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-    - Name: 8_flow.     [W:3] (6%)
-      PercentInList: ' (6%)'
+    - Name: 8_flow.     [W:3] (5%)
+      PercentInList: ' (5%)'
       Weight: 3
       Item: {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-    - Name: 14-Search.     [W:3] (6%)
-      PercentInList: ' (6%)'
+    - Name: 14-Search.     [W:3] (5%)
+      PercentInList: ' (5%)'
       Weight: 3
       Item: {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
     - Name: 16-Common_Erase.     [W:2] (4%)
       PercentInList: ' (4%)'
       Weight: 2
       Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-    - Name: 31-FireBall.     [W:3] (6%)
-      PercentInList: ' (6%)'
+    - Name: 31-FireBall.     [W:3] (5%)
+      PercentInList: ' (5%)'
       Weight: 3
       Item: {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
     - Name: 9_lightning_strike.     [W:2] (4%)

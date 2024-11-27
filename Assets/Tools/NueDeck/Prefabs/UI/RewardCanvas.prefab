@@ -2154,9 +2154,69 @@ PrefabInstance:
       propertyPath: m_PixelsPerUnitMultiplier
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3132054085632977386, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnDisableAction.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132054085632977386, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnDisableAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132054085632977386, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnDisableAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7696714948083483643}
+    - target: {fileID: 3132054085632977386, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnDisableAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132054085632977386, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnDisableAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132054085632977386, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnDisableAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3132054085632977386, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnDisableAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3301311500388243699, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 2.130005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320791182995430807, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnEnableAction.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320791182995430807, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnEnableAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320791182995430807, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnEnableAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 7696714948083483643}
+    - target: {fileID: 3320791182995430807, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnEnableAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320791182995430807, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnEnableAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320791182995430807, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnEnableAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320791182995430807, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnEnableAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320791182995430807, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
+      propertyPath: OnEnableAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3631304923952747828, guid: 064f09601e0b46348b1488f9cc7fd9e6, type: 3}
       propertyPath: m_IsActive
