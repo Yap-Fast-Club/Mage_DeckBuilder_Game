@@ -10,7 +10,6 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         public override void DoAction(CardActionParameters actionParameters)
         {
             var value = Mathf.RoundToInt(actionParameters.Value);
-            Debug.Log(actionParameters.SelfCharacter);
             actionParameters.SelfCharacter.CharacterStats.Damage(value);
             
             if (FxManager != null)

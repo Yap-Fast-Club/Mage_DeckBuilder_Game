@@ -15,34 +15,54 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 12
+    InspectorTotalWeight: 21
     Items:
-    - Name: 2-Magic_Blast.     [W:2] (17%)
-      PercentInList: ' (17%)'
+    - Name: 2-Fire Rain.     [W:2] (10%)
+      PercentInList: ' (10%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
-    - Name: 6-Aerokinesis.     [W:2] (17%)
-      PercentInList: ' (17%)'
+    - Name: 6-Aerokinesis.     [W:2] (10%)
+      PercentInList: ' (10%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
-    - Name: 7_tighten_up.     [W:2] (17%)
-      PercentInList: ' (17%)'
+    - Name: 7-Might.     [W:2] (10%)
+      PercentInList: ' (10%)'
       Weight: 2
       Item: {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
-    - Name: 8_flow.     [W:1] (8%)
-      PercentInList: ' (8%)'
+    - Name: 8-Flow.     [W:1] (5%)
+      PercentInList: ' (5%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
-    - Name: 14-Search.     [W:1] (8%)
-      PercentInList: ' (8%)'
+    - Name: 14-Search.     [W:1] (5%)
+      PercentInList: ' (5%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
-    - Name: 16-Common_Erase.     [W:2] (17%)
-      PercentInList: ' (17%)'
+    - Name: 16-Food for Handell.     [W:2] (10%)
+      PercentInList: ' (10%)'
       Weight: 2
       Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-    - Name: 31-FireBall.     [W:2] (17%)
-      PercentInList: ' (17%)'
+    - Name: 31-Fire Ball.     [W:2] (10%)
+      PercentInList: ' (10%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
+    - Name: 40-Magic Wym.     [W:2] (10%)
+      PercentInList: ' (10%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: b4d02c7038074d342b0a2dec569adeea, type: 2}
+    - Name: 43-Breeze.     [W:2] (10%)
+      PercentInList: ' (10%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: dceffa6cc9261a04cae89e0d25965452, type: 2}
+    - Name: 42-Magic Arrow.     [W:2] (10%)
+      PercentInList: ' (10%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: c86525d0ea213214e8e13a077cb41acb, type: 2}
+    - Name: 45-Overcharge.     [W:2] (10%)
+      PercentInList: ' (10%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 3b5bb16799f848c479ec4c9d93332a1e, type: 2}
+    - Name: 36-Electromancer I.     [W:1] (5%)
+      PercentInList: ' (5%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
   _deckToLoadFrom: {fileID: 11400000, guid: 2d0f2df8e6bc6854c8591eca0b89afc5, type: 2}

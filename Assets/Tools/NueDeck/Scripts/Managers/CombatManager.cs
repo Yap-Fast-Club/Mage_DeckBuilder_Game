@@ -51,7 +51,6 @@ namespace NueGames.NueDeck.Scripts.Managers
             get => _currentCombatStateType;
             private set
             {
-                Debug.Log(value);
                 ExecuteCombatState(value);
                 _currentCombatStateType = value;
             }

@@ -104,7 +104,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public int CurrentMana
         {
             get => currentMana;
-            set => currentMana = value < 0 ? 0 : value;
+            set => currentMana = value < 0 ? 0 : value > maxMana ? maxMana : value;
         }
         public int MaxSouls
         {

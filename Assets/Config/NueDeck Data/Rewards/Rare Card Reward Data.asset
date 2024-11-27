@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 20
+    InspectorTotalWeight: 22
     Items:
     - Name: 9-Lightning Strike.     [W:1] (5%)
       PercentInList: ' (5%)'
@@ -57,8 +57,8 @@ MonoBehaviour:
       PercentInList: ' (5%)'
       Weight: 1
       Item: {fileID: 11400000, guid: ebee20614517b9746befe51815a3470f, type: 2}
-    - Name: 23-Static Field.     [W:2] (10%)
-      PercentInList: ' (10%)'
+    - Name: 23-Static Field.     [W:2] (9%)
+      PercentInList: ' (9%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 0cadbba19afb5b24d893acd3ad0c63bb, type: 2}
     - Name: 25-Sneak.     [W:1] (5%)
@@ -81,12 +81,16 @@ MonoBehaviour:
       PercentInList: ' (5%)'
       Weight: 1
       Item: {fileID: 11400000, guid: a410d004ee634e14d8ec63d2914d98f9, type: 2}
-    - Name: 35-Pyromancer I.     [W:2] (10%)
-      PercentInList: ' (10%)'
+    - Name: 35-Pyromancer I.     [W:2] (9%)
+      PercentInList: ' (9%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
-    - Name: 36-Electromancer I.     [W:1] (5%)
+    - Name: 36-Electromancer I.     [W:2] (9%)
+      PercentInList: ' (9%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
+    - Name: 41-Trance Dance.     [W:1] (5%)
       PercentInList: ' (5%)'
       Weight: 1
-      Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
+      Item: {fileID: 11400000, guid: da9ca951e9b471d4f81130aec7be63c8, type: 2}
   _deckToLoadFrom: {fileID: 11400000, guid: 1cc2b58cf62c6fd438563ce91a07d05f, type: 2}

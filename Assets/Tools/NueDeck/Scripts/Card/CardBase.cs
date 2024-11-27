@@ -104,7 +104,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
         private IEnumerator CardUseRoutine(CharacterBase self, CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
-            SpendMana(CardData.ManaCost - FocusStat.StatusValue);
+            SpendMana(FinalManaCost);
             AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
 
             bool resetPower = false;
@@ -277,7 +277,7 @@ namespace NueGames.NueDeck.Scripts.Card
                 return;
             }
 
-            int manaValue = Mathf.Max(0, CardData.ManaCost - FocusStat.StatusValue);
+            int manaValue = FinalManaCost;
 
             if (manaValue > CardData.ManaCost)
             {
