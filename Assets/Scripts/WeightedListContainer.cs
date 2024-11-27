@@ -55,7 +55,6 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
     }
     public T GetRandomItem()
     {
-        Debug.Log(_weightedList.Count);
         return _weightedList.Next();
     }
 

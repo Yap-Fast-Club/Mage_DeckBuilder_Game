@@ -10,32 +10,37 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 33 - Inferno
+  m_Name: 9-Lightning Strike
   m_EditorClassIdentifier: 
-  id: 33
-  cardName: Hell FIre
+  id: 9
+  cardName: Lightning Strike
   type: 0
-  manaCost: 10
+  manaCost: 2
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 61940e28eff065e4696f80fab03fdd99, type: 3}
-  rarity: 2
-  usableWithoutTarget: 1
+  cardSprite: {fileID: 21300000, guid: 05c3acf68ed990a47b7a5ff807a99a9a, type: 3}
+  rarity: 1
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 11
-    actionTargetType: 2
+  - cardActionType: 12
+    actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
-    actionDelay: 1
-  - cardActionType: 0
-    actionTargetType: 2
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 10
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Deal '
+  - descriptionText: 'Deal 1 DMG for each Mana after casting. '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: '
+
+      ('
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -46,23 +51,14 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 1
-    modiferStats: 3
-    usePrefixOnModifiedValue: 1
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 1
-  - descriptionText: ' damage'
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
     modifiedActionValueIndex: 0
-    modiferStats: 0
+    modiferStats: 6
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' to all enemies'
+  - descriptionText: ' Total DMG)'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -72,4 +68,4 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
-  audioType: 21
+  audioType: 23

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 4-Deep_Breath
+  m_Name: 7-Might
   m_EditorClassIdentifier: 
-  id: 4
-  cardName: Deep Breath
+  id: 7
+  cardName: Might
   type: 1
   manaCost: 0
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 5f72d8b2188c1dc4b92e5c5d1b18561f, type: 3}
+  cardSprite: {fileID: 21300000, guid: 7a440f566ac7e8c4e82b10e6bb88dfd2, type: 3}
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 6
+  - cardActionType: 3
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
@@ -39,15 +39,15 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
+    enableOverrideColor: 0
+    overrideColor: {r: 0.8867924, g: 0.14640439, b: 0.14640439, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Mana.'
+  - descriptionText: '  Power.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -56,5 +56,5 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 01000000
   audioType: 20

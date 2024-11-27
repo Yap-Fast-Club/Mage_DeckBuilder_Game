@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 37 - SpeedMancer
+  m_Name: 36-Electromancer I
   m_EditorClassIdentifier: 
-  id: 37
-  cardName: Speedster
+  id: 36
+  cardName: Electromancer I
   type: 1
   manaCost: 0
   turnCost: 0
-  cardSprite: {fileID: 21300000, guid: 1983fa9be9a963c4d97c44e354f3e3c2, type: 3}
+  cardSprite: {fileID: 21300000, guid: c4eb6fd20b004334ebc0c145ebc959cd, type: 3}
   rarity: 3
   usableWithoutTarget: 1
   exhaustAfterPlay: 1
@@ -25,24 +25,18 @@ MonoBehaviour:
   - cardActionType: 21
     actionTargetType: 2
     actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 4.08
+    actionAreaValue: 5
+    actionValue: 23
     actionDelay: 0
-  - cardActionType: 21
-    actionTargetType: 0
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 1.17
-    actionDelay: 1.5
   - cardActionType: 11
-    actionTargetType: 0
+    actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
   cardDescriptionDataList:
-  - descriptionText: Replace all copies of "Fire Bolt" in your deck with "Spark",
-      and all copies of "Deep Breath" with "Flow"
+  - descriptionText: Replace all copies of "Shard Volley" in your deck with "Static
+      Field"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -52,4 +46,4 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
-  audioType: 20
+  audioType: 23

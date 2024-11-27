@@ -5,6 +5,8 @@ using NaughtyAttributes;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
+using UnityEditor.VersionControl;
+using UnityEditor;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Data.Collection
@@ -34,6 +36,9 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         
         [Header("Fx")]
         [SerializeField] private AudioActionType audioType;
+
+        [Header("Special")]
+        [SerializeField] CardData _evolveToCard;
 
         #region Cache
         public string Id => id;
@@ -115,6 +120,13 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditSpecialKeywordsList(List<SpecialKeywords> newSpecialKeywordsList) =>
             specialKeywordsList = newSpecialKeywordsList;
         public void EditAudioType(AudioActionType newAudioActionType) => audioType = newAudioActionType;
+
+        private void OnValidate()
+        {
+            string assetPath = AssetDatabase.GetAssetPath(this.GetInstanceID());
+            AssetDatabase.RenameAsset(assetPath, $"{id}-{cardName}");
+            AssetDatabase.SaveAssets();
+        }
 #endif
 
         #endregion

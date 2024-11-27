@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 36 - ElectroMancer I
+  m_Name: 38-Pyromancer II
   m_EditorClassIdentifier: 
-  id: 36
-  cardName: Electromancer I
+  id: 38
+  cardName: Pyromancer II
   type: 1
   manaCost: 0
   turnCost: 0
-  cardSprite: {fileID: 21300000, guid: c4eb6fd20b004334ebc0c145ebc959cd, type: 3}
+  cardSprite: {fileID: 21300000, guid: 208330442e47d9b439b0da25b93edf55, type: 3}
   rarity: 3
   usableWithoutTarget: 1
   exhaustAfterPlay: 1
@@ -25,8 +25,8 @@ MonoBehaviour:
   - cardActionType: 21
     actionTargetType: 2
     actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 5.23
+    actionAreaValue: 1
+    actionValue: 31
     actionDelay: 0
   - cardActionType: 11
     actionTargetType: 2
@@ -34,9 +34,14 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
+  - cardActionType: 11
+    actionTargetType: 2
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 0
+    actionDelay: 1
   cardDescriptionDataList:
-  - descriptionText: Replace all copies of "Shard Volley" in your deck with "Static
-      Field"
+  - descriptionText: Replace all copies of "fire bolt" in your deck with "fire ball"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -46,4 +51,5 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
-  audioType: 23
+  audioType: 20
+  _evolveToCard: {fileID: 0}

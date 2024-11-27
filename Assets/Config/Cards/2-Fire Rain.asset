@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 17-Magic-Ping
+  m_Name: 2-Fire Rain
   m_EditorClassIdentifier: 
-  id: 17
-  cardName: Spark
+  id: 2
+  cardName: Fire Rain
   type: 0
-  manaCost: 2
-  turnCost: 0
-  cardSprite: {fileID: 21300000, guid: 85242fa70144d5d4fb6266f4b632fe44, type: 3}
-  rarity: 1
-  usableWithoutTarget: 0
+  manaCost: 4
+  turnCost: 1
+  cardSprite: {fileID: 21300000, guid: b89c818e301e99b4f94b8c2d6df8e29b, type: 3}
+  rarity: 0
+  usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
   - cardActionType: 0
-    actionTargetType: 0
+    actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 2
@@ -47,7 +47,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
-  - descriptionText: ' Damage.'
+  - descriptionText: ' damage'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -56,5 +56,14 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 06000000
-  audioType: 0
+  - descriptionText: ' to all enemies'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 
+  audioType: 21

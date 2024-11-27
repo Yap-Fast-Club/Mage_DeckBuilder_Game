@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 18-Magic-Swarm
+  m_Name: 15-Boulder Bonk
   m_EditorClassIdentifier: 
-  id: 18
-  cardName: Shard Storm
+  id: 15
+  cardName: Boulder Bonk
   type: 0
-  manaCost: 6
-  turnCost: 2
-  cardSprite: {fileID: 21300000, guid: 14a0f66a7be165c4ba476e3d7c40e390, type: 3}
+  manaCost: 3
+  turnCost: 1
+  cardSprite: {fileID: 21300000, guid: 1f815b84a774963428e07d14e5f5f69d, type: 3}
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
@@ -26,40 +26,10 @@ MonoBehaviour:
     actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 1
-    actionValue: 1
+    actionValue: 8
     actionDelay: 0
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.1
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.1
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.1
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.1
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.1
   cardDescriptionDataList:
-  - descriptionText: 'Repeat 5 times: Deal '
+  - descriptionText: 'Deal '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -95,5 +65,5 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 07000000
+  specialKeywordsList: 
   audioType: 26

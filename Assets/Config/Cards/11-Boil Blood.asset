@@ -10,32 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 26-Channel
+  m_Name: 11-Boil Blood
   m_EditorClassIdentifier: 
-  id: 26
-  cardName: Lock In
+  id: 11
+  cardName: Boil Blood
   type: 1
   manaCost: 0
-  turnCost: 1
-  cardSprite: {fileID: 21300000, guid: c825e202f64116d42bc3a58f8c75b679, type: 3}
+  turnCost: 0
+  cardSprite: {fileID: 21300000, guid: f7b0dc4b9508a5849b937f241d796f6e, type: 3}
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
+  - cardActionType: 13
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 6
+    actionDelay: 0
+  - cardActionType: 6
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 6
+    actionDelay: 0
   - cardActionType: 3
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 3
-    actionDelay: 0
-  - cardActionType: 19
-    actionTargetType: 1
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 2
+    actionValue: 4
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: +
+  - descriptionText: 'Lose '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -45,15 +51,15 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
-    enableOverrideColor: 0
-    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Power.
+  - descriptionText: ' Health.
 
 '
     enableOverrideColor: 0
@@ -64,6 +70,33 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
+  - descriptionText: ' +'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Mana. '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
   - descriptionText: +
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
@@ -75,21 +108,21 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    overrideColor: {r: 0.91115713, g: 0, b: 1, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 1
+    modifiedActionValueIndex: 2
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Focus.'
+  - descriptionText: ' Power.'
     enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    overrideColor: {r: 0.96098137, g: 0, b: 1, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 0800000001000000
-  audioType: 9
+  specialKeywordsList: 06000000
+  audioType: 1

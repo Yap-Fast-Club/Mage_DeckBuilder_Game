@@ -10,66 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 19-Soul_Harvest
+  m_Name: 20-Dark Grasp
   m_EditorClassIdentifier: 
-  id: 19
-  cardName: Pandemonium
+  id: 20
+  cardName: Dark Grasp
   type: 0
-  manaCost: 4
+  manaCost: 3
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 9d82903d8b369fd459bebe1d2381b0e9, type: 3}
-  rarity: 2
-  usableWithoutTarget: 1
+  cardSprite: {fileID: 21300000, guid: 3f1061b64b831a642a71267f744afac9, type: 3}
+  rarity: 1
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
   - cardActionType: 16
-    actionTargetType: 2
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 3
-    actionDelay: 0
-  - cardActionType: 11
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 1
-    actionDelay: 0
-  - cardActionType: 17
-    actionTargetType: 0
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 99999
+    actionValue: 4
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: Spend all souls (
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: ' Mana for every soul you have.'
-    enableOverrideColor: 1
-    overrideColor: {r: 0.7046466, g: 0, b: 1, a: 1}
-    useModifier: 1
-    modifiedActionValueIndex: 1
-    modiferStats: 7
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: ').
-
-'
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
   - descriptionText: 'Deal '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
@@ -88,7 +47,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Damage to all enemis for each soul spent ('
+  - descriptionText: ' Damage for each soul ('
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
