@@ -24,7 +24,7 @@ MonoBehaviour:
   - specialKeyword: 4
     contentText: Adds an effect that triggers when the targeted enemy dies.
   - specialKeyword: 7
-    contentText: Skip the your next turn after playing this card.
+    contentText: Skip your next turn after playing this card.
   - specialKeyword: 3
     contentText: Remove the card permanently from the deck.
   - specialKeyword: 8
