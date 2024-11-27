@@ -132,7 +132,7 @@ MonoBehaviour:
     MOV: 1'
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
-  delayShowDuration: 0
+  delayShowDuration: 0.4
 --- !u!114 &4195064740684565637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tileAmount: 1
   _direction: {x: -1, y: 0, z: 0}
+  _delayBeforeMove: 0
 --- !u!114 &-8558977831564256700
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ namespace NueGames.NueDeck.Scripts.Data.Characters
     public class EnemyCharacterData : CharacterDataBase
     {
         [Header("Movement, Attack, Souls")]
+        public int MoveTurnDelay = 0;
         public int MovementAmount = 2;
         public int Damage = 4;
         public int Souls = 1;

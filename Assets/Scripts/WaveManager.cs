@@ -141,6 +141,7 @@ public class WaveManager : MonoBehaviour
         clone.BuildCharacter();
         _combatManager.CurrentEnemiesList.Add(clone);
         AudioManager.Instance.PlayOneShot(NueGames.NueDeck.Scripts.Enums.AudioActionType.PortalSpawn);
+        _combatManager.EnemySpawned?.Invoke(clone);
     }
 
     private int GetMaxTurnForWave(Wave wave)

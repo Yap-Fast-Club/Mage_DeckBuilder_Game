@@ -34,6 +34,8 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         public Action OnAllyTurnStarted;
         public Action OnEnemyTurnStarted;
+        public Action<EnemyBase> EnemySpawned;
+        public Action<EnemyBase> EnemyDeath;
         public List<Transform> EnemyPosList => enemyPosList;
 
         public List<Transform> AllyPosList => allyPosList;
@@ -169,12 +171,12 @@ namespace NueGames.NueDeck.Scripts.Managers
         }
         public void OnEnemyDeath(EnemyBase targetEnemy)
         {
+            EnemyDeath?.Invoke(targetEnemy);
             CurrentEnemiesList.Remove(targetEnemy);
             persistentData.CurrentSouls += targetEnemy.GetComponent<SoulContainer>().SoulAmount;
             UIManager.InformationCanvas.UpdateSoulsGUI(targetEnemy);
-
-            
         }
+
         public void DeactivateCardHighlights()
         {
             foreach (var currentEnemy in CurrentEnemiesList)

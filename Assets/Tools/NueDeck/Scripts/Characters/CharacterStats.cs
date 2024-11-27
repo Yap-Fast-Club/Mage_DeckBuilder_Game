@@ -33,6 +33,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         public int CurrentHealth { get; set; }
         public int CurrentDamage { get; set;}
         public int CurrentMovement { get; set;}
+        public int CurrentMoveDelay { get; set; }
         public int MaxMovement => 9;
         public int CurrentSouls { get; set; }
         public bool IsStunned { get;  set; }
@@ -42,6 +43,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         public Action<int, int> OnHealthChanged;
         public Action<int> OnAttackDamageChanged;
         public Action<int> OnMovementChanged;
+        public Action<int> OnDelayChanged;
         public Action<int> OnSoulsChanged;
         private readonly Action<StatusType,int> OnStatusChanged;
         private readonly Action<StatusType, int> OnStatusApplied;
@@ -65,11 +67,12 @@ namespace NueGames.NueDeck.Scripts.Characters
             OnStatusCleared += characterCanvas.ClearStatus;
         }
 
-        public CharacterStats(int maxHealth, int curDamage, int curMovement, int curSouls, CharacterCanvas characterCanvas)
+        public CharacterStats(int maxHealth, int curDamage, int curMovement, int moveDelay, int curSouls, CharacterCanvas characterCanvas)
         {
             MaxHealth = maxHealth;
             CurrentHealth = maxHealth;
             CurrentMovement = curMovement;
+            CurrentMoveDelay = moveDelay;
             CurrentDamage = curDamage;
             CurrentSouls = curSouls;
             SetAllStatus();
@@ -77,6 +80,7 @@ namespace NueGames.NueDeck.Scripts.Characters
             OnHealthChanged += characterCanvas.UpdateHealthText;
             OnAttackDamageChanged += characterCanvas.UpdateAttackGUI;
             OnMovementChanged += characterCanvas.UpdateMovementGUI;
+            OnDelayChanged += characterCanvas.UpdateDelayGUI;
             OnSoulsChanged += characterCanvas.UpdateSoulsGUI;
             OnStatusChanged += characterCanvas.UpdateStatusText;
             OnStatusApplied += characterCanvas.ApplyStatus;
@@ -139,6 +143,13 @@ namespace NueGames.NueDeck.Scripts.Characters
                              targetMovement;
 
             OnMovementChanged?.Invoke(CurrentMovement);
+        }
+
+        public void SetCurrentMoveDelay(int targetDelay)
+        {
+            CurrentMoveDelay = targetDelay < 0 ? 1 : targetDelay;
+
+            OnDelayChanged?.Invoke(CurrentMoveDelay);
         }
 
         public void SetCurrentDamage(int targetDamage)
