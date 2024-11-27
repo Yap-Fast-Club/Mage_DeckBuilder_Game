@@ -18,7 +18,7 @@ MonoBehaviour:
   maxHealth: 4
   MovementAmount: 4
   Damage: 6
-  Souls: 2
+  Souls: 1
   enemyPrefab: {fileID: 243822687015991123, guid: 9fec376b8bc12e645a735f176747a31b, type: 3}
   followAbilityPattern: 1
   enemyAbilityList:
