@@ -19,6 +19,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
     {
         [Header("Card Profile")] 
         [SerializeField] private string id;
+        [ContextMenuItem("Update Asset name","UpdateFileName")]
         [SerializeField] private string cardName;
         [SerializeField] private CardType type;
         [SerializeField] private int manaCost;
@@ -122,12 +123,14 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             specialKeywordsList = newSpecialKeywordsList;
         public void EditAudioType(AudioActionType newAudioActionType) => audioType = newAudioActionType;
 
-        //private void OnValidate()
-        //{
-        //    string assetPath = AssetDatabase.GetAssetPath(this.GetInstanceID());
-        //    AssetDatabase.RenameAsset(assetPath, $"{id}-{cardName}");
-        //    AssetDatabase.SaveAssets();
-        //}
+        
+
+        private void UpdateFileName()
+        {
+            string assetPath = AssetDatabase.GetAssetPath(this.GetInstanceID());
+            AssetDatabase.RenameAsset(assetPath, $"{id}-{cardName}");
+            AssetDatabase.SaveAssets();
+        }
 #endif
 
         #endregion

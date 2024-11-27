@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NueGames.NueDeck.Scripts.Card.CardActions;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
@@ -174,6 +175,12 @@ namespace NueGames.NueDeck.Scripts.Card
                 case ActionTargetType.RandomEnemy:
                     for (int i = 0; i < playerAction.ActionAreaValue && _allEnemies.Count > 0; i++)
                         targetList.Add(_allEnemies.RandomItemRemove());
+
+                    break;
+                case ActionTargetType.LowestHPEnemy:
+                    targetList.Add(_allEnemies.Select(e => (e, e.CharacterStats.CurrentHealth))
+                                           .OrderBy(x => x.CurrentHealth)
+                                           .FirstOrDefault().e);
 
                     break;
                 case ActionTargetType.RandomAlly:

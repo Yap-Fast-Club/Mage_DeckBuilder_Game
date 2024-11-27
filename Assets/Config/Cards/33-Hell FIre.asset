@@ -32,7 +32,7 @@ MonoBehaviour:
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 10
+    actionValue: 9
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Deal '
@@ -73,4 +73,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 21
-  _evolveToCard: {fileID: 0}
+  EvolveToCard: {fileID: 0}

@@ -10,7 +10,8 @@
         RandomAlly,
         Terrain,
         RandomTerrain,
-        AllTerrain
+        AllTerrain,
+        LowestHPEnemy
     }
 
 

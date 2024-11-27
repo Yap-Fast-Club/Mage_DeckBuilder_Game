@@ -10,26 +10,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 32-Fire Breath
+  m_Name: 43-Breeze
   m_EditorClassIdentifier: 
-  id: 32
-  cardName: Fire Breath
+  id: 43
+  cardName: Breeze
   type: 0
-  manaCost: 5
+  manaCost: 0
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: c9e7dbef25b6e35489415b6c6439ee09, type: 3}
-  rarity: 1
-  usableWithoutTarget: 1
+  cardSprite: {fileID: 21300000, guid: f001700d43c9f1e4eab1a32204b97806, type: 3}
+  rarity: 0
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
-  - cardActionType: 0
-    actionTargetType: 4
+  - cardActionType: 10
+    actionTargetType: 0
     actionAreaType: 0
-    actionAreaValue: 2
-    actionValue: 7
+    actionAreaValue: 1
+    actionValue: 1
     actionDelay: 0
+  - cardActionType: 0
+    actionTargetType: 0
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
+    actionDelay: 0
+  - cardActionType: 11
+    actionTargetType: 0
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 0
+    actionDelay: 0.5
   cardDescriptionDataList:
-  - descriptionText: 'Deal '
+  - descriptionText: 'Push '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -40,14 +52,14 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
+    overrideColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
     modiferStats: 3
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
-  - descriptionText: ' damage to two random enemies'
+  - descriptionText: ' and deal '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -56,6 +68,24 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
-  audioType: 21
+  - descriptionText: ' an enemy.'
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 1
+    modiferStats: 3
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' damage.'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 00000000
+  audioType: 22
   EvolveToCard: {fileID: 0}

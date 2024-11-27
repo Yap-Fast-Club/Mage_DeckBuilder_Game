@@ -16,17 +16,17 @@ MonoBehaviour:
   cardName: Boulder Bonk
   type: 0
   manaCost: 3
-  turnCost: 1
+  turnCost: 2
   cardSprite: {fileID: 21300000, guid: 1f815b84a774963428e07d14e5f5f69d, type: 3}
   rarity: 1
-  usableWithoutTarget: 1
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
   cardActionDataList:
   - cardActionType: 0
-    actionTargetType: 4
+    actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 1
-    actionValue: 8
+    actionValue: 12
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Deal '
@@ -47,7 +47,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
-  - descriptionText: ' damage'
+  - descriptionText: ' damage.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -56,14 +56,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' to a random enemy.'
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 07000000
   audioType: 26
+  EvolveToCard: {fileID: 0}

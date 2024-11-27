@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 19
   cardName: Pandemonium
   type: 0
-  manaCost: 4
+  manaCost: 5
   turnCost: 1
   cardSprite: {fileID: 21300000, guid: 9d82903d8b369fd459bebe1d2381b0e9, type: 3}
   rarity: 2
@@ -26,7 +26,7 @@ MonoBehaviour:
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 3
+    actionValue: 4
     actionDelay: 0
   - cardActionType: 11
     actionTargetType: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 99999
+    actionValue: 999
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: Spend all souls (
@@ -117,3 +117,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 9
+  EvolveToCard: {fileID: 0}

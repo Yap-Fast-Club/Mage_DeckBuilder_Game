@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Characters.Enemies;
 using NueGames.NueDeck.Scripts.Data.Containers;
@@ -223,7 +224,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                     break;
                 case ActionTargetType.AllEnemies:
                     foreach (var currentEnemy in CurrentEnemiesList)
-                        currentEnemy.EnemyCanvas.SetHighlight(true);
+                        currentEnemy.EnemyCanvas.SetHighlight(true, false);
                     break;
                 case ActionTargetType.AllAllies:
                     foreach (var currentAlly in CurrentAlliesList)
@@ -232,6 +233,12 @@ namespace NueGames.NueDeck.Scripts.Managers
                 case ActionTargetType.RandomEnemy:
                     foreach (var currentEnemy in CurrentEnemiesList)
                         currentEnemy.EnemyCanvas.SetHighlight(true);
+                    break;
+                case ActionTargetType.LowestHPEnemy:
+                    CurrentEnemiesList.Select(e => (e, e.CharacterStats.CurrentHealth))
+                                            .OrderBy(x => x.CurrentHealth)
+                                            .FirstOrDefault()
+                                            .e.EnemyCanvas.SetHighlight(true, false);
                     break;
                 case ActionTargetType.RandomAlly:
                     foreach (var currentAlly in CurrentAlliesList)

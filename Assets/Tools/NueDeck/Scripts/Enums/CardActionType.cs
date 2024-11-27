@@ -23,6 +23,7 @@
         RandomErase,
         Focus,
         DiscardHand,
-        TransformAllCards
+        TransformAllCards,
+        IncreaseCardDMG
     }
 }

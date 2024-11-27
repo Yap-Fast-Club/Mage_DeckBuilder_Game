@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 32-Fire Breath
+  m_Name: 42-Magic Arrow
   m_EditorClassIdentifier: 
-  id: 32
-  cardName: Fire Breath
+  id: 42
+  cardName: Magic Arrow
   type: 0
-  manaCost: 5
+  manaCost: 1
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: c9e7dbef25b6e35489415b6c6439ee09, type: 3}
+  cardSprite: {fileID: 21300000, guid: 530bcabb1501d8148a19a77465ecac03, type: 3}
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   cardActionDataList:
   - cardActionType: 0
-    actionTargetType: 4
+    actionTargetType: 9
     actionAreaType: 0
-    actionAreaValue: 2
-    actionValue: 7
+    actionAreaValue: 1
+    actionValue: 4
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Deal '
@@ -47,7 +47,16 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
-  - descriptionText: ' damage to two random enemies'
+  - descriptionText: ' damage'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' to the lowest health enemy.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -57,5 +66,5 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
-  audioType: 21
+  audioType: 0
   EvolveToCard: {fileID: 0}
