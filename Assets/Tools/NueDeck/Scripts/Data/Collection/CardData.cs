@@ -5,8 +5,9 @@ using NaughtyAttributes;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
-using UnityEditor.VersionControl;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Data.Collection
@@ -324,6 +325,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditOverrideColorOnValueScaled(bool newStatus) => overrideColorOnValueScaled = newStatus;
 
 #endif
-        #endregion
+#endregion
     }
 }
