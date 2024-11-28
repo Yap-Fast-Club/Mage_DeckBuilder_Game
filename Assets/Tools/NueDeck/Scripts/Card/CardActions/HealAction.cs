@@ -13,10 +13,8 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             var newTarget = actionParameters.TargetCharacter
                 ? actionParameters.TargetCharacter
                 : actionParameters.SelfCharacter;
-
-            if (!newTarget) return;
             
-            newTarget.CharacterStats.Heal(Mathf.RoundToInt(actionParameters.Value));
+            actionParameters.SelfCharacter.CharacterStats.Heal(Mathf.RoundToInt(actionParameters.Value));
 
             if (FxManager != null) 
                 FxManager.PlayFx(newTarget.transform, FxType.Heal);

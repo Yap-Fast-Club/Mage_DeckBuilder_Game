@@ -25,6 +25,8 @@
         DiscardHand,
         TransformAllCards,
         IncreaseCardDMG,
-        IncreaseMaxMana
+        IncreaseMaxMana,
+        GainSouls,
+        HealForEverySoul
     }
 }

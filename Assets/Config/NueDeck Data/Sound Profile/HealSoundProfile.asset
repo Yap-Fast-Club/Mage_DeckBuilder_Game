@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: HealSoundProfile
   m_EditorClassIdentifier: 
   audioType: 7
-  randomClipList: []
+  randomClipList:
+  - {fileID: 8300000, guid: 807ff520ce77525458ea732b9ba58f39, type: 3}

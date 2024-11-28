@@ -34,4 +34,21 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
         }
     }
+
+    public class HealX4EverySoulAction : HealAction
+    {
+        PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
+
+        public override CardActionType ActionType => CardActionType.HealForEverySoul;
+        public override void DoAction(CardActionParameters actionParameters)
+        {
+            actionParameters.Value = actionParameters.Value * PersistendData.CurrentSouls;
+
+            base.DoAction(actionParameters);
+
+            if (AudioManager != null)
+                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+
+        }
+    }
 }
