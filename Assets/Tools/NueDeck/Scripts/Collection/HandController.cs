@@ -291,7 +291,7 @@ namespace NueGames.NueDeck.Scripts.Collection
 
 
 
-                CombatManager.HighlightCardTarget(_heldCard.CardData.CardActionDataList[0].ActionTargetType);
+                CombatManager.HighlightCardTarget(_heldCard.CardData.CardActionDataList[0].ActionTargetType, _heldCard.CardData.CardActionDataList[0].ActionAreaValue);
 
                 //if (!canSelectCards || cardTransform.position.y <= transform.position.y + 0.5f) {
                 if (!GameManager.PersistentGameplayData.CanSelectCards || _mouseInsideHand)

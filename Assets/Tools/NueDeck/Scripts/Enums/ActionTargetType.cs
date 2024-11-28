@@ -11,7 +11,8 @@
         Terrain,
         RandomTerrain,
         AllTerrain,
-        LowestHPEnemy
+        LowestHPEnemy,
+        ClosestEnemies
     }
 
 

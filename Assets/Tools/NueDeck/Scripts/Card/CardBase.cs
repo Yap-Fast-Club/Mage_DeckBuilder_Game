@@ -183,14 +183,25 @@ namespace NueGames.NueDeck.Scripts.Card
                 case ActionTargetType.RandomEnemy:
                     for (int i = 0; i < playerAction.ActionAreaValue && _allEnemies.Count > 0; i++)
                         targetList.Add(_allEnemies.RandomItemRemove());
-
                     break;
+
                 case ActionTargetType.LowestHPEnemy:
                     targetList.Add(_allEnemies.Select(e => (e, e.CharacterStats.CurrentHealth))
                                            .OrderBy(x => x.CurrentHealth)
                                            .FirstOrDefault().e);
 
                     break;
+
+                case ActionTargetType.ClosestEnemies:
+                    targetList.AddRange(_allEnemies
+                                    .OrderBy(e => e.transform.position.x)
+                                    .Take(playerAction.ActionAreaValue)
+                                    .ToList()
+                                    );
+
+                    break;
+
+
                 case ActionTargetType.RandomAlly:
                     if (allAllies.Count > 0)
                         targetList.Add(allAllies.RandomItem());

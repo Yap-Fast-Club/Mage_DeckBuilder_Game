@@ -21,12 +21,13 @@ MonoBehaviour:
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
   - cardActionType: 10
-    actionTargetType: 4
+    actionTargetType: 10
     actionAreaType: 0
     actionAreaValue: 3
-    actionValue: 5
+    actionValue: 4
     actionDelay: 0
   - cardActionType: 11
     actionTargetType: 0
@@ -53,7 +54,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
-  - descriptionText: ; three random enemies.
+  - descriptionText: ' the three closest enemies.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -64,3 +65,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 00000000
   audioType: 22
+  EvolveToCard: {fileID: 0}
