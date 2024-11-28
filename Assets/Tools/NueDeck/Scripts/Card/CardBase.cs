@@ -36,6 +36,7 @@ namespace NueGames.NueDeck.Scripts.Card
         [SerializeField] protected Image _fatigueCostImage;
         [SerializeField] protected List<RarityRoot> rarityRootList;
         [SerializeField] protected List<TypeRoot> _typeRootList;
+        [SerializeField] protected RarityColors _rarityColors;
 
 
         #region Cache
@@ -91,6 +92,7 @@ namespace NueGames.NueDeck.Scripts.Card
             if (CardData.EvolveToCard && persistentData.EvoultionCardsPlayed.Contains(CardData))
                 SetCard(CardData.EvolveToCard);
 
+            _rarityColors.SetColors(CardData.Rarity);
         }
 
         #endregion

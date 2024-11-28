@@ -105,6 +105,7 @@ MonoBehaviour:
   - {fileID: 2904115942615917660}
   - {fileID: 3107875902560360389}
   - {fileID: 2837139372966511756}
+  _rarityColors: {fileID: 3574819675852062160}
   canvas: {fileID: 3367497252874219826}
 --- !u!1001 &4304535231297152694
 PrefabInstance:
@@ -458,6 +459,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be61225853f90cf419c54071ed7c4843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3574819675852062160 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 729733165452876646, guid: 1f0d6da961667c54c92335a6cbca8ebc, type: 3}
+  m_PrefabInstance: {fileID: 4304535231297152694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7521d7dbb12c5fc4dab5521c1f1290b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3591519261074998932 stripped
