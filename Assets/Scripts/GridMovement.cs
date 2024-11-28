@@ -17,9 +17,12 @@ public class GridMovement : MonoBehaviour
 
     private int _pushCollisionDmg => GameManager.Instance.GameplayData.PushCollisionDamage;
 
+    private EnemyBase _thisEnemy;
+
     private void Awake()
     {
         _gridElement = GetComponent<GridElement>();
+        _thisEnemy = GetComponent<EnemyBase>();
     }
 
     public void SetAmount(int amount)
@@ -87,6 +90,8 @@ public class GridMovement : MonoBehaviour
                 transform.position = transform.position - direction * _gridElement.TileSize;
                 remainingTiles = 0;
             }
+
+            _thisEnemy.EnemyCanvas.HighlightAttack(transform.position.x <= _tileAmount);
 
             yield return new WaitForSeconds(0.05f);
         }
