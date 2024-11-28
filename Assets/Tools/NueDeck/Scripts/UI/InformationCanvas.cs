@@ -43,7 +43,9 @@ namespace NueGames.NueDeck.Scripts.UI
         
         #region Public Methods
         public void SetRoomText(int roomNumber,bool useStage = false, int stageNumber = -1) => 
-            RoomTextField.text = useStage ? $"Encounter {stageNumber}" : $"Room {roomNumber}";
+            RoomTextField.text = useStage ? $"Encounter {roomNumber}" : $"Room {roomNumber}";
+
+        public void SetRoomText(string text) => RoomTextField.text = text;
 
         public void SetGoldText(int value)=>GoldTextField.text = $"{value}";
 
@@ -99,7 +101,14 @@ namespace NueGames.NueDeck.Scripts.UI
             RandomizedDeckObject.SetActive(_persistentGameplayData.IsRandomHand);
             SetHealthText(_persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth,_persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth);
             SetNameText(GameManager.GameplayData.DefaultName);
-            SetRoomText(_persistentGameplayData.CurrentEncounterId+1,GameManager.GameplayData.UseStageSystem,_persistentGameplayData.CurrentStageId+1);
+
+            string encounterName = GameManager.EncounterData.GetCurrentLevelName(
+                        _persistentGameplayData.CurrentStageId,
+                        _persistentGameplayData.CurrentEncounterId,
+                        _persistentGameplayData.IsFinalEncounter
+            );
+            SetRoomText(encounterName);
+
             UIManager.InformationCanvas.SetGoldText(_persistentGameplayData.CurrentGold);
             UIManager.InformationCanvas.InstantUpdateSoulsGUI();
         }

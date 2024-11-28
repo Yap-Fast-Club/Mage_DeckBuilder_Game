@@ -20,7 +20,16 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
         public bool EncounterRandomlyAtStage => encounterRandomlyAtStage;
         public List<EnemyEncounterStage> EnemyEncounterList => enemyEncounterList;
 
-        
+        public string GetCurrentLevelName(int stageId = 0,int encounterId =0,bool isFinal = false)
+        {
+            var selectedStage = EnemyEncounterList.First(x => x.StageId == stageId);
+            if (isFinal) return selectedStage.BossEncounterList.RandomItem().LevelName;
+
+            return EncounterRandomlyAtStage
+                ? selectedStage.NormalEncounterList.RandomItem().LevelName
+                : selectedStage.NormalEncounterList[encounterId] != null ? selectedStage.NormalEncounterList[encounterId].LevelName : selectedStage.NormalEncounterList.RandomItem().LevelName;
+        }
+
         public WavesEncounter GetEncounterWaves(int stageId = 0,int encounterId =0,bool isFinal = false)
         {
             var selectedStage = EnemyEncounterList.First(x => x.StageId == stageId);
@@ -50,7 +59,9 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
     public class WavesEncounter : EncounterBase
     {
         [SerializeField, Expandable] private LevelWavesSO _levelWavesData;
+
         public List<Wave> LevelWaves => _levelWavesData.Waves;
+        public string LevelName => _levelWavesData.LevelName;
     }
 
     

@@ -221,7 +221,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                 UIManager.RewardCanvas.gameObject.SetActive(false); 
             }
         }
-        public void HighlightCardTarget(ActionTargetType targetTypeTargetType)
+        public void HighlightCardTarget(ActionTargetType targetTypeTargetType, int areaValue = 1)
         {
             switch (targetTypeTargetType)
             {
@@ -250,6 +250,12 @@ namespace NueGames.NueDeck.Scripts.Managers
                                             .OrderBy(x => x.CurrentHealth)
                                             .FirstOrDefault()
                                             .e.EnemyCanvas.SetHighlight(true, false);
+                    break;
+                case ActionTargetType.ClosestEnemies:
+                    CurrentEnemiesList.OrderBy(e => e.transform.position.x)
+                                            .Take(areaValue)
+                                            .ToList()
+                                            .ForEach(e => e.EnemyCanvas.SetHighlight(true, false));
                     break;
                 case ActionTargetType.RandomAlly:
                     foreach (var currentAlly in CurrentAlliesList)
@@ -398,6 +404,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             CurrentMainAlly.CharacterStats.SetCurrentHealth(CurrentMainAlly.CharacterStats.MaxHealth);
             UIManager.CombatCanvas.Bind();
             UIManager.Instance.CombatCanvas.SetPileTexts();
+            UIManager.Instance.InformationCanvas.ResetCanvas();
         }
 
         private IEnumerator EnemyTurnRoutine()

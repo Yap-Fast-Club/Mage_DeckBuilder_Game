@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e628dff86861d6845933bd119b2dcb61, type: 3}
   m_Name: Level 2_Waves
   m_EditorClassIdentifier: 
+  LevelName: Encounter 2
   Waves:
   - waveEnemies:
     - Weight: 0
