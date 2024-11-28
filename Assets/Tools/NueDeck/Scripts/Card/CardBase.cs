@@ -57,7 +57,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
         public bool IsExhausted { get; private set; }
 
-        public int FinalManaCost => Mathf.Max(0, CardData.ManaCost - FocusStat.StatusValue);
+        public int FinalManaCost => CardData.Type == CardType.Incantation ? 0 : Mathf.Max(0, CardData.ManaCost - FocusStat.StatusValue);
 
         public bool Channel => CardData.Channel;
 
