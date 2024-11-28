@@ -32,7 +32,7 @@ public class Wave
 [System.Serializable]
 public class EnemySpawnInfo
 {
-    public int Weight;
+    [HideInInspector] public int Weight;
     public EnemyBase Prefab;
 }
 

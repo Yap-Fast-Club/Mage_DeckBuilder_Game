@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaxHealthToAllEnemies : MonoBehaviour
+public class MaxHealthBuffToAllEnemies : MonoBehaviour
 {
 
     [SerializeField] int maxHealthToGive = 2;

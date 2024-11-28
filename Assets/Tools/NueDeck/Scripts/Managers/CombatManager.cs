@@ -154,18 +154,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             CurrentCombatStateType = CombatStateType.EnemyTurn;
         }
 
-        public void OnObjectDestroyed(GameObject gameObject)
-        {
-            var characterBase = gameObject.GetComponent<CharacterBase>();
-
-            if (characterBase is EnemyBase enemy)
-            {
-                OnEnemyDeath(enemy);
-            }
-
-            if (characterBase is AllyBase ally) OnAllyDeath(ally);
-
-        }
+       
 
         public void OnAllyDeath(AllyBase targetAlly)
         {
