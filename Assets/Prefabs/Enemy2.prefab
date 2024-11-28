@@ -182,11 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerText: Void Doggo
-  contentText: 'HP: 4
-
-    DMG: 6
-
-    MOV: 4'
+  contentText: 
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
   delayShowDuration: 0.4

@@ -182,11 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerText: VoidWalkers
-  contentText: 'HP: 6
-
-    DMG: 4
-
-    MOV: 2 '
+  contentText: 
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
   delayShowDuration: 0.4

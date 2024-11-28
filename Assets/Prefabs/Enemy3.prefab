@@ -125,11 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerText: Void Tank
-  contentText: 'HP: 16
-
-    DMG: 14
-
-    MOV: 1'
+  contentText: 
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0
   delayShowDuration: 0.4
