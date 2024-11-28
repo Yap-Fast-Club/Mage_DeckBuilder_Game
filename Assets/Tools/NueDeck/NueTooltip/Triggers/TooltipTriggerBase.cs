@@ -28,5 +28,10 @@ namespace NueGames.NueDeck.ThirdParty.NueTooltip.Triggers
         {
             TooltipManager.Instance.HideTooltip();
         }
+
+        public void ModifyContent(string newContent)
+        {
+            contentText = newContent;
+        }
     }
 }

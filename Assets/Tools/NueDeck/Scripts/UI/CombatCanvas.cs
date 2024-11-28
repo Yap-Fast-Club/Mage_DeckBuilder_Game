@@ -1,6 +1,10 @@
-﻿using NueGames.NueDeck.Scripts.Enums;
+﻿using NueGames.NueDeck.Scripts.Card;
+using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
+using NueGames.NueDeck.ThirdParty.NueTooltip.Triggers;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,6 +29,11 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private GameObject combatWinPanel;
         [SerializeField] private GameObject combatLosePanel;
 
+        [Header("Other")]
+        [SerializeField] TooltipTrigger2D _channeledCardsTooltip;
+        [SerializeField] TextMeshProUGUI _channeledCardsAmount;
+
+        public TooltipTrigger2D ChanneledCards => _channeledCardsTooltip;
         public TextMeshProUGUI DrawPileTextField => drawPileTextField;
         public TextMeshProUGUI DiscardPileTextField => discardPileTextField;
         public TextMeshProUGUI ManaTextTextField => manaTextTextField;
@@ -72,8 +81,29 @@ namespace NueGames.NueDeck.Scripts.UI
 
         public void EnableHandell(bool state) => _freeConsumeHandellButton.interactable = _paidConsumeHandellButton.interactable = state;
 
-        private void OnCardPlayed()
+        Dictionary<string, int> _playedChannelCards = new Dictionary<string, int>();
+        private void OnCardPlayed(CardBase playedCard)
         {
+            if (playedCard.Channel && playedCard.CardData.TurnCost == 0)
+            {
+                _channeledCardsTooltip.gameObject.SetActive(true);
+
+
+                if (_playedChannelCards.ContainsKey(playedCard.CardData.CardName))
+                    _playedChannelCards[playedCard.CardData.CardName]++;
+                else
+                    _playedChannelCards.Add(playedCard.CardData.CardName, 1);
+
+                _channeledCardsTooltip.ModifyContent(string.Join(Environment.NewLine, _playedChannelCards));
+                _channeledCardsAmount.text = $"x{_playedChannelCards.Sum(x => x.Value).ToString()}";
+            }
+
+            if (playedCard.CardData.TurnCost >= 1)
+            {
+                _channeledCardsTooltip.gameObject.SetActive(false);
+                _playedChannelCards.Clear();
+            }
+
             _freeHandellProgressBar.fillAmount = (float)GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
 
             if (GameManager.PersistentGameplayData.HandellIsActive)

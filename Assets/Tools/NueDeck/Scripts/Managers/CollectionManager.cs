@@ -19,7 +19,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         [Header("Controllers")] 
         [SerializeField] private HandController handController;
 
-        public Action CardPlayed; 
+        public Action<CardBase> CardPlayed; 
 
 
         #region Cache
@@ -138,7 +138,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             foreach (var cardObject in HandController.hand)
                 cardObject.UpdateCardText();
 
-            CardPlayed?.Invoke();
+            CardPlayed?.Invoke(targetCard);
 
         }
         public void SetGameDeck()
