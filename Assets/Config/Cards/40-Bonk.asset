@@ -27,7 +27,7 @@ MonoBehaviour:
     actionTargetType: 10
     actionAreaType: 0
     actionAreaValue: 1
-    actionValue: 9
+    actionValue: 10
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Deal '

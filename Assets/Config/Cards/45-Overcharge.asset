@@ -23,11 +23,17 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
+  - cardActionType: 6
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 2
+    actionDelay: 0
   - cardActionType: 19
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 4
+    actionValue: 3
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: +

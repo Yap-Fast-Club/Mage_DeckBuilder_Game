@@ -21,12 +21,13 @@ MonoBehaviour:
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
   - cardActionType: 6
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 6
+    actionValue: 7
     actionDelay: 0
   - cardActionType: 3
     actionTargetType: 0
@@ -84,3 +85,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 01000000
   audioType: 20
+  EvolveToCard: {fileID: 0}

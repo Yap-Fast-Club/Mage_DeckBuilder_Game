@@ -21,6 +21,7 @@ MonoBehaviour:
   rarity: 3
   usableWithoutTarget: 1
   exhaustAfterPlay: 1
+  _channel: 0
   cardActionDataList:
   - cardActionType: 21
     actionTargetType: 2
@@ -31,8 +32,8 @@ MonoBehaviour:
   - cardActionType: 21
     actionTargetType: 0
     actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 17
+    actionAreaValue: 5
+    actionValue: 47
     actionDelay: 1.5
   - cardActionType: 11
     actionTargetType: 0
@@ -41,7 +42,7 @@ MonoBehaviour:
     actionValue: 0
     actionDelay: 1
   cardDescriptionDataList:
-  - descriptionText: Replace all copies of "Fire Bolt" in your deck with "Spark",
+  - descriptionText: Replace all copies of "Shard Volley" in your deck with "Wisps",
       and all copies of "Deep Breath" with "Flow"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
@@ -53,3 +54,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
   audioType: 20
+  EvolveToCard: {fileID: 0}

@@ -21,6 +21,7 @@ MonoBehaviour:
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
   - cardActionType: 13
     actionTargetType: 1
@@ -32,7 +33,7 @@ MonoBehaviour:
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 7
+    actionValue: 8
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Lose '
