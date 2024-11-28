@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 46-Magic Wisps
+  m_Name: 47-Magic Wisps
   m_EditorClassIdentifier: 
-  id: 46
+  id: 47
   cardName: Magic Wisps
   type: 0
   manaCost: 0
@@ -27,8 +27,8 @@ MonoBehaviour:
     actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 1
-    actionValue: 8
-    actionDelay: 0
+    actionValue: 3
+    actionDelay: 0.15
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0
@@ -66,6 +66,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
+  specialKeywordsList: 0600000009000000
   audioType: 0
   EvolveToCard: {fileID: 0}

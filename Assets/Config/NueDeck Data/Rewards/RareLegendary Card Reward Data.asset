@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 48
+    InspectorTotalWeight: 49
     Items:
     - Name: 9-Lightning Strike.     [W:2] (4%)
       PercentInList: ' (4%)'
@@ -113,7 +113,7 @@ MonoBehaviour:
       PercentInList: ' (2%)'
       Weight: 1
       Item: {fileID: 11400000, guid: be5fbdc8b754caa4c9533542301efc0a, type: 2}
-    - Name: 33-Hell FIre.     [W:1] (2%)
+    - Name: 33-Hell Fire.     [W:1] (2%)
       PercentInList: ' (2%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 48d5dce97c96fe74a8378a966b42424d, type: 2}
@@ -129,4 +129,8 @@ MonoBehaviour:
       PercentInList: ' (4%)'
       Weight: 2
       Item: {fileID: 11400000, guid: da9ca951e9b471d4f81130aec7be63c8, type: 2}
+    - Name: 47-Magic Wisps.     [W:1] (2%)
+      PercentInList: ' (2%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: da3ef8c7d7e01a444b5a0525735ce824, type: 2}
   _deckToLoadFrom: {fileID: 11400000, guid: 3a07c27d9f90cce448e24319da535a39, type: 2}
