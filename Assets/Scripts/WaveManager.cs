@@ -7,6 +7,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using ReadOnly = NaughtyAttributes.ReadOnlyAttribute;
 using Unity.VisualScripting;
+using System;
 
 public class WaveManager : MonoBehaviour
 {
@@ -20,7 +21,11 @@ public class WaveManager : MonoBehaviour
 
     [Header("Spawn Settings")]
     public List<Transform> spawnPositions; // The five positions on the right side of the grid
-
+    public List<Renderer> portals; // The five positions on the right side of the grid
+    [SerializeField] Color _portalEnemy;
+    [SerializeField] Color _portalNoEnemy;
+    [SerializeField] Color _portalWait;
+    [SerializeField] Color _portalOff;
 
     private int currentTurn = 0;
 
@@ -80,6 +85,7 @@ public class WaveManager : MonoBehaviour
     private void OnPlayerTurnStarted()
     {
         SpawnEnemiesForCurrentTurn();
+        PreviewNextTurn();
 
         // Update the UI
         if (WaveUIManager.Instance != null)
@@ -93,7 +99,40 @@ public class WaveManager : MonoBehaviour
         currentTurn++;
     }
 
+    private void PreviewNextTurn()
+    {
+        Wave currentWave = _waves[currentWaveIndex];
 
+        int[] enemyLayout = new int[5];
+
+        //Find all enemies scheduled to spawn next turn
+        if (GetMaxTurnForWave(currentWave) == currentTurn)
+        {
+            if(!CurrentWaveIsFinal())
+                enemyLayout = _waves[currentWaveIndex+1].GetTurnInfoFor(0).EnemyLayout;
+        }
+        else
+            enemyLayout = currentWave.GetTurnInfoFor(currentTurn+1).EnemyLayout;
+
+        for (int row = 0; row < enemyLayout.Length; row++)
+        {
+            var enemyNumber = enemyLayout[row];
+
+            if (enemyNumber == 0)
+                portals[row].material.color = _portalNoEnemy;
+            else
+                portals[row].material.color = _portalEnemy;
+
+            if (GetRemainingEnemies() == 0)
+                if(CurrentWaveIsFinal())
+                    portals[row].material.color = _portalOff;
+                else
+                    portals[row].material.color = _portalWait;
+
+        }
+
+     
+    }
 
     private void SpawnEnemiesForCurrentTurn()
     {
@@ -101,6 +140,8 @@ public class WaveManager : MonoBehaviour
 
         //Find all enemies scheduled to spawn on this turn
         var enemyLayout = currentWave.GetTurnInfoFor(currentTurn).EnemyLayout;
+
+
         for (int col = 0; col < enemyLayout.Length; col++)
         {
             var enemyNumber = enemyLayout[col];
