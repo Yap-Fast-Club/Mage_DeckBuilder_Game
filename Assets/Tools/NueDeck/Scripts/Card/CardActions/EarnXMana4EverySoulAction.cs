@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class EarnXMana4EverySoulAction : CardActionBase
+    public class EarnXMana4EverySoulAction : EarnManaAction
     {
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 

@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 8248418408126509373}
   - component: {fileID: 5269407438924363552}
   m_Layer: 0
-  m_Name: text bg
+  m_Name: Mana Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.6124048, b: 1, a: 0.8862745}
+  m_Color: {r: 0.16470589, g: 0.6273384, b: 1, a: 0.8352941}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1717,6 +1717,7 @@ MonoBehaviour:
   discardPileTextField: {fileID: 1672331920338653766}
   exhaustPileTextField: {fileID: 8145780709065603063}
   manaTextTextField: {fileID: 9048364840229743796}
+  _manaHighlight: {fileID: 5269407438924363552}
   nextCombatPanel: {fileID: 4535458605069439855}
   combatWinPanel: {fileID: 643153608213486218}
   combatLosePanel: {fileID: 973998050907216772}

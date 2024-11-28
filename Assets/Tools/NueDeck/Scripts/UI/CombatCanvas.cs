@@ -3,11 +3,13 @@ using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Triggers;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 namespace NueGames.NueDeck.Scripts.UI
 {
@@ -23,6 +25,7 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private TextMeshProUGUI discardPileTextField;
         [SerializeField] private TextMeshProUGUI exhaustPileTextField;
         [SerializeField] private TextMeshProUGUI manaTextTextField;
+        [SerializeField] private Image _manaHighlight;
         
         [Header("Panels")]
         [SerializeField] private GameObject nextCombatPanel;
@@ -84,6 +87,7 @@ namespace NueGames.NueDeck.Scripts.UI
         Dictionary<string, int> _playedChannelCards = new Dictionary<string, int>();
         private void OnCardPlayed(CardBase playedCard)
         {
+            //channel
             if (playedCard.Channel && playedCard.CardData.TurnCost == 0)
             {
                 _channeledCardsTooltip.gameObject.SetActive(true);
@@ -104,10 +108,85 @@ namespace NueGames.NueDeck.Scripts.UI
                 _playedChannelCards.Clear();
             }
 
+            //mana
+            if (playedCard.FinalManaCost > 0)
+            {
+                StartCoroutine(DimMana());
+            }
+
+            else if(playedCard.CardData.CardActionDataList.Any(a => a.CardActionType == CardActionType.EarnMana))
+            {
+                StartCoroutine(GlowMana());
+            }
+
             _freeHandellProgressBar.fillAmount = (float)GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
 
             if (GameManager.PersistentGameplayData.HandellIsActive)
                 ShowFreeHandell(true);
+        }
+
+        private IEnumerator DimMana()
+        {
+            float elapsedTime = 0f;
+            float inTime = 0.3f;
+            float outTime = 0.15f;
+
+            Color initialColor = _manaHighlight.color;
+            Color targetColor = new Color(initialColor.r / 2, initialColor.g / 2, initialColor.b / 2);
+
+            while (elapsedTime < inTime)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsedTime / inTime);
+
+                _manaHighlight.color = Color.Lerp(initialColor, targetColor, t);
+
+                yield return null;
+            }
+            elapsedTime = 0f;
+            while (elapsedTime < outTime)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsedTime / outTime);
+
+                _manaHighlight.color = Color.Lerp(targetColor, initialColor, t);
+
+                yield return null;
+            }
+
+            _manaHighlight.color = initialColor;
+        }
+
+        private IEnumerator GlowMana()
+        {
+            float elapsedTime = 0f;
+            float inTime = 0.25f;
+            float outTime = 0.25f;
+
+            Color initialColor = _manaHighlight.color;
+            Color targetColor = new Color(initialColor.r, initialColor.g + 50, initialColor.b);
+
+            while (elapsedTime < inTime)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsedTime / inTime);
+
+                _manaHighlight.color = Color.Lerp(initialColor, targetColor, t);
+
+                yield return null;
+            }
+            elapsedTime = 0f;
+            while (elapsedTime < outTime)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsedTime / outTime);
+
+                _manaHighlight.color = Color.Lerp(targetColor, initialColor, t);
+
+                yield return null;
+            }
+
+            _manaHighlight.color = initialColor;
         }
 
         private void ConsumeHandell()
