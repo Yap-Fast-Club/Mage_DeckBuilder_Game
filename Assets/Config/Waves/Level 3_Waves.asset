@@ -40,9 +40,12 @@ MonoBehaviour:
     - _name: Turn 7
       TurnNumber: 7
       EnemyLayout: 0200000000000000000000000000000000000000
-    - _name: Turn 10
-      TurnNumber: 10
+    - _name: Turn 9
+      TurnNumber: 9
       EnemyLayout: 0200000000000000000000000000000000000000
+    - _name: Turn 12
+      TurnNumber: 12
+      EnemyLayout: 0000000000000000000000000000000000000000
   - waveEnemies:
     - Weight: 0
       Prefab: {fileID: 243822687015991123, guid: c973aeb67e007d54c97fd480d7f50773, type: 3}
@@ -60,15 +63,12 @@ MonoBehaviour:
     - _name: Turn 2
       TurnNumber: 2
       EnemyLayout: 0100000001000000010000000000000000000000
-    - _name: Turn 3
-      TurnNumber: 3
-      EnemyLayout: 0000000003000000030000000000000000000000
+    - _name: Turn 4
+      TurnNumber: 4
+      EnemyLayout: 0000000000000000030000000000000000000000
+    - _name: Turn 6
+      TurnNumber: 6
+      EnemyLayout: 0200000000000000000000000200000000000000
     - _name: Turn 7
       TurnNumber: 7
       EnemyLayout: 0300000003000000030000000300000000000000
-    - _name: Turn 9
-      TurnNumber: 9
-      EnemyLayout: 0200000000000000000000000200000000000000
-    - _name: Turn 15
-      TurnNumber: 15
-      EnemyLayout: 0000000000000000000000000000000000000000
