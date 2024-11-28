@@ -10,39 +10,53 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 49-Necronomicon
+  m_Name: 50-Infinity
   m_EditorClassIdentifier: 
-  id: 49
-  cardName: Necronomicon
+  id: 50
+  cardName: Infinity
   type: 1
   manaCost: 0
   turnCost: 0
-  cardSprite: {fileID: 21300000, guid: 371617e6a4e5dd34da17fe54975ccbee, type: 3}
-  rarity: 2
+  cardSprite: {fileID: 21300000, guid: 4ccad225fcb49b241ae05d0722f8c80e, type: 3}
+  rarity: 3
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 25
-    actionTargetType: 2
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 3
-    actionDelay: 0
-  - cardActionType: 11
-    actionTargetType: 0
+  - cardActionType: 20
+    actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 17
-    actionTargetType: 0
+  - cardActionType: 5
+    actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 999
+    actionValue: 6
+    actionDelay: 0
+  - cardActionType: 3
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
+    actionDelay: 0
+  - cardActionType: 6
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
+    actionDelay: 0
+  - cardActionType: 19
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: Spend all souls (
+  - descriptionText: 'Discard your hand.
+
+      Draw '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -51,16 +65,16 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.7046466, g: 0, b: 1, a: 1}
+  - descriptionText: 6
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 1
-    modiferStats: 7
+    modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ').
+  - descriptionText: ' card(s).
 
 '
     enableOverrideColor: 0
@@ -71,7 +85,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: 'Gain '
+  - descriptionText: '+ '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -84,12 +98,23 @@ MonoBehaviour:
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
+    modifiedActionValueIndex: 2
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Power.
+
+'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Health for each soul spent ('
+  - descriptionText: '+ '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -99,15 +124,44 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 0
-    modiferStats: 7
+    modifiedActionValueIndex: 3
+    modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: )
+  - descriptionText: ' Mana.
+
+'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: '+ '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 4
+    modiferStats: 9
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Focus.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
