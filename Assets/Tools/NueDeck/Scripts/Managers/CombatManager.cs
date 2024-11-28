@@ -384,6 +384,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             yield return new WaitUntil(() => GameManager.Instance != null);
             yield return new WaitUntil(() => UIManager.Instance != null);
 
+            GameManager.PersistentGameplayData.TemporalMaxMana = 0;
             GameManager.PersistentGameplayData.CurrentMana = 5;
             GameManager.PersistentGameplayData.HandellCount = 0;
             GameManager.PersistentGameplayData.TurnDebt = 0;
@@ -410,11 +411,14 @@ namespace NueGames.NueDeck.Scripts.Managers
             {
                 yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
                 yield return waitDelay;
+
             }
 
 
             if (CurrentCombatStateType != CombatStateType.EndCombat)
                 CurrentCombatStateType = CombatStateType.AllyTurn;
+
+
         }
         #endregion
     }

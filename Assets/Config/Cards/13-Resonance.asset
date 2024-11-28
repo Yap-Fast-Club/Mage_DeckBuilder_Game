@@ -21,12 +21,19 @@ MonoBehaviour:
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
+  - cardActionType: 23
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 2
+    actionDelay: 0
   - cardActionType: 14
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 5
+    actionValue: 4
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: +
@@ -38,11 +45,40 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
+  - descriptionText: )
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Max Mana (this encounter)
+
+'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: +
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 0.10196078, g: 0.65872955, b: 1, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 1
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
@@ -67,7 +103,7 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.101960786, g: 0.4862745, b: 1, a: 1}
+    overrideColor: {r: 0.101960786, g: 0.65882355, b: 1, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
     modiferStats: 7

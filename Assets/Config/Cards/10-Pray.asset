@@ -23,17 +23,23 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 6
+  - cardActionType: 23
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 7
+    actionValue: 3
     actionDelay: 0
   - cardActionType: 3
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: -1
+    actionDelay: 0
+  - cardActionType: 19
+    actionTargetType: 0
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: +
@@ -54,7 +60,36 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Mana.
+  - descriptionText: ' Max Mana (this encounter).
+
+'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: +
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 2
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Focus.
 
       ('
     enableOverrideColor: 0
@@ -74,7 +109,9 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ) Power.
+  - descriptionText: ') Power.
+
+'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -83,6 +120,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 01000000
+  specialKeywordsList: 0100000008000000
   audioType: 20
   EvolveToCard: {fileID: 0}

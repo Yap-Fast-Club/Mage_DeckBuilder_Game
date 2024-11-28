@@ -24,4 +24,23 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
         }
     }
+
+    public class IncreaseMaxManaAction : CardActionBase
+    {
+        public override CardActionType ActionType => CardActionType.IncreaseMaxMana;
+        public override void DoAction(CardActionParameters actionParameters)
+        {
+            //var newTarget = actionParameters.TargetCharacter
+            //    ? actionParameters.TargetCharacter
+            //    : actionParameters.SelfCharacter;
+
+            //if (!newTarget) return;
+
+            GameManager.Instance.PersistentGameplayData.TemporalMaxMana += (int)actionParameters.Value;
+
+
+            if (AudioManager != null)
+                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+        }
+    }
 }

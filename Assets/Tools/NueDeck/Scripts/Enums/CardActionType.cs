@@ -24,6 +24,7 @@
         Focus,
         DiscardHand,
         TransformAllCards,
-        IncreaseCardDMG
+        IncreaseCardDMG,
+        IncreaseMaxMana
     }
 }
