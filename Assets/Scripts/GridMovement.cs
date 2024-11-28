@@ -5,6 +5,7 @@ using UnityEngine;
 using NaughtyAttributes;
 using UnityEngine.UIElements;
 using NueGames.NueDeck.Scripts.Characters;
+using NueGames.NueDeck.Scripts.Managers;
 
 [RequireComponent(typeof(GridElement))]
 public class GridMovement : MonoBehaviour
@@ -13,6 +14,8 @@ public class GridMovement : MonoBehaviour
     [SerializeField] int _tileAmount = 1;
     [SerializeField] Vector3 _direction;
     [SerializeField, ReadOnly] int _delayBeforeMove = 0;
+
+    private int _pushCollisionDmg => GameManager.Instance.GameplayData.PushCollisionDamage;
 
     private void Awake()
     {
@@ -45,14 +48,29 @@ public class GridMovement : MonoBehaviour
 
     public void GetPushed(int tileAmount)
     {
-        StartCoroutine(MoveCR(tileAmount, _direction * -1));
+        StartCoroutine(MoveCR(tileAmount, _direction * -1, onCollision: (c) => { if (c.GetComponent<CharacterBase>() is EnemyBase other) SufferPushDamage(other); }));
     }
 
-    private bool collided = false;
-    private IEnumerator MoveCR(int tileAmount, Vector3 direction)
+    private void SufferPushDamage(EnemyBase otherEnemy)
+    {
+        if (_pushCollisionDmg == 0) return;
+
+        otherEnemy.CharacterStats.Damage(_pushCollisionDmg, true);
+        FxManager.Instance.SpawnFloatingText(otherEnemy.TextSpawnRoot, _pushCollisionDmg.ToString());
+
+        var thisChar = GetComponent<CharacterBase>();
+        if (!thisChar) return;
+
+        thisChar.CharacterStats.Damage(_pushCollisionDmg, true);
+        FxManager.Instance.SpawnFloatingText(thisChar.TextSpawnRoot, _pushCollisionDmg.ToString());
+    }
+
+    private Collider _lastCollision = null;
+    private IEnumerator MoveCR(int tileAmount, Vector3 direction, Action<Collider> onCollision = null)
     {
         int remainingTiles = tileAmount;
-        collided = false;
+
+        _lastCollision = null;
 
         while (remainingTiles > 0)
         {
@@ -62,8 +80,9 @@ public class GridMovement : MonoBehaviour
 
             remainingTiles--;
 
-            if (collided)
+            if (_lastCollision != null)
             {
+                onCollision?.Invoke(_lastCollision);
                 yield return new WaitForSeconds(0.05f);
                 transform.position = transform.position - direction * _gridElement.TileSize;
                 remainingTiles = 0;
@@ -79,7 +98,7 @@ public class GridMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        collided = true;
+        _lastCollision = other;
     }
 
 

@@ -2,6 +2,7 @@
 using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
+using UnityEditor.Build;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Data.Settings
@@ -15,7 +16,8 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private int maxMana = 10;
         [SerializeField] private int maxSouls = 5;
         [SerializeField] private List<AllyBase> initalAllyList;
-        
+        [SerializeField] private int _collisionDamageOnPush = 1;
+
         [Header("Decks")] 
         [SerializeField] private DeckData initalDeck;
         [SerializeField] private int maxCardOnHand;
@@ -30,6 +32,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public Color InstantTextColor;
         public Color FatigueTextColor;
         public Color EraseTextColor;
+        public Color ChannelTextColor;
         
         [Header("Modifiers")]
         [SerializeField] private bool isRandomHand = false;
@@ -40,6 +43,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public int InitialMana => initialMana;
         public int MaxMana => maxMana;
         public int MaxSouls => maxSouls;
+        public int PushCollisionDamage => _collisionDamageOnPush;
         public bool IsRandomHand => isRandomHand;
         public List<AllyBase> InitalAllyList => initalAllyList;
         public DeckData InitalDeck { get => initalDeck; set => initalDeck = value; }
