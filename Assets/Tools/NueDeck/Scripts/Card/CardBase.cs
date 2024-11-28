@@ -188,9 +188,12 @@ namespace NueGames.NueDeck.Scripts.Card
                     break;
 
                 case ActionTargetType.LowestHPEnemy:
-                    targetList.Add(_allEnemies.Select(e => (e, e.CharacterStats.CurrentHealth))
-                                           .OrderBy(x => x.CurrentHealth)
-                                           .FirstOrDefault().e);
+                    targetList.AddRange(_allEnemies
+                                           .OrderBy(e => e.CharacterStats.CurrentHealth)
+                                           .ThenBy(e => e.transform.position.x)
+                                           .Take(playerAction.ActionAreaValue)
+                                           .ToList()
+                                           );
 
                     break;
 
