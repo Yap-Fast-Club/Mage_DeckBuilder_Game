@@ -10,7 +10,8 @@
         Passive,
         Instant,
         Fatigue,
-        Focus
+        Focus,
+        Channel
 
     }
 }

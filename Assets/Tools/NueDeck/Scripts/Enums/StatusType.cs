@@ -11,7 +11,9 @@
         EnchantmentAndLeftMana,
         SoulScale,
         EnchantmentAndSoulScale,
-        Focus
+        Focus,
+        AntiChannel,
+        AntiFatigue
 
     }
 }

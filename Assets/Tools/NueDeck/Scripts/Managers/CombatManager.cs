@@ -2,8 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NueGames.NueDeck.Scripts.Card;
+using NueGames.NueDeck.Scripts.Card.CardActions;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Characters.Enemies;
+using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Data.Settings;
 using NueGames.NueDeck.Scripts.Enums;
@@ -23,6 +26,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
         [SerializeField] private TargetDetector _targetDetector;
+        [SerializeField] private CardData _channelCardData;
+        [SerializeField] private CardBase _channelCardBase;
 
         [Header("Custom")]
         [SerializeField] private bool _capManaAtMax = true;
@@ -66,6 +71,8 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         protected CollectionManager CollectionManager => CollectionManager.Instance;
 
+        public CardBase ChannelCard => _channelCardBase;
+
         #endregion
         
         
@@ -96,6 +103,9 @@ namespace NueGames.NueDeck.Scripts.Managers
             backgroundContainer.OpenSelectedBackground();
           
             CollectionManager.SetGameDeck();
+
+            ChannelCard.SetCard(Instantiate(_channelCardData));
+
             CollectionManager.DrawCards(persistentData.DrawCount);
            
             UIManager.CombatCanvas.gameObject.SetActive(true);
@@ -329,6 +339,10 @@ namespace NueGames.NueDeck.Scripts.Managers
             yield return waitDelay;
             yield return new WaitWhile(() => persistentData.STOP == true);
 
+            //Check channeled Cards
+            yield return StartCoroutine(ChanneledCardUseRoutine());
+            ChannelCard.CardData.CardActionDataList.Clear();
+
             UIManager.CombatCanvas.EnableHandell(true);
             persistentData.CanSelectCards = true;
             CheckForSoulReward();
@@ -344,6 +358,29 @@ namespace NueGames.NueDeck.Scripts.Managers
                 yield break;
             }
 
+        }
+
+        private IEnumerator ChanneledCardUseRoutine()
+        {
+            AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
+            bool resetPower = false;
+            foreach (var actionData in ChannelCard.CardData.CardActionDataList)
+            {
+                yield return new WaitForSeconds(actionData.ActionDelay);
+                var targetList = CardBase.DetermineTargets(null, CurrentEnemiesList, CurrentAlliesList, actionData);
+
+                var action = CardActionProcessor.GetAction(actionData.CardActionType);
+                foreach (var target in targetList)
+                    action.DoAction(new CardActionParameters(actionData.ActionValue, actionData.ActionAreaValue, target, CurrentMainAlly, ChannelCard.CardData, ChannelCard));
+
+                if (action is AttackAction)
+                    resetPower = true;
+            }
+
+            if (resetPower)
+               CurrentMainAlly.CharacterStats.ClearStatus(StatusType.Power);
+
+            yield return new WaitForSeconds(0.1f);
         }
 
 

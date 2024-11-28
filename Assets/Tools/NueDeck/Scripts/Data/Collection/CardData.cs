@@ -30,6 +30,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [Header("Action Settings")]
         [SerializeField] private bool usableWithoutTarget;
         [SerializeField] private bool exhaustAfterPlay;
+        [SerializeField] private bool _channel = false;
         [SerializeField] private List<CardActionData> cardActionDataList;
         
         [Header("Description")]
@@ -45,6 +46,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         #region Cache
         public string Id => id;
         public bool UsableWithoutTarget => usableWithoutTarget;
+        public bool Channel => _channel;
         public int ManaCost => manaCost;
         public int TurnCost => turnCost;
         public string CardName => cardName;
@@ -62,6 +64,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         private Color InstantTextColor => GameManager.Instance.GameplayData.InstantTextColor;
         private Color FatigueTextColor => GameManager.Instance.GameplayData.FatigueTextColor;
         private Color EraseTextColor => GameManager.Instance.GameplayData.EraseTextColor;
+        private Color ChannelTextColor => GameManager.Instance.GameplayData.ChannelTextColor;
 
         #endregion
         
@@ -75,6 +78,17 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 str.Append(ColorExtentions.ColorString("Instant\n", InstantTextColor));
                 if (!KeywordsList.Contains(SpecialKeywords.Instant))
                     KeywordsList.Add(SpecialKeywords.Instant);
+            }
+
+            if (Channel)
+            {
+                if (CombatManager.Instance.CurrentMainAlly.CharacterStats.StatusDict[StatusType.AntiChannel].StatusValue == 0)
+                    str.Append(ColorExtentions.ColorString("Channel\n", ChannelTextColor));
+                else
+                    str.Append(ColorExtentions.ColorString("<s>Channel</s>\n", ChannelTextColor));
+
+                if (!KeywordsList.Contains(SpecialKeywords.Channel))    
+                    KeywordsList.Add(SpecialKeywords.Channel);
             }
 
             if (turnCost > 1)
@@ -115,6 +129,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public void EditCardSprite(Sprite newSprite) => cardSprite = newSprite;
         public void EditUsableWithoutTarget(bool newStatus) => usableWithoutTarget = newStatus;
         public void EditExhaustAfterPlay(bool newStatus) => exhaustAfterPlay = newStatus;
+        public void EditChannelBool(bool newStatus) => _channel = newStatus;
         public void EditCardActionDataList(List<CardActionData> newCardActionDataList) =>
             cardActionDataList = newCardActionDataList;
         public void EditCardDescriptionDataList(List<CardDescriptionData> newCardDescriptionDataList) =>

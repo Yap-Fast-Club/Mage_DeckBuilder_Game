@@ -59,6 +59,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
         public int FinalManaCost => Mathf.Max(0, CardData.ManaCost - FocusStat.StatusValue);
 
+        public bool Channel => CardData.Channel;
 
         #endregion
 
@@ -109,28 +110,35 @@ namespace NueGames.NueDeck.Scripts.Card
 
             bool resetPower = false;
 
-            if (CardData.Id == "21-meteor_call") //xd
-                AudioManager.Instance.PlayOneShot(AudioActionType.MeteorBegin);
+            
 
-            foreach (var actionData in CardData.CardActionDataList)
+            if (!Channel)
             {
-                yield return new WaitForSeconds(actionData.ActionDelay);
-                var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);
+                if (CardData.Id == "21-meteor_call") //xd
+                    AudioManager.Instance.PlayOneShot(AudioActionType.MeteorBegin);
+                foreach (var actionData in CardData.CardActionDataList)
+                {
+                    yield return new WaitForSeconds(actionData.ActionDelay);
+                    var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);
 
-                var action = CardActionProcessor.GetAction(actionData.CardActionType);
-                foreach (var target in targetList)
-                    action.DoAction(new CardActionParameters(actionData.ActionValue, actionData.ActionAreaValue, target, self, CardData, this));
+                    var action = CardActionProcessor.GetAction(actionData.CardActionType);
+                    foreach (var target in targetList)
+                        action.DoAction(new CardActionParameters(actionData.ActionValue, actionData.ActionAreaValue, target, self, CardData, this));
 
-                if (action is AttackAction)
-                    resetPower = true;
+                    if (action is AttackAction)
+                        resetPower = true;
+                }
+                if (CardData.Id == "21-meteor_call")
+                    AudioManager.Instance.PlayOneShot(AudioActionType.MeteorEnd);
+
+                if (resetPower)
+                    self.CharacterStats.ClearStatus(StatusType.Power);
             }
-
-            if (CardData.Id == "21-meteor_call")
-                AudioManager.Instance.PlayOneShot(AudioActionType.MeteorEnd);
-
-            if (resetPower)
-                self.CharacterStats.ClearStatus(StatusType.Power);
-
+            else
+            {
+                CombatManager.ChannelCard.CardData.CardActionDataList.AddRange(CardData.CardActionDataList);
+            }
+          
             if (CardData.Type == CardType.Spell)
             {
                 self.CharacterStats.ClearStatus(StatusType.Focus);
@@ -150,7 +158,7 @@ namespace NueGames.NueDeck.Scripts.Card
             SpendTurn(CardData.TurnCost);
         }
 
-        private static List<CharacterBase> DetermineTargets(CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies,
+        public static List<CharacterBase> DetermineTargets(CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies,
             CardActionData playerAction)
         {
             List<CharacterBase> targetList = new List<CharacterBase>();

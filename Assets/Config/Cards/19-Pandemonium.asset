@@ -21,6 +21,7 @@ MonoBehaviour:
   rarity: 2
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 1
   cardActionDataList:
   - cardActionType: 16
     actionTargetType: 2

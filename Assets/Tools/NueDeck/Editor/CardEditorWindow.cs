@@ -32,6 +32,7 @@ namespace NueGames.NueDeck.Editor
         private Sprite CardSprite{ get; set; }
         private bool UsableWithoutTarget{ get; set; }
         private bool ExhaustAfterPlay{ get; set; }
+        private bool Channel{ get; set; }
         private List<CardActionData> CardActionDataList{ get; set; }
         private List<CardDescriptionData> CardDescriptionDataList{ get; set; }
         private List<SpecialKeywords> SpecialKeywordsList{ get; set; }
@@ -49,6 +50,7 @@ namespace NueGames.NueDeck.Editor
             CardSprite = SelectedCardData.CardSprite;
             UsableWithoutTarget = SelectedCardData.UsableWithoutTarget;
             ExhaustAfterPlay = SelectedCardData.ExhaustAfterPlay;
+            Channel = SelectedCardData.Channel;
             CardActionDataList = SelectedCardData.CardActionDataList.Count>0 ? new List<CardActionData>(SelectedCardData.CardActionDataList) : new List<CardActionData>();
             CardDescriptionDataList = SelectedCardData.CardDescriptionDataList.Count>0 ? new List<CardDescriptionData>(SelectedCardData.CardDescriptionDataList) : new List<CardDescriptionData>();
             SpecialKeywordsList = SelectedCardData.KeywordsList.Count>0 ? new List<SpecialKeywords>(SelectedCardData.KeywordsList) : new List<SpecialKeywords>();
@@ -66,6 +68,7 @@ namespace NueGames.NueDeck.Editor
             CardSprite = null;
             UsableWithoutTarget = false;
             ExhaustAfterPlay = false;
+            Channel = false;
             CardActionDataList?.Clear();
             CardDescriptionDataList?.Clear();
             SpecialKeywordsList?.Clear();
@@ -263,7 +266,11 @@ namespace NueGames.NueDeck.Editor
         {
             ExhaustAfterPlay = EditorGUILayout.Toggle("Exhaust after play", ExhaustAfterPlay);
         }
-        
+
+        private void ChangeChannel()
+        {
+            Channel = EditorGUILayout.Toggle("Channel", Channel);
+        }
         private bool _isGeneralSettingsFolded;
         private Vector2 _generalSettingsScrollPos;
         private void ChangeGeneralSettings()
@@ -285,6 +292,7 @@ namespace NueGames.NueDeck.Editor
             ChangeRarity();
             ChangeUsableWithoutTarget();
             ChangeExhaustAfterPlay();
+            ChangeChannel();
             ChangeAudioActionType();
             EditorGUILayout.EndVertical();
             GUILayout.Space(100);
@@ -533,6 +541,7 @@ namespace NueGames.NueDeck.Editor
             SelectedCardData.EditCardSprite(CardSprite);
             SelectedCardData.EditUsableWithoutTarget(UsableWithoutTarget);
             SelectedCardData.EditExhaustAfterPlay(ExhaustAfterPlay);
+            SelectedCardData.EditChannelBool(Channel);
             SelectedCardData.EditCardActionDataList(CardActionDataList);
             SelectedCardData.EditCardDescriptionDataList(CardDescriptionDataList);
             SelectedCardData.EditSpecialKeywordsList(SpecialKeywordsList);

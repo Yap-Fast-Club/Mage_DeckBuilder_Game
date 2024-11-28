@@ -29,3 +29,5 @@ MonoBehaviour:
     contentText: Remove the card permanently from the deck.
   - specialKeyword: 8
     contentText: Reduces the cost the next spell by X.
+  - specialKeyword: 9
+    contentText: This spell is casted at the start of your next turn instead.
