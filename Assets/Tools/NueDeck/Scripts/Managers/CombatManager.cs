@@ -295,7 +295,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             UIManager.CombatCanvas.gameObject.SetActive(true);
             UIManager.CombatCanvas.CombatLosePanel.SetActive(true);
         }
-        private void WinCombat()
+        public void WinCombat()
         {
             if (CurrentCombatStateType == CombatStateType.EndCombat) return;
           

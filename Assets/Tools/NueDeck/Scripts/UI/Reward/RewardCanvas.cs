@@ -153,8 +153,6 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
             _choiceTitle.text = "Choose a Card";
             _rewardCalls++;
 
-            int currentSouls = GameManager.PersistentGameplayData.CurrentSouls;
-            int maxSouls = GameManager.PersistentGameplayData.MaxSouls;
             if (_plannedCalls > 1)
                 _choiceTitle.text += $" ({_rewardCalls}/{_plannedCalls})";
 

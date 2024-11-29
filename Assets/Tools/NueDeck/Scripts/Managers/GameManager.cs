@@ -4,7 +4,9 @@ using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Data.Settings;
 using NueGames.NueDeck.Scripts.EnemyBehaviour;
+using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.NueExtentions;
+using NueGames.NueDeck.Scripts.Utils;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -91,7 +93,45 @@ namespace NueGames.NueDeck.Scripts.Managers
             
         }
         #endregion
-      
 
+
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.P))
+            {
+                PersistentGameplayData.CanSelectCards = true;
+                PersistentGameplayData.STOP = false;
+            }
+
+            if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.H))
+            {
+                CombatManager.Instance.CurrentMainAlly.CharacterStats.Heal(20);
+            }
+
+            if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.W))
+            {
+                CombatManager.Instance.WinCombat();
+            }
+
+            if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.O))
+            {
+                PersistentGameplayData.STOP = true;
+
+                if (!UIManager.RewardCanvas.gameObject.activeInHierarchy)
+                {
+                    UIManager.RewardCanvas.gameObject.SetActive(true);
+                    UIManager.RewardCanvas.PrepareCanvas(plannedCalls: 1);
+                }
+
+                UIManager.RewardCanvas.InstantReward(RewardType.Card, ()=> { PersistentGameplayData.STOP = false; UIManager.RewardCanvas.gameObject.SetActive(false); });
+            }
+
+            if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.M))
+            {
+                this.GetComponent<SceneChanger>()?.OpenMapScene();
+            }
+
+
+        }
     }
 }
