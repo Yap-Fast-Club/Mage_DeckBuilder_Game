@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 49
+    InspectorTotalWeight: 54
     Items:
     - Name: 9-Lightning Strike.     [W:2] (4%)
       PercentInList: ' (4%)'
@@ -37,7 +37,7 @@ MonoBehaviour:
       PercentInList: ' (4%)'
       Weight: 2
       Item: {fileID: 11400000, guid: c851f9a32bac1854cb31b092d894fd0c, type: 2}
-    - Name: 15-Boulder Bonk.     [W:2] (4%)
+    - Name: 15-Boulder Throw.     [W:2] (4%)
       PercentInList: ' (4%)'
       Weight: 2
       Item: {fileID: 11400000, guid: ba0699e03b6867c459fd800053a87cc5, type: 2}
@@ -129,8 +129,20 @@ MonoBehaviour:
       PercentInList: ' (4%)'
       Weight: 2
       Item: {fileID: 11400000, guid: da9ca951e9b471d4f81130aec7be63c8, type: 2}
-    - Name: 47-Magic Wisps.     [W:1] (2%)
+    - Name: 47-Wisps.     [W:1] (2%)
       PercentInList: ' (2%)'
       Weight: 1
       Item: {fileID: 11400000, guid: da3ef8c7d7e01a444b5a0525735ce824, type: 2}
+    - Name: 48-Binding Oath.     [W:2] (4%)
+      PercentInList: ' (4%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 33f519aee46eeef478871d76fcf2b0bc, type: 2}
+    - Name: 51-Judgement.     [W:2] (4%)
+      PercentInList: ' (4%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 8ea02b469b8517a4a97760ac21338c83, type: 2}
+    - Name: 49-Necronomicon.     [W:1] (2%)
+      PercentInList: ' (2%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 52302c071e0770a4db780be9ef057832, type: 2}
   _deckToLoadFrom: {fileID: 11400000, guid: 3a07c27d9f90cce448e24319da535a39, type: 2}
