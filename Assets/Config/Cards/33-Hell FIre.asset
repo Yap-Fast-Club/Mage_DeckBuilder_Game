@@ -16,7 +16,7 @@ MonoBehaviour:
   cardName: Hell Fire
   type: 0
   manaCost: 9
-  turnCost: 2
+  turnCost: 1
   cardSprite: {fileID: 21300000, guid: 61940e28eff065e4696f80fab03fdd99, type: 3}
   rarity: 2
   usableWithoutTarget: 1
@@ -28,12 +28,18 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
-    actionDelay: 1
+    actionDelay: 0.6
   - cardActionType: 0
     actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 9
     actionValue: 9
+    actionDelay: 0
+  - cardActionType: 22
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 1
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Deal '
@@ -63,7 +69,36 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' to 9 different random enemies.'
+  - descriptionText: ' to 9 different random enemies.
+
+'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Increase the damage of ALL "Hell Fire" cards by '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Increase the damage of ALL "Judgement" cards by '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 2
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: .
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

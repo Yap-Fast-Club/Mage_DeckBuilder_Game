@@ -33,19 +33,19 @@ MonoBehaviour:
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 3
+    actionValue: 2
     actionDelay: 0
   - cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 3
+    actionValue: 2
     actionDelay: 0
   - cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 3
+    actionValue: 2
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Repeat 3 times: '
