@@ -448,7 +448,10 @@ namespace NueGames.NueDeck.Scripts.Card
         protected virtual IEnumerator ShowTooltipInfo()
         {
             if (!descriptionRoot) yield break;
-            if (CardData.KeywordsList.Count <= 0) yield break;
+
+            var transformActions = CardData.CardActionDataList.Where(a => a.CardActionType == CardActionType.TransformAllCards);
+
+            if (CardData.KeywordsList.Count <= 0 && transformActions.Count() <= 0) yield break;
 
             yield return new WaitForSeconds(0.25f);
 
@@ -458,6 +461,19 @@ namespace NueGames.NueDeck.Scripts.Card
                 var specialKeyword = tooltipManager.SpecialKeywordData.SpecialKeywordBaseList.Find(x => x.SpecialKeyword == cardDataSpecialKeyword);
                 if (specialKeyword != null)
                     ShowTooltipInfo(tooltipManager, specialKeyword.GetContent(), specialKeyword.GetHeader(), descriptionRoot, CursorType.Default, CollectionManager ? CollectionManager.HandController.cam : Camera.main);
+            }
+
+            foreach (var transformAction in transformActions)
+            {
+                string toEraseID = transformAction.ActionAreaValue.ToString();
+                string toCreateID = transformAction.ActionValue.ToString();
+
+                CardData cardToEraseData = GameManager.GameplayData.AllCardsList.CardList.Find(c => c.Id == toEraseID);
+                CardData cardToCreateData = GameManager.GameplayData.AllCardsList.CardList.Find(c => c.Id == toCreateID);
+
+                ShowTooltipInfo(tooltipManager, cardToEraseData.GetDescriptionForTooltip(), cardToEraseData.CardName, descriptionRoot, CursorType.Default, CollectionManager ? CollectionManager.HandController.cam : Camera.main);
+                ShowTooltipInfo(tooltipManager, cardToCreateData.GetDescriptionForTooltip(), cardToCreateData.CardName, descriptionRoot, CursorType.Default, CollectionManager ? CollectionManager.HandController.cam : Camera.main);
+
             }
         }
         public virtual void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default, Camera cam = null, float delayShow = 0)

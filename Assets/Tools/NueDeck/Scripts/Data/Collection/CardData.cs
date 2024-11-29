@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using NaughtyAttributes;
 using NueGames.NueDeck.Scripts.Enums;
@@ -101,10 +102,17 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
             foreach (var descriptionData in cardDescriptionDataList)
             {
-                str.Append(descriptionData.UseModifier && showMods
-                    ? descriptionData.GetModifiedValue(this)
-                    : descriptionData.GetDescription());
+                if (showMods)
+                    str.Append(descriptionData.UseModifier && showMods
+                        ? descriptionData.GetModifiedValue(this)
+                        : descriptionData.GetDescription());
+                else
+                    str.Append(descriptionData.UseModifier && showMods
+                        ? descriptionData.GetValueNoMods(this)
+                        : descriptionData.GetDescription());
             }
+
+          
 
             if (exhaustAfterPlay)
             {
@@ -112,9 +120,54 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 if (!KeywordsList.Contains(SpecialKeywords.Erase))
                     KeywordsList.Add(SpecialKeywords.Erase);
             }
-            
+
+            UpdateSpecialKeyowrds();
+
             MyDescription = str.ToString();
         }
+
+        private void UpdateSpecialKeyowrds()
+        {
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Focus))
+                if (!KeywordsList.Contains(SpecialKeywords.Focus))
+                    KeywordsList.Add(SpecialKeywords.Focus);
+
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Power))
+                if (!KeywordsList.Contains(SpecialKeywords.Power))
+                    KeywordsList.Add(SpecialKeywords.Power);
+
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Erase))
+                if (!KeywordsList.Contains(SpecialKeywords.Erase))
+                    KeywordsList.Add(SpecialKeywords.Erase);
+
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Erase))
+                if (!KeywordsList.Contains(SpecialKeywords.Erase))
+                    KeywordsList.Add(SpecialKeywords.Erase);
+
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Push))
+                if (!KeywordsList.Contains(SpecialKeywords.Push))
+                    KeywordsList.Add(SpecialKeywords.Push);
+          
+        }
+
+        public string GetDescriptionForTooltip()
+        {
+            StringBuilder str = Type switch
+            {
+                CardType.Spell => new StringBuilder($"(Spell) [{ManaCost} Mana] "),
+                CardType.Incantation => new StringBuilder("(Incant.) "),
+                _ => new StringBuilder()
+            };
+
+            foreach (var descriptionData in cardDescriptionDataList)
+            {
+                str.Append(descriptionData.UseModifier 
+                    ? descriptionData.GetValueNoMods(this, false)
+                    : descriptionData.GetDescription());
+            }
+            return str.ToString();
+        }
+
 
         #endregion
 
@@ -231,6 +284,30 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             if (EnableOverrideColor && !string.IsNullOrEmpty(str.ToString())) 
                 str.Replace(str.ToString(),ColorExtentions.ColorString(str.ToString(),OverrideColor));
             
+            return str.ToString();
+        }
+
+        public string GetValueNoMods(CardData cardData, bool overrideColor = true)
+        {
+            if (cardData.CardActionDataList.Count <= 0) return "";
+
+            if (ModifiedActionValueIndex >= cardData.CardActionDataList.Count)
+                modifiedActionValueIndex = cardData.CardActionDataList.Count - 1;
+
+            if (ModifiedActionValueIndex < 0)
+                modifiedActionValueIndex = 0;
+
+            var str = new StringBuilder();
+            var value = cardData.CardActionDataList[ModifiedActionValueIndex].GetModifiedValue(cardData);
+                
+
+            str.Append(value);
+
+            if (EnableOverrideColor && overrideColor)
+            {
+                str.Replace(str.ToString(), ColorExtentions.ColorString(str.ToString(), OverrideColor));
+            }
+
             return str.ToString();
         }
 
