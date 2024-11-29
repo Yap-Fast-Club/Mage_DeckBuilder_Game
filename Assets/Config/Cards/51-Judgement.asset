@@ -27,7 +27,7 @@ MonoBehaviour:
     actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 7
-    actionValue: 1
+    actionValue: 3
     actionDelay: 0
   - cardActionType: 22
     actionTargetType: 1
@@ -74,7 +74,25 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Increase the damage of ALL "Judgement" cards by 1.'
+  - descriptionText: ' Increase the damage of ALL "Judgement" cards by '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: .
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
