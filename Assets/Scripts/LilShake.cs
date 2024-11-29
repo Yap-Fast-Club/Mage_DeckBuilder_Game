@@ -8,11 +8,14 @@ public class LilShake : MonoBehaviour
     [SerializeField] float _stillInterval = 3f;
     [SerializeField] float _shakingInterval = 0.4f;
     [SerializeField] float _speed = 1.0f;
-    [SerializeField] float _amount = 1.0f;
+    [SerializeField] private float _amount = 1.0f;
     [SerializeField] Vector3 _originalPos = Vector3.zero;
     private Vector3 _shakePos;
     private float _timer = 0;
     private RectTransform _rectTransform;
+
+    public float Amount { get => _amount; set => _amount = value;}
+    public float Speed { get => _speed; set => _speed = value;}
 
     private void OnEnable()
     {

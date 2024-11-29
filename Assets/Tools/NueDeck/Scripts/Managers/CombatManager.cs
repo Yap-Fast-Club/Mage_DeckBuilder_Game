@@ -194,8 +194,11 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         public void CheckForSoulReward()
         {
+
             if (persistentData.CurrentSouls >= persistentData.MaxSouls)
             {
+                UIManager.InformationCanvas.AnimateSoulsGUI();
+                persistentData.STOP = true;
                 if (!UIManager.RewardCanvas.gameObject.activeInHierarchy){
                     UIManager.RewardCanvas.gameObject.SetActive(true);
                     UIManager.RewardCanvas.PrepareCanvas(plannedCalls: persistentData.CurrentSouls / persistentData.MaxSouls);
@@ -207,6 +210,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             }
             else
             {
+                persistentData.STOP = false;
                 UIManager.RewardCanvas.gameObject.SetActive(false); 
             }
         }
@@ -345,9 +349,14 @@ namespace NueGames.NueDeck.Scripts.Managers
                 yield break;
             }
 
+            if (persistentData.CurrentSouls >= persistentData.MaxSouls)
+                yield return new WaitForSeconds(0.25f);
+
+            CheckForSoulReward();
+            yield return new WaitWhile(() => persistentData.STOP == true);
+
             UIManager.CombatCanvas.EnableHandell(true);
             persistentData.CanSelectCards = true;
-            CheckForSoulReward();
 
             if (CurrentEnemiesList.Count <= 0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
                 WinCombat();

@@ -182,7 +182,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                 {
                     if (_rewardCalls == _plannedCalls)
                     {
-                        GameManager.PersistentGameplayData.CanSelectCards = true;
+                        //GameManager.PersistentGameplayData.CanSelectCards = true;
                         GameManager.PersistentGameplayData.STOP = false;
                         UIManager.CombatCanvas.EnableHandell(true);
                     }

@@ -45,7 +45,7 @@ namespace NueGames.NueDeck.Scripts.Utils
                     UIManager.ChangeScene(GameManager.SceneData.mapSceneIndex);
                     UIManager.SetCanvas(UIManager.CombatCanvas,false,true);
                     UIManager.SetCanvas(UIManager.InformationCanvas,true,false);
-                    UIManager.InformationCanvas.HealthProgressBar.transform.parent.gameObject.SetActive(false);
+                    UIManager.InformationCanvas.HealthProgressBar.transform.parent.parent.gameObject.SetActive(false);
                     UIManager.InformationCanvas.SoulsTextField.transform.parent.gameObject.SetActive(false);
                     UIManager.SetCanvas(UIManager.RewardCanvas,false,true);
                    
@@ -55,7 +55,7 @@ namespace NueGames.NueDeck.Scripts.Utils
                     UIManager.SetCanvas(UIManager.CombatCanvas,false,true);
                     UIManager.SetCanvas(UIManager.InformationCanvas,true,false);
                     UIManager.SetCanvas(UIManager.RewardCanvas,false,true);
-                    UIManager.InformationCanvas.HealthProgressBar.transform.parent.gameObject.SetActive(true);
+                    UIManager.InformationCanvas.HealthProgressBar.transform.parent.parent.gameObject.SetActive(true);
                     UIManager.InformationCanvas.SoulsTextField.transform.parent.gameObject.SetActive(true);
                     
                     break;

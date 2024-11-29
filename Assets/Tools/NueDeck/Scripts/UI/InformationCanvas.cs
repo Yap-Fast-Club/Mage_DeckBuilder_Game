@@ -17,6 +17,7 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private TextMeshProUGUI roomTextField;
         [SerializeField] private TextMeshProUGUI goldTextField;
         [SerializeField] private Image _soulsOnImg;
+        [SerializeField] private LilShake _soulsShake;
         [SerializeField] private TextMeshProUGUI _soulsTextField;
         [SerializeField] private TextMeshProUGUI nameTextField;
         [SerializeField] private Image healthProgressBar;
@@ -24,6 +25,9 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private List<RectTransform> _soulContainers = new List<RectTransform>();
         [SerializeField] private List<RectTransform> _soulOnIcons = new List<RectTransform>();
         [SerializeField] private RectTransform _soulOffRoot = new RectTransform();
+        [SerializeField] private Color _soulsDimColor;
+        [SerializeField] private Color _soulsOnColor;
+        [SerializeField] private Color _soulsGlowColor;
 
         public GameObject RandomizedDeckObject => randomizedDeckObject;
         public TextMeshProUGUI RoomTextField => roomTextField;
@@ -54,6 +58,10 @@ namespace NueGames.NueDeck.Scripts.UI
         public void InstantUpdateSoulsGUI()
         {
             SoulsTextField.text = $"{_persistentGameplayData.CurrentSouls}";
+            _soulsOnImg.color = _soulsOnImg.color.WithAlpha((float)_persistentGameplayData.CurrentSouls / (float)_persistentGameplayData.MaxSouls);
+            _soulsShake.Amount = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
+            _soulsShake.Speed = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
+
 
             for (int i = 0; i < _soulOnIcons.Count; i++)
             {
@@ -74,7 +82,10 @@ namespace NueGames.NueDeck.Scripts.UI
         public void UpdateSoulsGUI(EnemyBase deadEnemy)
         {
             SoulsTextField.text = $"{_persistentGameplayData.CurrentSouls}";
-            _soulsOnImg.fillAmount = (float)_persistentGameplayData.CurrentSouls / (float)_persistentGameplayData.MaxSouls;
+            _soulsOnImg.color = _soulsOnImg.color.WithAlpha((float)_persistentGameplayData.CurrentSouls / (float)_persistentGameplayData.MaxSouls);
+            _soulsShake.Amount = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
+            _soulsShake.Speed = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
+
 
             int soulAmout = deadEnemy.CharacterStats.CurrentSouls;
 
@@ -91,6 +102,57 @@ namespace NueGames.NueDeck.Scripts.UI
 
                 _gainSoulsCRs.Enqueue(StartCoroutine(GainSoulCR(soulIndex)));
             }
+
+        }
+
+        private Coroutine GlowSoulsCR = null;
+        public void AnimateSoulsGUI()
+        {
+            if (GlowSoulsCR == null)
+                GlowSoulsCR = StartCoroutine(GlowSouls());
+        }
+
+
+        private IEnumerator GlowSouls()
+        {
+            float elapsedTime = 0f;
+            float inTime = 0.4f;
+            float outTime = 0.25f;
+
+            Color initialColor = _soulsOnColor;
+            Color targetColor = _soulsGlowColor;
+
+            while (elapsedTime < inTime)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsedTime / inTime);
+
+                _soulsOnImg.color = Color.Lerp(initialColor, targetColor, t);
+
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(0.15f);
+            yield return new WaitWhile(() => UIManager.RewardCanvas.isActiveAndEnabled);
+
+            initialColor = _soulsGlowColor;
+            targetColor = _soulsDimColor;
+
+            elapsedTime = 0f;
+            while (elapsedTime < outTime)
+            {
+                elapsedTime += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsedTime / outTime);
+
+                _soulsOnImg.color = Color.Lerp(initialColor, targetColor, t);
+
+                yield return null;
+            }
+
+            _soulsOnImg.color = _soulsDimColor;
+            _soulsShake.Amount = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
+            _soulsShake.Speed = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
+            GlowSoulsCR = null;
 
         }
 
@@ -164,7 +226,6 @@ namespace NueGames.NueDeck.Scripts.UI
             _gainSoulsCRs.Dequeue();
             if (_gainSoulsCRs.Count == 0)
             {
-                _persistentGameplayData.CanSelectCards = true;
                 _persistentGameplayData.STOP = false;
             }
         }

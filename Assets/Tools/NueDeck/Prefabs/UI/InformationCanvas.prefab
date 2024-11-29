@@ -2802,7 +2802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
+  m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4705,6 +4705,7 @@ GameObject:
   - component: {fileID: 5710915789778800888}
   - component: {fileID: 2174652908030812173}
   - component: {fileID: 723058858275449626}
+  - component: {fileID: 2512883073981899200}
   m_Layer: 0
   m_Name: Souls On Img
   m_TagString: Untagged
@@ -4752,7 +4753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7783019, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4760,15 +4761,32 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: ee65c892e9803a145a9ecc4b6bbb9bfd, type: 3}
-  m_Type: 3
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2512883073981899200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5629479214637194513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78362e47ffd03ac48aed6096dfa949b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stillInterval: 0
+  _shakingInterval: 3
+  _speed: 1
+  _amount: 1
+  _originalPos: {x: 0, y: 0, z: 0}
 --- !u!1 &5655919146339564452
 GameObject:
   m_ObjectHideFlags: 0
@@ -5543,6 +5561,7 @@ MonoBehaviour:
   roomTextField: {fileID: 2627394894104042102}
   goldTextField: {fileID: 518337495935948590}
   _soulsOnImg: {fileID: 723058858275449626}
+  _soulsShake: {fileID: 2512883073981899200}
   _soulsTextField: {fileID: 1088952778504992916}
   nameTextField: {fileID: 5293955611471582949}
   healthProgressBar: {fileID: 3709977700250625695}
@@ -5583,6 +5602,9 @@ MonoBehaviour:
   - {fileID: 1557858843200528474}
   - {fileID: 2363232124156660962}
   _soulOffRoot: {fileID: 3338215533251583756}
+  _soulsDimColor: {r: 1, g: 1, b: 1, a: 0}
+  _soulsOnColor: {r: 1, g: 1, b: 1, a: 1}
+  _soulsGlowColor: {r: 1, g: 0, b: 0.8627451, a: 1}
 --- !u!223 &6619236169260507774
 Canvas:
   m_ObjectHideFlags: 0

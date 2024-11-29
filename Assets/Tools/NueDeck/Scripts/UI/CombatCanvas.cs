@@ -26,6 +26,9 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private TextMeshProUGUI exhaustPileTextField;
         [SerializeField] private TextMeshProUGUI manaTextTextField;
         [SerializeField] private Image _manaHighlight;
+        [SerializeField] private Color _manaHighlightNormal = Color.blue;
+        [SerializeField] private Color _manaHighlightGlow = Color.cyan;
+        [SerializeField] private Color _manaHighlightDim = Color.gray;
         
         [Header("Panels")]
         [SerializeField] private GameObject nextCombatPanel;
@@ -131,8 +134,8 @@ namespace NueGames.NueDeck.Scripts.UI
             float inTime = 0.3f;
             float outTime = 0.15f;
 
-            Color initialColor = _manaHighlight.color;
-            Color targetColor = new Color(initialColor.r / 2, initialColor.g / 2, initialColor.b / 2);
+            Color initialColor = _manaHighlightNormal;
+            Color targetColor = _manaHighlightDim;
 
             while (elapsedTime < inTime)
             {
@@ -163,8 +166,8 @@ namespace NueGames.NueDeck.Scripts.UI
             float inTime = 0.25f;
             float outTime = 0.25f;
 
-            Color initialColor = _manaHighlight.color;
-            Color targetColor = new Color(initialColor.r, initialColor.g + 50, initialColor.b);
+            Color initialColor = _manaHighlightNormal;
+            Color targetColor = _manaHighlightGlow;
 
             while (elapsedTime < inTime)
             {
