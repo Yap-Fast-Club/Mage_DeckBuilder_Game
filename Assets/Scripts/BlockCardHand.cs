@@ -7,6 +7,6 @@ public class BlockCardHand : MonoBehaviour
     public void CanSelectCard(bool flag)
     {
         GameManager.Instance.PersistentGameplayData.CanSelectCards = flag;
-        GameManager.Instance.PersistentGameplayData.STOP = flag;
+        GameManager.Instance.PersistentGameplayData.STOP = !flag;
     }
 }
