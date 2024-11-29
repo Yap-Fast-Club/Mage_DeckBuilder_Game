@@ -28,7 +28,7 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 3
-    actionDelay: 0.15
+    actionDelay: 0.1
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0
