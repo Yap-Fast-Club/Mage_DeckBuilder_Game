@@ -79,6 +79,7 @@ public class WaveManager : MonoBehaviour
         if (WaveUIManager.Instance != null)
         {
             WaveUIManager.Instance.UpdateWaveUI();
+            WaveUIManager.Instance.SoftWinPanel.SetActive(false);
         }
     }
 
@@ -159,6 +160,10 @@ public class WaveManager : MonoBehaviour
         }
 
 
+        if (GetRemainingEnemies() == 0)
+            if (CurrentWaveIsFinal() && CombatManager.Instance.CurrentEnemiesList.Count == 0)
+                WaveUIManager.Instance.SoftWinPanel.SetActive(true);
+
         // Check if the wave is completed
         if (CurrentWaveIsCompleted())
         {
@@ -169,6 +174,10 @@ public class WaveManager : MonoBehaviour
             {
                 currentWaveIndex++;
                 StartWave();
+            }
+            else
+            {
+                WaveUIManager.Instance.SoftWinPanel.SetActive(false);
             }
 
         }

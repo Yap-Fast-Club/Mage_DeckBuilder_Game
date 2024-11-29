@@ -10,6 +10,8 @@ public class WaveUIManager : MonoBehaviour
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI turnText;
     public TextMeshProUGUI enemiesRemainingText;
+    public TextMeshProUGUI winTurnsRemainingText;
+    public GameObject SoftWinPanel;
 
     private void Awake()
     {
@@ -30,6 +32,8 @@ public class WaveUIManager : MonoBehaviour
             waveText.text = $"Wave: {WaveManager.Instance.currentWaveIndex + 1} / {WaveManager.Instance.MaxWaveIndex + 1}";
             turnText.text = $"Turn: {WaveManager.Instance.CurrentTurn} / {WaveManager.Instance.CurrentMaxTurn}";
             enemiesRemainingText.text = $"Enemies Remaining: {WaveManager.Instance.GetRemainingEnemies()}";
+            winTurnsRemainingText.text = $"End Encounter in {WaveManager.Instance.CurrentMaxTurn + 1 - WaveManager.Instance.CurrentTurn} turn(s)";
         }
+        
     }
 }
