@@ -2,6 +2,7 @@
 using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace NueGames.NueDeck.Scripts.Card
 {
@@ -22,6 +23,12 @@ namespace NueGames.NueDeck.Scripts.Card
                     ShowTooltipInfo(tooltipManager, specialKeyword.GetContent(), specialKeyword.GetHeader(), descriptionRoot, CursorType.Default, CollectionManager ? CollectionManager.HandController.cam : Camera.main);
             }
         }
+
+        public override void OnPointerDown(PointerEventData eventData)
+        {
+            HideTooltipInfo(TooltipManager.Instance);
+        }
+
         public override void ShowTooltipInfo(TooltipManager tooltipManager, string content, string header = "", Transform tooltipStaticTransform = null, CursorType targetCursor = CursorType.Default, Camera cam = null, float delayShow = 0)
         {
             tooltipManager.ShowTooltip(content, header, null, targetCursor, null, delayShow);
