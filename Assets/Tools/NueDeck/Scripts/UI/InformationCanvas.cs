@@ -104,7 +104,7 @@ namespace NueGames.NueDeck.Scripts.UI
 
         public override void ResetCanvas()
         {
-            RandomizedDeckObject.SetActive(_persistentGameplayData.IsRandomHand);
+            //RandomizedDeckObject.SetActive(_persistentGameplayData.IsRandomHand);
             SetHealthGUI(_persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth, _persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth);
             SetNameText(GameManager.GameplayData.DefaultName);
 

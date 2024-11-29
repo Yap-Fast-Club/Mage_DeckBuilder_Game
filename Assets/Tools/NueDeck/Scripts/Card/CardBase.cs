@@ -422,7 +422,7 @@ namespace NueGames.NueDeck.Scripts.Card
         #endregion
 
         #region Pointer Events
-        Coroutine tooltipCR = null;
+        protected Coroutine tooltipCR = null;
         public virtual void OnPointerEnter(PointerEventData eventData)
         {
             if (tooltipCR == null)
