@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
+using NueGames.NueDeck.Scripts.Enums;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Data.Settings
@@ -31,6 +32,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private List<AllyHealthData> allyHealthDataDataList;
         public bool RandomInitialized = false;
         public int OfferedCardRewards = 0;
+        public Dictionary<(string, CardActionType), float> ActionMods = new Dictionary<(string, CardActionType), float>();
         public List<CardData> EvoultionCardsPlayed = new List<CardData>();
 
         public PersistentGameplayData(GameplayData gameplayData)
@@ -79,6 +81,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             RandomInitialized = false;
             OfferedCardRewards = 0;
             EvoultionCardsPlayed.Clear();
+            ActionMods.Clear();
         }
 
     #region Encapsulation

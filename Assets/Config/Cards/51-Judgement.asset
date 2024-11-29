@@ -10,20 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 38-Law
+  m_Name: 51-Judgement
   m_EditorClassIdentifier: 
-  id: 38
-  cardName: Law
+  id: 51
+  cardName: Judgement
   type: 0
-  manaCost: 5
+  manaCost: 7
   turnCost: 1
   cardSprite: {fileID: 21300000, guid: 03e6f50b7a998ed46a4c3f9f8cb0855e, type: 3}
-  rarity: 0
+  rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
   - cardActionType: 0
-    actionTargetType: 2
+    actionTargetType: 4
+    actionAreaType: 0
+    actionAreaValue: 7
+    actionValue: 1
+    actionDelay: 0
+  - cardActionType: 22
+    actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
@@ -56,7 +63,9 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' to all enemies.'
+  - descriptionText: ' to 7 different random enemies.
+
+'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -65,7 +74,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Increase the damage of ALL "Law" cards by 1.'
+  - descriptionText: ' Increase the damage of ALL "Judgement" cards by 1.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -76,3 +85,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 21
+  EvolveToCard: {fileID: 0}

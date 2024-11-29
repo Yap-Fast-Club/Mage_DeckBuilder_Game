@@ -169,6 +169,16 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public float ActionValue => actionValue;
         public float ActionDelay => actionDelay;
 
+        public float GetModifiedValue(CardData cardData)
+        {
+            var duple = (cardData.Id, cardActionType);
+
+            if( GameManager.Instance.PersistentGameplayData.ActionMods.ContainsKey(duple))
+                return actionValue + GameManager.Instance.PersistentGameplayData.ActionMods[duple];
+            else
+                return actionValue;
+        }
+
         #region Editor
 
 #if UNITY_EDITOR
@@ -235,7 +245,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 modifiedActionValueIndex = 0;
             
             var str = new StringBuilder();
-            var value = cardData.CardActionDataList[ModifiedActionValueIndex].ActionValue;
+            var value = cardData.CardActionDataList[ModifiedActionValueIndex].GetModifiedValue(cardData);
             var modifer = 0;
             if (CombatManager)
             {
