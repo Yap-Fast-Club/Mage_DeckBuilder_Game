@@ -33,7 +33,7 @@ MonoBehaviour:
     actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 1
-    actionValue: 1
+    actionValue: 2
     actionDelay: 0.1
   - cardActionType: 0
     actionTargetType: 4

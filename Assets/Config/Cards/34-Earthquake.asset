@@ -21,7 +21,7 @@ MonoBehaviour:
   rarity: 2
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
-  _channel: 1
+  _channel: 0
   cardActionDataList:
   - cardActionType: 11
     actionTargetType: 2
@@ -33,19 +33,19 @@ MonoBehaviour:
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 2
+    actionValue: 3
     actionDelay: 0
   - cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 2
+    actionValue: 3
     actionDelay: 0
   - cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 2
+    actionValue: 3
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Repeat 3 times: '
@@ -93,6 +93,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 07000000
+  specialKeywordsList: 0700000009000000
   audioType: 26
   EvolveToCard: {fileID: 0}
