@@ -36,7 +36,7 @@ MonoBehaviour:
     actionValue: 0
     actionDelay: 1
   cardDescriptionDataList:
-  - descriptionText: Replace all copies of "fire bolt" in your deck with "fire ball"
+  - descriptionText: Replace all copies of "Fire bolt" in your deck with "Fire ball"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
