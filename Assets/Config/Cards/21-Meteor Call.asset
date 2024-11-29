@@ -24,23 +24,23 @@ MonoBehaviour:
   _channel: 1
   cardActionDataList:
   - cardActionType: 11
-    actionTargetType: 2
+    actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
-    actionDelay: 1.5
+    actionDelay: 1
   - cardActionType: 9
-    actionTargetType: 2
+    actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 1
+    actionValue: 0
     actionDelay: 0
   - cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 20
-    actionDelay: 2
+    actionDelay: 1.5
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0
@@ -78,6 +78,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 0700000003000000
-  audioType: 0
+  specialKeywordsList: 070000000300000009000000
+  audioType: 16
   EvolveToCard: {fileID: 0}

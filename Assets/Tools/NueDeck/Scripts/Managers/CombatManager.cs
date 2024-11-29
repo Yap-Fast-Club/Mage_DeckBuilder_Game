@@ -104,7 +104,7 @@ namespace NueGames.NueDeck.Scripts.Managers
           
             CollectionManager.SetGameDeck();
 
-            ChannelCard.SetCard(Instantiate(_channelCardData));
+            ChannelCard.SetCard(Instantiate(_channelCardData), isPlayable: false);
 
             CollectionManager.DrawCards(persistentData.DrawCount);
            
@@ -338,27 +338,28 @@ namespace NueGames.NueDeck.Scripts.Managers
             yield return StartCoroutine(ChanneledCardUseRoutine());
             ChannelCard.CardData.CardActionDataList.Clear();
 
-            UIManager.CombatCanvas.EnableHandell(true);
-            persistentData.CanSelectCards = true;
-            CheckForSoulReward();
-
             persistentData.TurnDebt--;
-
-            if (CurrentEnemiesList.Count <= 0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
-                WinCombat();
-
             if (persistentData.TurnDebt > 0)
             {
                 EndTurn();
                 yield break;
             }
 
+            UIManager.CombatCanvas.EnableHandell(true);
+            persistentData.CanSelectCards = true;
+            CheckForSoulReward();
+
+            if (CurrentEnemiesList.Count <= 0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
+                WinCombat();
+
         }
+
 
         private IEnumerator ChanneledCardUseRoutine()
         {
             AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
             bool resetPower = false;
+
             foreach (var actionData in ChannelCard.CardData.CardActionDataList)
             {
                 yield return new WaitForSeconds(actionData.ActionDelay);
