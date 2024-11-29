@@ -12,13 +12,14 @@ namespace NueGames.NueDeck.Scripts.UI
 {
     public class InformationCanvas : CanvasBase
     {
-        [Header("Settings")] 
+        [Header("Settings")]
         [SerializeField] private GameObject randomizedDeckObject;
         [SerializeField] private TextMeshProUGUI roomTextField;
         [SerializeField] private TextMeshProUGUI goldTextField;
         [SerializeField] private Image _soulsOnImg;
         [SerializeField] private TextMeshProUGUI _soulsTextField;
         [SerializeField] private TextMeshProUGUI nameTextField;
+        [SerializeField] private Image healthProgressBar;
         [SerializeField] private TextMeshProUGUI healthTextField;
         [SerializeField] private List<RectTransform> _soulContainers = new List<RectTransform>();
         [SerializeField] private List<RectTransform> _soulOnIcons = new List<RectTransform>();
@@ -30,24 +31,25 @@ namespace NueGames.NueDeck.Scripts.UI
         public TextMeshProUGUI SoulsTextField => _soulsTextField;
         public TextMeshProUGUI NameTextField => nameTextField;
         public TextMeshProUGUI HealthTextField => healthTextField;
+        public Image HealthProgressBar => healthProgressBar;
 
         private PersistentGameplayData _persistentGameplayData => GameManager.PersistentGameplayData;
         private Queue<Coroutine> _gainSoulsCRs = new Queue<Coroutine>();
-        
+
         #region Setup
         private void Awake()
         {
             ResetCanvas();
         }
         #endregion
-        
+
         #region Public Methods
-        public void SetRoomText(int roomNumber,bool useStage = false, int stageNumber = -1) => 
+        public void SetRoomText(int roomNumber, bool useStage = false, int stageNumber = -1) =>
             RoomTextField.text = useStage ? $"Encounter {roomNumber}" : $"Room {roomNumber}";
 
         public void SetRoomText(string text) => RoomTextField.text = text;
 
-        public void SetGoldText(int value)=>GoldTextField.text = $"{value}";
+        public void SetGoldText(int value) => GoldTextField.text = $"{value}";
 
         public void InstantUpdateSoulsGUI()
         {
@@ -72,11 +74,11 @@ namespace NueGames.NueDeck.Scripts.UI
         public void UpdateSoulsGUI(EnemyBase deadEnemy)
         {
             SoulsTextField.text = $"{_persistentGameplayData.CurrentSouls}";
-            _soulsOnImg.fillAmount =  (float)_persistentGameplayData.CurrentSouls / (float)_persistentGameplayData.MaxSouls;
+            _soulsOnImg.fillAmount = (float)_persistentGameplayData.CurrentSouls / (float)_persistentGameplayData.MaxSouls;
 
             int soulAmout = deadEnemy.CharacterStats.CurrentSouls;
 
-            for (int i = _persistentGameplayData.CurrentSouls - soulAmout; i <_persistentGameplayData.CurrentSouls ; i++)
+            for (int i = _persistentGameplayData.CurrentSouls - soulAmout; i < _persistentGameplayData.CurrentSouls; i++)
             {
                 int soulIndex = Mathf.Min(i, _soulOnIcons.Count - 1);
                 soulIndex = Mathf.Max(0, soulIndex);
@@ -94,12 +96,16 @@ namespace NueGames.NueDeck.Scripts.UI
 
         public void SetNameText(string name) => NameTextField.text = $"{name}";
 
-        public void SetHealthText(int currentHealth,int maxHealth) => HealthTextField.text = $"{currentHealth}/{maxHealth}";
+        public void SetHealthGUI(int currentHealth, int maxHealth)
+        {
+            HealthTextField.text = $"{currentHealth}/{maxHealth}";
+            HealthProgressBar.fillAmount =  (float)currentHealth/ (float)maxHealth;
+        }
 
         public override void ResetCanvas()
         {
             RandomizedDeckObject.SetActive(_persistentGameplayData.IsRandomHand);
-            SetHealthText(_persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth,_persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth);
+            SetHealthGUI(_persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth, _persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth);
             SetNameText(GameManager.GameplayData.DefaultName);
 
             string encounterName = GameManager.EncounterData.GetCurrentLevelName(
