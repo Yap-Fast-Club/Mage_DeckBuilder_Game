@@ -58,7 +58,7 @@ namespace NueGames.NueDeck.Scripts.UI
         public void InstantUpdateSoulsGUI()
         {
             SoulsTextField.text = $"{_persistentGameplayData.CurrentSouls}";
-            _soulsOnImg.color = _soulsOnImg.color.WithAlpha((float)_persistentGameplayData.CurrentSouls / (float)_persistentGameplayData.MaxSouls);
+            _soulsOnImg.color = new Color(_soulsOnColor.r, _soulsOnColor.g, _soulsOnColor.b,_persistentGameplayData.CurrentSouls / (float)_persistentGameplayData.MaxSouls);
             _soulsShake.Amount = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
             _soulsShake.Speed = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
 
@@ -82,7 +82,7 @@ namespace NueGames.NueDeck.Scripts.UI
         public void UpdateSoulsGUI(EnemyBase deadEnemy)
         {
             SoulsTextField.text = $"{_persistentGameplayData.CurrentSouls}";
-            _soulsOnImg.color = _soulsOnImg.color.WithAlpha((float)_persistentGameplayData.CurrentSouls / (float)_persistentGameplayData.MaxSouls);
+            _soulsOnImg.color = new Color(_soulsOnColor.r, _soulsOnColor.g, _soulsOnColor.b, _persistentGameplayData.CurrentSouls / (float)_persistentGameplayData.MaxSouls);
             _soulsShake.Amount = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
             _soulsShake.Speed = Mathf.Min(_persistentGameplayData.CurrentSouls, _persistentGameplayData.MaxSouls);
 
@@ -185,7 +185,6 @@ namespace NueGames.NueDeck.Scripts.UI
 
         protected virtual IEnumerator GainSoulCR(int soulIndex)
         {
-            _persistentGameplayData.CanSelectCards = false;
             _persistentGameplayData.STOP = true;
 
             RectTransform soulIcon = _soulOnIcons[soulIndex];
