@@ -23,13 +23,17 @@ MonoBehaviour:
   exhaustAfterPlay: 1
   _channel: 0
   cardActionDataList:
-  - cardActionType: 21
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 21
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 9
     actionValue: 23
     actionDelay: 0
-  - cardActionType: 11
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
@@ -48,4 +52,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
   audioType: 23
-  EvolveToCard: {fileID: 11400000, guid: 0cadbba19afb5b24d893acd3ad0c63bb, type: 2}
+  EvolveToCard: {fileID: 11400000, guid: 424755a4d8f59a84aadaf7cbbc6bed36, type: 2}
