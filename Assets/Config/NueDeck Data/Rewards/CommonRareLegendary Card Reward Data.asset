@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 101
+    InspectorTotalWeight: 104
     Items:
     - Name: 2-Fire Rain.     [W:3] (3%)
       PercentInList: ' (3%)'
@@ -41,6 +41,10 @@ MonoBehaviour:
       PercentInList: ' (3%)'
       Weight: 3
       Item: {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
+    - Name: 52-Battle Lust.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: 32c0b0d80fe1e764e973d835d2fb33bc, type: 2}
     - Name: 9-Lightning Strike.     [W:3] (3%)
       PercentInList: ' (3%)'
       Weight: 3
@@ -113,7 +117,7 @@ MonoBehaviour:
       PercentInList: ' (2%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
-    - Name: 16-Food for Handell.     [W:1] (1%)
+    - Name: 16-Handell Snack.     [W:1] (1%)
       PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
