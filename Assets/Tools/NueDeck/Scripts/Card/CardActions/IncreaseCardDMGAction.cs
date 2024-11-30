@@ -13,8 +13,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         public override CardActionType ActionType => CardActionType.IncreaseCardDMG;
         public override void DoAction(CardActionParameters actionParameters)
         {
-
-            var duple = (actionParameters.CardData.Id, CardActionType.Attack);
+            var duple = (actionParameters.AreaValue.ToString(), CardActionType.Attack);
             if (mods.ContainsKey(duple))
                 mods[duple] += actionParameters.Value;
             else

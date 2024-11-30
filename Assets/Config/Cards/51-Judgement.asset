@@ -32,7 +32,7 @@ MonoBehaviour:
   - cardActionType: 22
     actionTargetType: 1
     actionAreaType: 0
-    actionAreaValue: 0
+    actionAreaValue: 51
     actionValue: 1
     actionDelay: 0
   cardDescriptionDataList:
