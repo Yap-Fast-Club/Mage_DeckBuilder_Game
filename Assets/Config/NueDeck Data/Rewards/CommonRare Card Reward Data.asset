@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 91
+    InspectorTotalWeight: 93
     Items:
     - Name: 2-Fire Rain.     [W:5] (5%)
       PercentInList: ' (5%)'
@@ -45,14 +45,18 @@ MonoBehaviour:
       PercentInList: ' (3%)'
       Weight: 3
       Item: {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
-    - Name: 52-Battle Lust.     [W:3] (3%)
-      PercentInList: ' (3%)'
-      Weight: 3
-      Item: {fileID: 11400000, guid: 32c0b0d80fe1e764e973d835d2fb33bc, type: 2}
     - Name: 9-Lightning Strike.     [W:2] (2%)
       PercentInList: ' (2%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 40849326e12d83443b6f49f1ab30134f, type: 2}
+    - Name: 52-Battle Lust.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: 32c0b0d80fe1e764e973d835d2fb33bc, type: 2}
+    - Name: 54-Transfer.     [W:2] (2%)
+      PercentInList: ' (2%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: dc294c0173ccc074f93b39211c7ff0a2, type: 2}
     - Name: 10-Pray.     [W:2] (2%)
       PercentInList: ' (2%)'
       Weight: 2

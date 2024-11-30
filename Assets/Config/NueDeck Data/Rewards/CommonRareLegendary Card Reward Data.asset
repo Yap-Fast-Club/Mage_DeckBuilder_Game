@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 104
+    InspectorTotalWeight: 107
     Items:
     - Name: 2-Fire Rain.     [W:3] (3%)
       PercentInList: ' (3%)'
@@ -57,6 +57,10 @@ MonoBehaviour:
       PercentInList: ' (3%)'
       Weight: 3
       Item: {fileID: 11400000, guid: 2ed1ed6bf3759fb40b1e88f7a3eae0ce, type: 2}
+    - Name: 54-Transfer.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: dc294c0173ccc074f93b39211c7ff0a2, type: 2}
     - Name: 12-Tranfusion.     [W:3] (3%)
       PercentInList: ' (3%)'
       Weight: 3
