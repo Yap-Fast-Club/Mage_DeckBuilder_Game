@@ -27,7 +27,7 @@ MonoBehaviour:
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 7
+    actionValue: 8
     actionDelay: 0
   - cardActionType: 19
     actionTargetType: 1
