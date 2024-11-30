@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NaughtyAttributes;
+using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
@@ -45,10 +46,13 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public CardData EvolveToCard;
 
         #region Cache
+        private StatusStats FocusStat => CombatManager.Instance.CurrentMainAlly.CharacterStats.StatusDict[StatusType.Focus];
+
         public string Id => id;
         public bool UsableWithoutTarget => usableWithoutTarget;
         public bool Channel => _channel;
-        public int ManaCost => manaCost;
+        public int ManaCost => Type == CardType.Incantation ? 0 : manaCost;
+        public int FocusedManaCost => Mathf.Max(0, ManaCost -  FocusStat.StatusValue);
         public int TurnCost => turnCost;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
@@ -66,38 +70,13 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         private Color FatigueTextColor => GameManager.Instance.GameplayData.FatigueTextColor;
         private Color EraseTextColor => GameManager.Instance.GameplayData.EraseTextColor;
         private Color ChannelTextColor => GameManager.Instance.GameplayData.ChannelTextColor;
-
+        private Color NoEffectTextColor => GameManager.Instance.GameplayData.NoEffectTextColor;
         #endregion
         
         #region Methods
         public void UpdateDescription(bool showMods = true)
         {
             var str = new StringBuilder();
-
-            if (turnCost == 0)
-            {
-                str.Append(ColorExtentions.ColorString("Instant\n", InstantTextColor));
-                if (!KeywordsList.Contains(SpecialKeywords.Instant))
-                    KeywordsList.Add(SpecialKeywords.Instant);
-            }
-
-            if (Channel)
-            {
-                if (CombatManager.Instance.CurrentMainAlly.CharacterStats.StatusDict[StatusType.AntiChannel].StatusValue == 0)
-                    str.Append(ColorExtentions.ColorString("Channel\n", ChannelTextColor));
-                else
-                    str.Append(ColorExtentions.ColorString("<s>Channel</s>\n", ChannelTextColor));
-
-                if (!KeywordsList.Contains(SpecialKeywords.Channel))    
-                    KeywordsList.Add(SpecialKeywords.Channel);
-            }
-
-            if (turnCost > 1)
-            {
-                str.Append(ColorExtentions.ColorString("Fatigue\n", FatigueTextColor));
-                if (!KeywordsList.Contains(SpecialKeywords.Fatigue))
-                    KeywordsList.Add(SpecialKeywords.Fatigue);
-            }
 
 
             foreach (var descriptionData in cardDescriptionDataList)
@@ -112,7 +91,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                         : descriptionData.GetDescription());
             }
 
-          
 
             if (exhaustAfterPlay)
             {
@@ -123,11 +101,50 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
             UpdateSpecialKeyowrds();
 
+            if (turnCost == 0)
+            {
+                str.Insert(0, ColorExtentions.ColorString("Instant\n", InstantTextColor));
+                if (!KeywordsList.Contains(SpecialKeywords.Instant))
+                    KeywordsList.Add(SpecialKeywords.Instant);
+            }
+
+            if (Channel)
+            {
+                if (CombatManager.Instance.CurrentMainAlly.CharacterStats.StatusDict[StatusType.AntiChannel].StatusValue == 0)
+                    str.Insert(0, ColorExtentions.ColorString("Channel\n", ChannelTextColor));
+                else
+                    str.Insert(0, ColorExtentions.ColorString("<s>Channel</s>\n", ChannelTextColor));
+
+                if (!KeywordsList.Contains(SpecialKeywords.Channel))
+                    KeywordsList.Add(SpecialKeywords.Channel);
+            }
+
+            if (turnCost > 1)
+            {
+                str.Insert(0, ColorExtentions.ColorString("Fatigue\n", FatigueTextColor));
+                if (!KeywordsList.Contains(SpecialKeywords.Fatigue))
+                    KeywordsList.Add(SpecialKeywords.Fatigue);
+            }
+
+
             MyDescription = str.ToString();
         }
 
         private void UpdateSpecialKeyowrds()
         {
+
+            if (turnCost == 0)
+                if (!KeywordsList.Contains(SpecialKeywords.Instant))
+                    KeywordsList.Add(SpecialKeywords.Instant);
+
+            if (Channel)
+                if (!KeywordsList.Contains(SpecialKeywords.Channel))
+                    KeywordsList.Add(SpecialKeywords.Channel);
+
+            if (turnCost > 1)
+                if (!KeywordsList.Contains(SpecialKeywords.Fatigue))
+                    KeywordsList.Add(SpecialKeywords.Fatigue);
+
             if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Focus))
                 if (!KeywordsList.Contains(SpecialKeywords.Focus))
                     KeywordsList.Add(SpecialKeywords.Focus);
@@ -212,6 +229,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
     [Serializable]
     public class CardActionData
     {
+        [SerializeField] private ActionRepeatType _repeatAction;
+        [AllowNesting, SerializeField, ShowIf("_repeatAction", ActionRepeatType.Repeat)] private int _repeatAmount = 0;
         [SerializeField] private CardActionType cardActionType;
         [SerializeField] private ActionTargetType actionTargetType;
         [SerializeField, HideInInspector] private ActionAreaType actionAreaType;
@@ -220,11 +239,19 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private float actionDelay;
 
         public ActionTargetType ActionTargetType => actionTargetType;
+        public ActionRepeatType ActionRepeatType => _repeatAction;
         public ActionAreaType ActionAreaType => actionAreaType;
         public int ActionAreaValue => actionAreaValue;
         public CardActionType CardActionType => cardActionType;
         public float ActionValue => actionValue;
         public float ActionDelay => actionDelay;
+        public int RepeatAmount => _repeatAction switch {
+                                        ActionRepeatType.None => 1,
+                                        ActionRepeatType.Repeat => _repeatAmount,
+                                        ActionRepeatType.RepeatPerReserveMana => GameManager.Instance.PersistentGameplayData.CurrentMana,
+                                        ActionRepeatType.RepeatPerSouls => GameManager.Instance.PersistentGameplayData.CurrentSouls,
+                                        _ => 1
+                                    };
 
         public float GetModifiedValue(CardData cardData)
         {
@@ -272,7 +299,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public Color OverrideColor => overrideColor;
         public bool UseModifier => useModifier;
         public int ModifiedActionValueIndex => modifiedActionValueIndex;
-        public StatusType ModiferStats => modiferStats;
+        public StatusType ModifierStats => modiferStats;
         public bool UsePrefixOnModifiedValue => usePrefixOnModifiedValue;
         public string ModifiedValuePrefix => modifiedValuePrefix;
         public bool OverrideColorOnValueScaled => overrideColorOnValueScaled;
@@ -326,39 +353,53 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 modifiedActionValueIndex = 0;
             
             var str = new StringBuilder();
-            var value = cardData.CardActionDataList[ModifiedActionValueIndex].GetModifiedValue(cardData);
-            var modifer = 0;
+            var targetAction = cardData.CardActionDataList[ModifiedActionValueIndex];
+            var value = targetAction.GetModifiedValue(cardData);
+            var modifier = 0;
             if (CombatManager)
             {
                 var player = CombatManager.CurrentMainAlly;
                
                 if (player)
                 {
-                    if (ModiferStats == StatusType.EnchantmentAndLeftMana)
+                    if (ModifierStats == StatusType.EnchantmentAndLeftMana)
                     {
-                        modifer = player.CharacterStats.StatusDict[StatusType.Power].StatusValue + ((GameManager.Instance.PersistentGameplayData.CurrentMana 
-                            - Mathf.Max(0, cardData.ManaCost - player.CharacterStats.StatusDict[StatusType.Focus].StatusValue) - 1) * (int)value);
-                        modifer = modifer < 0 ? 0 : modifer;
+                        modifier = player.CharacterStats.StatusDict[StatusType.Power].StatusValue
+                                  + (GameManager.Instance.PersistentGameplayData.CurrentMana - cardData.FocusedManaCost - 1) * (int)value;
+
+                        modifier = Math.Max((int)-value, modifier);
                     }
-                    else if (ModiferStats == StatusType.SoulScale)
+                    else if (ModifierStats == StatusType.SoulScale)
                     {
-                        modifer = (GameManager.Instance.PersistentGameplayData.CurrentSouls -1) * ((int)value);
+                        modifier = (GameManager.Instance.PersistentGameplayData.CurrentSouls -1) * ((int)value);
                     }
-                    else if (ModiferStats == StatusType.EnchantmentAndSoulScale)
+                    else if (ModifierStats == StatusType.EnchantmentAndSoulScale)
                     {
-                        modifer = player.CharacterStats.StatusDict[StatusType.Power].StatusValue + (GameManager.Instance.PersistentGameplayData.CurrentSouls - 1) * ((int)value);
+                        modifier = player.CharacterStats.StatusDict[StatusType.Power].StatusValue + (GameManager.Instance.PersistentGameplayData.CurrentSouls - 1) * ((int)value);
                     }
-                    else if (ModiferStats == StatusType.EnemyAmount)
+                    else if (ModifierStats == StatusType.EnemyAmount)
                     {
-                        modifer = CombatManager.CurrentEnemiesList.Count();
+                        modifier = CombatManager.CurrentEnemiesList.Count();
+                    }
+                    else if (ModifierStats == StatusType.Amount)
+                    {
+                        value = 0;
+
+                        if (targetAction.ActionRepeatType == ActionRepeatType.RepeatPerReserveMana)
+                            modifier = targetAction.RepeatAmount - cardData.FocusedManaCost;
+                        else
+                            modifier =  targetAction.RepeatAmount;
+
+                        modifier = Mathf.Max(0, modifier);
                     }
                     else
                     {
-                        modifer = player.CharacterStats.StatusDict[ModiferStats].StatusValue;
+                        modifier = player.CharacterStats.StatusDict[ModifierStats].StatusValue;
                     }
-                    value += modifer;
 
-                    if (modifer != 0)
+                    value += modifier;
+
+                    if (modifier != 0)
                     {
                         if (usePrefixOnModifiedValue)
                             str.Append(modifiedValuePrefix);
@@ -372,7 +413,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             {
                 if (OverrideColorOnValueScaled)
                 {
-                    if (modifer != 0)
+                    if (modifier != 0)
                         str.Replace(str.ToString(),ColorExtentions.ColorString(str.ToString(),OverrideColor));
                 }
                 else
@@ -414,7 +455,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 var player = CombatManager.CurrentMainAlly;
                 if (player)
                 {
-                    var modifer =player.CharacterStats.StatusDict[ModiferStats].StatusValue;
+                    var modifer =player.CharacterStats.StatusDict[ModifierStats].StatusValue;
                     value += modifer;
                 
                     if (modifer!= 0)

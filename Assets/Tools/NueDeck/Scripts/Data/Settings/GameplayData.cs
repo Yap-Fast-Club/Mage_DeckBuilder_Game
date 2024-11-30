@@ -32,6 +32,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public Color FatigueTextColor;
         public Color EraseTextColor;
         public Color ChannelTextColor;
+        public Color NoEffectTextColor;
         
         [Header("Modifiers")]
         [SerializeField] private bool isRandomHand = false;

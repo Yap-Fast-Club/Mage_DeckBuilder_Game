@@ -116,9 +116,17 @@ namespace NueGames.NueDeck.Scripts.Card
             if (CardData.Id == "21") 
                 AudioManager.Instance.PlayOneShot(AudioActionType.MeteorBegin);
 
+            var actionDataListCopy = new List<CardActionData>();
+
+            //Prepare Actions to execute
+            foreach (var actionData in CardData.CardActionDataList)
+            {
+                actionDataListCopy.AddRange(Enumerable.Repeat(actionData, actionData.RepeatAmount));
+            }
+
             if (!Channel)
             {
-                foreach (var actionData in CardData.CardActionDataList)
+                foreach (var actionData in actionDataListCopy)
                 {
                     yield return new WaitForSeconds(actionData.ActionDelay);
                     var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);

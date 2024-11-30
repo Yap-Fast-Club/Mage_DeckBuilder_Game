@@ -29,4 +29,13 @@
         GainSouls,
         HealForEverySoul
     }
+
+
+    public enum ActionRepeatType
+    {
+        None,
+        Repeat,
+        RepeatPerReserveMana,
+        RepeatPerSouls
+    }
 }

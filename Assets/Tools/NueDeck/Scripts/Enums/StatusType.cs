@@ -14,7 +14,8 @@
         Focus,
         AntiChannel,
         AntiFatigue,
-        EnemyAmount
+        EnemyAmount,
+        Amount
     }
 
 
