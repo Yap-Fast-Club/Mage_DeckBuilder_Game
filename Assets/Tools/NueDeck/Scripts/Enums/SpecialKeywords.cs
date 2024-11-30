@@ -11,7 +11,8 @@
         Instant,
         Fatigue,
         Focus,
-        Channel
+        Channel,
+        ReserveMana
 
     }
 }

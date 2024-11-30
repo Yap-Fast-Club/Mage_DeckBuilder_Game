@@ -5,19 +5,22 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class ManaAttackAction: AttackAction
+    public class DealXDamage4EveryManaAction: AttackAction
     {
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
-        public override CardActionType ActionType => CardActionType.ManaBasedAttack;
+        public override CardActionType ActionType => CardActionType.DealDamageForEveryMana;
         public override void DoAction(CardActionParameters actionParameters)
         {
             if (!actionParameters.TargetCharacter) return;
-            
+
+            var value = actionParameters.Value * PersistendData.CurrentMana;
+
+
             var targetCharacter = actionParameters.TargetCharacter;
             var selfCharacter = actionParameters.SelfCharacter;
             
-            var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Power].StatusValue + PersistendData.CurrentMana;
+            value +=  selfCharacter.CharacterStats.StatusDict[StatusType.Power].StatusValue;
 
 
             targetCharacter.CharacterStats.Damage(Mathf.RoundToInt(value));

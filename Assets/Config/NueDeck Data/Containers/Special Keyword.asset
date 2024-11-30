@@ -31,3 +31,5 @@ MonoBehaviour:
     contentText: Reduces the cost the next spell by X.
   - specialKeyword: 9
     contentText: This spell is casted at the start of your next turn instead.
+  - specialKeyword: 10
+    contentText: Amount of mana left after casting this spell

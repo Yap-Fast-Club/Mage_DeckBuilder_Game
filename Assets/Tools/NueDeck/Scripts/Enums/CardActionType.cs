@@ -14,7 +14,7 @@
         Exhaust,
         Push,
         EmptyAction,
-        ManaBasedAttack,
+        DealDamageForEveryMana,
         LoseHealth,
         EarnManaForEverySoul,
         PickErase,   

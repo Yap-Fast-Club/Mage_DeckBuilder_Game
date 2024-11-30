@@ -147,7 +147,11 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Push))
                 if (!KeywordsList.Contains(SpecialKeywords.Push))
                     KeywordsList.Add(SpecialKeywords.Push);
-          
+
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.DealDamageForEveryMana))
+                if (!KeywordsList.Contains(SpecialKeywords.ReserveMana))
+                    KeywordsList.Add(SpecialKeywords.ReserveMana);
+
         }
 
         public string GetDescriptionForTooltip()
@@ -332,8 +336,8 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 {
                     if (ModiferStats == StatusType.EnchantmentAndLeftMana)
                     {
-                        modifer = player.CharacterStats.StatusDict[StatusType.Power].StatusValue + GameManager.Instance.PersistentGameplayData.CurrentMana 
-                            - Mathf.Max(0, cardData.ManaCost - player.CharacterStats.StatusDict[StatusType.Focus].StatusValue);
+                        modifer = player.CharacterStats.StatusDict[StatusType.Power].StatusValue + ((GameManager.Instance.PersistentGameplayData.CurrentMana 
+                            - Mathf.Max(0, cardData.ManaCost - player.CharacterStats.StatusDict[StatusType.Focus].StatusValue) - 1) * (int)value);
                         modifer = modifer < 0 ? 0 : modifer;
                     }
                     else if (ModiferStats == StatusType.SoulScale)
