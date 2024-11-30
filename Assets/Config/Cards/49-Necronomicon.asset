@@ -24,7 +24,7 @@ MonoBehaviour:
   _channel: 0
   cardActionDataList:
   - cardActionType: 25
-    actionTargetType: 2
+    actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 3
