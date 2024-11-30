@@ -21,6 +21,7 @@ MonoBehaviour:
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
   - cardActionType: 6
     actionTargetType: 1
@@ -84,7 +85,7 @@ MonoBehaviour:
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 1
-    modiferStats: 3
+    modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
