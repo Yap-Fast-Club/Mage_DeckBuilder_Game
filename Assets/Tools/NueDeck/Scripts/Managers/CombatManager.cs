@@ -6,6 +6,7 @@ using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Card.CardActions;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Characters.Enemies;
+using NueGames.NueDeck.Scripts.Collection;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Data.Settings;
@@ -353,7 +354,11 @@ namespace NueGames.NueDeck.Scripts.Managers
                 yield return new WaitForSeconds(0.25f);
 
             CheckForSoulReward();
+            foreach (var cardObject in CollectionManager.Instance.HandController.hand)
+                cardObject.UpdateCardText();
+
             yield return new WaitWhile(() => persistentData.STOP == true);
+
 
             UIManager.CombatCanvas.EnableHandell(true);
             persistentData.CanSelectCards = true;
