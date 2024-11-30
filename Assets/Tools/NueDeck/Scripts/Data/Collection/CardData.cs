@@ -214,7 +214,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
     {
         [SerializeField] private CardActionType cardActionType;
         [SerializeField] private ActionTargetType actionTargetType;
-        [SerializeField] private ActionAreaType actionAreaType;
+        [SerializeField, HideInInspector] private ActionAreaType actionAreaType;
         [SerializeField] private int actionAreaValue;
         [SerializeField] private float actionValue;
         [SerializeField] private float actionDelay;

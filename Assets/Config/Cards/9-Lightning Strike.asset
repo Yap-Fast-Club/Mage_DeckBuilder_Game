@@ -24,13 +24,13 @@ MonoBehaviour:
   _channel: 0
   cardActionDataList:
   - cardActionType: 12
-    actionTargetType: 4
+    actionTargetType: 10
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
     actionDelay: 0
   - cardActionType: 12
-    actionTargetType: 4
+    actionTargetType: 10
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
@@ -54,7 +54,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ') Damage to a random enemy. '
+  - descriptionText: ') Damage to the closest enemy. '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
