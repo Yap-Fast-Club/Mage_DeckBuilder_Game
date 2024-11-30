@@ -27,13 +27,13 @@ MonoBehaviour:
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 6
+    actionValue: 5
     actionDelay: 0
   - cardActionType: 19
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: -2
+    actionValue: -1
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: +

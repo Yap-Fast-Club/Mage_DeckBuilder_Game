@@ -21,18 +21,19 @@ MonoBehaviour:
   rarity: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
   - cardActionType: 0
     actionTargetType: 0
     actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 1
+    actionAreaValue: 1
+    actionValue: 2
     actionDelay: 0
   - cardActionType: 10
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 1
-    actionValue: 1
+    actionValue: 2
     actionDelay: 0.1
   - cardActionType: 11
     actionTargetType: 0
