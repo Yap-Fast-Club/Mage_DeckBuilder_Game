@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 11-Boil Blood
+  m_Name: 11-Burning Blood
   m_EditorClassIdentifier: 
   id: 11
-  cardName: Boil Blood
+  cardName: Burning Blood
   type: 1
   manaCost: 0
   turnCost: 0
@@ -21,20 +21,27 @@ MonoBehaviour:
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
-  - cardActionType: 13
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 13
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 6
     actionDelay: 0
-  - cardActionType: 6
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 6
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 6
     actionDelay: 0
-  - cardActionType: 3
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 3
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
@@ -126,3 +133,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 06000000
   audioType: 1
+  EvolveToCard: {fileID: 0}
