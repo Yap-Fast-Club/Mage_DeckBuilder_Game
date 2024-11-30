@@ -6,10 +6,10 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class EraseCardAction : CardActionBase
+    public class ErasePickCardAction : CardActionBase
     {
 
-        public override CardActionType ActionType => CardActionType.Erase;
+        public override CardActionType ActionType => CardActionType.PickErase;
 
         public override void DoAction(CardActionParameters actionParameters)
         {

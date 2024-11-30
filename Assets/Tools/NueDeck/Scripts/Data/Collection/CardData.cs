@@ -136,11 +136,11 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 if (!KeywordsList.Contains(SpecialKeywords.Power))
                     KeywordsList.Add(SpecialKeywords.Power);
 
-            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Erase))
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.PickErase))
                 if (!KeywordsList.Contains(SpecialKeywords.Erase))
                     KeywordsList.Add(SpecialKeywords.Erase);
 
-            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Erase))
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.RandomErase))
                 if (!KeywordsList.Contains(SpecialKeywords.Erase))
                     KeywordsList.Add(SpecialKeywords.Erase);
 
@@ -343,6 +343,10 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                     else if (ModiferStats == StatusType.EnchantmentAndSoulScale)
                     {
                         modifer = player.CharacterStats.StatusDict[StatusType.Power].StatusValue + (GameManager.Instance.PersistentGameplayData.CurrentSouls - 1) * ((int)value);
+                    }
+                    else if (ModiferStats == StatusType.EnemyAmount)
+                    {
+                        modifer = CombatManager.CurrentEnemiesList.Count();
                     }
                     else
                     {

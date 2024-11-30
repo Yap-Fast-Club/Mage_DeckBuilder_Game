@@ -13,7 +13,10 @@
         EnchantmentAndSoulScale,
         Focus,
         AntiChannel,
-        AntiFatigue
-
+        AntiFatigue,
+        EnemyAmount
     }
+
+
+
 }

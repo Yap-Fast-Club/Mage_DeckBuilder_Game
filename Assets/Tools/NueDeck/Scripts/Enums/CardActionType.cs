@@ -17,7 +17,7 @@
         ManaBasedAttack,
         LoseHealth,
         EarnManaForEverySoul,
-        Erase,   
+        PickErase,   
         DealDamageForEverySoul,
         SpendSouls,
         RandomErase,
