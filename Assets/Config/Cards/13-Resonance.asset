@@ -23,20 +23,24 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 23
+  - _repeatAction: 3
+    _repeatAmount: 0
+    cardActionType: 23
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 2
+    actionValue: 1
     actionDelay: 0
-  - cardActionType: 14
+  - _repeatAction: 3
+    _repeatAmount: 0
+    cardActionType: 6
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 3
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: +
+  - descriptionText: Repeat [
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -45,16 +49,16 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: )
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 0.4522934, g: 0, b: 1, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 0
+    modiferStats: 13
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Max Mana (this encounter)
+  - descriptionText: '] times:
 
 '
     enableOverrideColor: 0
@@ -76,14 +80,16 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.10196078, g: 0.65872955, b: 1, a: 1}
+    overrideColor: {r: 0, g: 0.325516, b: 1, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 1
+    modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Mana for every soul you have.'
+  - descriptionText: ' Max Mana (this encounter).
+
+'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -92,7 +98,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' (Current '
+  - descriptionText: +
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -103,14 +109,25 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.101960786, g: 0.65882355, b: 1, a: 1}
+    overrideColor: {r: 0, g: 0.5547228, b: 1, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 0
-    modiferStats: 7
+    modifiedActionValueIndex: 1
+    modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: )
+  - descriptionText: ' Mana.
+
+'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: '[1 per current Soul]'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

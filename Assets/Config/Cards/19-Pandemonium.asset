@@ -23,26 +23,32 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 1
   cardActionDataList:
-  - cardActionType: 16
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 16
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 4
     actionDelay: 0
-  - cardActionType: 11
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 17
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 17
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 999
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: Spend all souls (
+  - descriptionText: Spend all your Souls (
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -60,9 +66,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ').
-
-'
+  - descriptionText: )
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -71,25 +75,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: 'Deal '
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: 
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 1
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: ' Damage to all enemis for each soul spent ('
+  - descriptionText: . Deal [
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -107,7 +93,25 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: )
+  - descriptionText: "] Damage to all enemies. \n["
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' per spent Soul]'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

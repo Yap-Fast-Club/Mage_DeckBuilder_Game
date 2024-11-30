@@ -21,27 +21,38 @@ MonoBehaviour:
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
-  - cardActionType: 0
+  - _repeatAction: 1
+    _repeatAmount: 3
+    cardActionType: 0
     actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.1
-  - cardActionType: 0
-    actionTargetType: 4
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.1
   cardDescriptionDataList:
-  - descriptionText: 'Repeat 3 times: Deal '
+  - descriptionText: 'Repeat '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 13
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' times:
+
+'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -79,3 +90,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 
   audioType: 26
+  EvolveToCard: {fileID: 0}

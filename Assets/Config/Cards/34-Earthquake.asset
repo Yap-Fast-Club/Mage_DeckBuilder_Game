@@ -23,32 +23,60 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 11
+  - _repeatAction: 1
+    _repeatAmount: 1
+    cardActionType: 11
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 0.4
-  - cardActionType: 0
+  - _repeatAction: 0
+    _repeatAmount: 1
+    cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 2
     actionDelay: 0
-  - cardActionType: 0
+  - _repeatAction: 0
+    _repeatAmount: 1
+    cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 2
     actionDelay: 0
-  - cardActionType: 0
+  - _repeatAction: 0
+    _repeatAmount: 1
+    cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 2
     actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: 'Repeat 3 times: '
+  - descriptionText: 'Repeat '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 13
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' times:
+
+'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

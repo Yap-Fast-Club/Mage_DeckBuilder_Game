@@ -23,19 +23,25 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 25
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 25
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 3
     actionDelay: 0
-  - cardActionType: 11
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 17
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 17
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
@@ -81,15 +87,26 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 7
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Health.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 1
+    useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Health for each soul spent ('
+  - descriptionText: '
+
+      ['
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -99,15 +116,15 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
-    enableOverrideColor: 1
+    enableOverrideColor: 0
     overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 7
+    modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: )
+  - descriptionText: ' per spent Soul]'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
