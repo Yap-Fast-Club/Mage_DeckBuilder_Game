@@ -11,9 +11,9 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         Dictionary<(string, CardActionType), float> mods => GameManager.Instance.PersistentGameplayData.ActionMods;
         public override CardActionType ActionType => CardActionType.IncreaseCardDMG;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
-            var duple = (actionParameters.AreaValue.ToString(), CardActionType.Attack);
+            var duple = (actionParameters.AreaValue.ToString(), CardActionType.DealDamage);
             if (mods.ContainsKey(duple))
                 mods[duple] += actionParameters.Value;
             else
@@ -28,7 +28,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         Dictionary<(string, CardActionType), float> mods => GameManager.Instance.PersistentGameplayData.ActionMods;
         public override CardActionType ActionType => CardActionType.DecreaseCardCost;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             var duple = (actionParameters.AreaValue.ToString(), CardActionType.SpendMana);
             if (mods.ContainsKey(duple))

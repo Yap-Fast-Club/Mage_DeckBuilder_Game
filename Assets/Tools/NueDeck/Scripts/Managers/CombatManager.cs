@@ -380,8 +380,9 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         private IEnumerator ChanneledCardUseRoutine()
         {
+            var channeledCardBlackboard = new CardActionBlackboard(_channelCardData);
+
             AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
-            bool resetPower = false;
 
             var actionDataListCopy = new List<CardActionData>();
 
@@ -398,13 +399,10 @@ namespace NueGames.NueDeck.Scripts.Managers
 
                 var action = CardActionProcessor.GetAction(actionData.CardActionType);
                 foreach (var target in targetList)
-                    action.DoAction(new CardActionParameters(actionData.ActionValue, actionData.ActionAreaValue, target, CurrentMainAlly, ChannelCard.CardData, ChannelCard));
-
-                if (action is AttackAction)
-                    resetPower = true;
+                    action.DoAction(new CardActionParameters(actionData.ActionValue, actionData.ActionAreaValue, target, CurrentMainAlly, ChannelCard.CardData, ChannelCard), channeledCardBlackboard);
             }
 
-            if (resetPower)
+            if (channeledCardBlackboard.ResetPower)
                CurrentMainAlly.CharacterStats.ClearStatus(StatusType.Power);
 
             yield return new WaitForSeconds(0.1f);

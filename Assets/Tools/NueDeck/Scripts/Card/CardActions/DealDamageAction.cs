@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class AttackAction: CardActionBase
+    public class DealDamageAction: CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Attack;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override CardActionType ActionType => CardActionType.DealDamage;
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             if (!actionParameters.TargetCharacter) return;
             
@@ -18,6 +18,8 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
 
             targetCharacter.CharacterStats.Damage(Mathf.RoundToInt(value));
+
+            blackboard.ResetPower = true;
 
             if (FxManager != null)
             {
@@ -30,18 +32,18 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         }
     }
 
-    public class ExcessAttackAction : AttackAction
+    public class ExcessAttackAction : DealDamageAction
     {
         public override CardActionType ActionType => CardActionType.ExcessAttack;
 
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             if (!actionParameters.TargetCharacter) return;
             if (actionParameters.Value <= 0) return;
 
             var previousTargetHealth = actionParameters.TargetCharacter.CharacterStats.CurrentHealth;
 
-            base.DoAction(actionParameters);
+            base.DoAction(actionParameters, blackboard);
 
             actionParameters.Value -= previousTargetHealth;
             

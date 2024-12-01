@@ -2,6 +2,7 @@
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
+using UnityEditor.Experimental.GraphView;
 
 namespace NueGames.NueDeck.Scripts.Card
 {
@@ -23,6 +24,16 @@ namespace NueGames.NueDeck.Scripts.Card
             AreaValue = 1;
         }
 
+        public CardActionParameters(float newValue, CardActionParameters copyFrom)
+        {
+            Value = newValue;
+            TargetCharacter = copyFrom.TargetCharacter;
+            SelfCharacter = copyFrom.SelfCharacter;
+            CardData = copyFrom.CardData;
+            CardBase = copyFrom.CardBase;
+            AreaValue = copyFrom.AreaValue;
+        }
+
         public CardActionParameters(float value, float areaValue, CharacterBase target, CharacterBase self, CardData cardData, CardBase cardBase)
         {
             Value = value;
@@ -37,7 +48,7 @@ namespace NueGames.NueDeck.Scripts.Card
     {
         protected CardActionBase(){}
         public abstract CardActionType ActionType { get;}
-        public abstract void DoAction(CardActionParameters actionParameters);
+        public abstract void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard);
         
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;

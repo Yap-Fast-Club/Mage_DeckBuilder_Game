@@ -10,7 +10,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.EarnManaForEverySoul;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             if (CombatManager != null)
             {

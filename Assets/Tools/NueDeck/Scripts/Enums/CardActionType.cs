@@ -2,7 +2,7 @@
 {
     public enum CardActionType
     {
-        Attack,
+        DealDamage,
         Heal,
         Block,
         GainPower,
@@ -31,7 +31,9 @@
         GainKeyword,
         DecreaseCardCost,
         SpendMana,
-        ExcessAttack
+        ExcessAttack,
+        DealDamageForEverySpentSoul,
+
     }
 
 

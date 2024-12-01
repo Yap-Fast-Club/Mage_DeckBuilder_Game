@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class IncreaseMaxHealthAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.IncreaseMaxHealth;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             var newTarget = actionParameters.TargetCharacter
                 ? actionParameters.TargetCharacter
@@ -28,7 +28,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class IncreaseMaxManaAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.IncreaseMaxMana;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             //var newTarget = actionParameters.TargetCharacter
             //    ? actionParameters.TargetCharacter

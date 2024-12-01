@@ -14,7 +14,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         public override CardActionType ActionType => CardActionType.TransformAllCards;
 
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             string toEraseID = actionParameters.AreaValue.ToString();
             string toCreateID = actionParameters.Value.ToString();

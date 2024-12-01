@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class DiscardHandAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.DiscardHand;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             if (CollectionManager != null)
                 CollectionManager.DiscardHand();

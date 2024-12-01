@@ -11,7 +11,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
         public override CardActionType ActionType => CardActionType.PickErase;
 
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             UIManager.Instance.RewardCanvas.gameObject.SetActive(true);
             UIManager.Instance.RewardCanvas.PrepareCanvas();

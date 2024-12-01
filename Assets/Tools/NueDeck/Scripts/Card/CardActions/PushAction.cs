@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class PushAction: AttackAction
+    public class PushAction: CardActionBase
     {
         public override CardActionType ActionType => CardActionType.Push;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             if (!actionParameters.TargetCharacter) return;
             
@@ -18,6 +18,8 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
 
             targetCharacter.GetComponent<GridMovement>()?.GetPushed((int)value);
+
+            blackboard.ResetPower = true;
 
             if (FxManager != null)
             {

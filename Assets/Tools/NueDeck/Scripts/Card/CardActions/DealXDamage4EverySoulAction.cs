@@ -5,33 +5,16 @@ using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
-    public class DealXDamage4EverySoulAction : AttackAction
+    public class DealXDamage4EverySoulAction : DealDamageAction
     {
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.DealDamageForEverySoul;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             var value = actionParameters.Value * PersistendData.CurrentSouls;
 
-            if (!actionParameters.TargetCharacter) return;
-
-            var targetCharacter = actionParameters.TargetCharacter;
-            var selfCharacter = actionParameters.SelfCharacter;
-
-            value += selfCharacter.CharacterStats.StatusDict[StatusType.Power].StatusValue;
-
-            targetCharacter.CharacterStats.Damage(Mathf.RoundToInt(value));
-
-            if (FxManager != null)
-            {
-                FxManager.PlayFx(actionParameters.TargetCharacter.transform, FxType.Attack);
-                FxManager.SpawnFloatingText(actionParameters.TargetCharacter.TextSpawnRoot, value.ToString());
-            }
-
-            if (AudioManager != null)
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
-
+            base.DoAction(new CardActionParameters(value, actionParameters),blackboard);
         }
     }
 
@@ -40,15 +23,34 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.HealForEverySoul;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             actionParameters.Value = actionParameters.Value * PersistendData.CurrentSouls;
 
-            base.DoAction(actionParameters);
+            base.DoAction(actionParameters, blackboard);
 
             if (AudioManager != null)
                 AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
 
         }
+    }
+
+
+    public class DealDamageXEverySpentSoulAction : DealDamageAction
+    {
+        PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
+
+        public override CardActionType ActionType => CardActionType.DealDamageForEverySpentSoul;
+
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        {
+            int spentSouls = blackboard.SpentSouls;
+
+            var value = actionParameters.Value * spentSouls;
+
+            base.DoAction(new CardActionParameters(value, actionParameters), blackboard);
+
+        }
+
     }
 }

@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class ExhaustAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.Exhaust;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             actionParameters.CardBase.Exhaust(false);
         }

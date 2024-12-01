@@ -8,7 +8,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         public override CardActionType ActionType => CardActionType.Heal;
 
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             var newTarget = actionParameters.TargetCharacter
                 ? actionParameters.TargetCharacter

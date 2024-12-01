@@ -11,7 +11,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         public override CardActionType ActionType => CardActionType.RandomErase;
 
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             var targetRarity = actionParameters.AreaValue switch
             {

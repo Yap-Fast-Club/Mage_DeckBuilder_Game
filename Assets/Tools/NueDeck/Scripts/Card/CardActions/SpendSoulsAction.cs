@@ -10,11 +10,15 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.SpendSouls;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             if (CombatManager != null)
             {
+                int previousSouls = PersistendData.CurrentSouls;
                 PersistendData.CurrentSouls -= (int)actionParameters.Value;
+
+                blackboard.SpentSouls = previousSouls - PersistendData.CurrentSouls;
+
                 UIManager.Instance.InformationCanvas.InstantUpdateSoulsGUI();
             }
             else
@@ -33,7 +37,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.GainSouls;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             if (CombatManager != null)
             {

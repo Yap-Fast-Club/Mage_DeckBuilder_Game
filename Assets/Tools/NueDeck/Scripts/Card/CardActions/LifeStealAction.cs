@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class LifeStealAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.LifeSteal;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             if (!actionParameters.TargetCharacter) return;
 

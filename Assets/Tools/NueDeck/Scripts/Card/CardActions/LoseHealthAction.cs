@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class LoseHealthAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.LoseHealth;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             var value = Mathf.RoundToInt(actionParameters.Value);
             actionParameters.SelfCharacter.CharacterStats.Damage(value);

@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class EarnManaAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.EarnMana;
-        public override void DoAction(CardActionParameters actionParameters)
+        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
         {
             if (CombatManager != null)
                 CombatManager.IncreaseMana(Mathf.RoundToInt(actionParameters.Value));

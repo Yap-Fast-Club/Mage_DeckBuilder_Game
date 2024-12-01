@@ -14,6 +14,7 @@ using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
 using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -58,7 +59,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
         public bool IsExhausted { get; private set; }
 
-        public int FinalManaCost => CardData.Type == CardType.Incantation ? 0 : Mathf.Max(0, CardData.ManaCost - FocusStat.StatusValue);
+        public int FinalManaCost => CardData.FocusedManaCost;
 
         public bool Channel => CardData.Channel;
 
@@ -107,10 +108,11 @@ namespace NueGames.NueDeck.Scripts.Card
 
         private IEnumerator CardUseRoutine(CharacterBase self, CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
-            SpendMana(FinalManaCost);
-            AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
+            var actionsBlackBoard = new CardActionBlackboard(CardData);
 
-            bool resetPower = false;
+            SpendMana(FinalManaCost);
+
+            AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
 
 
             if (CardData.Id == "21") 
@@ -134,12 +136,11 @@ namespace NueGames.NueDeck.Scripts.Card
                     var action = CardActionProcessor.GetAction(actionData.CardActionType);
 
                     foreach (var target in targetList)
-                        action.DoAction(new CardActionParameters(actionData.GetModifiedValue(CardData), actionData.ActionAreaValue, target, self, CardData, this));
+                        action.DoAction(new CardActionParameters(actionData.GetModifiedValue(CardData), actionData.ActionAreaValue, target, self, CardData, this), actionsBlackBoard);
 
-                    if (action is AttackAction)
-                        resetPower = true;
                 }
-                if (resetPower)
+
+                if (actionsBlackBoard.ResetPower)
                     self.CharacterStats.ClearStatus(StatusType.Power);
             }
             else
