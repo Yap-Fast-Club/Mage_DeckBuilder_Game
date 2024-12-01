@@ -25,12 +25,20 @@ MonoBehaviour:
   cardActionDataList:
   - _repeatAction: 0
     _repeatAmount: 0
-    cardActionType: 16
+    cardActionType: 17
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 999
+    actionDelay: 0
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 30
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 4
-    actionDelay: 0
+    actionDelay: 0.2
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 11
@@ -39,16 +47,8 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
-  - _repeatAction: 0
-    _repeatAmount: 0
-    cardActionType: 17
-    actionTargetType: 0
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 999
-    actionDelay: 0
   cardDescriptionDataList:
-  - descriptionText: Spend all your Souls (
+  - descriptionText: Spend all Souls (
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -57,11 +57,11 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Mana for every soul you have.'
+  - descriptionText: 
     enableOverrideColor: 1
     overrideColor: {r: 0.7046466, g: 0, b: 1, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 1
+    modifiedActionValueIndex: 2
     modiferStats: 7
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
@@ -88,7 +88,7 @@ MonoBehaviour:
     enableOverrideColor: 1
     overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 0
+    modifiedActionValueIndex: 1
     modiferStats: 8
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
@@ -106,7 +106,7 @@ MonoBehaviour:
     enableOverrideColor: 0
     overrideColor: {r: 1, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 0
+    modifiedActionValueIndex: 1
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
