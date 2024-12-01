@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 28-Dropkick
+  m_Name: 28-Overwhelm
   m_EditorClassIdentifier: 
   id: 28
-  cardName: Dropkick
+  cardName: Overwhelm
   type: 1
   manaCost: 0
   turnCost: 2
@@ -23,7 +23,9 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 3
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 3
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
