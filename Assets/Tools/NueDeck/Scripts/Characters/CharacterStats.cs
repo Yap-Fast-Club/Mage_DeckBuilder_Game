@@ -230,7 +230,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         {
             foreach (var status in StatusDict)
             {
-                if (status.Value.IsPermanent)
+                if (status.Value.IsPermanent && status.Value.StatusValue > 0)
                 {
                     bool addedNew = SavedStatus.TryAdd(status.Key, status.Value);
 
