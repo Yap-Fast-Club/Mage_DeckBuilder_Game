@@ -21,7 +21,7 @@ MonoBehaviour:
   rarity: 2
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
-  _channel: 0
+  _channel: 1
   cardActionDataList:
   - _repeatAction: 2
     _repeatAmount: -1
