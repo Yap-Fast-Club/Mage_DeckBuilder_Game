@@ -372,8 +372,9 @@ namespace NueGames.NueDeck.Scripts.Collection
 
                 if (character != null)
                 {
-                    var checkEnemy = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Enemy &&
-                                      character.GetCharacterType() == CharacterType.Enemy);
+                    var checkEnemy = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Enemy
+                                      || _heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.EnemyAndBehind) 
+                                      && character.GetCharacterType() == CharacterType.Enemy;
                     var checkAlly = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Ally &&
                                      character.GetCharacterType() == CharacterType.Ally);
 

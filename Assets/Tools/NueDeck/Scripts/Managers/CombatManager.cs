@@ -219,7 +219,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             switch (targetTypeTargetType)
             {
-                case ActionTargetType.Enemy:
+                case ActionTargetType.Enemy:case ActionTargetType.ClosestAndConsecutives:case ActionTargetType.EnemyAndBehind:
                     foreach (var currentEnemy in CurrentEnemiesList)
                         currentEnemy.EnemyCanvas.SetHighlight(true);
                     break;
@@ -251,6 +251,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                                             .ToList()
                                             .ForEach(e => e.EnemyCanvas.SetHighlight(true, false));
                     break;
+
                 case ActionTargetType.RandomAlly:
                     foreach (var currentAlly in CurrentAlliesList)
                         currentAlly.AllyCanvas.SetHighlight(true);
@@ -426,6 +427,12 @@ namespace NueGames.NueDeck.Scripts.Managers
             UIManager.CombatCanvas.Bind();
             UIManager.Instance.CombatCanvas.SetPileTexts();
             UIManager.Instance.InformationCanvas.ResetCanvas();
+
+            foreach (var savedStatus in persistentData.SavedStatus)
+            {
+                CurrentMainAlly.CharacterStats.ApplyStatus(savedStatus.Key, savedStatus.Value.StatusValue);
+            }
+
         }
 
         private IEnumerator EnemyTurnRoutine()

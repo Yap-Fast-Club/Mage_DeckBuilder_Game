@@ -30,7 +30,8 @@
         HealForEverySoul,
         GainKeyword,
         DecreaseCardCost,
-        SpendMana
+        SpendMana,
+        ExcessAttack
     }
 
 

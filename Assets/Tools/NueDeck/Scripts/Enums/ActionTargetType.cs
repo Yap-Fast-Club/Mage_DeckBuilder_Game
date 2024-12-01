@@ -13,7 +13,8 @@
         AllTerrain,
         LowestHPEnemy,
         ClosestEnemies,
-        EnemyRowAndColumn
+        ClosestAndConsecutives,
+        EnemyAndBehind
     }
 
 

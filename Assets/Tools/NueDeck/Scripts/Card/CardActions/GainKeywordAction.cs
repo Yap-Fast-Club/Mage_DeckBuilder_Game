@@ -9,9 +9,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         public override CardActionType ActionType => CardActionType.GainKeyword;
         public override void DoAction(CardActionParameters actionParameters)
         {
-            Debug.Log("Add");
             CombatManager.CurrentMainAlly.CharacterStats.ApplyStatus((StatusType)actionParameters.AreaValue, (int)actionParameters.Value);
-            
         }
     }
 }

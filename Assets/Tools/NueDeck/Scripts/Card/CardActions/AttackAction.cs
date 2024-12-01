@@ -29,4 +29,22 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
         }
     }
+
+    public class ExcessAttackAction : AttackAction
+    {
+        public override CardActionType ActionType => CardActionType.ExcessAttack;
+
+        public override void DoAction(CardActionParameters actionParameters)
+        {
+            if (!actionParameters.TargetCharacter) return;
+            if (actionParameters.Value <= 0) return;
+
+            var previousTargetHealth = actionParameters.TargetCharacter.CharacterStats.CurrentHealth;
+
+            base.DoAction(actionParameters);
+
+            actionParameters.Value -= previousTargetHealth;
+            
+        }
+    }
 }

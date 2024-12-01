@@ -132,6 +132,7 @@ namespace NueGames.NueDeck.Scripts.Card
                     var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);
 
                     var action = CardActionProcessor.GetAction(actionData.CardActionType);
+
                     foreach (var target in targetList)
                         action.DoAction(new CardActionParameters(actionData.GetModifiedValue(CardData), actionData.ActionAreaValue, target, self, CardData, this));
 
@@ -211,6 +212,20 @@ namespace NueGames.NueDeck.Scripts.Card
 
                     break;
 
+                case ActionTargetType.EnemyAndBehind:
+                    targetList.Add(targetCharacter);
+                    targetList.AddRange(_allEnemies
+                                      .Where(e => e.transform.position.y == targetCharacter.transform.position.y)
+                                      .Where(e => e.transform.position.x > targetCharacter.transform.position.x)
+                                    );
+                    break;
+
+                //case ActionTargetType.ClosestAndConsecutives:
+                //    targetList.Add(targetCharacter);
+                //    targetList.AddRange(_allEnemies);
+                //    targetList.Sort((a, b) => Vector3.Distance(targetCharacter.transform.position, a.transform.position).CompareTo(
+                //                            Vector3.Distance(targetCharacter.transform.position, b.transform.position)));
+                //    break;
 
                 case ActionTargetType.RandomAlly:
                     if (allAllies.Count > 0)

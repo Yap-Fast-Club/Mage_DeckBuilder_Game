@@ -24,37 +24,13 @@ MonoBehaviour:
   _channel: 0
   cardActionDataList:
   - _repeatAction: 1
-    _repeatAmount: 1
-    cardActionType: 11
+    _repeatAmount: 3
+    cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 0
+    actionValue: 2
     actionDelay: 0.4
-  - _repeatAction: 0
-    _repeatAmount: 1
-    cardActionType: 0
-    actionTargetType: 2
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 2
-    actionDelay: 0
-  - _repeatAction: 0
-    _repeatAmount: 1
-    cardActionType: 0
-    actionTargetType: 2
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 2
-    actionDelay: 0
-  - _repeatAction: 0
-    _repeatAmount: 1
-    cardActionType: 0
-    actionTargetType: 2
-    actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 2
-    actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Repeat '
     enableOverrideColor: 0

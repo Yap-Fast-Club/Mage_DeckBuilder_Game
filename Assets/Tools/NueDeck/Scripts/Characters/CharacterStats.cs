@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using NueGames.NueDeck.Scripts.Data.Settings;
 using NueGames.NueDeck.Scripts.Enums;
+using NueGames.NueDeck.Scripts.Managers;
 
 namespace NueGames.NueDeck.Scripts.Characters
 {
@@ -53,6 +56,8 @@ namespace NueGames.NueDeck.Scripts.Characters
         public Action OnShieldGained;
          
         public readonly Dictionary<StatusType, StatusStats> StatusDict = new Dictionary<StatusType, StatusStats>();
+
+        private Dictionary<StatusType, StatusStats> SavedStatus => GameManager.Instance.PersistentGameplayData.SavedStatus;
         
         #region Setup
         public CharacterStats(int maxHealth, CharacterCanvas characterCanvas)
@@ -85,13 +90,23 @@ namespace NueGames.NueDeck.Scripts.Characters
             OnStatusChanged += characterCanvas.UpdateStatusText;
             OnStatusApplied += characterCanvas.ApplyStatus;
             OnStatusCleared += characterCanvas.ClearStatus;
+
+
+            foreach (var statusEntry in SavedStatus)
+            {
+                UnityEngine.Debug.Log(statusEntry.Key);
+                UnityEngine.Debug.Log(statusEntry.Value.StatusValue);
+                ApplyStatus(statusEntry.Key, statusEntry.Value.StatusValue);
+            }
         }
 
 
         private void SetAllStatus()
         {
             for (int i = 0; i < Enum.GetNames(typeof(StatusType)).Length; i++)
+            {
                 StatusDict.Add((StatusType) i, new StatusStats((StatusType) i, 0));
+            }
 
             StatusDict[StatusType.Poison].DecreaseOverTurn = true;
             StatusDict[StatusType.Poison].OnTriggerAction += DamagePoison;
@@ -214,8 +229,17 @@ namespace NueGames.NueDeck.Scripts.Characters
         public void ClearAllStatus()
         {
             foreach (var status in StatusDict)
-                if(!status.Value.IsPermanent)
+            {
+                if (status.Value.IsPermanent)
+                {
+                    bool addedNew = SavedStatus.TryAdd(status.Key, status.Value);
+
+                    if (!addedNew)
+                        SavedStatus[status.Key] =  status.Value;
+                }
+                else
                     ClearStatus(status.Key);
+            }
         }
            
         public void ClearStatus(StatusType targetStatus)
