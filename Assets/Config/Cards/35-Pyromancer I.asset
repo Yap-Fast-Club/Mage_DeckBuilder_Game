@@ -23,20 +23,24 @@ MonoBehaviour:
   exhaustAfterPlay: 1
   _channel: 0
   cardActionDataList:
-  - cardActionType: 21
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 21
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 31
     actionDelay: 0
-  - cardActionType: 11
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
   cardDescriptionDataList:
-  - descriptionText: Replace all copies of "Fire bolt" in your deck with "Fire ball"
+  - descriptionText: 'Transmute "Fire bolt" into "Fire ball". '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0

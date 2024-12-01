@@ -17,26 +17,30 @@ MonoBehaviour:
   type: 1
   manaCost: 0
   turnCost: 0
-  cardSprite: {fileID: 21300000, guid: c4eb6fd20b004334ebc0c145ebc959cd, type: 3}
+  cardSprite: {fileID: 21300000, guid: baef056cf51386c40af2c99a4ca6d8ed, type: 3}
   rarity: 3
   usableWithoutTarget: 1
   exhaustAfterPlay: 1
   _channel: 0
   cardActionDataList:
-  - cardActionType: 21
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 21
     actionTargetType: 1
     actionAreaType: 0
-    actionAreaValue: 4
-    actionValue: 45
+    actionAreaValue: 1
+    actionValue: 9
     actionDelay: 0
-  - cardActionType: 11
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
   cardDescriptionDataList:
-  - descriptionText: Replace all copies of "Deep Breath" in your deck with "Overcharge"
+  - descriptionText: Transmute "Fire Bolt" into "Lightning Strike"
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
