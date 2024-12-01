@@ -35,3 +35,5 @@ MonoBehaviour:
     contentText: Amount of mana left after casting this spell
   - specialKeyword: 11
     contentText: Replaces all copies of a card in your deck for another.
+  - specialKeyword: 12
+    contentText: When skipping a turn by Fatigue, gain +X Power and Mana.

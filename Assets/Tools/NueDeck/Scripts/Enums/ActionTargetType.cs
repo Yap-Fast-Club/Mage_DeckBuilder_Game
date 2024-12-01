@@ -12,7 +12,8 @@
         RandomTerrain,
         AllTerrain,
         LowestHPEnemy,
-        ClosestEnemies
+        ClosestEnemies,
+        EnemyRowAndColumn
     }
 
 

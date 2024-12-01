@@ -34,6 +34,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public int OfferedCardRewards = 0;
         public Dictionary<(string, CardActionType), float> ActionMods = new Dictionary<(string, CardActionType), float>();
         public List<CardData> EvoultionCardsPlayed = new List<CardData>();
+        public List<StatusStats> SavedStatus = new List<StatusStats>();
 
         public PersistentGameplayData(GameplayData gameplayData)
         {

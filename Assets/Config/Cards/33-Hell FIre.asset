@@ -23,19 +23,25 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 11
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 0.6
-  - cardActionType: 0
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 0
     actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 9
     actionValue: 9
     actionDelay: 0
-  - cardActionType: 22
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 22
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 33
@@ -89,7 +95,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' Increase the damage of ALL "Judgement" cards by '
+  - descriptionText: 
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1

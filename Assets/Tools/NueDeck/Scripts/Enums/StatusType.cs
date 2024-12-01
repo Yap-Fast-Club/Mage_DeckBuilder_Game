@@ -15,7 +15,8 @@
         AntiChannel,
         AntiFatigue,
         EnemyAmount,
-        Amount
+        Amount,
+        Hibernate 
     }
 
 

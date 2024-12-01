@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 58
+    InspectorTotalWeight: 60
     Items:
     - Name: 9-Lightning Strike.     [W:2] (3%)
       PercentInList: ' (3%)'
@@ -25,7 +25,7 @@ MonoBehaviour:
       PercentInList: ' (3%)'
       Weight: 2
       Item: {fileID: 11400000, guid: aabd5eb005470de47bd9fe59d9f0606f, type: 2}
-    - Name: 11-Boil Blood.     [W:2] (3%)
+    - Name: 11-Burning Blood.     [W:2] (3%)
       PercentInList: ' (3%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 2ed1ed6bf3759fb40b1e88f7a3eae0ce, type: 2}
@@ -81,13 +81,17 @@ MonoBehaviour:
       PercentInList: ' (3%)'
       Weight: 2
       Item: {fileID: 11400000, guid: a410d004ee634e14d8ec63d2914d98f9, type: 2}
-    - Name: 35-Pyromancer I.     [W:4] (7%)
-      PercentInList: ' (7%)'
-      Weight: 4
+    - Name: 35-Pyromancer I.     [W:3] (5%)
+      PercentInList: ' (5%)'
+      Weight: 3
       Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
-    - Name: 36-Electromancer I.     [W:4] (7%)
-      PercentInList: ' (7%)'
-      Weight: 4
+    - Name: 59-Geomancer I.     [W:3] (5%)
+      PercentInList: ' (5%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: 432f0183b9505ae489bd33185a16c8d4, type: 2}
+    - Name: 36-Electromancer I.     [W:3] (5%)
+      PercentInList: ' (5%)'
+      Weight: 3
       Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
     - Name: 16-Handell Snack.     [W:1] (2%)
       PercentInList: ' (2%)'
@@ -105,7 +109,7 @@ MonoBehaviour:
       PercentInList: ' (2%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 723e2971451333948881ad7d7f813267, type: 2}
-    - Name: 28-Dropkick.     [W:1] (2%)
+    - Name: 28-Overwhelm.     [W:1] (2%)
       PercentInList: ' (2%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 91ce2a66f7e161b4cbf102155ded1b9e, type: 2}
@@ -149,4 +153,8 @@ MonoBehaviour:
       PercentInList: ' (2%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 52302c071e0770a4db780be9ef057832, type: 2}
+    - Name: 58-Thunderstorm.     [W:1] (2%)
+      PercentInList: ' (2%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 424755a4d8f59a84aadaf7cbbc6bed36, type: 2}
   _deckToLoadFrom: {fileID: 11400000, guid: 3a07c27d9f90cce448e24319da535a39, type: 2}

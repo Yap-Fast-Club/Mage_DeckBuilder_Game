@@ -13,7 +13,8 @@
         Focus,
         Channel,
         ReserveMana,
-        Transmute
+        Transmute,
+        Hibernate
 
     }
 }

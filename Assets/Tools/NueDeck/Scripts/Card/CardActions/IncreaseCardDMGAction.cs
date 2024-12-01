@@ -23,4 +23,21 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
         }
     }
+
+    public class DecreaseCardCost : CardActionBase
+    {
+        Dictionary<(string, CardActionType), float> mods => GameManager.Instance.PersistentGameplayData.ActionMods;
+        public override CardActionType ActionType => CardActionType.DecreaseCardCost;
+        public override void DoAction(CardActionParameters actionParameters)
+        {
+            var duple = (actionParameters.AreaValue.ToString(), CardActionType.SpendMana);
+            if (mods.ContainsKey(duple))
+                mods[duple] += actionParameters.Value;
+            else
+                mods.Add(duple, actionParameters.Value);
+
+            if (AudioManager != null)
+                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+        }
+    }
 }

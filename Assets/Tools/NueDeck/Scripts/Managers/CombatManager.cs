@@ -346,6 +346,14 @@ namespace NueGames.NueDeck.Scripts.Managers
             persistentData.TurnDebt--;
             if (persistentData.TurnDebt > 0)
             {
+                if (CurrentMainAlly.CharacterStats.StatusDict.ContainsKey(StatusType.Hibernate))
+                {
+                    int hibernateAmount = CurrentMainAlly.CharacterStats.StatusDict[StatusType.Hibernate].StatusValue;
+                    if (hibernateAmount > 0)
+                        CurrentMainAlly.CharacterStats.ApplyStatus(StatusType.Power, hibernateAmount);
+                        IncreaseMana(hibernateAmount);
+                }
+                    
                 EndTurn();
                 yield break;
             }

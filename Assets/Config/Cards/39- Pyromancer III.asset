@@ -51,4 +51,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
   audioType: 20
-  EvolveToCard: {fileID: 11400000, guid: 48d5dce97c96fe74a8378a966b42424d, type: 2}
+  EvolveToCard: {fileID: 11400000, guid: 5b10feb2547248747abe1dd3cdb82ef6, type: 2}

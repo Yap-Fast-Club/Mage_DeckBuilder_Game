@@ -27,7 +27,10 @@
         IncreaseCardDMG,
         IncreaseMaxMana,
         GainSouls,
-        HealForEverySoul
+        HealForEverySoul,
+        GainKeyword,
+        DecreaseCardCost,
+        SpendMana
     }
 
 

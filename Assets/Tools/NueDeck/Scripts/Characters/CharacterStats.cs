@@ -104,7 +104,8 @@ namespace NueGames.NueDeck.Scripts.Characters
             
             StatusDict[StatusType.Stun].DecreaseOverTurn = true;
             StatusDict[StatusType.Stun].OnTriggerAction += CheckStunStatus;
-            
+
+            StatusDict[StatusType.Hibernate].IsPermanent = true;
         }
         #endregion
         
@@ -213,7 +214,8 @@ namespace NueGames.NueDeck.Scripts.Characters
         public void ClearAllStatus()
         {
             foreach (var status in StatusDict)
-                ClearStatus(status.Key);
+                if(!status.Value.IsPermanent)
+                    ClearStatus(status.Key);
         }
            
         public void ClearStatus(StatusType targetStatus)

@@ -47,11 +47,13 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
         #region Cache
         private StatusStats FocusStat => CombatManager.Instance.CurrentMainAlly.CharacterStats.StatusDict[StatusType.Focus];
+        private bool hasCostReduction => GameManager.Instance.PersistentGameplayData.ActionMods.ContainsKey((id, CardActionType.SpendMana));
+        private int costReduction =>  hasCostReduction ? (int)GameManager.Instance.PersistentGameplayData.ActionMods[(id, CardActionType.SpendMana)]: 0;
 
         public string Id => id;
         public bool UsableWithoutTarget => usableWithoutTarget;
         public bool Channel => _channel;
-        public int ManaCost => Type == CardType.Incantation ? 0 : manaCost;
+        public int ManaCost => Type == CardType.Incantation ? 0 : Mathf.Max(0, manaCost - costReduction);
         public int FocusedManaCost => Mathf.Max(0, ManaCost -  FocusStat.StatusValue);
         public int TurnCost => turnCost;
         public string CardName => cardName;

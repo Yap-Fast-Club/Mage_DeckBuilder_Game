@@ -15,7 +15,7 @@ MonoBehaviour:
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
   weightedCardRewards:
-    InspectorTotalWeight: 45
+    InspectorTotalWeight: 46
     Items:
     - Name: 2-Fire Rain.     [W:4] (9%)
       PercentInList: ' (9%)'
@@ -65,6 +65,10 @@ MonoBehaviour:
       PercentInList: ' (2%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
+    - Name: 59-Geomancer I.     [W:1] (2%)
+      PercentInList: ' (2%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 432f0183b9505ae489bd33185a16c8d4, type: 2}
     - Name: 52-Battle Lust.     [W:4] (9%)
       PercentInList: ' (9%)'
       Weight: 4
