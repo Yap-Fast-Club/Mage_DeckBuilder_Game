@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class IncreaseFocusAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Focus;
+        public override CardActionType ActionType => CardActionType.GainFocus;
         public override void DoAction(CardActionParameters actionParameters)
         {
             var newTarget = actionParameters.TargetCharacter

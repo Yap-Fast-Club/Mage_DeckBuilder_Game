@@ -51,9 +51,14 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 CollectionManager.DrawCard(cardToCreateData);
             }
 
+           
+
 
             if (AudioManager != null)
                 AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
         }
     }
+
+
+
 }

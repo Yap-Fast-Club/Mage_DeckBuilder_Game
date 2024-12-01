@@ -12,7 +12,8 @@
         Fatigue,
         Focus,
         Channel,
-        ReserveMana
+        ReserveMana,
+        Transmute
 
     }
 }

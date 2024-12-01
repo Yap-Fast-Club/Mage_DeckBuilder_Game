@@ -374,7 +374,15 @@ namespace NueGames.NueDeck.Scripts.Managers
             AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
             bool resetPower = false;
 
+            var actionDataListCopy = new List<CardActionData>();
+
+            //Prepare Actions to execute
             foreach (var actionData in ChannelCard.CardData.CardActionDataList)
+            {
+                actionDataListCopy.AddRange(Enumerable.Repeat(actionData, actionData.RepeatAmount));
+            }
+
+            foreach (var actionData in actionDataListCopy)
             {
                 yield return new WaitForSeconds(actionData.ActionDelay);
                 var targetList = CardBase.DetermineTargets(null, CurrentEnemiesList, CurrentAlliesList, actionData);

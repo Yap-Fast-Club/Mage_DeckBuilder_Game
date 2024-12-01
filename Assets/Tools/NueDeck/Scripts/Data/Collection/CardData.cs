@@ -145,11 +145,11 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 if (!KeywordsList.Contains(SpecialKeywords.Fatigue))
                     KeywordsList.Add(SpecialKeywords.Fatigue);
 
-            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Focus))
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.GainFocus))
                 if (!KeywordsList.Contains(SpecialKeywords.Focus))
                     KeywordsList.Add(SpecialKeywords.Focus);
 
-            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.Power))
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.GainPower))
                 if (!KeywordsList.Contains(SpecialKeywords.Power))
                     KeywordsList.Add(SpecialKeywords.Power);
 
@@ -168,6 +168,10 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             if (CardActionDataList.Any(a => a.CardActionType == CardActionType.DealDamageForEveryMana))
                 if (!KeywordsList.Contains(SpecialKeywords.ReserveMana))
                     KeywordsList.Add(SpecialKeywords.ReserveMana);
+
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.TransformAllCards))
+                if (!KeywordsList.Contains(SpecialKeywords.Transmute))
+                    KeywordsList.Add(SpecialKeywords.Transmute);
 
         }
 

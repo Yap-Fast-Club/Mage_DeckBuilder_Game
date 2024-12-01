@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class IncreasePowerAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.Power;
+        public override CardActionType ActionType => CardActionType.GainPower;
         public override void DoAction(CardActionParameters actionParameters)
         {
             CombatManager.CurrentMainAlly.CharacterStats.ApplyStatus(StatusType.Power,Mathf.RoundToInt(actionParameters.Value));
