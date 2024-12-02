@@ -10,11 +10,14 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
     {
         [SerializeField] private AudioActionType audioType;
         [SerializeField] private List<AudioClip> randomClipList;
+        [SerializeField] private int limitPerSoundQueue = 3;
 
         public AudioActionType AudioType => audioType;
 
         public List<AudioClip> RandomClipList => randomClipList;
 
         public AudioClip GetRandomClip() => RandomClipList.Count>0 ? RandomClipList.RandomItem():null;
+
+        public int SoundQueueLimit => limitPerSoundQueue;
     }
 }

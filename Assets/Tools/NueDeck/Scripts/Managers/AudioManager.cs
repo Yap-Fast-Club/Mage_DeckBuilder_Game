@@ -22,11 +22,13 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private List<SoundProfileData> soundProfileDataList;
         
         private Dictionary<AudioActionType, SoundProfileData> _audioDict = new Dictionary<AudioActionType, SoundProfileData>();
-        
+        private float lastSoundTime = 0f;
+        private Queue<AudioActionType> soundQueue = new Queue<AudioActionType>();
+
+
         #region Setup
         private void Awake()
         {
-
 
             if (Instance != null)
             {
@@ -47,6 +49,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         }
 
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.M))
@@ -54,8 +57,34 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             if (Input.GetKeyDown(KeyCode.S))
                 sfxSource.volume = sfxSource.volume == 0 ? _ogSFXVolume : 0;
+
+            CheckAndPlayNextSound();
+        }
+
+      
+        public void AddToSoundQueue(AudioActionType audioType)
+        {
+
+            if ( soundQueue.Where(a => a == audioType).Count() < _audioDict[audioType].SoundQueueLimit)
+            {
+                soundQueue.Enqueue(audioType);
+            }
+        }
+
+        private void CheckAndPlayNextSound()
+        {
+            if (soundQueue.Count > 0 && Time.time - lastSoundTime >= 0.03333333f)
+            {
+                var nextAudioType = soundQueue.Dequeue();
+                var clip = _audioDict[nextAudioType].GetRandomClip();
+
+                PlayOneShot(clip);
+                lastSoundTime = Time.time;
+            }
         }
         #endregion
+
+
 
         #region Public Methods
 
@@ -85,16 +114,9 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             if (type == AudioActionType.None) return;
 
-            var clip = _audioDict[type].GetRandomClip();
-
-            if (clip)
-                PlayOneShot(clip);
+            AddToSoundQueue(type);
         }
 
-        //private IEnumerator PlayOneAudioQueue()
-        //{
-
-        //}
         
         public void PlayOneShotButton(AudioActionType type)
         {

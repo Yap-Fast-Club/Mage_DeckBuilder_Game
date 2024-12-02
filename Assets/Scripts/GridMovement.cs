@@ -56,6 +56,7 @@ public class GridMovement : MonoBehaviour
 
     private void SufferPushDamage(EnemyBase otherEnemy)
     {
+
         if (_pushCollisionDmg == 0) return;
 
         otherEnemy.CharacterStats.Damage(_pushCollisionDmg, true);
@@ -85,6 +86,8 @@ public class GridMovement : MonoBehaviour
 
             if (_lastCollision != null)
             {
+                //Debug.Log($"{_thisEnemy.name} Collided with {_lastCollision}");
+
                 onCollision?.Invoke(_lastCollision);
                 yield return new WaitForSeconds(0.05f);
                 transform.position = transform.position - direction * _gridElement.TileSize;

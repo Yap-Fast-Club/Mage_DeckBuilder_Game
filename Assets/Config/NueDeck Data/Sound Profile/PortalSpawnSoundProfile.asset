@@ -15,3 +15,4 @@ MonoBehaviour:
   audioType: 17
   randomClipList:
   - {fileID: 8300000, guid: b610d454b1efc514388962118ed00443, type: 3}
+  limitPerSoundQueue: 1
