@@ -16,7 +16,6 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
     private int InspectorTotalWeight = 0;
 
     public List<WeightedItem<T>> Items;
-    //public int TotalWeight { get => Items.Sum(i => i.Weight); }
     #endregion
 
     private WeightedList<T> _weightedList = new WeightedList<T>();
@@ -44,7 +43,6 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
     private void UpdateInspectorPercentages()
     {
         InspectorTotalWeight = TotalWeight;
-
         if (TotalWeight > 0)
         {
             foreach (var item in Items)

@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -112,15 +113,8 @@ namespace NueGames.NueDeck.Scripts.UI
             }
 
             //mana
-            if (playedCard.FinalManaCost > 0)
-            {
-                StartCoroutine(DimMana());
-            }
 
-            else if(playedCard.CardData.CardActionDataList.Any(a => a.CardActionType == CardActionType.EarnMana))
-            {
-                StartCoroutine(GlowMana());
-            }
+         
 
             _freeHandellProgressBar.fillAmount = (float)GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
 
@@ -128,8 +122,14 @@ namespace NueGames.NueDeck.Scripts.UI
                 ShowFreeHandell(true);
         }
 
-        private IEnumerator DimMana()
+        private Coroutine _dimManaCR;
+        private Coroutine _glowManaCR;
+        private IEnumerator DimMana(int spentMana)
         {
+            yield return new WaitUntil(() => _glowManaCR == null);
+
+            ManaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMana.ToString()}/{GameManager.PersistentGameplayData.MaxMana}";
+
             float elapsedTime = 0f;
             float inTime = 0.3f;
             float outTime = 0.15f;
@@ -158,10 +158,13 @@ namespace NueGames.NueDeck.Scripts.UI
             }
 
             _manaHighlight.color = initialColor;
+            _dimManaCR = null;
         }
 
-        private IEnumerator GlowMana()
+        private IEnumerator GlowMana(int gainedMana)
         {
+            yield return new WaitUntil(() => _dimManaCR == null);
+
             float elapsedTime = 0f;
             float inTime = 0.25f;
             float outTime = 0.25f;
@@ -190,6 +193,8 @@ namespace NueGames.NueDeck.Scripts.UI
             }
 
             _manaHighlight.color = initialColor;
+            _glowManaCR = null;
+
         }
 
         private void ConsumeHandell()
@@ -224,6 +229,18 @@ namespace NueGames.NueDeck.Scripts.UI
             DiscardPileTextField.text = $"{CollectionManager.DiscardPile.Count.ToString()}";
             ExhaustPileTextField.text =  $"{CollectionManager.ExhaustPile.Count.ToString()}";
             ManaTextTextField.text = $"{GameManager.PersistentGameplayData.CurrentMana.ToString()}/{GameManager.PersistentGameplayData.MaxMana}";
+
+            if (CardBlackboard.LastPlayedInfo is null) return;
+
+            if (CardBlackboard.LastPlayedInfo.SpentMana > 0)
+            {
+                _dimManaCR = StartCoroutine(DimMana(CardBlackboard.LastPlayedInfo.SpentMana));
+            }
+
+            if (CardBlackboard.LastPlayedInfo.GainedMana > 0)
+            {
+                _glowManaCR = StartCoroutine(GlowMana(CardBlackboard.LastPlayedInfo.GainedMana));
+            }
         }
 
         public override void ResetCanvas()
