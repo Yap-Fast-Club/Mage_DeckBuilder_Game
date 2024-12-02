@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.NetworkInformation;
 using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
@@ -148,7 +150,6 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
 
         private void GetInstantCardReward(RewardContainer rewardContainer, int amount = 3, Action OnComplete = null)
         {
-            GameManager.PersistentGameplayData.OfferedCardRewards++;
 
             _choiceTitle.text = "Choose a Card";
             _rewardCalls++;
@@ -187,9 +188,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                     OnComplete?.Invoke();
                 };
 
-                _cardRewardList.Remove(reward);
                 _spawnedChoiceList.Add(choice);
-
                 _currentRewardsList.Remove(rewardContainer);
 
             }
