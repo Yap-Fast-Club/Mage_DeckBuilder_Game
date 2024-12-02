@@ -51,14 +51,30 @@ namespace NueGames.NueDeck.Editor
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            var targetDeck = (DeckData)target;
 
             if (GUILayout.Button("Open in editor"))
             {
                 CardEditorWindow.OpenCardEditor((CardData)target);
             }
 
-            EditorGUILayout.Space(20);
+
+        }
+
+#endif
+    }
+
+
+    [CustomEditor(typeof(DeckData))]
+    public class DeckDataCustomEditor : UnityEditor.Editor
+    {
+#if UNITY_EDITOR
+
+        RarityType selectedRarity;
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            var targetDeck = (DeckData)target;
+
 
             if (GUILayout.Button("Load On GamePlay Settings"))
             {
@@ -78,7 +94,7 @@ namespace NueGames.NueDeck.Editor
 
 
             EditorGUILayout.Space(20);
-           
+
             selectedRarity = (RarityType)EditorGUILayout.EnumPopup(selectedRarity);
 
             if (GUILayout.Button("AutoLoad Cards"))
