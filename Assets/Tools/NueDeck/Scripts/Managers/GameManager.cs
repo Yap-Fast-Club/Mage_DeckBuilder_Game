@@ -110,7 +110,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.W))
             {
-                CombatManager.Instance.WinCombat();
+                CombatManager.Instance.ForceWinCombat();
             }
 
             if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.O))

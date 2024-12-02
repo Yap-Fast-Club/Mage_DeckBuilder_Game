@@ -24,6 +24,7 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         [Header("References")] 
         [SerializeField] private BackgroundContainer backgroundContainer;
+        public CharacterBase EmptyTarget;
         [SerializeField] private List<Transform> enemyPosList;
         [SerializeField] private List<Transform> allyPosList;
         [SerializeField] private TargetDetector _targetDetector;
@@ -36,6 +37,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         
         #region Cache
         public List<EnemyBase> CurrentEnemiesList { get; private set; } = new List<EnemyBase>();
+        private List<EnemyBase> EnemiesToDestroy = new List<EnemyBase>();
         public List<AllyBase> CurrentAlliesList { get; private set; }= new List<AllyBase>();
 
         public Action OnAllyTurnStarted;
@@ -172,6 +174,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             EnemyDeath?.Invoke(targetEnemy);
             CurrentEnemiesList.Remove(targetEnemy);
+            EnemiesToDestroy.Add(targetEnemy);
             persistentData.CurrentSouls += targetEnemy.GetComponent<SoulContainer>().SoulAmount;
             UIManager.InformationCanvas.UpdateSoulsGUI(targetEnemy);
         }
@@ -219,9 +222,10 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             switch (targetTypeTargetType)
             {
-                case ActionTargetType.Enemy:case ActionTargetType.ClosestAndConsecutives:case ActionTargetType.EnemyAndBehind:
+                case ActionTargetType.Enemy:
                     foreach (var currentEnemy in CurrentEnemiesList)
                         currentEnemy.EnemyCanvas.SetHighlight(true);
+                    (CardBlackboard.CurrentTarget as EnemyBase).EnemyCanvas.SetHighlight(true, false);
                     break;
                 case ActionTargetType.Ally:
                     foreach (var currentAlly in CurrentAlliesList)
@@ -256,6 +260,38 @@ namespace NueGames.NueDeck.Scripts.Managers
                     foreach (var currentAlly in CurrentAlliesList)
                         currentAlly.AllyCanvas.SetHighlight(true);
                     break;
+
+                case ActionTargetType.EnemyAndLineBehind:
+                    CurrentEnemiesList
+                                      .Where(e => e.transform.position.y == CardBlackboard.CurrentTarget.transform.position.y)
+                                      .Where(e => e.transform.position.x >= CardBlackboard.CurrentTarget.transform.position.x)
+                                      .ToList()
+                                      .ForEach(e => e.EnemyCanvas.SetHighlight(true, false));
+                    break;
+
+                case ActionTargetType.EnemyAndAllBehind:
+                    CurrentEnemiesList
+                                      .Where(e => e.transform.position.x > CardBlackboard.CurrentTarget.transform.position.x)
+                                      .Append(CardBlackboard.CurrentTarget as EnemyBase)
+                                      .ToList()
+                                      .ForEach(e => e.EnemyCanvas.SetHighlight(true, false));
+                    break;
+
+                case ActionTargetType.LineBehindEnemy:
+                    CurrentEnemiesList
+                                     .Where(e => e.transform.position.y == CardBlackboard.CurrentTarget.transform.position.y)
+                                     .Where(e => e.transform.position.x > CardBlackboard.CurrentTarget.transform.position.x)
+                                     .ToList()
+                                     .ForEach(e => e.EnemyCanvas.SetHighlight(true, false));
+                    break;
+                case ActionTargetType.AllBehindEnemy:
+                    CurrentEnemiesList
+                                      .Where(e => e.transform.position.x > CardBlackboard.CurrentTarget.transform.position.x)
+                                      .ToList()
+                                      //.ForEach(e => e.EnemyCanvas.SetHighlight(true, false));
+                                      .ForEach(e =>  Debug.Log(e));
+                    break;
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(targetTypeTargetType), targetTypeTargetType, null);
             }
@@ -297,7 +333,8 @@ namespace NueGames.NueDeck.Scripts.Managers
             UIManager.CombatCanvas.gameObject.SetActive(true);
             UIManager.CombatCanvas.CombatLosePanel.SetActive(true);
         }
-        public void WinCombat()
+    
+        public void ForceWinCombat()
         {
             if (CurrentCombatStateType == CombatStateType.EndCombat) return;
           
@@ -310,7 +347,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             }
             
             CollectionManager.ClearPiles();
-            
+
            
             if (persistentData.IsFinalEncounter)
             {
@@ -321,13 +358,14 @@ namespace NueGames.NueDeck.Scripts.Managers
                 UIManager.CombatCanvas.NextCombatPanel.SetActive(true);
                 CurrentMainAlly.CharacterStats.ClearAllStatus();
                 persistentData.CurrentEncounterId++;
+
                 //UIManager.CombatCanvas.gameObject.SetActive(false);
                 //UIManager.RewardCanvas.gameObject.SetActive(true);
                 //UIManager.RewardCanvas.PrepareCanvas();
                 //UIManager.RewardCanvas.BuildReward(RewardType.Gold);
                 //UIManager.RewardCanvas.BuildReward(RewardType.Card);
             }
-           
+
         }
         #endregion
         
@@ -372,15 +410,13 @@ namespace NueGames.NueDeck.Scripts.Managers
             UIManager.CombatCanvas.EnableHandell(true);
             persistentData.CanSelectCards = true;
 
-            if (CurrentEnemiesList.Count <= 0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
-                WinCombat();
 
         }
 
 
         private IEnumerator ChanneledCardUseRoutine()
         {
-            var channeledCardBlackboard = new CardActionBlackboard(_channelCardData);
+            var channeledCardBlackboard = new CardBlackboard(_channelCardData);
 
             AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
 
@@ -399,7 +435,13 @@ namespace NueGames.NueDeck.Scripts.Managers
 
                 var action = CardActionProcessor.GetAction(actionData.CardActionType);
                 foreach (var target in targetList)
-                    action.DoAction(new CardActionParameters(actionData.ActionValue, actionData.ActionAreaValue, target, CurrentMainAlly, ChannelCard.CardData, ChannelCard), channeledCardBlackboard);
+                    action.DoAction(new CardActionParameters(
+                            actionData.ActionValue, 
+                            actionData.ActionAreaValue,
+                            target, CurrentMainAlly, ChannelCard.CardData, ChannelCard,
+                            actionData.ActionAudioType == AudioActionType.CardDefault ? ChannelCard.CardData.AudioType : actionData.ActionAudioType
+                        )
+                        ,channeledCardBlackboard);
             }
 
             if (channeledCardBlackboard.ResetPower)
@@ -435,11 +477,22 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         private IEnumerator EnemyTurnRoutine()
         {
+
+            if (CurrentEnemiesList.Count == 0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
+                ForceWinCombat();
+
             UIManager.Instance.CombatCanvas.EnableHandell(false);
             var waitDelay = new WaitForSeconds(0.1f);
 
             yield return waitDelay;
             yield return new WaitWhile(() => persistentData.STOP == true);
+
+            for (int i = EnemiesToDestroy.Count - 1; i >= 0; i--)
+            {
+                var enemy = EnemiesToDestroy[i];
+                Destroy(enemy);
+            }
+            EnemiesToDestroy.Clear();
 
             List<EnemyBase> enemiesToProcess = new List<EnemyBase>(CurrentEnemiesList);
 

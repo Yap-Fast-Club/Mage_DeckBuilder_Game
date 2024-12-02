@@ -56,7 +56,8 @@ namespace NueGames.NueDeck.Scripts.Characters
             CombatManager.OnEnemyDeath(this);
             if(CharacterStats.CurrentSouls > 0)
                 AudioManager.PlayOneShot(DeathSoundProfileData.GetRandomClip());
-            Destroy(gameObject);
+
+            gameObject.SetActive(false);
         }
         #endregion
         
