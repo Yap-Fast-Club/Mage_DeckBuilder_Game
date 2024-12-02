@@ -29,6 +29,7 @@
         IceAttack,
         WaterAttack,
         EarthAttack,
-        HandellMunch
+        HandellMunch,
+        CardDefault
     }
 }

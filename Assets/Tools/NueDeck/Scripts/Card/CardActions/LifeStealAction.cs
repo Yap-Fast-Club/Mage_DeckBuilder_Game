@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class LifeStealAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.LifeSteal;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             if (!actionParameters.TargetCharacter) return;
 
@@ -25,7 +25,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             }
            
             if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }

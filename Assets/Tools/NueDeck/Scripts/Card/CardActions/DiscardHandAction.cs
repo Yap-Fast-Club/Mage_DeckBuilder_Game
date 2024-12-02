@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class DiscardHandAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.DiscardHand;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             if (CollectionManager != null)
                 CollectionManager.DiscardHand();
@@ -16,7 +16,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             
 
             if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }

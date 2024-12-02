@@ -9,11 +9,61 @@ using UnityEngine.UI;
 namespace NueGames.NueDeck.Scripts.Data.Collection.RewardData
 {
     [CreateAssetMenu(fileName = "Card Reward Data", menuName = "NueDeck/Collection/Rewards/CardRW", order = 0)]
-    public class CardRewardData : RewardDataBase
+    public class CardRewardData : RewardDataBase, ISerializationCallbackReceiver
     {
+
+        public int ProbabilityIndexAdvance => probabilityIndexAdvance;
+
+        [Header("Default Weights")]
+        [SerializeField] int _defaultCommonWeight = 4;
+        [SerializeField] int _defaultRareWeight = 3;
+        [SerializeField] int _defaultSpecialWeight = 2;
+        [SerializeField] int _defaultLegendaryWeight = 1;
+
+        [Header("Nerd Stuff")]
+        [SerializeField] int probabilityIndexAdvance = 1;
+
+        [AllowNesting, SerializeField, ReadOnly, Label("Spell Amount")]
+        private int InspectorSpellAmount = 0;
+        [AllowNesting, SerializeField, ReadOnly, Label("Incant Amount")]
+        private int InspectorIncantAmount = 0;
+
         public WeightedListContainer<CardData> weightedCardRewards;
 
-        [SerializeField] List<(int, CardData)> cardWeights;
+
+
+        public void Add(CardData data)
+        {
+            int defaultWeight = data.Rarity switch
+            {
+                Enums.RarityType.Common => _defaultCommonWeight,
+                Enums.RarityType.Rare => _defaultRareWeight,
+                Enums.RarityType.Legendary => _defaultLegendaryWeight,
+                Enums.RarityType.Special => _defaultSpecialWeight,
+                _ => 1
+            };
+
+            weightedCardRewards.Items.Add(new WeightedListContainer<CardData>.WeightedItem<CardData>() { Item = data, Weight = defaultWeight });
+        }
+
+        void ISerializationCallbackReceiver.OnBeforeSerialize() => this.UpdateInspectorRewardInfo();
+        void ISerializationCallbackReceiver.OnAfterDeserialize() => this.UpdateInspectorRewardInfo();
+
+        private void UpdateInspectorRewardInfo()
+        {
+            InspectorSpellAmount = 0;
+            InspectorIncantAmount = 0;
+
+            InspectorIncantAmount = weightedCardRewards.Items.Where(wi => wi.Item.Type == CardType.Incantation).Count();
+            InspectorSpellAmount = weightedCardRewards.Items.Where(wi => wi.Item.Type == CardType.Spell).Count();
+        }
+
+
+
+
+
+
+
 
 
 
@@ -27,7 +77,15 @@ namespace NueGames.NueDeck.Scripts.Data.Collection.RewardData
 
             _deckToLoadFrom.CardList.ForEach(card =>
             {
-                weightedCardRewards.Items.Add(new WeightedListContainer<CardData>.WeightedItem<CardData>() { Item = card, Weight = 1 });
+                int defaultWeight = card.Rarity switch
+                {
+                    Enums.RarityType.Common => _defaultCommonWeight,
+                    Enums.RarityType.Rare => _defaultRareWeight,
+                    Enums.RarityType.Legendary => _defaultLegendaryWeight,
+                    Enums.RarityType.Special => _defaultSpecialWeight,
+                    _ => 1
+                };
+                weightedCardRewards.Items.Add(new WeightedListContainer<CardData>.WeightedItem<CardData>() { Item = card, Weight = defaultWeight });
             }
             );
         }

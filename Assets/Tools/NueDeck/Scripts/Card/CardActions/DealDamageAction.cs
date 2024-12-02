@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class DealDamageAction: CardActionBase
     {
         public override CardActionType ActionType => CardActionType.DealDamage;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             if (!actionParameters.TargetCharacter) return;
             
@@ -16,8 +16,10 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             
             var value = actionParameters.Value + selfCharacter.CharacterStats.StatusDict[StatusType.Power].StatusValue ;
 
-
+            int previousHealth = targetCharacter.CharacterStats.CurrentHealth;
             targetCharacter.CharacterStats.Damage(Mathf.RoundToInt(value));
+            int damageDealt =  previousHealth - targetCharacter.CharacterStats.CurrentHealth;
+            blackboard.DamageDealt += damageDealt;
 
             blackboard.ResetPower = true;
 
@@ -28,7 +30,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             }
            
             if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 
@@ -36,7 +38,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         public override CardActionType ActionType => CardActionType.ExcessAttack;
 
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             if (!actionParameters.TargetCharacter) return;
             if (actionParameters.Value <= 0) return;

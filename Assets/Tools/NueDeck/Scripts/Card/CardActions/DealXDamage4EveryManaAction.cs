@@ -11,7 +11,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.DealDamageForEveryMana;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             var value = actionParameters.Value * PersistendData.CurrentMana;
 

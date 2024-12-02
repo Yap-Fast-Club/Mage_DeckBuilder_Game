@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NaughtyAttributes;
+using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
@@ -243,10 +244,12 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         [SerializeField] private int actionAreaValue;
         [SerializeField] private float actionValue;
         [SerializeField] private float actionDelay;
+        [SerializeField] private AudioActionType audioActionType = AudioActionType.CardDefault;
 
         public ActionTargetType ActionTargetType => actionTargetType;
         public ActionRepeatType ActionRepeatType => _repeatAction;
         public ActionAreaType ActionAreaType => actionAreaType;
+        public AudioActionType ActionAudioType => audioActionType;
         public int ActionAreaValue => actionAreaValue;
         public CardActionType CardActionType => cardActionType;
         public float ActionValue => actionValue;
@@ -256,6 +259,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                                         ActionRepeatType.Repeat => _repeatAmount,
                                         ActionRepeatType.RepeatPerReserveMana => GameManager.Instance.PersistentGameplayData.CurrentMana,
                                         ActionRepeatType.RepeatPerSouls => GameManager.Instance.PersistentGameplayData.CurrentSouls,
+                                        ActionRepeatType.RepeatPerDamageDealt => CardBlackboard.LastPlayedInfo.DamageDealt,
                                         _ => 1
                                     };
 

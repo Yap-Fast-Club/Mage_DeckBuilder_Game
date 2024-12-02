@@ -11,14 +11,14 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
         public override CardActionType ActionType => CardActionType.PickErase;
 
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             UIManager.Instance.RewardCanvas.gameObject.SetActive(true);
             UIManager.Instance.RewardCanvas.PrepareCanvas();
             UIManager.Instance.RewardCanvas.InstantRemoveCard();
 
             if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }

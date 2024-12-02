@@ -14,7 +14,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         public override CardActionType ActionType => CardActionType.TransformAllCards;
 
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             string toEraseID = actionParameters.AreaValue.ToString();
             string toCreateID = actionParameters.Value.ToString();
@@ -55,7 +55,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
 
             if (AudioManager != null)
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 

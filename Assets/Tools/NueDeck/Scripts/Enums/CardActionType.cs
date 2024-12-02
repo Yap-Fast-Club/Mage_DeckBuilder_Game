@@ -42,6 +42,7 @@
         None,
         Repeat,
         RepeatPerReserveMana,
-        RepeatPerSouls
+        RepeatPerSouls,
+        RepeatPerDamageDealt
     }
 }

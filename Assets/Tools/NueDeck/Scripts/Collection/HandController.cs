@@ -290,6 +290,19 @@ namespace NueGames.NueDeck.Scripts.Collection
                 cardTransform.position = cardPos;
 
 
+                CharacterBase selfCharacter = CombatManager.CurrentMainAlly;
+                CharacterBase targetCharacter = null;
+                bool targetIsValid = CheckSingleTargetRay(mousePos, ref selfCharacter, ref targetCharacter);
+                if (targetCharacter is EnemyBase e)
+                {
+                    e.EnemyCanvas.SetHighlight(true, partial: false);
+                    CardBlackboard.CurrentTarget = targetCharacter;
+                }
+                if (!targetIsValid)
+                {
+                    CardBlackboard.CurrentTarget = CombatManager.EmptyTarget;
+                    CombatManager.DeactivateCardHighlights();
+                }
 
                 CombatManager.HighlightCardTarget(_heldCard.CardData.CardActionDataList[0].ActionTargetType, _heldCard.CardData.CardActionDataList[0].ActionAreaValue);
 
@@ -308,26 +321,16 @@ namespace NueGames.NueDeck.Scripts.Collection
                     return;
                 }
 
-                PlayCard(mousePos);
+                PlayCard(mousePos, targetIsValid, selfCharacter, targetCharacter );
             }
         }
         
 
-        private void PlayCard(Vector2 mousePos)
+        private void PlayCard(Vector2 mousePos, bool validTarget, CharacterBase selfCharacter, CharacterBase targetCharacter)
         {
             // Use Card
             var mouseButtonUp = Input.GetMouseButtonUp(0);
 
-            CharacterBase selfCharacter = CombatManager.CurrentMainAlly;
-            CharacterBase targetCharacter = null;
-
-            bool validTarget = CheckSingleTargetRay(mousePos, ref selfCharacter, ref targetCharacter);
-
-            if ( targetCharacter is EnemyBase e)
-            {
-                e.EnemyCanvas.SetHighlight(true, partial: false);
-
-            }
             if (!mouseButtonUp) return;
             
             //Remove highlights
@@ -373,7 +376,10 @@ namespace NueGames.NueDeck.Scripts.Collection
                 if (character != null)
                 {
                     var checkEnemy = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Enemy
-                                      || _heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.EnemyAndBehind) 
+                                      || _heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.EnemyAndLineBehind
+                                      || _heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.EnemyAndAllBehind
+                                      || _heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.AllBehindEnemy
+                                      || _heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.LineBehindEnemy) 
                                       && character.GetCharacterType() == CharacterType.Enemy;
                     var checkAlly = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Ally &&
                                      character.GetCharacterType() == CharacterType.Ally);

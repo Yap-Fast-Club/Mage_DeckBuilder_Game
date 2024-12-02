@@ -10,21 +10,10 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.EarnManaForEverySoul;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
-            if (CombatManager != null)
-            {
-                var value = actionParameters.Value * PersistendData.CurrentSouls;
-                CombatManager.IncreaseMana(Mathf.RoundToInt(value));
-            }
-            else
-                Debug.LogError("There is no CombatManager");
-
-            if (FxManager != null)
-                FxManager.PlayFx(actionParameters.SelfCharacter.transform, FxType.Buff);
-            
-            if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+            var value = actionParameters.Value * PersistendData.CurrentSouls;
+            base.DoAction(new CardActionParameters(value, actionParameters), blackboard);
         }
     }
 }

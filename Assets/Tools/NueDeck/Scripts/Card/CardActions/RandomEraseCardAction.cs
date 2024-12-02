@@ -11,7 +11,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         public override CardActionType ActionType => CardActionType.RandomErase;
 
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             var targetRarity = actionParameters.AreaValue switch
             {
@@ -44,7 +44,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             }
 
             if (AudioManager != null)
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }

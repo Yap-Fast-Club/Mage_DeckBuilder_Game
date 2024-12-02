@@ -41,6 +41,7 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
             max = Mathf.Min(max, CardRewardDataList.Count);
 
             rewardData = CardRewardDataList.RandomItem(min, max);
+            _persistentData.OfferedCardRewards += rewardData.ProbabilityIndexAdvance;
             Debug.Log($"{rewardData.name} Reward!");
 
             List<CardData> cardList = new List<CardData>();

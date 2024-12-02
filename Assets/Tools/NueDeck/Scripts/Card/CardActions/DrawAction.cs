@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class DrawAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.Draw;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             if (CollectionManager != null)
                 CollectionManager.DrawCards(Mathf.RoundToInt(actionParameters.Value));
@@ -18,7 +18,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 FxManager.PlayFx(actionParameters.SelfCharacter.transform, FxType.Buff);
 
             if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }

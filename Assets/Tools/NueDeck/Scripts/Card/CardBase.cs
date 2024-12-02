@@ -14,7 +14,6 @@ using NueGames.NueDeck.ThirdParty.NueTooltip.Core;
 using NueGames.NueDeck.ThirdParty.NueTooltip.CursorSystem;
 using NueGames.NueDeck.ThirdParty.NueTooltip.Interfaces;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -108,7 +107,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
         private IEnumerator CardUseRoutine(CharacterBase self, CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
         {
-            var actionsBlackBoard = new CardActionBlackboard(CardData);
+            var actionsBlackBoard = new CardBlackboard(CardData);
 
             SpendMana(FinalManaCost);
 
@@ -123,7 +122,8 @@ namespace NueGames.NueDeck.Scripts.Card
             //Prepare Actions to execute
             foreach (var actionData in CardData.CardActionDataList)
             {
-                actionDataListCopy.AddRange(Enumerable.Repeat(actionData, actionData.RepeatAmount));
+                //actionDataListCopy.AddRange(Enumerable.Repeat(actionData, actionData.RepeatAmount));
+                actionDataListCopy.Add(actionData);
             }
 
             if (!Channel)
@@ -136,7 +136,16 @@ namespace NueGames.NueDeck.Scripts.Card
                     var action = CardActionProcessor.GetAction(actionData.CardActionType);
 
                     foreach (var target in targetList)
-                        action.DoAction(new CardActionParameters(actionData.GetModifiedValue(CardData), actionData.ActionAreaValue, target, self, CardData, this), actionsBlackBoard);
+                        for (int i = 0; i < actionData.RepeatAmount; i++)
+                        {
+                            action.DoAction(new CardActionParameters(
+                                    actionData.GetModifiedValue(CardData), 
+                                    actionData.ActionAreaValue,
+                                    target, self, CardData, this,
+                                    actionData.ActionAudioType == AudioActionType.CardDefault ? CardData.AudioType : actionData.ActionAudioType
+                                    )
+                                ,actionsBlackBoard);
+                        }
 
                 }
 
@@ -213,10 +222,29 @@ namespace NueGames.NueDeck.Scripts.Card
 
                     break;
 
-                case ActionTargetType.EnemyAndBehind:
+                case ActionTargetType.EnemyAndLineBehind:
                     targetList.Add(targetCharacter);
                     targetList.AddRange(_allEnemies
                                       .Where(e => e.transform.position.y == targetCharacter.transform.position.y)
+                                      .Where(e => e.transform.position.x > targetCharacter.transform.position.x)
+                                    );
+                    break;
+
+                case ActionTargetType.EnemyAndAllBehind:
+                    targetList.Add(targetCharacter);
+                    targetList.AddRange(_allEnemies
+                                      .Where(e => e.transform.position.x > targetCharacter.transform.position.x)
+                                    );
+                    break;
+
+                case ActionTargetType.LineBehindEnemy:
+                    targetList.AddRange(_allEnemies
+                                      .Where(e => e.transform.position.y == targetCharacter.transform.position.y)
+                                      .Where(e => e.transform.position.x > targetCharacter.transform.position.x)
+                                    );
+                    break;
+                case ActionTargetType.AllBehindEnemy:
+                    targetList.AddRange(_allEnemies
                                       .Where(e => e.transform.position.x > targetCharacter.transform.position.x)
                                     );
                     break;
@@ -264,7 +292,8 @@ namespace NueGames.NueDeck.Scripts.Card
             {
                 FocusStat.StatusValue = 0;
             }
-            persistentData.CurrentMana -= value;
+
+            CombatManager.IncreaseMana(-value);
         }
 
         protected virtual void SpendTurn(int value)

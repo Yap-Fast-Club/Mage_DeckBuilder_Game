@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class IncreaseMaxHealthAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.IncreaseMaxHealth;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             var newTarget = actionParameters.TargetCharacter
                 ? actionParameters.TargetCharacter
@@ -21,14 +21,14 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 FxManager.PlayFx(newTarget.transform, FxType.Buff);
             
             if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 
     public class IncreaseMaxManaAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.IncreaseMaxMana;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             //var newTarget = actionParameters.TargetCharacter
             //    ? actionParameters.TargetCharacter
@@ -40,7 +40,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
 
             if (AudioManager != null)
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }

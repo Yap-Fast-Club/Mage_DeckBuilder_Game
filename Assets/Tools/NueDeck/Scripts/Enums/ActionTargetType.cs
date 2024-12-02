@@ -14,7 +14,10 @@
         LowestHPEnemy,
         ClosestEnemies,
         ClosestAndConsecutives,
-        EnemyAndBehind
+        EnemyAndLineBehind,
+        EnemyAndAllBehind,
+        LineBehindEnemy,
+        AllBehindEnemy
     }
 
 

@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class BlockAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.Block;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             var newTarget = actionParameters.TargetCharacter
                 ? actionParameters.TargetCharacter
@@ -23,7 +23,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 FxManager.PlayFx(newTarget.transform, FxType.Block);
             
             if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }

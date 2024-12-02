@@ -2,7 +2,6 @@
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
-using UnityEditor.Experimental.GraphView;
 
 namespace NueGames.NueDeck.Scripts.Card
 {
@@ -14,6 +13,7 @@ namespace NueGames.NueDeck.Scripts.Card
         public readonly CharacterBase SelfCharacter;
         public readonly CardData CardData;
         public readonly CardBase CardBase;
+        public readonly AudioActionType ActionAudioType;
         public CardActionParameters(float value,CharacterBase target, CharacterBase self,CardData cardData, CardBase cardBase)
         {
             Value = value;
@@ -32,9 +32,10 @@ namespace NueGames.NueDeck.Scripts.Card
             CardData = copyFrom.CardData;
             CardBase = copyFrom.CardBase;
             AreaValue = copyFrom.AreaValue;
+            ActionAudioType = copyFrom.ActionAudioType;
         }
 
-        public CardActionParameters(float value, float areaValue, CharacterBase target, CharacterBase self, CardData cardData, CardBase cardBase)
+        public CardActionParameters(float value, float areaValue, CharacterBase target, CharacterBase self, CardData cardData, CardBase cardBase, AudioActionType audioType)
         {
             Value = value;
             TargetCharacter = target;
@@ -42,13 +43,14 @@ namespace NueGames.NueDeck.Scripts.Card
             CardData = cardData;
             CardBase = cardBase;
             AreaValue = areaValue;
+            ActionAudioType = audioType;
         }
     }
     public abstract class CardActionBase
     {
         protected CardActionBase(){}
         public abstract CardActionType ActionType { get;}
-        public abstract void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard);
+        public abstract void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard);
         
         protected FxManager FxManager => FxManager.Instance;
         protected AudioManager AudioManager => AudioManager.Instance;

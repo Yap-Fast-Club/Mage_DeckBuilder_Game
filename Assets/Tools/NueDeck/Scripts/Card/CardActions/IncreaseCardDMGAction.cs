@@ -11,7 +11,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         Dictionary<(string, CardActionType), float> mods => GameManager.Instance.PersistentGameplayData.ActionMods;
         public override CardActionType ActionType => CardActionType.IncreaseCardDMG;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             var duple = (actionParameters.AreaValue.ToString(), CardActionType.DealDamage);
             if (mods.ContainsKey(duple))
@@ -20,7 +20,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 mods.Add(duple, actionParameters.Value);
 
             if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 
@@ -28,7 +28,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     {
         Dictionary<(string, CardActionType), float> mods => GameManager.Instance.PersistentGameplayData.ActionMods;
         public override CardActionType ActionType => CardActionType.DecreaseCardCost;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             var duple = (actionParameters.AreaValue.ToString(), CardActionType.SpendMana);
             if (mods.ContainsKey(duple))
@@ -37,7 +37,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 mods.Add(duple, actionParameters.Value);
 
             if (AudioManager != null)
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }

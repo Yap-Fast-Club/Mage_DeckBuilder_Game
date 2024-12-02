@@ -10,7 +10,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.DealDamageForEverySoul;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             var value = actionParameters.Value * PersistendData.CurrentSouls;
 
@@ -23,14 +23,14 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         PersistentGameplayData PersistendData => GameManager.Instance.PersistentGameplayData;
 
         public override CardActionType ActionType => CardActionType.HealForEverySoul;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             actionParameters.Value = actionParameters.Value * PersistendData.CurrentSouls;
 
             base.DoAction(actionParameters, blackboard);
 
             if (AudioManager != null)
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
 
         }
     }
@@ -42,7 +42,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
         public override CardActionType ActionType => CardActionType.DealDamageForEverySpentSoul;
 
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             int spentSouls = blackboard.SpentSouls;
 

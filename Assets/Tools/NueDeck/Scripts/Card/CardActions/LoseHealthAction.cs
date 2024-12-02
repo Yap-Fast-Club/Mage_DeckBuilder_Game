@@ -7,7 +7,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class LoseHealthAction : CardActionBase
     {
         public override CardActionType ActionType => CardActionType.LoseHealth;
-        public override void DoAction(CardActionParameters actionParameters, CardActionBlackboard blackboard)
+        public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             var value = Mathf.RoundToInt(actionParameters.Value);
             actionParameters.SelfCharacter.CharacterStats.Damage(value);
@@ -19,7 +19,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             }
            
             if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.CardData.AudioType);
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }
