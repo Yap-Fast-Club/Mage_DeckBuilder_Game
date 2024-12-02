@@ -490,7 +490,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             for (int i = EnemiesToDestroy.Count - 1; i >= 0; i--)
             {
                 var enemy = EnemiesToDestroy[i];
-                Destroy(enemy);
+                Destroy(enemy.gameObject);
             }
             EnemiesToDestroy.Clear();
 
