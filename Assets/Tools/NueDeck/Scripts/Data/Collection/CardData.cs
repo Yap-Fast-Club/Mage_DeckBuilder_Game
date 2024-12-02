@@ -54,7 +54,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
         public bool UsableWithoutTarget => usableWithoutTarget;
         public bool Channel => _channel;
         public int ManaCost => Type == CardType.Incantation ? 0 : Mathf.Max(0, manaCost - costReduction);
-        public int FocusedManaCost => Mathf.Max(0, ManaCost -  FocusStat.StatusValue);
+        public int FocusedManaCost => Type == CardType.Incantation ? 0 : Mathf.Max(0, ManaCost -  FocusStat.StatusValue);
         public int TurnCost => turnCost;
         public string CardName => cardName;
         public Sprite CardSprite => cardSprite;
