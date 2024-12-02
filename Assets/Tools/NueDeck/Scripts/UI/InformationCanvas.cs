@@ -185,7 +185,6 @@ namespace NueGames.NueDeck.Scripts.UI
 
         protected virtual IEnumerator GainSoulCR(int soulIndex)
         {
-            _persistentGameplayData.STOP = true;
 
             RectTransform soulIcon = _soulOnIcons[soulIndex];
             RectTransform soulContainer = _soulContainers[Mathf.Min(soulIndex, _soulContainers.Count - 1)];
@@ -223,10 +222,6 @@ namespace NueGames.NueDeck.Scripts.UI
 
 
             _gainSoulsCRs.Dequeue();
-            if (_gainSoulsCRs.Count == 0)
-            {
-                _persistentGameplayData.STOP = false;
-            }
         }
     }
 }
