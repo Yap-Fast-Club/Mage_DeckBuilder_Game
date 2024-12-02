@@ -10,7 +10,9 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
         public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             if (!actionParameters.TargetCharacter) return;
-            
+
+            if (AudioManager != null)
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
         }
     }
 }
