@@ -12,6 +12,7 @@ public class WaveUIManager : MonoBehaviour
     public TextMeshProUGUI enemiesRemainingText;
     public TextMeshProUGUI winTurnsRemainingText;
     public GameObject SoftWinPanel;
+    public Button EndNowButton;
 
     private void Awake()
     {
@@ -23,6 +24,8 @@ public class WaveUIManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        EndNowButton.onClick.AddListener(() => WaveManager.Instance.FinishCurrentWaveNow());
     }
 
     public void UpdateWaveUI()

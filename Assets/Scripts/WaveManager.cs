@@ -218,4 +218,10 @@ public class WaveManager : MonoBehaviour
         return currentWaveIndex + 1 >= _waves.Count;
     }
 
+    public void FinishCurrentWaveNow()
+    {
+        currentTurn = GetMaxTurnForWave(_waves[currentWaveIndex]) + 1;
+        CombatManager.Instance.EndTurn();
+    }
+
 }
