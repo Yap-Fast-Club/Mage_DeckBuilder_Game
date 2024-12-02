@@ -30,6 +30,7 @@
         WaterAttack,
         EarthAttack,
         HandellMunch,
-        CardDefault
+        CardDefault,
+        None
     }
 }

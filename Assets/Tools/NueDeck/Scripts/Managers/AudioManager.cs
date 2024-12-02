@@ -74,6 +74,8 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         public void PlayMusic(AudioActionType type)
         {
+            if (type == AudioActionType.None) return;
+
             var clip = _audioDict[type].GetRandomClip();
             if (clip)
                 PlayMusic(clip);
@@ -81,6 +83,8 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         public void PlayOneShot(AudioActionType type)
         {
+            if (type == AudioActionType.None) return;
+
             var clip = _audioDict[type].GetRandomClip();
 
             if (clip)
@@ -94,6 +98,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         
         public void PlayOneShotButton(AudioActionType type)
         {
+            if (type == AudioActionType.None) return;
+
             var clip = _audioDict[type].GetRandomClip();
             if (clip)
                 PlayOneShotButton(clip);
