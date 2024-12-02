@@ -84,7 +84,7 @@ namespace NueGames.NueDeck.Editor
                 {
                     gamePlayData.InitalDeck = targetDeck;
 
-                    Debug.Log($"Updated InitialDeck in GamePlayData to {this.name}");
+                    Debug.Log($"Updated InitialDeck in GamePlayData to {targetDeck.DeckName}");
                 }
                 else
                 {

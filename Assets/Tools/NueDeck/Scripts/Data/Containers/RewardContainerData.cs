@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Collection.RewardData;
@@ -34,26 +35,22 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
                 _persistentData.RandomInitialized = true;
             }
 
-            int min = initialCardPackIndex + _persistentData.OfferedCardRewards;
+            int min = initialCardPackIndex + _persistentData.OfferedCardProbIndex;
             int max = min + cardPackRandomRange;
 
             min = Mathf.Min(min, CardRewardDataList.Count - cardPackRandomRange);
             max = Mathf.Min(max, CardRewardDataList.Count);
 
             rewardData = CardRewardDataList.RandomItem(min, max);
-            _persistentData.OfferedCardRewards += rewardData.ProbabilityIndexAdvance;
+
+            List<CardData> cardList = rewardData.GetRandomCards(3);
+            int indexAdvance = rewardData.ProbabilityIndexAdvance;
+            
             Debug.Log($"{rewardData.name} Reward!");
+            Debug.Log($"Advance prob index by {indexAdvance}");
 
-            List<CardData> cardList = new List<CardData>();
-            int attempts = 0;
-
-            while (cardList.Count <= 4 && attempts <= 100)
-            {
-                attempts++;
-                var card = rewardData.weightedCardRewards.GetRandomItem();
-                if(!cardList.Contains(card))
-                    cardList.Add(card);
-            }
+            _persistentData.OfferedCardProbIndex += indexAdvance;
+            Debug.Log($"Current prob index {_persistentData.OfferedCardProbIndex} ({cardRewardDataList[_persistentData.OfferedCardProbIndex].name})");
 
             return cardList;
         } 

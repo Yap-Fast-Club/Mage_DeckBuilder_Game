@@ -31,7 +31,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private List<CardData> currentCardsList;
         [SerializeField] private List<AllyHealthData> allyHealthDataDataList;
         public bool RandomInitialized = false;
-        public int OfferedCardRewards = 0;
+        public int OfferedCardProbIndex = 0;
         public Dictionary<(string, CardActionType), float> ActionMods = new Dictionary<(string, CardActionType), float>();
         public List<CardData> EvoultionCardsPlayed = new List<CardData>();
         public Dictionary<StatusType, StatusStats> SavedStatus = new Dictionary<StatusType, StatusStats>();
@@ -80,7 +80,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             IsFinalEncounter = false;
             allyHealthDataDataList = new List<AllyHealthData>();
             RandomInitialized = false;
-            OfferedCardRewards = 0;
+            OfferedCardProbIndex = 0;
             EvoultionCardsPlayed.Clear();
             ActionMods.Clear();
             SavedStatus.Clear();
@@ -88,10 +88,14 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
 
     #region Encapsulation
 
-    public bool STOP
+        public bool STOP
         {
             get => _stop;
             set => _stop = value;
+            //set {
+            //    _stop = value;
+            //    Debug.Log(_stop);
+            //}
         }
 
         public int DrawCount

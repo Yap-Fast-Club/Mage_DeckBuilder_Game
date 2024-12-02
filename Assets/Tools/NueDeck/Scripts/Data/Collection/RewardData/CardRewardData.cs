@@ -12,7 +12,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection.RewardData
     public class CardRewardData : RewardDataBase, ISerializationCallbackReceiver
     {
 
-        public int ProbabilityIndexAdvance => probabilityIndexAdvance;
+        public int ProbabilityIndexAdvance { get; private set; }
 
         [Header("Default Weights")]
         [SerializeField] int _defaultCommonWeight = 4;
@@ -21,7 +21,10 @@ namespace NueGames.NueDeck.Scripts.Data.Collection.RewardData
         [SerializeField] int _defaultLegendaryWeight = 1;
 
         [Header("Nerd Stuff")]
-        [SerializeField] int probabilityIndexAdvance = 1;
+        [SerializeField] float _commonProbIndexMod = 0.7f;
+        [SerializeField] float _rareProbIndexMod = 0.5f;
+        [SerializeField] float _legendaryProbIndexMod = -0.7f;
+        [SerializeField] float _specialProbIndexMod = -0.2f;
 
         [AllowNesting, SerializeField, ReadOnly, Label("Spell Amount")]
         private int InspectorSpellAmount = 0;
@@ -29,7 +32,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection.RewardData
         private int InspectorIncantAmount = 0;
 
         public WeightedListContainer<CardData> weightedCardRewards;
-
 
 
         public void Add(CardData data)
@@ -45,6 +47,35 @@ namespace NueGames.NueDeck.Scripts.Data.Collection.RewardData
 
             weightedCardRewards.Items.Add(new WeightedListContainer<CardData>.WeightedItem<CardData>() { Item = data, Weight = defaultWeight });
         }
+
+        public List<CardData> GetRandomCards(int amount)
+        {
+            var cardList = new List<CardData>();
+            int attempts = 0;
+            float indexMod = 0;
+
+            while (cardList.Count < amount && attempts <= 100)
+            {
+                attempts++;
+                var card = weightedCardRewards.GetRandomItem();
+                if (!cardList.Contains(card))
+                {
+                    cardList.Add(card);
+                    indexMod += card.Rarity switch
+                    {
+                        Enums.RarityType.Common => _commonProbIndexMod,
+                        Enums.RarityType.Rare => _rareProbIndexMod,
+                        Enums.RarityType.Legendary => _legendaryProbIndexMod,
+                        Enums.RarityType.Special => _specialProbIndexMod,
+                        _ => 0
+                    };
+                }
+            }
+
+            ProbabilityIndexAdvance = (int)indexMod;
+            return cardList;
+        }
+
 
         void ISerializationCallbackReceiver.OnBeforeSerialize() => this.UpdateInspectorRewardInfo();
         void ISerializationCallbackReceiver.OnAfterDeserialize() => this.UpdateInspectorRewardInfo();
