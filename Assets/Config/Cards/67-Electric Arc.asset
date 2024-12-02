@@ -32,6 +32,15 @@ MonoBehaviour:
     actionValue: 4
     actionDelay: 0
     audioActionType: 23
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 1
+    actionValue: 1
+    actionDelay: 0.3
+    audioActionType: 20
   - _repeatAction: 4
     _repeatAmount: 0
     cardActionType: 6
@@ -39,8 +48,8 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
-    actionDelay: 0.2
-    audioActionType: 20
+    actionDelay: 0.03
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0

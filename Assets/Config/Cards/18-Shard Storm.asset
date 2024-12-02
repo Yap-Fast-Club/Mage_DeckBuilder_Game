@@ -30,7 +30,8 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
-    actionDelay: 0
+    actionDelay: 0.1
+    audioActionType: 28
   cardDescriptionDataList:
   - descriptionText: 'Repeat '
     enableOverrideColor: 0

@@ -31,6 +31,7 @@ MonoBehaviour:
     actionAreaValue: 1
     actionValue: 31
     actionDelay: 0
+    audioActionType: 28
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 11
@@ -39,8 +40,9 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
+    audioActionType: 28
   cardDescriptionDataList:
-  - descriptionText: 'Transmute "Fire bolt" into "Fire ball". '
+  - descriptionText: 'Transmute "Fire Bolt" into "Fire Ball". '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -49,6 +51,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 0600000003000000
+  specialKeywordsList: 06000000030000000b000000
   audioType: 20
   EvolveToCard: {fileID: 11400000, guid: c6d01a9a0a0039241be02b1bedf35e6f, type: 2}
