@@ -14,22 +14,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
+  _defaultCommonWeight: 0
+  _defaultRareWeight: 0
+  _defaultSpecialWeight: 10
+  _defaultLegendaryWeight: 0
+  probabilityIndexAdvance: 1
+  InspectorSpellAmount: 0
+  InspectorIncantAmount: 4
   weightedCardRewards:
     InspectorTotalWeight: 7
     Items:
-    - Name: 16-Common_Erase.     [W:2] (29%)
+    - Name: 16-Handell Snack.     [W:2] (29%)
       PercentInList: ' (29%)'
       Weight: 2
       Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-    - Name: 35 - PyroMancer I.     [W:2] (29%)
+    - Name: 35-Pyromancer I.     [W:2] (29%)
       PercentInList: ' (29%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
-    - Name: 36 - ElectroMancer I.     [W:2] (29%)
+    - Name: 36-Electromancer I.     [W:2] (29%)
       PercentInList: ' (29%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
-    - Name: 37 - SpeedMancer.     [W:1] (14%)
+    - Name: 37-Speedster.     [W:1] (14%)
       PercentInList: ' (14%)'
       Weight: 1
       Item: {fileID: 11400000, guid: fa5af5f9f1f902e4bb9ffca8200d7a09, type: 2}

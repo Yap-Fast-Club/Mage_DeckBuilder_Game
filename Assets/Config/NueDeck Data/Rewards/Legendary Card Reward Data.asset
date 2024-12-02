@@ -14,8 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
+  _defaultCommonWeight: 0
+  _defaultRareWeight: 0
+  _defaultSpecialWeight: 3
+  _defaultLegendaryWeight: 2
+  probabilityIndexAdvance: 0
+  InspectorSpellAmount: 8
+  InspectorIncantAmount: 9
   weightedCardRewards:
-    InspectorTotalWeight: 31
+    InspectorTotalWeight: 36
     Items:
     - Name: 19-Pandemonium.     [W:2] (6%)
       PercentInList: ' (6%)'
@@ -45,32 +52,44 @@ MonoBehaviour:
       PercentInList: ' (6%)'
       Weight: 2
       Item: {fileID: 11400000, guid: bedacfacb06f9d84a852c78477894714, type: 2}
-    - Name: 37-Speedster.     [W:2] (6%)
-      PercentInList: ' (6%)'
-      Weight: 2
+    - Name: 37-Speedster.     [W:3] (8%)
+      PercentInList: ' (8%)'
+      Weight: 3
       Item: {fileID: 11400000, guid: fa5af5f9f1f902e4bb9ffca8200d7a09, type: 2}
-    - Name: 35-Pyromancer I.     [W:3] (10%)
-      PercentInList: ' (10%)'
-      Weight: 3
-      Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
-    - Name: 36-Electromancer I.     [W:3] (10%)
-      PercentInList: ' (10%)'
-      Weight: 3
-      Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
-    - Name: 59-Geomancer I.     [W:3] (10%)
-      PercentInList: ' (10%)'
-      Weight: 3
-      Item: {fileID: 11400000, guid: 432f0183b9505ae489bd33185a16c8d4, type: 2}
-    - Name: 49-Necronomicon.     [W:2] (6%)
+    - Name: 21-Meteor Call.     [W:2] (6%)
       PercentInList: ' (6%)'
       Weight: 2
-      Item: {fileID: 11400000, guid: 52302c071e0770a4db780be9ef057832, type: 2}
+      Item: {fileID: 11400000, guid: a47b01c01ffe94d4b901443bb40dfe12, type: 2}
     - Name: 47-Wisps.     [W:2] (6%)
       PercentInList: ' (6%)'
       Weight: 2
       Item: {fileID: 11400000, guid: da3ef8c7d7e01a444b5a0525735ce824, type: 2}
+    - Name: 49-Necronomicon.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 52302c071e0770a4db780be9ef057832, type: 2}
     - Name: 58-Thunderstorm.     [W:2] (6%)
       PercentInList: ' (6%)'
       Weight: 2
       Item: {fileID: 11400000, guid: 424755a4d8f59a84aadaf7cbbc6bed36, type: 2}
-  _deckToLoadFrom: {fileID: 11400000, guid: 3a07c27d9f90cce448e24319da535a39, type: 2}
+    - Name: 65-Mana Delirium.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: d049e468b39022c47a5fbdfcbb1d1ebc, type: 2}
+    - Name: 35-Pyromancer I.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
+    - Name: 36-Electromancer I.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
+    - Name: 37-Speedster.     [W:3] (8%)
+      PercentInList: ' (8%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: fa5af5f9f1f902e4bb9ffca8200d7a09, type: 2}
+    - Name: 59-Geomancer I.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 432f0183b9505ae489bd33185a16c8d4, type: 2}
+  _deckToLoadFrom: {fileID: 11400000, guid: 5a30f98da3e30d64d97e989aac0ff954, type: 2}

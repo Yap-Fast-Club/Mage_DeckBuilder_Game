@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: All_Cards_Deck
   m_EditorClassIdentifier: 
   deckId: deck_starter
-  deckName: Starter Deck
+  deckName: All freaking cards
   cardList:
   - {fileID: 11400000, guid: 3da1f1cdc28882b4caa6ac6c3eb5bb9a, type: 2}
   - {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
@@ -77,3 +77,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b10feb2547248747abe1dd3cdb82ef6, type: 2}
   - {fileID: 11400000, guid: f2b91987f414bf64aa53bc3a7cdd858e, type: 2}
   - {fileID: 11400000, guid: 7ca07feb41a0d50419c8f5015e4b902e, type: 2}
+  - {fileID: 11400000, guid: d049e468b39022c47a5fbdfcbb1d1ebc, type: 2}
+  - {fileID: 11400000, guid: 96a1e3ebccf584e48b3d707bf094cc2f, type: 2}
+  - {fileID: 11400000, guid: 103186334a33a314c86fa1751c84b261, type: 2}

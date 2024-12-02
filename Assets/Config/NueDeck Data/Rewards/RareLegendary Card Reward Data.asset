@@ -14,147 +14,166 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
   rewardDescription: Choose card
+  _defaultCommonWeight: 0
+  _defaultRareWeight: 3
+  _defaultSpecialWeight: 3
+  _defaultLegendaryWeight: 1
+  probabilityIndexAdvance: 0
+  InspectorSpellAmount: 18
+  InspectorIncantAmount: 20
   weightedCardRewards:
-    InspectorTotalWeight: 60
+    InspectorTotalWeight: 91
     Items:
-    - Name: 9-Lightning Strike.     [W:2] (3%)
+    - Name: 9-Lightning Strike.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: 40849326e12d83443b6f49f1ab30134f, type: 2}
-    - Name: 10-Pray.     [W:2] (3%)
+    - Name: 10-Pray.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: aabd5eb005470de47bd9fe59d9f0606f, type: 2}
-    - Name: 11-Burning Blood.     [W:2] (3%)
+    - Name: 11-Burning Blood.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: 2ed1ed6bf3759fb40b1e88f7a3eae0ce, type: 2}
-    - Name: 12-Tranfusion.     [W:2] (3%)
+    - Name: 12-Tranfusion.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
-    - Name: 13-Resonance.     [W:2] (3%)
+    - Name: 13-Resonance.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: c851f9a32bac1854cb31b092d894fd0c, type: 2}
-    - Name: 15-Boulder Throw.     [W:2] (3%)
+    - Name: 15-Groundshock.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: ba0699e03b6867c459fd800053a87cc5, type: 2}
-    - Name: 17-Spark.     [W:2] (3%)
+    - Name: 17-Spark.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: af02730c54040ee4881c3a030106ed26, type: 2}
-    - Name: 18-Shard Storm.     [W:2] (3%)
+    - Name: 18-Shard Storm.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: 1d813ad362863a74db9fab984e66044c, type: 2}
-    - Name: 20-Dark Grasp.     [W:2] (3%)
+    - Name: 20-Dark Grasp.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: 0fc16477761c6c64086dffad5b02b410, type: 2}
-    - Name: 22-Cyclone.     [W:2] (3%)
+    - Name: 22-Cyclone.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: ebee20614517b9746befe51815a3470f, type: 2}
-    - Name: 23-Static Field.     [W:2] (3%)
+    - Name: 23-Static Field.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: 0cadbba19afb5b24d893acd3ad0c63bb, type: 2}
-    - Name: 25-Sneak.     [W:2] (3%)
+    - Name: 25-Sneak.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: 9ee12751033095048a0e31a60b9c9cb4, type: 2}
-    - Name: 26-Lock In.     [W:2] (3%)
+    - Name: 26-Lock In.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: f4c47b6cac6b74644b2c06a3284066c6, type: 2}
-    - Name: 27-Enrage.     [W:2] (3%)
+    - Name: 27-Enrage.     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
       Item: {fileID: 11400000, guid: 4f24f02a3ca909a4bacd661f610d7c32, type: 2}
-    - Name: 30-Strain .     [W:1] (2%)
-      PercentInList: ' (2%)'
-      Weight: 1
-      Item: {fileID: 11400000, guid: 918ba8cac4f0c194a93fddabcc952629, type: 2}
-    - Name: 32-Fire Breath.     [W:2] (3%)
+    - Name: 30-Strain .     [W:3] (3%)
       PercentInList: ' (3%)'
-      Weight: 2
+      Weight: 3
+      Item: {fileID: 11400000, guid: 918ba8cac4f0c194a93fddabcc952629, type: 2}
+    - Name: 32-Fire Breath.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
       Item: {fileID: 11400000, guid: a410d004ee634e14d8ec63d2914d98f9, type: 2}
-    - Name: 35-Pyromancer I.     [W:3] (5%)
-      PercentInList: ' (5%)'
+    - Name: 41-Ecstatic Trance.     [W:3] (3%)
+      PercentInList: ' (3%)'
       Weight: 3
-      Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
-    - Name: 59-Geomancer I.     [W:3] (5%)
-      PercentInList: ' (5%)'
+      Item: {fileID: 11400000, guid: da9ca951e9b471d4f81130aec7be63c8, type: 2}
+    - Name: 48-Binding Oath.     [W:3] (3%)
+      PercentInList: ' (3%)'
       Weight: 3
-      Item: {fileID: 11400000, guid: 432f0183b9505ae489bd33185a16c8d4, type: 2}
-    - Name: 36-Electromancer I.     [W:3] (5%)
-      PercentInList: ' (5%)'
+      Item: {fileID: 11400000, guid: 33f519aee46eeef478871d76fcf2b0bc, type: 2}
+    - Name: 51-Judgement.     [W:3] (3%)
+      PercentInList: ' (3%)'
       Weight: 3
-      Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
-    - Name: 16-Handell Snack.     [W:1] (2%)
-      PercentInList: ' (2%)'
-      Weight: 1
-      Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
-    - Name: 19-Pandemonium.     [W:1] (2%)
-      PercentInList: ' (2%)'
+      Item: {fileID: 11400000, guid: 8ea02b469b8517a4a97760ac21338c83, type: 2}
+    - Name: 54-Transfer.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: dc294c0173ccc074f93b39211c7ff0a2, type: 2}
+    - Name: 40-Bonk.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: b4d02c7038074d342b0a2dec569adeea, type: 2}
+    - Name: 19-Pandemonium.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: abd25fc305cd27b43b0b058e1767bc93, type: 2}
-    - Name: 21-Meteor Call.     [W:1] (2%)
-      PercentInList: ' (2%)'
+    - Name: 21-Meteor Call.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: a47b01c01ffe94d4b901443bb40dfe12, type: 2}
-    - Name: 24-Telekinesis.     [W:1] (2%)
-      PercentInList: ' (2%)'
+    - Name: 24-Telekinesis.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 723e2971451333948881ad7d7f813267, type: 2}
-    - Name: 28-Overwhelm.     [W:1] (2%)
-      PercentInList: ' (2%)'
+    - Name: 28-Overwhelm.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 91ce2a66f7e161b4cbf102155ded1b9e, type: 2}
-    - Name: 29-Nirvana.     [W:1] (2%)
-      PercentInList: ' (2%)'
+    - Name: 29-Nirvana.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: be5fbdc8b754caa4c9533542301efc0a, type: 2}
-    - Name: 33-Hell Fire.     [W:1] (2%)
-      PercentInList: ' (2%)'
+    - Name: 33-Hell Fire.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 48d5dce97c96fe74a8378a966b42424d, type: 2}
-    - Name: 34-Earthquake.     [W:1] (2%)
-      PercentInList: ' (2%)'
+    - Name: 34-Earthquake.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: bedacfacb06f9d84a852c78477894714, type: 2}
-    - Name: 37-Speedster.     [W:1] (2%)
-      PercentInList: ' (2%)'
-      Weight: 1
+    - Name: 37-Speedster.     [W:4] (4%)
+      PercentInList: ' (4%)'
+      Weight: 4
       Item: {fileID: 11400000, guid: fa5af5f9f1f902e4bb9ffca8200d7a09, type: 2}
-    - Name: 41-Trance Dance.     [W:2] (3%)
-      PercentInList: ' (3%)'
-      Weight: 2
-      Item: {fileID: 11400000, guid: da9ca951e9b471d4f81130aec7be63c8, type: 2}
-    - Name: 47-Wisps.     [W:1] (2%)
-      PercentInList: ' (2%)'
+    - Name: 21-Meteor Call.     [W:1] (1%)
+      PercentInList: ' (1%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: a47b01c01ffe94d4b901443bb40dfe12, type: 2}
+    - Name: 47-Wisps.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: da3ef8c7d7e01a444b5a0525735ce824, type: 2}
-    - Name: 48-Binding Oath.     [W:2] (3%)
-      PercentInList: ' (3%)'
-      Weight: 2
-      Item: {fileID: 11400000, guid: 33f519aee46eeef478871d76fcf2b0bc, type: 2}
-    - Name: 54-Transfer.     [W:2] (3%)
-      PercentInList: ' (3%)'
-      Weight: 2
-      Item: {fileID: 11400000, guid: dc294c0173ccc074f93b39211c7ff0a2, type: 2}
-    - Name: 51-Judgement.     [W:2] (3%)
-      PercentInList: ' (3%)'
-      Weight: 2
-      Item: {fileID: 11400000, guid: 8ea02b469b8517a4a97760ac21338c83, type: 2}
-    - Name: 49-Necronomicon.     [W:1] (2%)
-      PercentInList: ' (2%)'
+    - Name: 49-Necronomicon.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 52302c071e0770a4db780be9ef057832, type: 2}
-    - Name: 58-Thunderstorm.     [W:1] (2%)
-      PercentInList: ' (2%)'
+    - Name: 58-Thunderstorm.     [W:1] (1%)
+      PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: 424755a4d8f59a84aadaf7cbbc6bed36, type: 2}
-  _deckToLoadFrom: {fileID: 11400000, guid: 3a07c27d9f90cce448e24319da535a39, type: 2}
+    - Name: 65-Mana Delirium.     [W:1] (1%)
+      PercentInList: ' (1%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: d049e468b39022c47a5fbdfcbb1d1ebc, type: 2}
+    - Name: 35-Pyromancer I.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
+    - Name: 36-Electromancer I.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
+    - Name: 37-Speedster.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: fa5af5f9f1f902e4bb9ffca8200d7a09, type: 2}
+    - Name: 59-Geomancer I.     [W:3] (3%)
+      PercentInList: ' (3%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: 432f0183b9505ae489bd33185a16c8d4, type: 2}
+  _deckToLoadFrom: {fileID: 11400000, guid: 5a30f98da3e30d64d97e989aac0ff954, type: 2}

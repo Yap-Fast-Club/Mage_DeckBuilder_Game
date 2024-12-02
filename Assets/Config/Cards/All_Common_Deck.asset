@@ -15,11 +15,7 @@ MonoBehaviour:
   deckId: common_deck
   deckName: All Common Deck
   cardList:
-  - {fileID: 11400000, guid: 3da1f1cdc28882b4caa6ac6c3eb5bb9a, type: 2}
   - {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
-  - {fileID: 11400000, guid: 5a5bcbbefd6be3443a38cbfa2963be74, type: 2}
-  - {fileID: 11400000, guid: 444a5e755358d734c9116d3614318746, type: 2}
-  - {fileID: 11400000, guid: 18dcbc8f9ec7a6f4495429a9149ae647, type: 2}
   - {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
   - {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
   - {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
@@ -30,3 +26,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dceffa6cc9261a04cae89e0d25965452, type: 2}
   - {fileID: 11400000, guid: 3b5bb16799f848c479ec4c9d93332a1e, type: 2}
   - {fileID: 11400000, guid: 32c0b0d80fe1e764e973d835d2fb33bc, type: 2}
+  - {fileID: 11400000, guid: 103186334a33a314c86fa1751c84b261, type: 2}
+  - {fileID: 11400000, guid: 96a1e3ebccf584e48b3d707bf094cc2f, type: 2}
