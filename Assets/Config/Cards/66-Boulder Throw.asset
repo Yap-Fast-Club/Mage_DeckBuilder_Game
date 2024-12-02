@@ -10,29 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 23-Static Field
+  m_Name: 66-Boulder Throw
   m_EditorClassIdentifier: 
-  id: 23
-  cardName: Static Field
+  id: 66
+  cardName: Boulder Throw
   type: 0
-  manaCost: 5
-  turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 4067e9effd5e67b49b977e3da4f357fc, type: 3}
-  rarity: 1
-  usableWithoutTarget: 1
+  manaCost: 2
+  turnCost: 2
+  cardSprite: {fileID: 21300000, guid: 1f815b84a774963428e07d14e5f5f69d, type: 3}
+  rarity: 0
+  usableWithoutTarget: 0
   exhaustAfterPlay: 0
-  _channel: 1
+  _channel: 0
   cardActionDataList:
   - _repeatAction: 0
     _repeatAmount: 0
-    cardActionType: 12
-    actionTargetType: 2
+    cardActionType: 0
+    actionTargetType: 0
     actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 1
+    actionAreaValue: 1
+    actionValue: 12
     actionDelay: 0
+    audioActionType: 28
   cardDescriptionDataList:
-  - descriptionText: Deal (
+  - descriptionText: 'Deal '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -43,14 +44,14 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 1, g: 0, b: 0, a: 1}
+    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 6
-    usePrefixOnModifiedValue: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  - descriptionText: ) Damage to all enemies.
+    overrideColorOnValueScaled: 1
+  - descriptionText: ' Damage.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -59,17 +60,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: '
-
-      (1 per Reserve Mana)'
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  specialKeywordsList: 090000000a000000
-  audioType: 0
+  specialKeywordsList: 07000000
+  audioType: 26
   EvolveToCard: {fileID: 0}

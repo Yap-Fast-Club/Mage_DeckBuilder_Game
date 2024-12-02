@@ -23,11 +23,13 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 0
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 0
     actionTargetType: 10
     actionAreaType: 0
     actionAreaValue: 1
-    actionValue: 10
+    actionValue: 9
     actionDelay: 0
   cardDescriptionDataList:
   - descriptionText: 'Deal '

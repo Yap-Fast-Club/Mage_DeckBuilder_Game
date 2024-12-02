@@ -40,7 +40,7 @@ MonoBehaviour:
     actionValue: 0
     actionDelay: 1
   cardDescriptionDataList:
-  - descriptionText: Transmute "Fire Bolt" into "Boulder Throw".
+  - descriptionText: Transmute "Fire Bolt" into "Groundshock".
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
