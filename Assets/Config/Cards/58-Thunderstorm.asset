@@ -31,6 +31,7 @@ MonoBehaviour:
     actionAreaValue: 1
     actionValue: 7
     actionDelay: 0.2
+    audioActionType: 23
   cardDescriptionDataList:
   - descriptionText: Repeat [
     enableOverrideColor: 0
@@ -99,6 +100,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 0a000000
+  specialKeywordsList: 0a00000009000000
   audioType: 23
   EvolveToCard: {fileID: 0}
