@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 379436959}
   - component: {fileID: 379436958}
   - component: {fileID: 379436957}
-  - component: {fileID: 379436956}
   - component: {fileID: 379436955}
   m_Layer: 5
   m_Name: PlayButton
@@ -311,18 +310,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundProfileData: {fileID: 11400000, guid: 2d30565e54caf3e40a21dfdac091b79e, type: 2}
---- !u!114 &379436956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379436953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a7e3f294a7c2c44eb6cffeb9f94b306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &379436957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,19 +353,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 379436958}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 379436956}
-        m_TargetAssemblyTypeName: NueGames.NueDeck.Scripts.Utils.SceneChanger, Assembly-CSharp
-        m_MethodName: OpenMapScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &379436958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +429,7 @@ MonoBehaviour:
   enemiesRemainingText: {fileID: 972202299}
   winTurnsRemainingText: {fileID: 4312043306614006567}
   SoftWinPanel: {fileID: 946744446}
+  EndNowButton: {fileID: 379436957}
 --- !u!114 &385770288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2337,7 +2313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You survived
+  m_text: The siege is over
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2494,9 +2470,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4312043307305719462}
+  - {fileID: 4312043308460268034}
   - {fileID: 4312043306614006584}
   - {fileID: 2125616422}
-  - {fileID: 4312043308460268034}
   - {fileID: 1954110956}
   m_Father: {fileID: 3084352742917371855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
