@@ -131,11 +131,11 @@ namespace NueGames.NueDeck.Scripts.Card
             {
                 foreach (var actionData in actionDataListCopy)
                 {
-                    yield return new WaitForSeconds(actionData.ActionDelay);
                     var action = CardActionProcessor.GetAction(actionData.CardActionType);
 
                     for (int i = 0; i < actionData.RepeatAmount; i++)
                     {
+                        yield return new WaitForSeconds(actionData.ActionDelay);
                         var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);
                         foreach (var target in targetList)
                             action.DoAction(new CardActionParameters(
