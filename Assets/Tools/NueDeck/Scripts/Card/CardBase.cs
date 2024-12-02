@@ -17,6 +17,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
 namespace NueGames.NueDeck.Scripts.Card
@@ -131,21 +132,21 @@ namespace NueGames.NueDeck.Scripts.Card
                 foreach (var actionData in actionDataListCopy)
                 {
                     yield return new WaitForSeconds(actionData.ActionDelay);
-                    var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);
-
                     var action = CardActionProcessor.GetAction(actionData.CardActionType);
 
-                    foreach (var target in targetList)
-                        for (int i = 0; i < actionData.RepeatAmount; i++)
-                        {
+                    for (int i = 0; i < actionData.RepeatAmount; i++)
+                    {
+                        var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);
+                        foreach (var target in targetList)
                             action.DoAction(new CardActionParameters(
-                                    actionData.GetModifiedValue(CardData), 
-                                    actionData.ActionAreaValue,
-                                    target, self, CardData, this,
-                                    actionData.ActionAudioType == AudioActionType.CardDefault ? CardData.AudioType : actionData.ActionAudioType
-                                    )
-                                ,actionsBlackBoard);
-                        }
+                                actionData.GetModifiedValue(CardData),
+                                actionData.ActionAreaValue,
+                                target, self, CardData, this,
+                                actionData.ActionAudioType == AudioActionType.CardDefault ? CardData.AudioType : actionData.ActionAudioType
+                                )
+                            , actionsBlackBoard);
+                    }
+
 
                 }
 
