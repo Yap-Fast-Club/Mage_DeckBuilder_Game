@@ -381,7 +381,6 @@ namespace NueGames.NueDeck.Scripts.Managers
             //Check channeled Cards
             yield return StartCoroutine(ChanneledCardUseRoutine());
             ChannelCard.CardData.CardActionDataList.Clear();
-
             persistentData.TurnDebt--;
             if (persistentData.TurnDebt > 0)
             {
@@ -493,6 +492,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                 Destroy(enemy.gameObject);
             }
             EnemiesToDestroy.Clear();
+
+            yield return new WaitForFixedUpdate();
 
             List<EnemyBase> enemiesToProcess = new List<EnemyBase>(CurrentEnemiesList);
 
