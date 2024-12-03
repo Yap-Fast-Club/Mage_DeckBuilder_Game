@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using KaimiraGames;
-
+using Random = System.Random;
 
 [Serializable]
 public class WeightedListContainer<T> : ISerializationCallbackReceiver
@@ -23,9 +23,13 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
 
     public void Init(int seed = 0)
     {
-        System.Random seededRanom = seed == 0? null : new System.Random(seed);
+        Random seededRanom = seed == 0? null : new System.Random(seed);
 
         _weightedList = new(Items.Select(WI => new WeightedListItem<T>(WI.Item, WI.Weight)).ToList(), seededRanom);
+    }
+    public void Init(Random random)
+    {
+        _weightedList = new(Items.Select(WI => new WeightedListItem<T>(WI.Item, WI.Weight)).ToList(), random);
     }
 
     void OnValidate()

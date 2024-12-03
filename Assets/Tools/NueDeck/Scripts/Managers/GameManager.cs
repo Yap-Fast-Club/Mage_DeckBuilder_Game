@@ -7,8 +7,9 @@ using NueGames.NueDeck.Scripts.EnemyBehaviour;
 using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.NueExtentions;
 using NueGames.NueDeck.Scripts.Utils;
+using System;
 using UnityEngine;
-using Random = UnityEngine.Random;
+using Random = System.Random;
 
 namespace NueGames.NueDeck.Scripts.Managers
 {
@@ -30,6 +31,10 @@ namespace NueGames.NueDeck.Scripts.Managers
         public GameplayData GameplayData => gameplayData;
         public PersistentGameplayData PersistentGameplayData { get; private set; }
         protected UIManager UIManager => UIManager.Instance;
+
+        public Random Random => PersistentGameplayData.Random;
+
+
         #endregion
         
         #region Setup
@@ -51,6 +56,8 @@ namespace NueGames.NueDeck.Scripts.Managers
                 InitGameplayData();
                 SetInitalHand();
             }
+
+
         }
         #endregion
         
@@ -84,7 +91,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             PersistentGameplayData.CurrentEncounterId++;
             if (PersistentGameplayData.CurrentEncounterId>=EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].NormalEncounterList.Count)
             {
-                PersistentGameplayData.CurrentEncounterId = Random.Range(0,
+                PersistentGameplayData.CurrentEncounterId = Random.Next(0,
                     EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].NormalEncounterList.Count);
             }
         }

@@ -4,7 +4,7 @@ using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Enums;
 using UnityEngine;
-
+using Random = System.Random;
 namespace NueGames.NueDeck.Scripts.Data.Settings
 {
     [Serializable]
@@ -36,6 +36,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public List<CardData> EvoultionCardsPlayed = new List<CardData>();
         public Dictionary<StatusType, StatusStats> SavedStatus = new Dictionary<StatusType, StatusStats>();
 
+        public Random Random; 
         public PersistentGameplayData(GameplayData gameplayData)
         {
             _gameplayData = gameplayData;
@@ -84,9 +85,10 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             EvoultionCardsPlayed.Clear();
             ActionMods.Clear();
             SavedStatus.Clear();
+            Random = _gameplayData.RandomSeed == 0 ? new Random() : new Random(_gameplayData.RandomSeed);
         }
 
-    #region Encapsulation
+        #region Encapsulation
 
         public bool STOP
         {

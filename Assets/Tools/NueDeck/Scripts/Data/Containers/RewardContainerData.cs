@@ -25,13 +25,12 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
      
 
         private PersistentGameplayData _persistentData => GameManager.Instance.PersistentGameplayData;
-        private int _seed { get; set;}
 
         public List<CardData> GetRandomCardReward(out CardRewardData rewardData)
         {
             if (_persistentData.RandomInitialized == false)
             {
-                cardRewardDataList.ForEach(crd => crd.weightedCardRewards.Init(_seed));
+                cardRewardDataList.ForEach(crd => crd.weightedCardRewards.Init(GameManager.Instance.Random));
                 _persistentData.RandomInitialized = true;
             }
 
@@ -41,16 +40,14 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
             min = Mathf.Min(min, CardRewardDataList.Count - cardPackRandomRange);
             max = Mathf.Min(max, CardRewardDataList.Count);
 
-            rewardData = CardRewardDataList.RandomItem(min, max);
+            rewardData = CardRewardDataList.SystemRandomItem(min, max);
 
             List<CardData> cardList = rewardData.GetRandomCards(3);
             int indexAdvance = rewardData.ProbabilityIndexAdvance;
-            
-            Debug.Log($"{rewardData.name} Reward!");
-            Debug.Log($"Advance prob index by {indexAdvance}");
-
             _persistentData.OfferedCardProbIndex += indexAdvance;
-            Debug.Log($"Current prob index {_persistentData.OfferedCardProbIndex} ({cardRewardDataList[_persistentData.OfferedCardProbIndex].name})");
+
+            Debug.Log($"{rewardData.name} Reward! (index: {CardRewardDataList.IndexOf(rewardData)}). " +
+                       $"\n(Advance: {_persistentData.OfferedCardProbIndex}, now {cardRewardDataList[_persistentData.OfferedCardProbIndex].name})\")");
 
             return cardList;
         } 

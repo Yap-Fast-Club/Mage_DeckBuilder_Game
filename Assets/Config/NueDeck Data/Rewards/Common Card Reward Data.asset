@@ -18,7 +18,10 @@ MonoBehaviour:
   _defaultRareWeight: 0
   _defaultSpecialWeight: 0
   _defaultLegendaryWeight: 0
-  probabilityIndexAdvance: 2
+  _commonProbIndexMod: 0.7
+  _rareProbIndexMod: 0.5
+  _legendaryProbIndexMod: -0.7
+  _specialProbIndexMod: -0.2
   InspectorSpellAmount: 7
   InspectorIncantAmount: 6
   weightedCardRewards:

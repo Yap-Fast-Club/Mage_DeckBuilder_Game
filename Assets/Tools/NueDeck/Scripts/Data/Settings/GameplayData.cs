@@ -16,6 +16,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         [SerializeField] private int maxSouls = 5;
         [SerializeField] private List<AllyBase> initalAllyList;
         [SerializeField] private int _collisionDamageOnPush = 1;
+        [SerializeField] public int RandomSeed = 0;
 
         [Header("Decks")] 
         [SerializeField] private DeckData initalDeck;

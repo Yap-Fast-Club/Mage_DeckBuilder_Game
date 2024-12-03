@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NueGames.NueDeck.Scripts.Managers;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -25,7 +26,6 @@ namespace NueGames.NueDeck.Scripts.NueExtentions
             var randomIndex = Random.Range(0, list.Count);
             return list[randomIndex];
         }
-
         public static T RandomItem<T>(this List<T> list, int min, int max)
         {
             if (list.Count == 0)
@@ -35,6 +35,26 @@ namespace NueGames.NueDeck.Scripts.NueExtentions
             var randomIndex = Random.Range(min, max);
             return list[randomIndex];
         }
+
+        public static T SystemRandomItem<T>(this List<T> list, int min, int max)
+        {
+            if (list.Count == 0)
+                throw new IndexOutOfRangeException("List is Empty");
+
+            max = Math.Min(max, list.Count);
+            var randomIndex = GameManager.Instance.Random.Next(min, max);
+            return list[randomIndex];
+        }
+
+        public static T SystemRandomItem<T>(this List<T> list)
+        {
+            if (list.Count == 0)
+                throw new IndexOutOfRangeException("List is Empty");
+
+            var randomIndex = GameManager.Instance.Random.Next(0, list.Count);
+            return list[randomIndex];
+        }
+       
 
 #if UNITY_EDITOR
 
