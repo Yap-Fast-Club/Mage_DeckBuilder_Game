@@ -21,19 +21,26 @@ MonoBehaviour:
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
-  - cardActionType: 3
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 3
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 2
     actionDelay: 0
-  - cardActionType: 6
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 6
     actionTargetType: 3
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: +
     enableOverrideColor: 0
@@ -93,3 +100,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 01000000
   audioType: 20
+  EvolveToCard: {fileID: 0}
