@@ -31,6 +31,7 @@ MonoBehaviour:
     actionAreaValue: 1
     actionValue: 1
     actionDelay: 0
+    audioActionType: 21
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 22
@@ -39,6 +40,7 @@ MonoBehaviour:
     actionAreaValue: 2
     actionValue: 1
     actionDelay: 0
+    audioActionType: 29
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 22
@@ -47,6 +49,7 @@ MonoBehaviour:
     actionAreaValue: 31
     actionValue: 1
     actionDelay: 0
+    audioActionType: 29
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 22
@@ -55,6 +58,7 @@ MonoBehaviour:
     actionAreaValue: 32
     actionValue: 1
     actionDelay: 0
+    audioActionType: 29
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 22
@@ -63,6 +67,25 @@ MonoBehaviour:
     actionAreaValue: 33
     actionValue: 1
     actionDelay: 0
+    audioActionType: 29
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 22
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 17
+    actionValue: 1
+    actionDelay: 0
+    audioActionType: 29
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 22
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 68
+    actionValue: 1
+    actionDelay: 0
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: ' Increase the damage of ALL card with "Fire" in the name by '
     enableOverrideColor: 0
@@ -92,5 +115,5 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
-  audioType: 20
+  audioType: 21
   EvolveToCard: {fileID: 0}
