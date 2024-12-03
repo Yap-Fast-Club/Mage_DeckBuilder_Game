@@ -23,18 +23,24 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 0
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 0
     actionTargetType: 4
     actionAreaType: 0
     actionAreaValue: 5
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 22
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 22
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 51
     actionValue: 1
     actionDelay: 0
+    audioActionType: 28
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0
@@ -63,7 +69,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' to 7 different random enemies.
+  - descriptionText: ' to 5 different random enemies.
 
 '
     enableOverrideColor: 0
