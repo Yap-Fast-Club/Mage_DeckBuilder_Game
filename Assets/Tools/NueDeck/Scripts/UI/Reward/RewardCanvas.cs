@@ -21,6 +21,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
         [SerializeField] private Transform rewardPanelRoot;
         [Header("Choice")]
         [SerializeField] private TextMeshProUGUI _choiceTitle;
+        [SerializeField] private TextMeshProUGUI _rarityRewardCheatText;
         [SerializeField] private Transform choice2DCardSpawnRoot;
         [SerializeField] private ChoiceCard choiceCardUIPrefab;
         [SerializeField] private ChoicePanel choicePanel;
@@ -30,6 +31,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
         private readonly List<CardData> _cardRewardList = new List<CardData>();
 
         public ChoicePanel ChoicePanel => choicePanel;
+
 
         #region Public Methods
 
@@ -56,6 +58,16 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
                     break;
                 case RewardType.Card:
                     var rewardCardList = rewardContainerData.GetRandomCardReward(out var cardRewardData);
+                    _rarityRewardCheatText.text = rewardContainerData.LastReward switch
+                    {
+                        "Common Card Reward Data" => "c",
+                        "CommonRare Card Reward Data" => "cr",
+                        "Rare Card Reward Data" => "r",
+                        "CommonRareLegendary Card Reward Data" => "crl",
+                        "RareLegendary Card Reward Data" => "rl",
+                        "Legendary Card Reward Data" => "l",
+                        _ => ""
+                    };
                     _cardRewardList.Clear();
                     _cardRewardList.AddRange(rewardCardList);
 

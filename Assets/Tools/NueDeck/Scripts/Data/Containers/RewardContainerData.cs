@@ -25,6 +25,7 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
      
 
         private PersistentGameplayData _persistentData => GameManager.Instance.PersistentGameplayData;
+        public string LastReward { get; private set; }
 
         public List<CardData> GetRandomCardReward(out CardRewardData rewardData)
         {
@@ -41,6 +42,7 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
             max = Mathf.Min(max, CardRewardDataList.Count);
 
             rewardData = CardRewardDataList.SystemRandomItem(min, max);
+            LastReward = rewardData.name;
 
             List<CardData> cardList = rewardData.GetRandomCards(3);
             int indexAdvance = rewardData.ProbabilityIndexAdvance;
