@@ -47,17 +47,53 @@ namespace NueGames.NueDeck.Editor
     {
 #if UNITY_EDITOR
 
-        RarityType selectedRarity;
+        int selectedRewardRarity;
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
+            var targetCard = (CardData)target;
+
 
             if (GUILayout.Button("Open in editor"))
             {
-                CardEditorWindow.OpenCardEditor((CardData)target);
+                CardEditorWindow.OpenCardEditor(targetCard);
             }
 
 
+            EditorGUILayout.Space(20);
+
+            string[] options = new string[]
+            {
+                "Common Card Reward Data", "CommonRare Card Reward Data", "Rare Card Reward Data", 
+                "CommonRareLegendary Card Reward Data", "RareLegendary Card Reward Data", "Legendary Card Reward Data", 
+            };
+
+            selectedRewardRarity = EditorGUILayout.Popup(selectedRewardRarity, options);
+
+
+            if (GUILayout.Button("Add to selected rewards"))
+            {
+                string path = $"Assets/Config/NueDeck Data/Rewards/{options[selectedRewardRarity]}.asset";
+
+                var rewardData = EditorUtilities.LoadScriptableObject<CardRewardData>(path);
+
+
+                if (rewardData != null)
+                {
+                    rewardData.Add(targetCard);
+                    Debug.Log($"Added {targetCard.CardName} to {options[selectedRewardRarity]}");
+                }
+                else
+                {
+                    Debug.LogError("Failed to find Card Reward Data ScriptableObject at " + path);
+                }
+
+            }
+
+
+
+
+            serializedObject.ApplyModifiedProperties();
         }
 
 #endif
