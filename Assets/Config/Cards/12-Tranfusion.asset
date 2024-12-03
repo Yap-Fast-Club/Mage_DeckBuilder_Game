@@ -17,7 +17,7 @@ MonoBehaviour:
   type: 1
   manaCost: 0
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: dd3885098198d104888439be4c590aba, type: 3}
+  cardSprite: {fileID: 21300000, guid: 289e8897868dadf4a92fa642765673dc, type: 3}
   rarity: 1
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
@@ -31,6 +31,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 2
     actionDelay: 0
+    audioActionType: 28
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 6
@@ -39,6 +40,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 8
     actionDelay: 0
+    audioActionType: 28
   cardDescriptionDataList:
   - descriptionText: 'Lose '
     enableOverrideColor: 0

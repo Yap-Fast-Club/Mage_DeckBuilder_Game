@@ -23,24 +23,33 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 0
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 0
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 2
     actionDelay: 0
-  - cardActionType: 10
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 10
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 2
     actionDelay: 0.1
-  - cardActionType: 11
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 0.5
+    audioActionType: 28
   cardDescriptionDataList:
   - descriptionText: 'Push '
     enableOverrideColor: 0
