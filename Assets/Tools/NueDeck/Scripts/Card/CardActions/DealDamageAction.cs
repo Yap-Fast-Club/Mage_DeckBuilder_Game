@@ -21,6 +21,9 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             int damageDealt =  previousHealth - targetCharacter.CharacterStats.CurrentHealth;
             blackboard.DamageDealt += damageDealt;
 
+            if (targetCharacter.CharacterStats.IsDead)
+                blackboard.DeadEnemies++;
+
             blackboard.ResetPower = true;
 
             if (FxManager != null)
@@ -28,9 +31,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 FxManager.PlayFx(actionParameters.TargetCharacter.transform,FxType.Attack);
                 FxManager.SpawnFloatingText(actionParameters.TargetCharacter.TextSpawnRoot,value.ToString());
             }
-           
-            if (AudioManager != null) 
-                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
+          
         }
     }
 
