@@ -7,6 +7,7 @@ using NueGames.NueDeck.Scripts.Card.CardActions;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Characters.Enemies;
 using NueGames.NueDeck.Scripts.Collection;
+using NueGames.NueDeck.Scripts.Data.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Containers;
 using NueGames.NueDeck.Scripts.Data.Settings;
@@ -344,6 +345,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             {
                 persistentData.SetAllyHealthData(allyBase.AllyCharacterData.CharacterID,
                     allyBase.CharacterStats.CurrentHealth, allyBase.CharacterStats.MaxHealth);
+
             }
             
             CollectionManager.ClearPiles();
@@ -462,10 +464,26 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             AudioManager.Instance.StopMusic();
             AudioManager.Instance.PlayMusic(AudioActionType.CombatMusic);
-            CurrentMainAlly.CharacterStats.SetCurrentHealth(CurrentMainAlly.CharacterStats.MaxHealth);
+
+            var data = GameManager.PersistentGameplayData.AllyHealthDataList.Find(x =>
+               x.CharacterId == CurrentMainAlly.AllyCharacterData.CharacterID);
+
+            if (data != null)
+            {
+                CurrentMainAlly.CharacterStats.MaxHealth = data.MaxHealth;
+
+                CurrentMainAlly.CharacterStats.SetCurrentHealth(CurrentMainAlly.CharacterStats.MaxHealth);
+            }
+            else
+            {
+                GameManager.PersistentGameplayData.SetAllyHealthData(CurrentMainAlly.AllyCharacterData.CharacterID, CurrentMainAlly.CharacterStats.CurrentHealth, CurrentMainAlly.CharacterStats.MaxHealth);
+                Debug.Log(CurrentMainAlly.CharacterStats.MaxHealth);
+            }
+            UIManager.Instance.InformationCanvas.ResetCanvas();
+
             UIManager.CombatCanvas.Bind();
             UIManager.Instance.CombatCanvas.SetPileTexts();
-            UIManager.Instance.InformationCanvas.ResetCanvas();
+            UIManager.Instance.InformationCanvas.SetHealthGUI(CurrentMainAlly.CharacterStats.CurrentHealth, CurrentMainAlly.CharacterStats.MaxHealth);
 
             foreach (var savedStatus in persistentData.SavedStatus)
             {

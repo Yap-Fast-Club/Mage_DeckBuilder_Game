@@ -18,11 +18,14 @@ MonoBehaviour:
   _defaultRareWeight: 3
   _defaultSpecialWeight: 2
   _defaultLegendaryWeight: 1
-  probabilityIndexAdvance: 0
-  InspectorSpellAmount: 25
-  InspectorIncantAmount: 26
+  _commonProbIndexMod: 0.7
+  _rareProbIndexMod: 0.5
+  _legendaryProbIndexMod: -0.7
+  _specialProbIndexMod: -0.2
+  InspectorSpellAmount: 27
+  InspectorIncantAmount: 28
   weightedCardRewards:
-    InspectorTotalWeight: 123
+    InspectorTotalWeight: 132
     Items:
     - Name: 2-Fire Rain.     [W:3] (2%)
       PercentInList: ' (2%)'
@@ -100,7 +103,7 @@ MonoBehaviour:
       PercentInList: ' (2%)'
       Weight: 3
       Item: {fileID: 11400000, guid: ba0699e03b6867c459fd800053a87cc5, type: 2}
-    - Name: 17-Spark.     [W:3] (2%)
+    - Name: 17-Fire Touch.     [W:3] (2%)
       PercentInList: ' (2%)'
       Weight: 3
       Item: {fileID: 11400000, guid: af02730c54040ee4881c3a030106ed26, type: 2}
@@ -228,4 +231,20 @@ MonoBehaviour:
       PercentInList: ' (1%)'
       Weight: 1
       Item: {fileID: 11400000, guid: d049e468b39022c47a5fbdfcbb1d1ebc, type: 2}
+    - Name: 70-Ward.     [W:3] (2%)
+      PercentInList: ' (2%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: 3b2624f4e7a48a040a585b7e9e638dc0, type: 2}
+    - Name: 68-Fireworks.     [W:3] (2%)
+      PercentInList: ' (2%)'
+      Weight: 3
+      Item: {fileID: 11400000, guid: 0f7cafdb47db7444da20f5eef0eb73f3, type: 2}
+    - Name: 69-Monsoon.     [W:1] (1%)
+      PercentInList: ' (1%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: 8ff0fcbdb0ebd214da15be17f9c2dda1, type: 2}
+    - Name: 70-Ward.     [W:2] (2%)
+      PercentInList: ' (2%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 3b2624f4e7a48a040a585b7e9e638dc0, type: 2}
   _deckToLoadFrom: {fileID: 11400000, guid: 3a07c27d9f90cce448e24319da535a39, type: 2}
