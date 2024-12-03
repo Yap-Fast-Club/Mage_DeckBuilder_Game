@@ -722,34 +722,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 866293165058463255, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
-      propertyPath: m_Name
-      value: Portal Graphic 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 985718672249143895, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
-      propertyPath: m_Name
-      value: Portal Graphic 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5225507230910636172, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
-      propertyPath: m_Name
-      value: Portal Graphic 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8257220158700732191, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
-      propertyPath: m_Name
-      value: Portal Graphic 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536345782551362866, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
-      propertyPath: m_Color.b
-      value: 0.509434
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536345782551362866, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
-      propertyPath: m_Color.g
-      value: 0.42512947
-      objectReference: {fileID: 0}
-    - target: {fileID: 8536345782551362866, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
-      propertyPath: m_Color.r
-      value: 0.39649343
-      objectReference: {fileID: 0}
     - target: {fileID: 8708447814713431381, guid: 36c7284207bc0f143bdc3f1933146cf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
