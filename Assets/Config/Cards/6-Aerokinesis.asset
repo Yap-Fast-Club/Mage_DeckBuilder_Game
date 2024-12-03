@@ -15,9 +15,9 @@ MonoBehaviour:
   id: 6
   cardName: Aerokinesis
   type: 0
-  manaCost: 0
+  manaCost: 1
   turnCost: 1
-  cardSprite: {fileID: 21300000, guid: f258468dc29edac49820f77610293413, type: 3}
+  cardSprite: {fileID: 21300000, guid: 1239f8855fb0e3e42a1a53e2bbbb2c71, type: 3}
   rarity: 0
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
@@ -26,11 +26,12 @@ MonoBehaviour:
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 10
-    actionTargetType: 0
+    actionTargetType: 12
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 4
     actionDelay: 0
+    audioActionType: 22
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 11
@@ -39,6 +40,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 0.5
+    audioActionType: 28
   cardDescriptionDataList:
   - descriptionText: 'Push '
     enableOverrideColor: 0
@@ -58,7 +60,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 1
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 1
-  - descriptionText: ' an enemy.'
+  - descriptionText: ' an enemy and all enemies behind.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
