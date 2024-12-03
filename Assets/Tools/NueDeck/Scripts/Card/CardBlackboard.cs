@@ -18,6 +18,7 @@ namespace NueGames.NueDeck.Scripts.Card
         public int SpentSouls = 0;
         public int GainedSouls = 0;
         public int DamageDealt = 0;
+        public int DeadEnemies = 0;
 
         public bool ResetPower = false;
         public bool ResetFocus = false;
@@ -34,6 +35,7 @@ namespace NueGames.NueDeck.Scripts.Card
             GainedSouls = 0;
             GainedMana = 0;
             DamageDealt = 0;
+            DeadEnemies = 0;
             ResetPower = false;
         }
     }

@@ -33,6 +33,7 @@
         SpendMana,
         ExcessAttack,
         DealDamageForEverySpentSoul,
+        ReduceMovementBy
 
     }
 
@@ -43,6 +44,7 @@
         Repeat,
         RepeatPerReserveMana,
         RepeatPerSouls,
-        RepeatPerDamageDealt
+        RepeatPerDamageDealt,
+        RepeatPerDeadEnemy
     }
 }

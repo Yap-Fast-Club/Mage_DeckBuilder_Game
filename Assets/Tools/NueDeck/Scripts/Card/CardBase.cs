@@ -133,7 +133,8 @@ namespace NueGames.NueDeck.Scripts.Card
                 {
                     var action = CardActionProcessor.GetAction(actionData.CardActionType);
 
-                    for (int i = 0; i < actionData.RepeatAmount; i++)
+                    int amountToRepeat = actionData.RepeatAmount; //to break the reference and avoid extending the loop
+                    for (int i = 0; i < amountToRepeat; i++)
                     {
                         yield return new WaitForSeconds(actionData.ActionDelay);
                         var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);

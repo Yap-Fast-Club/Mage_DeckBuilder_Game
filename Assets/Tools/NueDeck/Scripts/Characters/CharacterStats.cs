@@ -40,7 +40,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         public int MaxMovement => 9;
         public int CurrentSouls { get; set; }
         public bool IsStunned { get;  set; }
-        public bool IsDeath { get; private set; }
+        public bool IsDead { get; private set; }
        
         public Action OnDeath;
         public Action<int, int> OnHealthChanged;
@@ -189,7 +189,7 @@ namespace NueGames.NueDeck.Scripts.Characters
         
         public void Damage(int value, bool canPierceArmor = false)
         {
-            if (IsDeath) return;
+            if (IsDead) return;
             value = value < 0 ? 0 : value;
             OnTakeDamageAction?.Invoke();
             var remainingDamage = value;
@@ -215,7 +215,7 @@ namespace NueGames.NueDeck.Scripts.Characters
             {
                 CurrentHealth = 0;
                 OnDeath?.Invoke();
-                IsDeath = true;
+                IsDead = true;
             }
             OnHealthChanged?.Invoke(CurrentHealth,MaxHealth);
         }

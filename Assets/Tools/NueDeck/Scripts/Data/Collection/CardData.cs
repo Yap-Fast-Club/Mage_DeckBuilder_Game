@@ -260,6 +260,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                                         ActionRepeatType.RepeatPerReserveMana => GameManager.Instance.PersistentGameplayData.CurrentMana,
                                         ActionRepeatType.RepeatPerSouls => GameManager.Instance.PersistentGameplayData.CurrentSouls,
                                         ActionRepeatType.RepeatPerDamageDealt => CardBlackboard.LastPlayedInfo.DamageDealt,
+                                        ActionRepeatType.RepeatPerDeadEnemy => CardBlackboard.LastPlayedInfo.DeadEnemies,
                                         _ => 1
                                     };
 
