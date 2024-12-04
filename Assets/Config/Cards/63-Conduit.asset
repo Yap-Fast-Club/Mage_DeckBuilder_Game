@@ -61,5 +61,5 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
-  audioType: 20
+  audioType: 23
   EvolveToCard: {fileID: 0}

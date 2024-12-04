@@ -31,6 +31,7 @@ MonoBehaviour:
     actionAreaValue: 5
     actionValue: 18
     actionDelay: 0
+    audioActionType: 28
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 11
@@ -39,6 +40,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: Transmute "Shard Volley" into "Shard Storm".
     enableOverrideColor: 0
@@ -50,5 +52,5 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
-  audioType: 20
+  audioType: 26
   EvolveToCard: {fileID: 11400000, guid: c526fb5464a852943a1eaf8f6ebaf812, type: 2}

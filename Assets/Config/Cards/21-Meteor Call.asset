@@ -26,11 +26,11 @@ MonoBehaviour:
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 11
-    actionTargetType: 1
+    actionTargetType: 3
     actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 0
-    actionDelay: 1
+    actionAreaValue: 1
+    actionValue: 1
+    actionDelay: 0
     audioActionType: 15
   - _repeatAction: 0
     _repeatAmount: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 20
-    actionDelay: 1.5
+    actionDelay: 2.5
     audioActionType: 16
   cardDescriptionDataList:
   - descriptionText: 'Deal '

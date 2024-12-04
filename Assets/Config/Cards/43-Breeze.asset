@@ -49,7 +49,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 0.5
-    audioActionType: 28
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: 'Push '
     enableOverrideColor: 0

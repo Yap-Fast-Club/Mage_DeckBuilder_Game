@@ -21,19 +21,26 @@ MonoBehaviour:
   rarity: 2
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
+  _channel: 0
   cardActionDataList:
-  - cardActionType: 10
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 10
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 11
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 0
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 0.4
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: 'Push '
     enableOverrideColor: 0
@@ -64,3 +71,4 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0000000006000000
   audioType: 22
+  EvolveToCard: {fileID: 0}

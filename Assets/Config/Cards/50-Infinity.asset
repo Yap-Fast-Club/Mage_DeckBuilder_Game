@@ -23,36 +23,51 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 20
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 20
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 5
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 5
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 6
     actionDelay: 0
-  - cardActionType: 3
+    audioActionType: 4
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 3
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 6
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 6
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 19
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 19
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
+    audioActionType: 28
   cardDescriptionDataList:
   - descriptionText: 'Discard your hand.
 

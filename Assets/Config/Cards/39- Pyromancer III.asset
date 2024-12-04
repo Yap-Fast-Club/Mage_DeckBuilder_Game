@@ -31,6 +31,7 @@ MonoBehaviour:
     actionAreaValue: 32
     actionValue: 33
     actionDelay: 0
+    audioActionType: 28
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 11
@@ -39,6 +40,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
+    audioActionType: 28
   cardDescriptionDataList:
   - descriptionText: Transmute "Fire Breath" into "Hell Fire"
     enableOverrideColor: 0
@@ -50,5 +52,5 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   specialKeywordsList: 0600000003000000
-  audioType: 20
+  audioType: 21
   EvolveToCard: {fileID: 11400000, guid: 5b10feb2547248747abe1dd3cdb82ef6, type: 2}
