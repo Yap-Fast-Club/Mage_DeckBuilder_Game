@@ -26,7 +26,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             if (CollectionManager.DrawPile.Count > 0)
             {
                 var randomCardData = CollectionManager.DrawPile.RandomItem();
-                CollectionManager.DrawCard(randomCardData);
+                CollectionManager.DrawCard(randomCardData.Id);
 
                 CardBase cardInHand=null;
                 if (actionParameters.AreaValue == 0)

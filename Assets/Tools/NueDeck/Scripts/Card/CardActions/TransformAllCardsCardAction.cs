@@ -27,19 +27,18 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             for ( int i = 0; i < allCopiesInDeck.Count; i++ )
             {
                 GameManager.PersistentGameplayData.CurrentCardsList.Add(cardToCreateData);
-                CollectionManager.DrawPile.Add(cardToCreateData);
+                CollectionManager.AddNewCardToDrawPile(cardToCreateData);
             }
-            CollectionManager.UpdateDrawPile();
 
             int prevHandSize = CollectionManager.HandPile.Count;
 
-            foreach (var card in allCopiesInDeck) 
+            foreach (var cardCopy in allCopiesInDeck) 
             {
-                if (!CollectionManager.HandPile.Contains(card))
-                    CollectionManager.DrawCard(card, ignoreLimit: true);
+                if (!CollectionManager.HandPile.Contains(cardCopy))
+                    CollectionManager.DrawCard(cardCopy.Id, ignoreLimit: true);
 
-                var cardInHand = CollectionManager.HandController.hand.Find(c => c.CardData == card);
-                CollectionManager.HandController.RemoveCardFromHand(card);
+                var cardInHand = CollectionManager.HandController.hand.Find(c => c.CardData.Id == cardCopy.Id);
+                CollectionManager.HandController.RemoveCardFromHand(cardCopy);
 
                 cardInHand.Exhaust(false);
             }
@@ -48,7 +47,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
             for ( int i = 0; i < prevHandSize - postHandSize;i++)
             {
-                CollectionManager.DrawCard(cardToCreateData);
+                CollectionManager.DrawCard(cardToCreateData.Id);
             }
 
            

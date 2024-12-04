@@ -22,12 +22,12 @@ namespace NueGames.NueDeck.Scripts.Managers
         [Header("Controllers")] 
         [SerializeField] private HandController handController;
 
-        public Action<CardBase> CardPlayed; 
+        public Action<CardBase> CardPlayed;
 
 
         #region Cache
 
-        public List<CardData> DrawPile { get; private set; } = new List<CardData>();
+        public List<CardData> DrawPile => _weightedDrawPile.ToList();
         public List<CardData> HandPile { get; private set; } = new List<CardData>();
         public List<CardData> DiscardPile { get; private set; } = new List<CardData>();
 
@@ -61,17 +61,21 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         public void AddNewCardToHand(CardData card)
         {
-
-            AddNewCardToDrawPile(card);
-            DrawCard(card);
+            var cardCopy = Instantiate(card);  //clone
+            GameManager.PersistentGameplayData.CurrentCardsList.Add(card);
+            _weightedDrawPile.Add(cardCopy, 10);
+            DrawCard(cardCopy);
         }
         public void AddNewCardToDrawPile(CardData card)
         {
-            card = Instantiate(card);  //clone
-            GameManager.PersistentGameplayData.CurrentCardsList.Add(card);
-            DrawPile.Add(card);
-            _weightedDrawPile.Add(card, 10);
+            var cardCopy = Instantiate(card);  //clone
+            GameManager.PersistentGameplayData.CurrentCardsList.Add(cardCopy);
+            _weightedDrawPile.Add(cardCopy, 10);
+        }
 
+        public void ClearDrawPile()
+        {
+            _weightedDrawPile.Clear();
         }
 
         #region Public Methods
@@ -81,11 +85,11 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             for (var i = 0; i < targetDrawCount; i++)
             {
-                if (GameManager.GameplayData.MaxCardOnHand<=HandPile.Count)
+                if (GameManager.GameplayData.MaxCardOnHand <= HandPile.Count)
                     return;
                 
 
-                if (DrawPile.Count <= 0)
+                if (_weightedDrawPile.Count <= 0)
                 {
                     var nDrawCount = targetDrawCount - currentDrawCount;
                     
@@ -106,7 +110,15 @@ namespace NueGames.NueDeck.Scripts.Managers
                 cardObject.UpdateCardText();
         }
 
-        public void DrawCard(CardData card, bool ignoreLimit = false)
+
+        public void DrawCard(string cardID, bool ignoreLimit = false)
+        {
+            if (!_weightedDrawPile.Any(c => c.Id == cardID)) return;
+
+            DrawCard(_weightedDrawPile.First(c => c.Id == cardID), ignoreLimit);
+        }
+
+        private void DrawCard(CardData card, bool ignoreLimit = false)
         {
             if (GameManager.GameplayData.MaxCardOnHand <= HandPile.Count && !ignoreLimit)
                 return;
@@ -118,14 +130,12 @@ namespace NueGames.NueDeck.Scripts.Managers
             clone.UpdateCardText();
             AudioManager.Instance.PlayOneShot(Enums.AudioActionType.Draw);
 
-            DrawPile.Remove(card);
-            _weightedDrawPile.SetWeight(card, 10);
             _weightedDrawPile.Remove(card);
-            _weightedDrawPile.AddWeightToAll(2);
+            _weightedDrawPile.AddWeightToAll(1);
         }
         public void DiscardHand()
         {
-            _weightedDrawPile.AddWeightToAll(4);
+            _weightedDrawPile.AddWeightToAll(2);
 
             foreach (var cardBase in HandController.hand) 
                 cardBase.Discard();
@@ -136,7 +146,6 @@ namespace NueGames.NueDeck.Scripts.Managers
         public void OnCardDiscarded(CardBase targetCard)
         {
             HandPile.Remove(targetCard.CardData);
-            DrawPile.Add(targetCard.CardData);
             _weightedDrawPile.Add(targetCard.CardData, 10);
             UIManager.CombatCanvas.SetPileTexts();
         }
@@ -166,25 +175,16 @@ namespace NueGames.NueDeck.Scripts.Managers
         }
         public void SetGameDeck()
         {
-            foreach (var i in GameManager.PersistentGameplayData.CurrentCardsList)
-            {
-                DrawPile.Add(i);
-            }
+            var initialDeckCopies = GameManager.PersistentGameplayData.CurrentCardsList.Select(c => Instantiate(c));
 
-            _weightedDrawPile = new(DrawPile.Select(c  => new WeightedListItem<CardData>(c, 10)).ToList(), GameManager.DrawRandom);
+            _weightedDrawPile = new(initialDeckCopies.Select(c => new WeightedListItem<CardData>(c, 10)).ToList(), GameManager.DrawRandom);
         }
 
-        public void UpdateDrawPile()
-        {
-            foreach (var c in GameManager.PersistentGameplayData.CurrentCardsList)
-                if (!DrawPile.Contains(c) && !HandPile.Contains(c))
-                    DrawPile.Add(c);
-        }
 
         public void ClearPiles()
         {
             DiscardPile.Clear();
-            DrawPile.Clear();
+            _weightedDrawPile.Clear();
             HandPile.Clear();
             ExhaustPile.Clear();
             HandController.hand.Clear();
@@ -202,16 +202,16 @@ namespace NueGames.NueDeck.Scripts.Managers
         private void ReshuffleDiscardPile()
         {
             foreach (var i in DiscardPile) 
-                DrawPile.Add(i);
+                _weightedDrawPile.Add(i, 10);
             
             DiscardPile.Clear();
         }
         private void ReshuffleDrawPile()
         {
-            foreach (var i in DrawPile) 
+            foreach (var i in _weightedDrawPile) 
                 DiscardPile.Add(i);
             
-            DrawPile.Clear();
+            _weightedDrawPile.Clear();
         }
         #endregion
 

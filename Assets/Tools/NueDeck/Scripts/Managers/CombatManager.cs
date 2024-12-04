@@ -328,7 +328,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             
             CollectionManager.DiscardHand();
             CollectionManager.DiscardPile.Clear();
-            CollectionManager.DrawPile.Clear();
+            CollectionManager.ClearDrawPile();
             CollectionManager.HandPile.Clear();
             CollectionManager.HandController.hand.Clear();
             UIManager.CombatCanvas.gameObject.SetActive(true);
