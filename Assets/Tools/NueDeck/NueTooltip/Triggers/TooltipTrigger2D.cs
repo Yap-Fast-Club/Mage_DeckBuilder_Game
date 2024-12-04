@@ -8,12 +8,14 @@ namespace NueGames.NueDeck.ThirdParty.NueTooltip.Triggers
     {
         public void OnPointerEnter(PointerEventData eventData)
         {
-           ShowTooltipInfo();
+            if (this.enabled)
+                ShowTooltipInfo();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            HideTooltipInfo(TooltipManager.Instance);
+            if (this.enabled)
+                HideTooltipInfo(TooltipManager.Instance);
         }
     }
 }

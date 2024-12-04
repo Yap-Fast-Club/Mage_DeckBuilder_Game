@@ -2,16 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeIn : MonoBehaviour
+public class Fade : MonoBehaviour
 {
     [SerializeField] private CanvasGroup fader;
     [SerializeField] private float fadeSpeed = 1f;
 
     private void Awake()
     {
-        StartCoroutine(Fade(true));
+        fader.alpha = 0; ;
     }
-    public IEnumerator Fade(bool isIn)
+
+    public void FadeInFadeOut()
+    {
+        StartCoroutine(FadeInFadeOutCR());
+    }
+    private IEnumerator FadeInFadeOutCR()
+    {
+        yield return StartCoroutine(FadeCR(true));
+        yield return StartCoroutine(FadeCR(false));
+    }
+    public IEnumerator FadeCR(bool isIn)
     {
         var waitFrame = new WaitForEndOfFrame();
         var timer = isIn ? 0f : 1f;
@@ -23,8 +33,11 @@ public class FadeIn : MonoBehaviour
             fader.alpha = timer;
 
             if (timer >= 1f) break;
+            if (timer < 0) break;
 
             yield return waitFrame;
         }
+
+        //fader.alpha 
     }
 }

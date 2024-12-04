@@ -93,7 +93,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                 
                 fader.alpha = timer;
                 
-                if (timer>=1f)  break;
+                if (timer >=1f)  break;
               
                 yield return waitFrame;
             }

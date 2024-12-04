@@ -18,7 +18,7 @@ namespace NueGames.NueDeck.Scripts.UI
         [Header("Buttons")]
         [SerializeField] private Button _paidConsumeHandellButton;
         [SerializeField] private Button _freeConsumeHandellButton;
-        [SerializeField] private Image _freeHandellProgressBar;
+        [SerializeField] private Image[] _cardOnImages;
  
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI drawPileTextField;
@@ -38,6 +38,7 @@ namespace NueGames.NueDeck.Scripts.UI
         [Header("Other")]
         [SerializeField] TooltipTrigger2D _channeledCardsTooltip;
         [SerializeField] TextMeshProUGUI _channeledCardsAmount;
+        [SerializeField] private Fade _turnEndFade;
 
         public TooltipTrigger2D ChanneledCards => _channeledCardsTooltip;
         public TextMeshProUGUI DrawPileTextField => drawPileTextField;
@@ -63,6 +64,7 @@ namespace NueGames.NueDeck.Scripts.UI
         public void Bind()
         {
             CollectionManager.CardPlayed += OnCardPlayed;
+            CombatManager.OnEnemyTurnStarted += OnTurnEnded;
         }
 
         
@@ -70,6 +72,7 @@ namespace NueGames.NueDeck.Scripts.UI
         public void Unbind()
         {
             CollectionManager.CardPlayed -= OnCardPlayed;
+            CombatManager.OnEnemyTurnStarted += OnTurnEnded;
         }
 
         private void Start()
@@ -78,7 +81,10 @@ namespace NueGames.NueDeck.Scripts.UI
             _freeConsumeHandellButton.onClick.AddListener(ConsumeHandell);
             _paidConsumeHandellButton.gameObject.SetActive(true);
             _freeConsumeHandellButton.gameObject.SetActive(false);
-            _freeHandellProgressBar.fillAmount = GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
+            foreach (var card in _cardOnImages)
+            {
+                card.gameObject.SetActive(false);
+            }
         }
         private void OnDisable()
         {
@@ -111,14 +117,22 @@ namespace NueGames.NueDeck.Scripts.UI
                 _playedChannelCards.Clear();
             }
 
-            //mana
+            int cardsPlayed = Mathf.Min(GameManager.PersistentGameplayData.HandellCount, GameManager.PersistentGameplayData.HandellThreshold);
+            cardsPlayed = Mathf.Min(cardsPlayed, _cardOnImages.Length);
 
-         
+            for (int i = 0; i < _cardOnImages.Length; i++) 
+            {
+                _cardOnImages[i].gameObject.SetActive(i <= cardsPlayed - 1);
+            }
 
-            _freeHandellProgressBar.fillAmount = (float)GameManager.PersistentGameplayData.HandellCount / GameManager.PersistentGameplayData.HandellThreshold;
 
             if (GameManager.PersistentGameplayData.HandellIsActive)
                 ShowFreeHandell(true);
+        }
+
+        private void OnTurnEnded()
+        {
+            _turnEndFade.FadeInFadeOut();
         }
 
         private Coroutine _dimManaCR;
@@ -205,18 +219,20 @@ namespace NueGames.NueDeck.Scripts.UI
                 EndTurn();
 
             GameManager.PersistentGameplayData.HandellCount = 0;
-            _freeHandellProgressBar.fillAmount = 0; 
+            foreach (var card in _cardOnImages)
+            {
+                card.gameObject.SetActive(false);
+            }
             ShowFreeHandell(false);
         }
 
 
         private void ShowFreeHandell(bool show)
         {
-            _paidConsumeHandellButton.gameObject.SetActive(!show);
-            _freeConsumeHandellButton.gameObject.SetActive(show);
-
-            if (show)
+            if (show && !_freeConsumeHandellButton.gameObject.activeSelf)
                 AudioManager.Instance.PlayOneShot(AudioActionType.HandellActivation);
+
+            _freeConsumeHandellButton.gameObject.SetActive(show);
         }
 
         #endregion
@@ -249,7 +265,11 @@ namespace NueGames.NueDeck.Scripts.UI
             CombatLosePanel.SetActive(false);
             NextCombatPanel.SetActive(false);
             ShowFreeHandell(false);
-            _freeHandellProgressBar.fillAmount = 0;
+
+            foreach (var card in _cardOnImages)
+            {
+                card.gameObject.SetActive(false);
+            }
         }
 
         public void EndTurn()
