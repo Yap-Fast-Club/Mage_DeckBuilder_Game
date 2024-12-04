@@ -38,6 +38,7 @@ namespace NueGames.NueDeck.Scripts.Card
         [SerializeField] protected List<RarityRoot> rarityRootList;
         [SerializeField] protected List<TypeRoot> _typeRootList;
         [SerializeField] protected RarityColors _rarityColors;
+        [SerializeField] public TextMeshProUGUI weightTextField;
 
 
         #region Cache
@@ -90,10 +91,12 @@ namespace NueGames.NueDeck.Scripts.Card
             foreach (var typeRoot in _typeRootList)
                 typeRoot.gameObject.SetActive(typeRoot.Type == CardData.Type);
 
-            if (CardData.EvolveToCard && persistentData.EvoultionCardsPlayed.Contains(CardData))
-                SetCard(CardData.EvolveToCard);
+            if (CardData.EvolveToCard && persistentData.EvoultionCardsPlayed.Contains(CardData.Id))
+                SetCard(Instantiate(CardData.EvolveToCard));
 
             _rarityColors.SetColors(CardData.Rarity);
+
+            weightTextField.text = $"(W:{CollectionManager.WeightOf(CardData)})";
         }
 
         #endregion
@@ -162,7 +165,7 @@ namespace NueGames.NueDeck.Scripts.Card
             }
 
             if (CardData.EvolveToCard)
-                persistentData.EvoultionCardsPlayed.Add(CardData);
+                persistentData.EvoultionCardsPlayed.Add(CardData.Id);
 
             if (persistentData.HandellIsActive)
             {

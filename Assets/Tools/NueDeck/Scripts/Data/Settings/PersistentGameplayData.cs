@@ -33,7 +33,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public bool RandomInitialized = false;
         public int OfferedCardProbIndex = 0;
         public Dictionary<(string, CardActionType), float> ActionMods = new Dictionary<(string, CardActionType), float>();
-        public List<CardData> EvoultionCardsPlayed = new List<CardData>();
+        public List<string> EvoultionCardsPlayed = new List<string>();
         public Dictionary<StatusType, StatusStats> SavedStatus = new Dictionary<StatusType, StatusStats>();
 
         public Random RewardRandom; 
