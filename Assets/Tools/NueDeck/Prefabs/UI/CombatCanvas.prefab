@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerText: Played Card
-  contentText: '3 card played. Handell is awake.
+  contentText: '3 cards played. Handell is awake.
 
     (resets after reseting hand)'
   tooltipStaticTargetTransform: {fileID: 0}
@@ -4155,7 +4155,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &8886837578989935238
 MonoBehaviour:
@@ -4862,7 +4862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   headerText: Handell is Asleep
-  contentText: "Click to <b>reset hand</b>. Careful, you will <b>lose 1 turn</b>.
+  contentText: "Click to <b>reset hand</b>. \nCareful, you will <b>lose 1 turn</b>.
     \nAfter <b>3 played cards</b> this is <b>Free</b>!"
   tooltipStaticTargetTransform: {fileID: 0}
   cursorType: 0

@@ -31,6 +31,9 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
                 FxManager.PlayFx(actionParameters.TargetCharacter.transform,FxType.Attack);
                 FxManager.SpawnFloatingText(actionParameters.TargetCharacter.TextSpawnRoot,value.ToString());
             }
+
+            if (AudioManager != null)
+                AudioManager.PlayOneShot(actionParameters.ActionAudioType);
           
         }
     }

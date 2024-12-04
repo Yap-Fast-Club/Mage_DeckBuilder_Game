@@ -132,6 +132,7 @@ namespace NueGames.NueDeck.Scripts.UI
 
         private void OnTurnEnded()
         {
+            if (CombatManager.CurrentCombatStateType != CombatStateType.EndCombat)
             _turnEndFade.FadeInFadeOut();
         }
 
