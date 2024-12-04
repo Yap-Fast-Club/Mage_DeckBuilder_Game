@@ -58,6 +58,6 @@ MonoBehaviour:
     - _name: Turn 5
       TurnNumber: 5
       EnemyLayout: 0000000001000000000000000100000000000000
-    - _name: Turn 10
-      TurnNumber: 10
+    - _name: Turn 9
+      TurnNumber: 9
       EnemyLayout: 0000000000000000000000000000000000000000
