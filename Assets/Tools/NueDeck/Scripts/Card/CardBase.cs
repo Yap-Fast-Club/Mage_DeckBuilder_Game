@@ -78,7 +78,9 @@ namespace NueGames.NueDeck.Scripts.Card
             CardData = targetProfile;
             IsPlayable = isPlayable;
             nameTextField.text = CardData.CardName;
+            CardData.UpdateDescription();
             descTextField.text = CardData.MyDescription;
+
             manaTextField.text = CardData.ManaCost.ToString();
             cardImage.sprite = CardData.CardSprite;
             if (CardData.Type == CardType.Incantation)
@@ -165,7 +167,14 @@ namespace NueGames.NueDeck.Scripts.Card
             }
 
             if (CardData.EvolveToCard)
+            {
                 persistentData.EvoultionCardsPlayed.Add(CardData.Id);
+                var copiesInHand = new List<CardBase>(CollectionManager.HandController.hand.Where(c => c.CardData.Id == CardData.Id));
+                foreach (var card in copiesInHand)
+                {
+                    card.SetCard(card.CardData);
+                }
+            }
 
             if (persistentData.HandellIsActive)
             {
