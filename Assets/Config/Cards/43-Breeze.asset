@@ -40,7 +40,7 @@ MonoBehaviour:
     actionAreaValue: 1
     actionValue: 2
     actionDelay: 0.1
-    audioActionType: 28
+    audioActionType: 29
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 11
