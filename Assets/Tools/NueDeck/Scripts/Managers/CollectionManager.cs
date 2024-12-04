@@ -1,11 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using KaimiraGames;
 using NueGames.NueDeck.Scripts.Card;
 using NueGames.NueDeck.Scripts.Collection;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Settings;
 using UnityEngine;
+using static UnityEditor.Progress;
 using Random = UnityEngine.Random;
 
 namespace NueGames.NueDeck.Scripts.Managers
@@ -27,14 +30,14 @@ namespace NueGames.NueDeck.Scripts.Managers
         public List<CardData> DrawPile { get; private set; } = new List<CardData>();
         public List<CardData> HandPile { get; private set; } = new List<CardData>();
         public List<CardData> DiscardPile { get; private set; } = new List<CardData>();
-        
+
+
+        private WeightedList<CardData> _weightedDrawPile;
+
         public List<CardData> ExhaustPile { get; private set; } = new List<CardData>();
         public HandController HandController => handController;
-        protected FxManager FxManager => FxManager.Instance;
-        protected AudioManager AudioManager => AudioManager.Instance;
         protected GameManager GameManager => GameManager.Instance;
 
-        protected CombatManager CombatManager => CombatManager.Instance;
 
         protected UIManager UIManager => UIManager.Instance;
 
@@ -56,6 +59,20 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         #endregion
 
+        public void AddNewCardToHand(CardData card)
+        {
+
+            AddNewCardToDrawPile(card);
+            DrawCard(card);
+        }
+        public void AddNewCardToDrawPile(CardData card)
+        {
+            card = Instantiate(card);  //clone
+            GameManager.PersistentGameplayData.CurrentCardsList.Add(card);
+            DrawPile.Add(card);
+            _weightedDrawPile.Add(card, 10);
+
+        }
 
         #region Public Methods
         public void DrawCards(int targetDrawCount)
@@ -80,7 +97,7 @@ namespace NueGames.NueDeck.Scripts.Managers
                     break;
                 }
 
-                var randomCard = DrawPile[Random.Range(0, DrawPile.Count)];
+                var randomCard = _weightedDrawPile.Next();
                 DrawCard(randomCard);
                 currentDrawCount++;
             }
@@ -97,16 +114,22 @@ namespace NueGames.NueDeck.Scripts.Managers
             var clone = GameManager.BuildAndGetCard(card, HandController.drawTransform);
             HandController.AddCardToHand(clone, 0);
             HandPile.Add(card);
-            DrawPile.Remove(card);
             UIManager.CombatCanvas.SetPileTexts();
             clone.UpdateCardText();
             AudioManager.Instance.PlayOneShot(Enums.AudioActionType.Draw);
+
+            DrawPile.Remove(card);
+            _weightedDrawPile.SetWeight(card, 10);
+            _weightedDrawPile.Remove(card);
+            _weightedDrawPile.AddWeightToAll(2);
         }
         public void DiscardHand()
         {
+            _weightedDrawPile.AddWeightToAll(4);
+
             foreach (var cardBase in HandController.hand) 
                 cardBase.Discard();
-            
+
             HandController.hand.Clear();
         }
         
@@ -114,6 +137,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
             HandPile.Remove(targetCard.CardData);
             DrawPile.Add(targetCard.CardData);
+            _weightedDrawPile.Add(targetCard.CardData, 10);
             UIManager.CombatCanvas.SetPileTexts();
         }
         
@@ -125,7 +149,6 @@ namespace NueGames.NueDeck.Scripts.Managers
 
             GameManager.PersistentGameplayData.CurrentCardsList.Remove(targetCard.CardData);
         }
-
 
 
         public void OnCardPlayed(CardBase targetCard)
@@ -143,8 +166,12 @@ namespace NueGames.NueDeck.Scripts.Managers
         }
         public void SetGameDeck()
         {
-            foreach (var i in GameManager.PersistentGameplayData.CurrentCardsList) 
+            foreach (var i in GameManager.PersistentGameplayData.CurrentCardsList)
+            {
                 DrawPile.Add(i);
+            }
+
+            _weightedDrawPile = new(DrawPile.Select(c  => new WeightedListItem<CardData>(c, 10)).ToList(), GameManager.DrawRandom);
         }
 
         public void UpdateDrawPile()
@@ -161,6 +188,13 @@ namespace NueGames.NueDeck.Scripts.Managers
             HandPile.Clear();
             ExhaustPile.Clear();
             HandController.hand.Clear();
+        }
+
+        public int WeightOf(CardData card)
+        {
+            if (!_weightedDrawPile.Contains(card)) return 0;
+
+            return _weightedDrawPile.GetWeightOf(card);
         }
         #endregion
 

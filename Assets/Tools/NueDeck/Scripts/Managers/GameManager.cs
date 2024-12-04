@@ -32,7 +32,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         public PersistentGameplayData PersistentGameplayData { get; private set; }
         protected UIManager UIManager => UIManager.Instance;
 
-        public Random Random => PersistentGameplayData.Random;
+        public Random RewardRandom => PersistentGameplayData.RewardRandom;
+        public Random DrawRandom => PersistentGameplayData.DrawRandom;
 
 
         #endregion
@@ -91,7 +92,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             PersistentGameplayData.CurrentEncounterId++;
             if (PersistentGameplayData.CurrentEncounterId>=EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].NormalEncounterList.Count)
             {
-                PersistentGameplayData.CurrentEncounterId = Random.Next(0,
+                PersistentGameplayData.CurrentEncounterId = RewardRandom.Next(0,
                     EncounterData.EnemyEncounterList[PersistentGameplayData.CurrentStageId].NormalEncounterList.Count);
             }
         }

@@ -31,7 +31,7 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
         {
             if (_persistentData.RandomInitialized == false)
             {
-                cardRewardDataList.ForEach(crd => crd.weightedCardRewards.Init(GameManager.Instance.Random));
+                cardRewardDataList.ForEach(crd => crd.weightedCardRewards.Init(GameManager.Instance.RewardRandom));
                 _persistentData.RandomInitialized = true;
             }
 

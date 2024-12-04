@@ -43,10 +43,7 @@ namespace NueGames.NueDeck.Scripts.Card
 
             if (CollectionManager)
             {
-                var clone = GameManager.BuildAndGetCard(_cardBase.CardData, CollectionManager.HandController.drawTransform);
-                CollectionManager.HandController.AddCardToHand(clone, 0);
-                CollectionManager.HandPile.Add(_cardBase.CardData);
-                CollectionManager.DrawPile.Remove(_cardBase.CardData);
+                CollectionManager.AddNewCardToHand(_cardBase.CardData);
             }
 
         }

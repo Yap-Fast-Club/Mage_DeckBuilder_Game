@@ -42,7 +42,7 @@ namespace NueGames.NueDeck.Scripts.NueExtentions
                 throw new IndexOutOfRangeException("List is Empty");
 
             max = Math.Min(max, list.Count);
-            var randomIndex = GameManager.Instance.Random.Next(min, max);
+            var randomIndex = GameManager.Instance.RewardRandom.Next(min, max);
             return list[randomIndex];
         }
 
@@ -51,7 +51,7 @@ namespace NueGames.NueDeck.Scripts.NueExtentions
             if (list.Count == 0)
                 throw new IndexOutOfRangeException("List is Empty");
 
-            var randomIndex = GameManager.Instance.Random.Next(0, list.Count);
+            var randomIndex = GameManager.Instance.RewardRandom.Next(0, list.Count);
             return list[randomIndex];
         }
        
