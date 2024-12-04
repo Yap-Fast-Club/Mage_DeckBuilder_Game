@@ -23,24 +23,33 @@ MonoBehaviour:
   exhaustAfterPlay: 1
   _channel: 1
   cardActionDataList:
-  - cardActionType: 11
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
-  - cardActionType: 9
+    audioActionType: 15
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 9
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 0
-  - cardActionType: 0
+    audioActionType: 29
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 20
     actionDelay: 1.5
+    audioActionType: 16
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0

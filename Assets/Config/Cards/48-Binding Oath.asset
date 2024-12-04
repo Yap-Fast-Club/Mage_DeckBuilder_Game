@@ -23,18 +23,24 @@ MonoBehaviour:
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - cardActionType: 13
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 13
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 3
     actionDelay: 0
-  - cardActionType: 24
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 24
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
+    audioActionType: 20
   cardDescriptionDataList:
   - descriptionText: 'Lose '
     enableOverrideColor: 0

@@ -23,24 +23,33 @@ MonoBehaviour:
   exhaustAfterPlay: 1
   _channel: 0
   cardActionDataList:
-  - cardActionType: 18
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 18
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
     actionDelay: 0
-  - cardActionType: 18
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 18
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
     actionDelay: 1
-  - cardActionType: 11
+    audioActionType: 29
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
     actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
     actionValue: 0
     actionDelay: 1
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: 'Erase two random common cards inside Handell. '
     enableOverrideColor: 0

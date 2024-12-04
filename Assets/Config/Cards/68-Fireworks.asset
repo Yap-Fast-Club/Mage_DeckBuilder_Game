@@ -38,7 +38,7 @@ MonoBehaviour:
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 1
-    actionValue: 4
+    actionValue: 3
     actionDelay: 0.5
     audioActionType: 21
   cardDescriptionDataList:

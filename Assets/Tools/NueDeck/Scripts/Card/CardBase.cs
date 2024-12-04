@@ -115,9 +115,6 @@ namespace NueGames.NueDeck.Scripts.Card
             AudioManager.Instance.PlayOneShot(AudioActionType.CardPlayed);
 
 
-            if (CardData.Id == "21") 
-                AudioManager.Instance.PlayOneShot(AudioActionType.MeteorBegin);
-
             var actionDataListCopy = new List<CardActionData>();
 
             //Prepare Actions to execute

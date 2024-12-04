@@ -31,6 +31,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 1
     actionDelay: 0
+    audioActionType: 28
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 19
@@ -39,6 +40,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 2
     actionDelay: 0
+    audioActionType: 20
   cardDescriptionDataList:
   - descriptionText: 'Draw '
     enableOverrideColor: 0
@@ -82,7 +84,7 @@ MonoBehaviour:
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
-    modifiedActionValueIndex: 2
+    modifiedActionValueIndex: 1
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
@@ -96,6 +98,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 07000000
+  specialKeywordsList: 0700000008000000
   audioType: 4
   EvolveToCard: {fileID: 0}

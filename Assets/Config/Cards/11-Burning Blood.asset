@@ -31,6 +31,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 6
     actionDelay: 0
+    audioActionType: 28
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 6
@@ -39,6 +40,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 6
     actionDelay: 0
+    audioActionType: 21
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 3
@@ -47,6 +49,7 @@ MonoBehaviour:
     actionAreaValue: 0
     actionValue: 4
     actionDelay: 0
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: 'Lose '
     enableOverrideColor: 0
@@ -131,6 +134,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 06000000
+  specialKeywordsList: 0600000001000000
   audioType: 1
   EvolveToCard: {fileID: 0}
