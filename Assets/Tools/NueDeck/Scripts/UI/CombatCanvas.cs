@@ -211,7 +211,7 @@ namespace NueGames.NueDeck.Scripts.UI
 
         }
 
-        private void ConsumeHandell()
+        public void ConsumeHandell()
         {
             CollectionManager.Instance.DiscardHand();
             CollectionManager.Instance.DrawCards(GameManager.PersistentGameplayData.DrawCount);

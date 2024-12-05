@@ -8,7 +8,6 @@ using NueGames.NueDeck.Scripts.Collection;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Settings;
 using UnityEngine;
-using static UnityEditor.Progress;
 using Random = UnityEngine.Random;
 
 namespace NueGames.NueDeck.Scripts.Managers

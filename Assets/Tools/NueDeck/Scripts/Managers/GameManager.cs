@@ -102,9 +102,29 @@ namespace NueGames.NueDeck.Scripts.Managers
         }
         #endregion
 
+        bool openInventory = false;
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                openInventory ^= true;
+                if (openInventory)
+                {
+                    this.GetComponent<InventoryHelper>()?.OpenInventory();
+                }
+                else
+                {
+                    UIManager.InventoryCanvas.CloseCanvas();
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                UIManager.CombatCanvas.ConsumeHandell();
+            }
+
+
             if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.P))
             {
                 PersistentGameplayData.CanSelectCards = true;
