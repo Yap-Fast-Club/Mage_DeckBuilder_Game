@@ -36,11 +36,6 @@ namespace NueGames.NueDeck.Scripts.Card
 
         public void AddCardToHand()
         {
-            if (GameManager != null)
-            {
-                GameManager.PersistentGameplayData.CurrentCardsList.Add(_cardBase.CardData);
-            }
-
             if (CollectionManager)
             {
                 CollectionManager.AddNewCardToHand(_cardBase.CardData);

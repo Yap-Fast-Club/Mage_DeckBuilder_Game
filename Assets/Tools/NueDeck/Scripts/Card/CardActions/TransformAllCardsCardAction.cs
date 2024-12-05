@@ -26,7 +26,6 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             CardData cardToCreateData = GameManager.GameplayData.AllCardsList.CardList.Find(c => c.Id == toCreateID);
             for ( int i = 0; i < allCopiesInDeck.Count; i++ )
             {
-                GameManager.PersistentGameplayData.CurrentCardsList.Add(cardToCreateData);
                 CollectionManager.AddNewCardToDrawPile(cardToCreateData);
             }
 
