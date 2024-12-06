@@ -5589,7 +5589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 74351137832867389, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 712929092637557575, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
       propertyPath: m_text
@@ -5638,6 +5638,10 @@ PrefabInstance:
     - target: {fileID: 712929094550944353, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4289088107
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300665257990567323, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1801004218555258799, guid: ea36b1aa3e616c34caafedd21e45e4b8, type: 3}
       propertyPath: m_Pivot.x
