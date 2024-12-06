@@ -12,9 +12,11 @@ namespace NueGames.NueDeck.Scripts.Utils
         [SerializeField] private AnimationCurve xForceCurve;
         [SerializeField] private TextMeshProUGUI textField;
         
-        public void PlayText(string text,int xDir,int yDir = -1)
+        public void PlayText(string text,int xDir,int yDir = -1, float duration = 0)
         {
             textField.text = text;
+
+            this.duration = duration == 0 ? this.duration : duration;
             StartCoroutine(TextRoutine(xDir,yDir));
         }
 

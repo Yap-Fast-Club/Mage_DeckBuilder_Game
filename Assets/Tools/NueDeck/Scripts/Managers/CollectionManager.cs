@@ -110,27 +110,33 @@ namespace NueGames.NueDeck.Scripts.Managers
         }
 
 
-        public void DrawCard(string cardID, bool ignoreLimit = false)
+        public CardBase DrawCard(string cardID, bool ignoreLimit = false, bool addToHand = true)
         {
-            if (!_weightedDrawPile.Any(c => c.Id == cardID)) return;
+            if (!_weightedDrawPile.Any(c => c.Id == cardID)) return null;
 
-            DrawCard(_weightedDrawPile.First(c => c.Id == cardID), ignoreLimit);
+            return DrawCard(_weightedDrawPile.First(c => c.Id == cardID), ignoreLimit, addToHand);
         }
 
-        private void DrawCard(CardData card, bool ignoreLimit = false)
+        private CardBase DrawCard(CardData card, bool ignoreLimit = false, bool addToHand = true)
         {
             if (GameManager.GameplayData.MaxCardOnHand <= HandPile.Count && !ignoreLimit)
-                return;
+                return null;
 
             var clone = GameManager.BuildAndGetCard(card, HandController.drawTransform);
-            HandController.AddCardToHand(clone, 0);
-            HandPile.Add(card);
-            UIManager.CombatCanvas.SetPileTexts();
-            clone.UpdateCardText();
-            AudioManager.Instance.PlayOneShot(Enums.AudioActionType.Draw);
+            if ( addToHand)
+            {
+                HandController.AddCardToHand(clone, 0);
+                HandPile.Add(card);
+                UIManager.CombatCanvas.SetPileTexts();
+                AudioManager.Instance.PlayOneShot(Enums.AudioActionType.Draw);
+                _weightedDrawPile.AddWeightToAll(1);
+            }
 
+
+            clone.UpdateCardText();
             _weightedDrawPile.Remove(card);
-            _weightedDrawPile.AddWeightToAll(1);
+
+            return clone;
         }
         public void DiscardHand()
         {
@@ -155,7 +161,9 @@ namespace NueGames.NueDeck.Scripts.Managers
             ExhaustPile.Add(targetCard.CardData);
             UIManager.CombatCanvas.SetPileTexts();
 
-            GameManager.PersistentGameplayData.CurrentCardsList.Remove(targetCard.CardData);
+            var cardToRemove = GameManager.PersistentGameplayData.CurrentCardsList.Find(c => targetCard.CardData.Id == c.Id);
+
+            GameManager.PersistentGameplayData.CurrentCardsList.Remove(cardToRemove);
         }
 
 

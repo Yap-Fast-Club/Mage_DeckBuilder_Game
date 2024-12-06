@@ -31,6 +31,7 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField] private TargetDetector _targetDetector;
         [SerializeField] private CardData _channelCardData;
         [SerializeField] private CardBase _channelCardBase;
+        public Transform DefaultTextSpawnRoot;
 
         [Header("Custom")]
         [SerializeField] private bool _capManaAtMax = true;
@@ -155,6 +156,8 @@ namespace NueGames.NueDeck.Scripts.Managers
         #region Public Methods
         public void EndTurn()
         {
+            if (CurrentCombatStateType != CombatStateType.AllyTurn) return;
+
             CurrentCombatStateType = CombatStateType.EnemyTurn;
         }
 
@@ -386,6 +389,7 @@ namespace NueGames.NueDeck.Scripts.Managers
             persistentData.TurnDebt--;
             if (persistentData.TurnDebt > 0)
             {
+                yield return new WaitForSeconds(0.5f);
                 if (CurrentMainAlly.CharacterStats.StatusDict.ContainsKey(StatusType.Hibernate))
                 {
                     int hibernateAmount = CurrentMainAlly.CharacterStats.StatusDict[StatusType.Hibernate].StatusValue;
@@ -496,7 +500,10 @@ namespace NueGames.NueDeck.Scripts.Managers
         {
 
             if (CurrentEnemiesList.Count == 0 && WaveManager.CurrentWaveIsFinal() && WaveManager.CurrentWaveIsCompleted())
+            {
                 ForceWinCombat();
+                yield break;
+            }
 
             UIManager.Instance.CombatCanvas.EnableHandell(false);
             var waitDelay = new WaitForSeconds(0.1f);

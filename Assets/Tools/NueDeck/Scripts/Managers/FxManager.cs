@@ -44,13 +44,13 @@ namespace NueGames.NueDeck.Scripts.Managers
 
         #region Public Methods
 
-        public void SpawnFloatingText(Transform targetTransform,string text, int xDir =0, int yDir =-1)
+        public void SpawnFloatingText(Transform targetTransform,string text, int xDir =0, int yDir =-1, float duration = 1)
         {
             var cloneText =Instantiate(floatingTextPrefab, targetTransform.position, Quaternion.identity);
             
             if (xDir == 0)
                 xDir = Random.value>=0.5f ? 1 : -1;
-            cloneText.PlayText(text,xDir,yDir);
+            cloneText.PlayText(text,xDir,yDir, duration);
         }
         public void PlayFx(Transform targetTransform, FxType targetFx)
         {

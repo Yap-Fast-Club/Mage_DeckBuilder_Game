@@ -54,7 +54,20 @@ namespace NueGames.NueDeck.Scripts.NueExtentions
             var randomIndex = GameManager.Instance.RewardRandom.Next(0, list.Count);
             return list[randomIndex];
         }
-       
+
+        public static void Shuffle<T>(this IList<T> list)
+        {
+            int n = list.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = GameManager.Instance.DrawRandom.Next(n + 1);
+                T value = list[k];
+                list[k] = list[n];
+                list[n] = value;
+            }
+        }
+
 
 #if UNITY_EDITOR
 

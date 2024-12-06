@@ -3,6 +3,7 @@ using NueGames.NueDeck.Scripts.Enums;
 using NueGames.NueDeck.Scripts.Managers;
 using NueGames.NueDeck.Scripts.NueExtentions;
 using NueGames.NueDeck.Scripts.Utils;
+using System.Linq;
 using UnityEngine;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
@@ -22,26 +23,25 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
             };
 
 
+            var shuffledDrawPile = CollectionManager.DrawPile.Where(c => actionParameters.AreaValue > 0 ? c.Rarity == targetRarity : c).ToList();
 
-            if (CollectionManager.DrawPile.Count > 0)
+            if (shuffledDrawPile.Count == 0)
             {
-                var randomCardData = CollectionManager.DrawPile.RandomItem();
-                CollectionManager.DrawCard(randomCardData.Id);
-
-                CardBase cardInHand=null;
-                if (actionParameters.AreaValue == 0)
-                    cardInHand = CollectionManager.HandController.hand.Find(c => c.CardData == randomCardData);
-                else if (actionParameters.AreaValue <= 3)
-                    cardInHand = CollectionManager.HandController.hand.Find(c => c.CardData == randomCardData && c.CardData.Rarity == targetRarity);
-
-                if (cardInHand == null)
-                    return;
-
-                CollectionManager.HandController.StopAllCoroutines();
-                CollectionManager.HandController.RemoveCardFromHand(cardInHand.CardData);
-
-                cardInHand.Exhaust(false);
+                FxManager.SpawnFloatingText(CombatManager.DefaultTextSpawnRoot, "No card(s) to erase", duration: 3);
+                return;
             }
+
+            shuffledDrawPile.Shuffle();
+
+            for (int i = 0; i < Mathf.Min(shuffledDrawPile.Count, actionParameters.Value); i++)
+            {
+                var drawnCard = CollectionManager.DrawCard(shuffledDrawPile[i].Id, addToHand: false);
+                CollectionManager.HandController.StopAllCoroutines();
+                drawnCard?.Exhaust(false);
+            }
+
+
+            //CollectionManager.HandController.RemoveCardFromHand(cardInHand.CardData);
 
             if (AudioManager != null)
                 AudioManager.PlayOneShot(actionParameters.ActionAudioType);
