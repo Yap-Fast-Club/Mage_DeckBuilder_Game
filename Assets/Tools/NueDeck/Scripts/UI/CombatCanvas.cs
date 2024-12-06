@@ -132,7 +132,9 @@ namespace NueGames.NueDeck.Scripts.UI
 
         private void OnTurnEnded()
         {
-            if (CombatManager.CurrentCombatStateType != CombatStateType.EndCombat)
+            if (WaveManager.Instance.GetRemainingEnemies() == 0 && WaveManager.Instance.CurrentWaveIsFinal() && CombatManager.Instance.CurrentEnemiesList.Count == 0)
+                    return;
+
             _turnEndFade.FadeInFadeOut();
         }
 
