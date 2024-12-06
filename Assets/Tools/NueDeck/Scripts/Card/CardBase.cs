@@ -420,13 +420,29 @@ namespace NueGames.NueDeck.Scripts.Card
 
         }
 
+        static int cardsBeingExhausted = 0;
+        static Vector3[] exhaustPositions = new Vector3[]
+        {
+            Vector3.zero,
+            Vector3.right * 1.5f,
+            Vector3.left * 1.5f,
+            Vector3.right * 3,
+            Vector3.left * 3,
+            Vector3.down,
+            Vector3.down + Vector3.right,
+            Vector3.down + Vector3.left,
+            Vector3.down + Vector3.right * 2,
+            Vector3.down + Vector3.left * 2,
+        };
+
         protected virtual IEnumerator ExhaustRoutine(bool destroy = true)
         {
             var timer = 0f;
             transform.SetParent(CollectionManager.HandController.exhaustTransform);
 
             var startPos = CachedTransform.localPosition;
-            var endPos = Vector3.zero;
+            var endPos = Vector3.zero + exhaustPositions[cardsBeingExhausted];
+            cardsBeingExhausted++;
 
             var startScale = CachedTransform.localScale;
             var endScale = Vector3.zero;
@@ -477,6 +493,8 @@ namespace NueGames.NueDeck.Scripts.Card
 
             if (destroy)
                 Destroy(gameObject);
+
+            cardsBeingExhausted--;
 
         }
 

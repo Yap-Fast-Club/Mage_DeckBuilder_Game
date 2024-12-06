@@ -1023,6 +1023,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1833549895522484501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8549325556712061005}
+  m_Layer: 8
+  m_Name: TextSpawnRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8549325556712061005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833549895522484501}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.2, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8708447814713431381}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2145115396074975886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2909,12 +2940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ec8b1291e659841b34b707d00dd725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggerCollider: {fileID: 4479822654734245122}
-  _gridElement: {fileID: 5938928824580197748}
-  currentTargetType: 0
-  singleTargetSize: {x: 1, y: 1, z: 1}
-  multipleTargetSize: {x: 1, y: 4, z: 0}
-  randomTargetChance: 0.5
 --- !u!114 &5938928824580197748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4175,6 +4200,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8549325556712061005}
   - {fileID: 8249174836036512640}
   - {fileID: 6174824610273246782}
   - {fileID: 2723786496641455581}
@@ -4211,6 +4237,7 @@ MonoBehaviour:
   _targetDetector: {fileID: 0}
   _channelCardData: {fileID: 11400000, guid: e7642940580269344b8ed3e6b19e4fd4, type: 2}
   _channelCardBase: {fileID: 6174824610273246783}
+  DefaultTextSpawnRoot: {fileID: 8549325556712061005}
   _capManaAtMax: 1
 --- !u!1 &8852790100964894482
 GameObject:
