@@ -39,7 +39,7 @@ public class MaxHealthBuffToAllEnemies : MonoBehaviour
     private void GiveBuff(EnemyBase enemy)
     {
         enemy.CharacterStats.MaxHealth += maxHealthToGive;
-        enemy.CharacterStats.SetCurrentHealth(enemy.CharacterStats.MaxHealth);
+        enemy.CharacterStats.SetCurrentHealth(enemy.CharacterStats.CurrentHealth + maxHealthToGive);
         _currentAffectedEnemies.Add(enemy);
     }
 
