@@ -21,14 +21,17 @@ MonoBehaviour:
   rarity: 0
   usableWithoutTarget: 1
   exhaustAfterPlay: 0
-  _channel: 1
+  _channel: 0
   cardActionDataList:
-  - cardActionType: 0
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 0
     actionTargetType: 2
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 2
+    actionValue: 1
     actionDelay: 0
+    audioActionType: 28
   cardDescriptionDataList:
   - descriptionText: 'Deal '
     enableOverrideColor: 0
