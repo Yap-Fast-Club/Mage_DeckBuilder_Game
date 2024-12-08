@@ -22,6 +22,8 @@ namespace NueGames.NueDeck.Scripts.UI
         [SerializeField] private TextMeshProUGUI nameTextField;
         [SerializeField] private Image healthProgressBar;
         [SerializeField] private TextMeshProUGUI healthTextField;
+        [SerializeField] private Button _copyCurrentSeedButton;
+        [SerializeField] private TextMeshProUGUI _currentSeedText;
         [SerializeField] private List<RectTransform> _soulContainers = new List<RectTransform>();
         [SerializeField] private List<RectTransform> _soulOnIcons = new List<RectTransform>();
         [SerializeField] private RectTransform _soulOffRoot = new RectTransform();
@@ -44,6 +46,11 @@ namespace NueGames.NueDeck.Scripts.UI
         private void Awake()
         {
             ResetCanvas();
+            _copyCurrentSeedButton.onClick.AddListener(() =>
+            {
+                GUIUtility.systemCopyBuffer = _currentSeedText.text;
+                FxManager.Instance.SpawnFloatingText(_currentSeedText.rectTransform, "Copied to ClipBoard!", duration: 3);
+            });
         }
         #endregion
 
@@ -170,6 +177,7 @@ namespace NueGames.NueDeck.Scripts.UI
             SetHealthGUI(_persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth, _persistentGameplayData.AllyList[0].AllyCharacterData.MaxHealth);
             SetNameText(GameManager.GameplayData.DefaultName);
 
+
             string encounterName = GameManager.EncounterData.GetCurrentLevelName(
                         _persistentGameplayData.CurrentStageId,
                         _persistentGameplayData.CurrentEncounterId,
@@ -179,6 +187,8 @@ namespace NueGames.NueDeck.Scripts.UI
 
             UIManager.InformationCanvas.SetGoldText(_persistentGameplayData.CurrentGold);
             UIManager.InformationCanvas.InstantUpdateSoulsGUI();
+
+            _currentSeedText.text = $"{GameManager.PersistentGameplayData.CurrentSeed}";
         }
         #endregion
 
