@@ -26,7 +26,7 @@ MonoBehaviour:
   - _repeatAction: 1
     _repeatAmount: 6
     cardActionType: 0
-    actionTargetType: 4
+    actionTargetType: 10
     actionAreaType: 0
     actionAreaValue: 1
     actionValue: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: ' to a random enemy.'
+  - descriptionText: ' to the closest enemy.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
