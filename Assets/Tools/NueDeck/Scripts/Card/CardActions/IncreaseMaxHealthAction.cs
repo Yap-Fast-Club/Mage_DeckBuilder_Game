@@ -36,7 +36,14 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 
             //if (!newTarget) return;
 
-            GameManager.Instance.PersistentGameplayData.TemporalMaxMana += (int)actionParameters.Value;
+            if (actionParameters.AreaValue >= 999)
+            {
+                GameManager.Instance.PersistentGameplayData.MaxMana += (int)actionParameters.Value;
+            }
+            else
+            {
+                GameManager.Instance.PersistentGameplayData.TemporalMaxMana += (int)actionParameters.Value;
+            }
 
 
             if (AudioManager != null)

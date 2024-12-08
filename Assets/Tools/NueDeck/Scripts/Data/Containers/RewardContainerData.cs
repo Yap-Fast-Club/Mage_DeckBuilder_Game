@@ -1,6 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using NaughtyAttributes;
 using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Data.Collection.RewardData;
 using NueGames.NueDeck.Scripts.Data.Settings;
@@ -22,11 +24,20 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
         public List<CardRewardData> CardRewardDataList => cardRewardDataList;
         public List<GoldRewardData> GoldRewardDataList => goldRewardDataList;
 
-     
+        private List<CardRewardData> _uniqueCardRewards => CardRewardDataList.Distinct().ToList();
 
         private PersistentGameplayData _persistentData => GameManager.Instance.PersistentGameplayData;
         public string LastReward { get; private set; }
 
+        public void AddWeightTo(CardData card, int weight)
+        {
+            foreach (var rewardData in _uniqueCardRewards)
+            {
+                rewardData.weightedCardRewards.AddWeight(card, weight);
+            }
+        }
+
+        
         public List<CardData> GetRandomCardReward(out CardRewardData rewardData)
         {
             if (_persistentData.RandomInitialized == false)
@@ -48,8 +59,8 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
             int indexAdvance = rewardData.ProbabilityIndexAdvance;
             _persistentData.OfferedCardProbIndex += indexAdvance;
 
-            Debug.Log($"{rewardData.name} Reward! (index: {CardRewardDataList.IndexOf(rewardData)}). " +
-                       $"\n(Advance: {_persistentData.OfferedCardProbIndex}, now {cardRewardDataList[_persistentData.OfferedCardProbIndex].name})\")");
+            //Debug.Log($"{rewardData.name} Reward! (index: {CardRewardDataList.IndexOf(rewardData)}). " +
+                       //$"\n(Advance: {_persistentData.OfferedCardProbIndex}, now {cardRewardDataList[Mathf.Min(max, _persistentData.OfferedCardProbIndex)].name})\")");
 
             return cardList;
         } 
@@ -60,8 +71,10 @@ namespace NueGames.NueDeck.Scripts.Data.Containers
             var value =Random.Range(rewardData.MinGold, rewardData.MaxGold);
 
             return value;
-        } 
-       
+        }
+
+
+
     }
 
 }

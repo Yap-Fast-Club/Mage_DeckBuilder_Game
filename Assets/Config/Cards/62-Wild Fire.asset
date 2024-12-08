@@ -86,6 +86,15 @@ MonoBehaviour:
     actionValue: 1
     actionDelay: 0
     audioActionType: 29
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 32
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 35
+    actionValue: 1
+    actionDelay: 1
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: ' Increase the damage of ALL card with "Fire" in the name by '
     enableOverrideColor: 0

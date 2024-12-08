@@ -31,6 +31,16 @@ MonoBehaviour:
     actionAreaValue: 14
     actionValue: 1
     actionDelay: 0
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 32
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 59
+    actionValue: 1
+    actionDelay: 1
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: When skipping a turn by Fatigue, gain +1 Power and Mana.
     enableOverrideColor: 0

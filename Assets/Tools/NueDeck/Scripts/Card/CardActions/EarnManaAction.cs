@@ -6,7 +6,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class EarnManaAction : CardActionBase
     {
-        public override CardActionType ActionType => CardActionType.EarnMana;
+        public override CardActionType ActionType => CardActionType.GainMana;
         public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
             

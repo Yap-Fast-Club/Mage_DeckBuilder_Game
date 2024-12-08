@@ -28,9 +28,10 @@ MonoBehaviour:
     cardActionType: 21
     actionTargetType: 1
     actionAreaType: 0
-    actionAreaValue: 4
-    actionValue: 8
+    actionAreaValue: 3
+    actionValue: 25
     actionDelay: 0
+    audioActionType: 28
   - _repeatAction: 0
     _repeatAmount: 0
     cardActionType: 21
@@ -39,19 +40,39 @@ MonoBehaviour:
     actionAreaValue: 5
     actionValue: 47
     actionDelay: 1.5
+    audioActionType: 28
   - _repeatAction: 0
     _repeatAmount: 0
-    cardActionType: 11
+    cardActionType: 32
     actionTargetType: 1
     actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 0
+    actionAreaValue: 37
+    actionValue: 2
     actionDelay: 1
+    audioActionType: 28
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 23
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 1
+    actionValue: -5
+    actionDelay: 1
+    audioActionType: 29
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 6
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 1
+    actionValue: 0
+    actionDelay: 0
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: 'Transmute "Shard Volley" into "Wisps".
 
-      Transmute "Deep
-      Breath" into "Flow"'
+      Transmute "Prepare"
+      into "Sneak"'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -60,6 +81,15 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 0600000003000000
+  - descriptionText: <br> (-5) Max Mana.
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 06000000030000000b000000
   audioType: 20
   EvolveToCard: {fileID: 11400000, guid: c0765f99814dea54693d3621eedfcb8a, type: 2}

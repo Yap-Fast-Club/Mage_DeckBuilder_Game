@@ -156,7 +156,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
                 if (!KeywordsList.Contains(SpecialKeywords.Power))
                     KeywordsList.Add(SpecialKeywords.Power);
 
-            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.PickErase))
+            if (CardActionDataList.Any(a => a.CardActionType == CardActionType.ChooseErase))
                 if (!KeywordsList.Contains(SpecialKeywords.Erase))
                     KeywordsList.Add(SpecialKeywords.Erase);
 

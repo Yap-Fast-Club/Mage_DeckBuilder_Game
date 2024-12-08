@@ -36,6 +36,7 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
         public List<string> EvoultionCardsPlayed = new List<string>();
         public Dictionary<StatusType, StatusStats> SavedStatus = new Dictionary<StatusType, StatusStats>();
 
+        public int CurrentSeed;
         public Random RewardRandom; 
         public Random DrawRandom; 
         public PersistentGameplayData(GameplayData gameplayData)
@@ -86,8 +87,9 @@ namespace NueGames.NueDeck.Scripts.Data.Settings
             EvoultionCardsPlayed.Clear();
             ActionMods.Clear();
             SavedStatus.Clear();
-            RewardRandom = _gameplayData.RandomSeed == 0 ? new Random() : new Random(_gameplayData.RandomSeed);
-            DrawRandom = _gameplayData.RandomSeed == 0 ? new Random() : new Random(_gameplayData.RandomSeed);
+            CurrentSeed = _gameplayData.RandomSeed == 0 ? new Random().Next() : _gameplayData.RandomSeed;
+            RewardRandom = new Random(CurrentSeed);
+            DrawRandom = new Random(CurrentSeed);
         }
 
         #region Encapsulation

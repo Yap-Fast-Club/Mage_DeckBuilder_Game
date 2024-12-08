@@ -8,7 +8,7 @@
         GainPower,
         IncreaseMaxHealth,
         Draw,
-        EarnMana,
+        GainMana,
         LifeSteal,
         Stun,
         Exhaust,
@@ -17,7 +17,7 @@
         DealDamageForEveryMana,
         LoseHealth,
         EarnManaForEverySoul,
-        PickErase,   
+        ChooseErase,   
         DealDamageForEverySoul,
         SpendSouls,
         RandomErase,
@@ -33,7 +33,8 @@
         SpendMana,
         ExcessAttack,
         DealDamageForEverySpentSoul,
-        ReduceMovementBy
+        ReduceMovementBy,
+        AddWeight
 
     }
 

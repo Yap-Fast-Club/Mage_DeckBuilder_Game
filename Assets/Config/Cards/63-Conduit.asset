@@ -50,6 +50,15 @@ MonoBehaviour:
     actionValue: 1
     actionDelay: 0
     audioActionType: 29
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 32
+    actionTargetType: 1
+    actionAreaType: 0
+    actionAreaValue: 36
+    actionValue: 1
+    actionDelay: 1
+    audioActionType: 29
   cardDescriptionDataList:
   - descriptionText: Decrease the cost of all cards that use "Reserve Mana" by 1.
     enableOverrideColor: 0

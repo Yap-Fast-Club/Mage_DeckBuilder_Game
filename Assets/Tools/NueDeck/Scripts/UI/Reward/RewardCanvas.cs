@@ -15,7 +15,7 @@ namespace NueGames.NueDeck.Scripts.UI.Reward
     public class RewardCanvas : CanvasBase
     {
         [Header("References")]
-        [SerializeField] private RewardContainerData rewardContainerData;
+        [SerializeField] public RewardContainerData rewardContainerData;
         [SerializeField] private Transform rewardRoot;
         [SerializeField] private RewardContainer rewardContainerPrefab;
         [SerializeField] private Transform rewardPanelRoot;

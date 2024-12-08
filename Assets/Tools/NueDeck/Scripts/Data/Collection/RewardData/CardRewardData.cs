@@ -48,6 +48,7 @@ namespace NueGames.NueDeck.Scripts.Data.Collection.RewardData
             weightedCardRewards.Items.Add(new WeightedListContainer<CardData>.WeightedItem<CardData>() { Item = data, Weight = defaultWeight });
         }
 
+
         public List<CardData> GetRandomCards(int amount)
         {
             var cardList = new List<CardData>();

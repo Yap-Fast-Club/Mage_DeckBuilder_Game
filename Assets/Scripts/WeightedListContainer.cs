@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEngine;
 using KaimiraGames;
 using Random = System.Random;
+using UnityEditor;
 
 [Serializable]
 public class WeightedListContainer<T> : ISerializationCallbackReceiver
@@ -18,8 +19,10 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
     public List<WeightedItem<T>> Items;
     #endregion
 
+    [SerializeField]
     private WeightedList<T> _weightedList = new WeightedList<T>();
     public int TotalWeight => _weightedList.TotalWeight;
+
 
     public void Init(int seed = 0)
     {
@@ -34,7 +37,9 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
 
     void OnValidate()
     {
-        UpdateWeightedList();
+        if(!Application.isPlaying)
+            UpdateWeightedList();
+
         UpdateInspectorPercentages();
     }
     void ISerializationCallbackReceiver.OnBeforeSerialize() => this.OnValidate();
@@ -51,10 +56,30 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
         {
             foreach (var item in Items)
             {
-                item.PercentInList = $" ({((float)item.Weight / TotalWeight * 100).ToString("##")}%)";
+                var weightInList = _weightedList.GetWeightOf(item.Item);
+                item.InspectorWeight = weightInList.ToString();
+                item.PercentInList = $" ({((float)weightInList / TotalWeight * 100).ToString("##")}%)";
             }
         }
     }
+
+    public void AddWeight(T item, int weight)
+    {
+        if (!_weightedList.Contains(item)) return;
+
+        var previousWeight = _weightedList.GetWeightOf(item);
+        _weightedList.SetWeight(item, previousWeight + weight);
+    }
+
+    public void AddWeightAt(int index, int weight)
+    {
+        if (index < _weightedList.Count) return;
+
+        var previousWeight = _weightedList.GetWeightAtIndex(index);
+        _weightedList.SetWeightAtIndex(index, previousWeight + weight);
+    }
+
+
     public T GetRandomItem()
     {
         return _weightedList.Next();
@@ -66,6 +91,7 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
     {
         [HideInInspector] public string Name;
         [HideInInspector] public string PercentInList;
+        [HideInInspector] public string InspectorWeight;
 
         public int Weight;
         public T Item;
@@ -77,7 +103,7 @@ public class WeightedListContainer<T> : ISerializationCallbackReceiver
             else
                 Name = $"{Item.ToString()}";
 
-            Name += $".     [W:{Weight}]{PercentInList}";
+            Name += $".     [W:{InspectorWeight}]{PercentInList}";
 
         }
         void ISerializationCallbackReceiver.OnBeforeSerialize() => this.OnValidate();

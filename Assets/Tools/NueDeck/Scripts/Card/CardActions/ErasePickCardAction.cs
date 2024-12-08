@@ -9,7 +9,7 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
     public class ErasePickCardAction : CardActionBase
     {
 
-        public override CardActionType ActionType => CardActionType.PickErase;
+        public override CardActionType ActionType => CardActionType.ChooseErase;
 
         public override void DoAction(CardActionParameters actionParameters, CardBlackboard blackboard)
         {
