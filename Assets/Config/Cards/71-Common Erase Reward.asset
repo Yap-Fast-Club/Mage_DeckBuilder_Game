@@ -10,48 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 67-Electric Arc
+  m_Name: 71-Common Erase Reward
   m_EditorClassIdentifier: 
-  id: 67
-  cardName: Electric Arc
-  type: 0
-  manaCost: 4
-  turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 25126c248902e8347a4a2f96259cb92b, type: 3}
-  rarity: 0
-  usableWithoutTarget: 0
-  exhaustAfterPlay: 0
+  id: 71
+  cardName: Common Erase Reward
+  type: 1
+  manaCost: 0
+  turnCost: 0
+  cardSprite: {fileID: 0}
+  rarity: 1
+  usableWithoutTarget: 1
+  exhaustAfterPlay: 1
   _channel: 0
   cardActionDataList:
   - _repeatAction: 0
     _repeatAmount: 0
-    cardActionType: 0
-    actionTargetType: 0
+    cardActionType: 4
+    actionTargetType: 1
     actionAreaType: 0
     actionAreaValue: 0
-    actionValue: 4
+    actionValue: 2
     actionDelay: 0
-    audioActionType: 23
+    audioActionType: 7
   - _repeatAction: 0
     _repeatAmount: 0
-    cardActionType: 11
+    cardActionType: 1
     actionTargetType: 1
     actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.3
-    audioActionType: 20
-  - _repeatAction: 4
-    _repeatAmount: 0
-    cardActionType: 6
-    actionTargetType: 1
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.03
+    actionAreaValue: 0
+    actionValue: 2
+    actionDelay: 0
     audioActionType: 29
   cardDescriptionDataList:
-  - descriptionText: 'Deal '
+  - descriptionText: +
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -62,16 +53,23 @@ MonoBehaviour:
     overrideColorOnValueScaled: 0
   - descriptionText: 
     enableOverrideColor: 1
-    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
+    overrideColor: {r: 0.7568628, g: 0.14509805, b: 0.098039225, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 3
-    usePrefixOnModifiedValue: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 1
-  - descriptionText: ' damage.
-
-'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Max Health (permanent).'
+    enableOverrideColor: 0
+    overrideColor: {r: 0.990566, g: 0.1282883, b: 0.051397298, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: '<br>Gain '
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -80,15 +78,24 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: Gain Mana equal to Damage dealt.
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 0.99215686, g: 0.12941177, b: 0.050980393, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Health.'
     enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    overrideColor: {r: 0.8235295, g: 0.20784315, b: 0.15294118, a: 1}
     useModifier: 0
     modifiedActionValueIndex: 0
     modiferStats: 0
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  specialKeywordsList: 
-  audioType: 23
+  specialKeywordsList: 03000000
+  audioType: 20
   EvolveToCard: {fileID: 0}

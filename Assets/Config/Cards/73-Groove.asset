@@ -10,48 +10,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
-  m_Name: 67-Electric Arc
+  m_Name: 73-Groove
   m_EditorClassIdentifier: 
-  id: 67
-  cardName: Electric Arc
-  type: 0
-  manaCost: 4
-  turnCost: 1
-  cardSprite: {fileID: 21300000, guid: 25126c248902e8347a4a2f96259cb92b, type: 3}
-  rarity: 0
+  id: 73
+  cardName: Groove
+  type: 1
+  manaCost: 0
+  turnCost: -1
+  cardSprite: {fileID: 21300000, guid: 824a48daf7b55394e80e1df5048db839, type: 3}
+  rarity: 1
   usableWithoutTarget: 0
   exhaustAfterPlay: 0
   _channel: 0
   cardActionDataList:
-  - _repeatAction: 0
+  - _repeatAction: 7
     _repeatAmount: 0
-    cardActionType: 0
-    actionTargetType: 0
+    cardActionType: 19
+    actionTargetType: 1
     actionAreaType: 0
-    actionAreaValue: 0
-    actionValue: 4
+    actionAreaValue: 1
+    actionValue: 1
     actionDelay: 0
-    audioActionType: 23
-  - _repeatAction: 0
-    _repeatAmount: 0
-    cardActionType: 11
-    actionTargetType: 1
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.3
-    audioActionType: 20
-  - _repeatAction: 4
-    _repeatAmount: 0
-    cardActionType: 6
-    actionTargetType: 1
-    actionAreaType: 0
-    actionAreaValue: 1
-    actionValue: 1
-    actionDelay: 0.03
-    audioActionType: 29
+    audioActionType: 28
   cardDescriptionDataList:
-  - descriptionText: 'Deal '
+  - descriptionText: 'On spell played: <br>'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: +
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -61,17 +52,15 @@ MonoBehaviour:
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
   - descriptionText: 
-    enableOverrideColor: 1
-    overrideColor: {r: 0.7686275, g: 0.14117648, b: 0.18823531, a: 1}
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 1
     modifiedActionValueIndex: 0
-    modiferStats: 3
-    usePrefixOnModifiedValue: 1
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 1
-  - descriptionText: ' damage.
-
-'
+    overrideColorOnValueScaled: 0
+  - descriptionText: ' Focus.'
     enableOverrideColor: 0
     overrideColor: {r: 0, g: 0, b: 0, a: 1}
     useModifier: 0
@@ -80,15 +69,6 @@ MonoBehaviour:
     usePrefixOnModifiedValue: 0
     modifiedValuePrefix: '*'
     overrideColorOnValueScaled: 0
-  - descriptionText: Gain Mana equal to Damage dealt.
-    enableOverrideColor: 0
-    overrideColor: {r: 0, g: 0, b: 0, a: 1}
-    useModifier: 0
-    modifiedActionValueIndex: 0
-    modiferStats: 0
-    usePrefixOnModifiedValue: 0
-    modifiedValuePrefix: '*'
-    overrideColorOnValueScaled: 0
-  specialKeywordsList: 
-  audioType: 23
+  specialKeywordsList: 08000000
+  audioType: 20
   EvolveToCard: {fileID: 0}

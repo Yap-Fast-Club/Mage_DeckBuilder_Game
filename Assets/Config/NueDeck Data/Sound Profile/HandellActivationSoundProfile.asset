@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: HandellActivationSoundProfile
   m_EditorClassIdentifier: 
   audioType: 18
-  randomClipList: []
+  randomClipList:
+  - {fileID: 8300000, guid: d9fd84e1c781f7247ac8d47acc8f6bfb, type: 3}
+  limitPerSoundQueue: 1
