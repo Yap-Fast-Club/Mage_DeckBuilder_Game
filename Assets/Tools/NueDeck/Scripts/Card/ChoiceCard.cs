@@ -4,6 +4,7 @@ using NueGames.NueDeck.Scripts.Data.Collection;
 using NueGames.NueDeck.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 namespace NueGames.NueDeck.Scripts.Card
 {

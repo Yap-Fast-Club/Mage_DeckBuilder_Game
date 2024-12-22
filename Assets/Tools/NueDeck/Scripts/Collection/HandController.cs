@@ -218,7 +218,7 @@ namespace NueGames.NueDeck.Scripts.Collection
                 if (mouseHoveringOnSelected)
                 {
                     var mouseButtonDown = Input.GetMouseButtonDown(0);
-                    if (mouseButtonDown /*&& hand[i].IsPlayable*/)
+                    if (mouseButtonDown)
                     {
                         _dragged = i;
                         _heldCardOffset = cardTransform.position - _mouseWorldPos;
@@ -350,10 +350,7 @@ namespace NueGames.NueDeck.Scripts.Collection
             }
 
             if (backToHand) // Cannot use card / Not enough mana! Return card to hand!
-            {
-                //FxManager.Instance.SpawnFloatingText()
                 AddCardToHand(_heldCard, _selected);
-            }
 
             _heldCard = null;
         }

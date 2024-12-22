@@ -23,7 +23,6 @@ namespace NueGames.NueDeck.Scripts.Managers
         [SerializeField, Expandable] private GameplayData gameplayData;
         [SerializeField, Expandable] private EncounterData encounterData;
         [SerializeField, Expandable] private SceneData sceneData;
-        [SerializeField] private int targetFPS = 60;
 
 
         #region Cache
@@ -57,9 +56,6 @@ namespace NueGames.NueDeck.Scripts.Managers
                 EnemyActionProcessor.Initialize();
                 InitGameplayData();
                 SetInitalHand();
-
-                QualitySettings.vSyncCount = 0;
-                Application.targetFrameRate = targetFPS;
             }
 
 
@@ -106,16 +102,14 @@ namespace NueGames.NueDeck.Scripts.Managers
         }
         #endregion
 
-
+        bool openInventory = false;
 
         private void Update()
         {
-            if (Application.targetFrameRate != targetFPS)
-                Application.targetFrameRate = targetFPS;
-
             if (Input.GetKeyDown(KeyCode.A))
             {
-                if (!UIManager.InventoryCanvas.isActiveAndEnabled)
+                openInventory ^= true;
+                if (openInventory)
                 {
                     this.GetComponent<InventoryHelper>()?.OpenInventory();
                 }

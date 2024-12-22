@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using NueGames.NueDeck.Scripts.Card.CardActions;
 using NueGames.NueDeck.Scripts.Characters;
 using NueGames.NueDeck.Scripts.Data.Collection;
@@ -78,7 +77,6 @@ namespace NueGames.NueDeck.Scripts.Card
         {
             CardData = targetProfile;
             IsPlayable = isPlayable;
-            IsPlayable = CardData.TurnCost > -1;
             nameTextField.text = CardData.CardName;
             CardData.UpdateDescription();
             descTextField.text = CardData.MyDescription;
@@ -101,26 +99,6 @@ namespace NueGames.NueDeck.Scripts.Card
             _rarityColors.SetColors(CardData.Rarity);
 
             weightTextField.text = $"(W:{CollectionManager.WeightOf(CardData)})";
-
-
-            foreach (var cardAction in CardData.CardActionDataList)
-            {
-                if (cardAction.ActionRepeatType == ActionRepeatType.AfterCardPlayed) 
-                    CollectionManager.CardPlayedListeners.Add(this, cardAction);
-
-                if (cardAction.ActionRepeatType == ActionRepeatType.AfterSpellPlayed)
-                {
-                    CollectionManager.SpellPlayedListeners.Add(this, cardAction);
-                    Debug.Log($"Suscribed {CardData.CardName} with {cardAction.CardActionType} to Spells Played");
-                }
-
-                if (cardAction.ActionRepeatType == ActionRepeatType.AfterIncantPlayed)
-                    CollectionManager.IncantPlayedListeners.Add(this, cardAction);
-
-                //if (cardAction.ActionRepeatType == ActionRepeatType.af)
-                    //CollectionManager.SpellPlayedListeners.Add(this, cardAction);
-            }
-
         }
 
         #endregion
@@ -131,12 +109,6 @@ namespace NueGames.NueDeck.Scripts.Card
             if (!IsPlayable) return;
 
             StartCoroutine(CardUseRoutine(self, targetCharacter, allEnemies, allAllies));
-        }
-
-        public void PassiveUse(CardActionData actionData)
-        {
-            var actionsBlackBoard = new CardBlackboard(); //null blackboard
-            StartCoroutine(UseActionCR(actionData, CombatManager.CurrentMainAlly, CardBlackboard.CurrentTarget, CombatManager.CurrentEnemiesList, CombatManager.CurrentAlliesList, actionsBlackBoard));
         }
 
         private IEnumerator CardUseRoutine(CharacterBase self, CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies)
@@ -160,7 +132,26 @@ namespace NueGames.NueDeck.Scripts.Card
             if (!Channel)
             {
                 foreach (var actionData in actionDataListCopy)
-                    yield return StartCoroutine(UseActionCR(actionData, self, targetCharacter, allEnemies, allAllies, actionsBlackBoard));
+                {
+                    var action = CardActionProcessor.GetAction(actionData.CardActionType);
+
+                    int amountToRepeat = actionData.RepeatAmount; //to break the reference and avoid extending the loop
+                    for (int i = 0; i < amountToRepeat; i++)
+                    {
+                        yield return new WaitForSeconds(actionData.ActionDelay);
+                        var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);
+                        foreach (var target in targetList)
+                            action.DoAction(new CardActionParameters(
+                                actionData.GetModifiedValue(CardData),
+                                actionData.ActionAreaValue,
+                                target, self, CardData, this,
+                                actionData.ActionAudioType == AudioActionType.CardDefault ? CardData.AudioType : actionData.ActionAudioType
+                                )
+                            , actionsBlackBoard);
+                    }
+
+
+                }
 
                 if (actionsBlackBoard.ResetPower)
                     self.CharacterStats.ClearStatus(StatusType.Power);
@@ -195,27 +186,6 @@ namespace NueGames.NueDeck.Scripts.Card
 
             SpendTurn(CardData.TurnCost);
         }
-
-        private IEnumerator UseActionCR(CardActionData actionData, CharacterBase self, CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies, CardBlackboard actionsBlackBoard)
-        {
-            var action = CardActionProcessor.GetAction(actionData.CardActionType);
-
-            int amountToRepeat = actionData.RepeatAmount; //to break the reference and avoid extending the loop
-            for (int i = 0; i < amountToRepeat; i++)
-            {
-                yield return new WaitForSeconds(actionData.ActionDelay);
-                var targetList = DetermineTargets(targetCharacter, allEnemies, allAllies, actionData);
-                foreach (var target in targetList)
-                    action.DoAction(new CardActionParameters(
-                        actionData.GetModifiedValue(CardData),
-                        actionData.ActionAreaValue,
-                        target, self, CardData, this,
-                        actionData.ActionAudioType == AudioActionType.CardDefault ? CardData.AudioType : actionData.ActionAudioType
-                        )
-                    ,actionsBlackBoard);
-            }
-        }
-
 
         public static List<CharacterBase> DetermineTargets(CharacterBase targetCharacter, List<EnemyBase> allEnemies, List<AllyBase> allAllies,
             CardActionData playerAction)
@@ -308,11 +278,10 @@ namespace NueGames.NueDeck.Scripts.Card
             return targetList;
         }
 
-        public virtual void Discard(bool forceDiscard = false)
+        public virtual void Discard()
         {
             if (IsExhausted) return;
-            if (!IsPlayable && !forceDiscard) return;
-            CollectionManager.ClearListener(this);
+            if (!IsPlayable) return;
             CollectionManager.OnCardDiscarded(this);
             StartCoroutine(DiscardRoutine());
         }

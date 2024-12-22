@@ -20,7 +20,7 @@ MonoBehaviour:
   - specialKeyword: 6
     contentText: Allows you to play this card without ending your turn.
   - specialKeyword: 5
-    contentText: Cannot be played. Triggers under a condition while in hand.
+    contentText: Triggers its effect each turn while this card is in your hand.
   - specialKeyword: 4
     contentText: Adds an effect that triggers when the targeted enemy dies.
   - specialKeyword: 7

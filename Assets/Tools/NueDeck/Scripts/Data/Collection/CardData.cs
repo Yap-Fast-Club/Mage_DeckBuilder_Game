@@ -69,7 +69,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
 
         public bool ExhaustAfterPlay => exhaustAfterPlay;
 
-        private Color PassiveTextColor => GameManager.Instance.GameplayData.PassiveTextColor;
         private Color InstantTextColor => GameManager.Instance.GameplayData.InstantTextColor;
         private Color FatigueTextColor => GameManager.Instance.GameplayData.FatigueTextColor;
         private Color EraseTextColor => GameManager.Instance.GameplayData.EraseTextColor;
@@ -104,13 +103,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             }
 
             UpdateSpecialKeyowrds();
-
-            if (turnCost <= -1)
-            {
-                str.Insert(0, ColorExtentions.ColorString("Passive\n", PassiveTextColor));
-                if (!KeywordsList.Contains(SpecialKeywords.Passive))
-                    KeywordsList.Add(SpecialKeywords.Passive);
-            }
 
             if (turnCost == 0)
             {
@@ -281,8 +273,6 @@ namespace NueGames.NueDeck.Scripts.Data.Collection
             else
                 return actionValue;
         }
-
-
 
         #region Editor
 

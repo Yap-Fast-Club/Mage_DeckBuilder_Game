@@ -3,6 +3,7 @@ using NueGames.NueDeck.Scripts.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows.Speech;
 
 namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
