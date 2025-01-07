@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c4f39c13d642f6985cca3f815566cb, type: 3}
+  m_Name: Common Card Reward Data
+  m_EditorClassIdentifier: 
+  rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  rewardDescription: Choose card
+  _defaultCommonWeight: 4
+  _defaultRareWeight: 0
+  _defaultSpecialWeight: 0
+  _defaultLegendaryWeight: 0
+  _commonProbIndexMod: 0.7
+  _rareProbIndexMod: 0.5
+  _legendaryProbIndexMod: -0.7
+  _specialProbIndexMod: -0.2
+  InspectorSpellAmount: 7
+  InspectorIncantAmount: 6
+  weightedCardRewards:
+    InspectorTotalWeight: 52
+    Items:
+    - Name: 2-Fire Rain.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: 1ad12beaa3070c745baae8c2c11ecaaa, type: 2}
+    - Name: 6-Aerokinesis.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: 0237a7054d92c7a47a2ce7282f9b1f9f, type: 2}
+    - Name: 7-Might.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: a13363f50c6af104e863ccfa5133f96b, type: 2}
+    - Name: 8-Flow.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: 5a34d14e170f8ec4e9da10d57b855c31, type: 2}
+    - Name: 14-Research.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: 70733b41896307347878cf9b37982e95, type: 2}
+    - Name: 16-Handell Snack.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
+    - Name: 31-Fire Ball.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: 9b080dd7be41aca4d928f8491790e2cc, type: 2}
+    - Name: 42-Magic Arrow.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: c86525d0ea213214e8e13a077cb41acb, type: 2}
+    - Name: 43-Breeze.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: dceffa6cc9261a04cae89e0d25965452, type: 2}
+    - Name: 45-Overcharge.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: 3b5bb16799f848c479ec4c9d93332a1e, type: 2}
+    - Name: 52-Battle Lust.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: 32c0b0d80fe1e764e973d835d2fb33bc, type: 2}
+    - Name: 67-Electric Arc.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: 103186334a33a314c86fa1751c84b261, type: 2}
+    - Name: 66-Boulder Throw.     [W:4] (8%)
+      PercentInList: ' (8%)'
+      Weight: 4
+      Item: {fileID: 11400000, guid: 96a1e3ebccf584e48b3d707bf094cc2f, type: 2}
+  _deckToLoadFrom: {fileID: 11400000, guid: 2d0f2df8e6bc6854c8591eca0b89afc5, type: 2}

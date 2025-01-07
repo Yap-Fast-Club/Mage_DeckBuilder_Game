@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1a0f60abaa4759878657d50d70b112, type: 3}
+  m_Name: Special Keyword
+  m_EditorClassIdentifier: 
+  specialKeywordBaseList:
+  - specialKeyword: 0
+    contentText: Moves an enemy back by X cells, or until it collides with another.
+  - specialKeyword: 1
+    contentText: Boosts the damage or effect of the next spell by X.
+  - specialKeyword: 6
+    contentText: Allows you to play this card without ending your turn.
+  - specialKeyword: 5
+    contentText: Triggers its effect each turn while this card is in your hand.
+  - specialKeyword: 4
+    contentText: Adds an effect that triggers when the targeted enemy dies.
+  - specialKeyword: 7
+    contentText: Skip your next turn after playing this card.
+  - specialKeyword: 3
+    contentText: Remove the card permanently from the deck.
+  - specialKeyword: 8
+    contentText: Reduces the cost the next spell by X.
+  - specialKeyword: 9
+    contentText: This spell is casted at the start of your next turn instead.
+  - specialKeyword: 10
+    contentText: Amount of mana left after casting this spell
+  - specialKeyword: 11
+    contentText: Replaces all copies of a card in your deck for another.
+  - specialKeyword: 12
+    contentText: When skipping a turn by Fatigue, gain +X Power and Mana.

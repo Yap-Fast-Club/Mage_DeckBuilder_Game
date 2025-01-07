@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c4f39c13d642f6985cca3f815566cb, type: 3}
+  m_Name: Special Card Reward
+  m_EditorClassIdentifier: 
+  rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  rewardDescription: Choose card
+  _defaultCommonWeight: 0
+  _defaultRareWeight: 0
+  _defaultSpecialWeight: 10
+  _defaultLegendaryWeight: 0
+  probabilityIndexAdvance: 1
+  InspectorSpellAmount: 0
+  InspectorIncantAmount: 4
+  weightedCardRewards:
+    InspectorTotalWeight: 7
+    Items:
+    - Name: 16-Handell Snack.     [W:2] (29%)
+      PercentInList: ' (29%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: f17fde3804eb61242b5bc0ae42d92a99, type: 2}
+    - Name: 35-Pyromancer I.     [W:2] (29%)
+      PercentInList: ' (29%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
+    - Name: 36-Electromancer I.     [W:2] (29%)
+      PercentInList: ' (29%)'
+      Weight: 2
+      Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
+    - Name: 37-Speedster.     [W:1] (14%)
+      PercentInList: ' (14%)'
+      Weight: 1
+      Item: {fileID: 11400000, guid: fa5af5f9f1f902e4bb9ffca8200d7a09, type: 2}
+  _deckToLoadFrom: {fileID: 11400000, guid: 2d0f2df8e6bc6854c8591eca0b89afc5, type: 2}

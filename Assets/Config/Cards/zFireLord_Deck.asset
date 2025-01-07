@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cc2cb8eaf4444790bf3249beca9ed4, type: 3}
+  m_Name: zFireLord_Deck
+  m_EditorClassIdentifier: 
+  deckId: deck_starter
+  deckName: Starter Deck
+  cardList:
+  - {fileID: 11400000, guid: 3da1f1cdc28882b4caa6ac6c3eb5bb9a, type: 2}
+  - {fileID: 11400000, guid: 3da1f1cdc28882b4caa6ac6c3eb5bb9a, type: 2}
+  - {fileID: 11400000, guid: 3da1f1cdc28882b4caa6ac6c3eb5bb9a, type: 2}
+  - {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
+  - {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
+  - {fileID: 11400000, guid: 8d55b890f2894f4448d245e1b72db3e3, type: 2}
+  - {fileID: 11400000, guid: f4c47b6cac6b74644b2c06a3284066c6, type: 2}
+  - {fileID: 11400000, guid: f4c47b6cac6b74644b2c06a3284066c6, type: 2}
+  - {fileID: 11400000, guid: 18dcbc8f9ec7a6f4495429a9149ae647, type: 2}
+  - {fileID: 11400000, guid: 18dcbc8f9ec7a6f4495429a9149ae647, type: 2}
+  - {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
+  - {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
+  - {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}

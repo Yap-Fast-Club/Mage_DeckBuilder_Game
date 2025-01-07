@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4cc2cb8eaf4444790bf3249beca9ed4, type: 3}
+  m_Name: All_Special_Deck
+  m_EditorClassIdentifier: 
+  deckId: special_deck
+  deckName: All Special Deck
+  cardList:
+  - {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
+  - {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
+  - {fileID: 11400000, guid: fa5af5f9f1f902e4bb9ffca8200d7a09, type: 2}
+  - {fileID: 11400000, guid: 432f0183b9505ae489bd33185a16c8d4, type: 2}

@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6903f06e96c43789549f142f8956d64, type: 3}
+  m_Name: 6-Aerokinesis
+  m_EditorClassIdentifier: 
+  id: 6
+  cardName: Aerokinesis
+  type: 0
+  manaCost: 1
+  turnCost: 1
+  cardSprite: {fileID: 21300000, guid: 1239f8855fb0e3e42a1a53e2bbbb2c71, type: 3}
+  rarity: 0
+  usableWithoutTarget: 0
+  exhaustAfterPlay: 0
+  _channel: 0
+  cardActionDataList:
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 10
+    actionTargetType: 12
+    actionAreaType: 0
+    actionAreaValue: 1
+    actionValue: 4
+    actionDelay: 0
+    audioActionType: 22
+  - _repeatAction: 0
+    _repeatAmount: 0
+    cardActionType: 11
+    actionTargetType: 0
+    actionAreaType: 0
+    actionAreaValue: 0
+    actionValue: 0
+    actionDelay: 0.5
+    audioActionType: 29
+  cardDescriptionDataList:
+  - descriptionText: 'Push '
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  - descriptionText: 
+    enableOverrideColor: 1
+    overrideColor: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    useModifier: 1
+    modifiedActionValueIndex: 0
+    modiferStats: 3
+    usePrefixOnModifiedValue: 1
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 1
+  - descriptionText: ' an enemy and all enemies behind.'
+    enableOverrideColor: 0
+    overrideColor: {r: 0, g: 0, b: 0, a: 1}
+    useModifier: 0
+    modifiedActionValueIndex: 0
+    modiferStats: 0
+    usePrefixOnModifiedValue: 0
+    modifiedValuePrefix: '*'
+    overrideColorOnValueScaled: 0
+  specialKeywordsList: 00000000
+  audioType: 22
+  EvolveToCard: {fileID: 0}

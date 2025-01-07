@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01dd2752105b4ecbbc5e92d535616897, type: 3}
+  m_Name: Gameplay Settings
+  m_EditorClassIdentifier: 
+  drawCount: 6
+  initialMana: 5
+  maxMana: 10
+  maxSouls: 4
+  initalAllyList:
+  - {fileID: 2835035829204582327, guid: 6472d62dc90afc04db103b9a3f293860, type: 3}
+  _collisionDamageOnPush: 0
+  RandomSeed: 0
+  initalDeck: {fileID: 11400000, guid: ce453c5a3a783864ca79ffd188d57ab7, type: 2}
+  maxCardOnHand: 10
+  allCardsList: {fileID: 11400000, guid: 26fbf1bce83fef540929678520e7341f, type: 2}
+  cardPrefab: {fileID: 2689473134106589740, guid: a9728682a56595f4989b8f224d934689, type: 3}
+  defaultName: Wizark
+  useStageSystem: 1
+  InstantTextColor: {r: 0.015574936, g: 0.6603774, b: 0.027586086, a: 1}
+  FatigueTextColor: {r: 1, g: 0.39607844, b: 0, a: 1}
+  EraseTextColor: {r: 0.91372555, g: 0.27058825, b: 0.27058825, a: 1}
+  ChannelTextColor: {r: 0.368325, g: 0.43753815, b: 0.8396226, a: 1}
+  NoEffectTextColor: {r: 0.8773585, g: 0.16967781, b: 0.16967781, a: 1}
+  isRandomHand: 0
+  randomCardCount: 10

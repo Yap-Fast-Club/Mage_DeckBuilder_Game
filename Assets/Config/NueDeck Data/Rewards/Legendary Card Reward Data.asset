@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47c4f39c13d642f6985cca3f815566cb, type: 3}
+  m_Name: Legendary Card Reward Data
+  m_EditorClassIdentifier: 
+  rewardSprite: {fileID: 7599432968757225573, guid: a707003c96586cc41b22ae32a9cdb636, type: 3}
+  rewardDescription: Choose card
+  _defaultCommonWeight: 0
+  _defaultRareWeight: 0
+  _defaultSpecialWeight: 3
+  _defaultLegendaryWeight: 2
+  _commonProbIndexMod: 0.7
+  _rareProbIndexMod: 0.5
+  _legendaryProbIndexMod: -0.7
+  _specialProbIndexMod: -0.2
+  InspectorSpellAmount: 8
+  InspectorIncantAmount: 9
+  weightedCardRewards:
+    InspectorTotalWeight: 35
+    Items:
+    - Name: 19-Pandemonium.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: abd25fc305cd27b43b0b058e1767bc93, type: 2}
+    - Name: 21-Meteor Call.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: a47b01c01ffe94d4b901443bb40dfe12, type: 2}
+    - Name: 24-Telekinesis.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: 723e2971451333948881ad7d7f813267, type: 2}
+    - Name: 28-Overwhelm.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: 91ce2a66f7e161b4cbf102155ded1b9e, type: 2}
+    - Name: 29-Nirvana.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: be5fbdc8b754caa4c9533542301efc0a, type: 2}
+    - Name: 33-Hell Fire.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: 48d5dce97c96fe74a8378a966b42424d, type: 2}
+    - Name: 34-Earthquake.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: bedacfacb06f9d84a852c78477894714, type: 2}
+    - Name: 37-Speedster.     [W:3] (9%)
+      PercentInList: ' (9%)'
+      InspectorWeight: 3
+      Weight: 3
+      Item: {fileID: 11400000, guid: fa5af5f9f1f902e4bb9ffca8200d7a09, type: 2}
+    - Name: 21-Meteor Call.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: a47b01c01ffe94d4b901443bb40dfe12, type: 2}
+    - Name: 47-Wisps.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: da3ef8c7d7e01a444b5a0525735ce824, type: 2}
+    - Name: 49-Necronomicon.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: 52302c071e0770a4db780be9ef057832, type: 2}
+    - Name: 58-Thunderstorm.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: 424755a4d8f59a84aadaf7cbbc6bed36, type: 2}
+    - Name: 65-Mana Delirium.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: d049e468b39022c47a5fbdfcbb1d1ebc, type: 2}
+    - Name: 35-Pyromancer I.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: 902a27a7124b101458867eb82a879574, type: 2}
+    - Name: 36-Electromancer I.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: 0504e1136b53f1642b46cdd1ca982344, type: 2}
+    - Name: 37-Speedster.     [W:3] (9%)
+      PercentInList: ' (9%)'
+      InspectorWeight: 3
+      Weight: 2
+      Item: {fileID: 11400000, guid: fa5af5f9f1f902e4bb9ffca8200d7a09, type: 2}
+    - Name: 59-Geomancer I.     [W:2] (6%)
+      PercentInList: ' (6%)'
+      InspectorWeight: 2
+      Weight: 2
+      Item: {fileID: 11400000, guid: 432f0183b9505ae489bd33185a16c8d4, type: 2}
+  _deckToLoadFrom: {fileID: 11400000, guid: 5a30f98da3e30d64d97e989aac0ff954, type: 2}
