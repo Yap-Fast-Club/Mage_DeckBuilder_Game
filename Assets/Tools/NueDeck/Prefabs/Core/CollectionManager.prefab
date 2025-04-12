@@ -110,6 +110,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandController
       objectReference: {fileID: 0}
+    - target: {fileID: 7827608652126751339, guid: a45e8add0d26bd5499f54577a1579ee7, type: 3}
+      propertyPath: curveStart.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7827608652126751339, guid: a45e8add0d26bd5499f54577a1579ee7, type: 3}
+      propertyPath: selectionSpacing
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7827608652126751340, guid: a45e8add0d26bd5499f54577a1579ee7, type: 3}
       propertyPath: m_RootOrder
       value: 0

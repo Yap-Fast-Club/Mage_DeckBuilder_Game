@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioType: 18
   randomClipList: []
+  limitPerSoundQueue: 1

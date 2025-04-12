@@ -23,6 +23,8 @@ namespace NueGames.NueDeck.Scripts.Card
         public bool ResetPower = false;
         public bool ResetFocus = false;
 
+        public CardBlackboard(){}
+
         public CardBlackboard(CardData cardData)
         {
             //Initial Data Set

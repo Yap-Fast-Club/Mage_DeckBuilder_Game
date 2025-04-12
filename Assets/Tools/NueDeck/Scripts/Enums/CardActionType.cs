@@ -46,6 +46,14 @@
         RepeatPerReserveMana,
         RepeatPerSouls,
         RepeatPerDamageDealt,
-        RepeatPerDeadEnemy
+        RepeatPerDeadEnemy,
+        AfterCardPlayed,
+        AfterSpellPlayed,
+        AfterIncantPlayed,
+        AfterCardDrawn,
+        AfterCardDiscarded,
+        OnDrawn,
+        OnDiscarded
+
     }
 }
